@@ -1,0 +1,352 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_2bf31769",
+    "name": "Requests a device takeover bid",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b7f09304",
+    "name": "Sends a tender for the equipment takeover",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8e7532f9",
+    "name": "Places an order",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a0896861",
+    "name": "Confirms the order of the MPON",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b22a6f74",
+    "name": "Sends the master data",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPOO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_1f0886fc",
+    "source": "StartEvent_1",
+    "target": "Activity_2bf31769",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_792e4148",
+    "source": "Activity_2bf31769",
+    "target": "Activity_b7f09304",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2e1b950b",
+    "source": "Activity_b7f09304",
+    "target": "Activity_8e7532f9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8031a8ad",
+    "source": "Activity_8e7532f9",
+    "target": "Activity_a0896861",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d70a1e21",
+    "source": "Activity_a0896861",
+    "target": "Activity_b22a6f74",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_824b83f2",
+    "source": "Activity_b22a6f74",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_fa995220",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_2bf31769",
+   "type": "task",
+   "name": "Requests a device takeover bid"
+  },
+  {
+   "start": 18,
+   "end": 39,
+   "label": "Activity Data",
+   "id": "Activity Data_ba046963",
+   "type": null,
+   "name": "A device takeover bid"
+  },
+  {
+   "start": 43,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_325c1550",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 54,
+   "end": 62,
+   "label": "Actor",
+   "id": "Actor_70dd8ba6",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 63,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_b7f09304",
+   "type": "task",
+   "name": "Sends a tender for the equipment takeover"
+  },
+  {
+   "start": 69,
+   "end": 104,
+   "label": "Activity Data",
+   "id": "Activity Data_3a3d72d6",
+   "type": null,
+   "name": "A tender for the equipment takeover"
+  },
+  {
+   "start": 108,
+   "end": 116,
+   "label": "Actor",
+   "id": "Actor_aa2c5056",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 119,
+   "end": 127,
+   "label": "Actor",
+   "id": "Actor_bdc44337",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 128,
+   "end": 134,
+   "label": "Activity",
+   "id": "Activity_8e7532f9",
+   "type": "task",
+   "name": "Places an order"
+  },
+  {
+   "start": 135,
+   "end": 143,
+   "label": "Activity Data",
+   "id": "Activity Data_b4c6611f",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 147,
+   "end": 155,
+   "label": "Actor",
+   "id": "Actor_f8d10cb1",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 158,
+   "end": 166,
+   "label": "Actor",
+   "id": "Actor_9e812ffd",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 167,
+   "end": 175,
+   "label": "Activity",
+   "id": "Activity_a0896861",
+   "type": "task",
+   "name": "Confirms the order of the MPON"
+  },
+  {
+   "start": 176,
+   "end": 197,
+   "label": "Activity Data",
+   "id": "Activity Data_c8c6862e",
+   "type": null,
+   "name": "The order of the MPON"
+  },
+  {
+   "start": 202,
+   "end": 207,
+   "label": "Activity",
+   "id": "Activity_b22a6f74",
+   "type": "task",
+   "name": "Sends the master data"
+  },
+  {
+   "start": 208,
+   "end": 223,
+   "label": "Activity Data",
+   "id": "Activity Data_63bd5e2d",
+   "type": null,
+   "name": "The master data"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 9,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Sends a tender for the equipment takeover",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Places an order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Confirms the order of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Places an order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Confirms the order of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Sends the master data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Confirms the order of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends the master data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the order of the MPON",
+    "node_B": "Sends the master data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Sends a tender for the equipment takeover",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Places an order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests a device takeover bid",
+    "node_B": "Confirms the order of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Places an order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Confirms the order of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a tender for the equipment takeover",
+    "node_B": "Sends the master data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Confirms the order of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends the master data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the order of the MPON",
+    "node_B": "Sends the master data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+  "calls": 6,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+    {
+      "node_A": "Or",
+      "node_B": "Confirmes the application of the MPON | Informs about the registration confirmation of the MPON | Informs about the registration confirmation of the MPON | Perform the equipment acquisition and / or equipment changes | Informs about the failure of the entire process | decision: Or | Informs about the successful completion of the entire process | Informs | decision: If | decision: If the MPON informs the GO about the failure of the entire process",
+      "label": "yes yes yes yes after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "Or",
+      "node_B": "Informs about the successful completion of the entire process | Informs | decision: If | decision: If the MPON informs the GO about the failure of the entire process | Confirms the failure of the assignment | decision: If | Assigns the MPON | Confirms the assignment | Informs about the failure of the assignment of the MPON | decision: Or",
+      "label": "yes after after same yes same yes yes after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If",
+      "node_B": "decision: If the MPON informs the GO about the failure of the entire process | Confirms the failure of the assignment | decision: If | Assigns the MPON | Confirms the assignment | Informs about the failure of the assignment of the MPON | decision: Or | Informs about the assignment of the MPON | Informs about the failure of the assignment of the MPON | decision: Or",
+      "label": "after after after after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If the MPON informs the GO about the failure of the entire process",
+      "node_B": "Confirms the failure of the assignment | decision: If | Assigns the MPON | Confirms the assignment | Informs about the failure of the assignment of the MPON | decision: Or | Informs about the assignment of the MPON | Informs about the failure of the assignment of the MPON | decision: Or | Informs about the assignment of the MPON",
+      "label": "yes same yes yes after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "Or",
+      "node_B": "Informs about the assignment of the MPON | Informs about the failure of the assignment of the MPON | decision: Or | Informs about the assignment of the MPON | Informs about the assignment of the MPON",
+      "label": "yes after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "Or",
+      "node_B": "Informs about the assignment of the MPON | Informs about the assignment of the MPON",
+      "label": "yes after",
+      "source": "llm"
+    }
+  ]
+}

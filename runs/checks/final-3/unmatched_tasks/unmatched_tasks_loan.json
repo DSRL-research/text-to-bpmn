@@ -1,0 +1,320 @@
+{
+  "provenance": {
+    "run_at": "2026-11-20T08:19:52+00:00",
+    "code": {
+      "commit": "99107f3e41bf727c602c2fca020e95af618d614f",
+      "describe": "revision-final-3-76-g99107f3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "lxml": "5.2.1",
+      "pm4py": "2.7.19.2",
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.2",
+      "owlready2": "0.49",
+      "dspy": "3.1.2",
+      "transformers": "4.50.0"
+    },
+    "run": "runs/final-3/cases",
+    "cases": [
+      "loan"
+    ],
+    "references": {
+      "loan": "text2bpmn/cases/loan/reference.bpmn"
+    },
+    "sources": {
+      "threshold": "text2bpmn/compare.py:37",
+      "threshold_test": "text2bpmn/compare.py:155",
+      "similarity": "text2bpmn/compare.py:129",
+      "match_tasks": "text2bpmn/compare.py:148",
+      "assignment": "text2bpmn/compare.py:154",
+      "run_final_compare_call": "text2bpmn/run_final.py:161"
+    },
+    "assignment_packages": {
+      "now": {
+        "scipy": "1.16.2",
+        "numpy": "1.26.4"
+      },
+      "in_the_run": {
+        "numpy": "1.26.4",
+        "scipy": "1.16.2"
+      },
+      "run_freeze": "runs/final-3/pip_freeze.txt"
+    }
+  },
+  "threshold": 0.5,
+  "cases": {
+    "loan": {
+      "case": "loan",
+      "generated": "runs/final-3/cases/loan/model.bpmn",
+      "reference": {
+        "path": "text2bpmn/cases/loan/reference.bpmn",
+        "sha256": "5bdbccee77959c402f9bf864e3432e90bc114da544ce95f8bd964e46e1162e9c",
+        "run_commit": "808815f805259940897ef6171cc546420a688221",
+        "run_reference": "text2bpmn/cases/loan/reference.bpmn",
+        "run_reference_sha256": "493657d8f7d44aa9fb152e42cc8ba85cf6d72c5b6376418f27e895e9e29089cc",
+        "same_as_run_reference": false
+      },
+      "comparison_json": "runs/final-3/cases/loan/comparison.json",
+      "run": {
+        "commit": "808815f805259940897ef6171cc546420a688221",
+        "describe": "revision-final-3",
+        "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+        "allow_no_llm": false,
+        "relation_mode": "decisions4",
+        "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+      },
+      "threshold": 0.5,
+      "reference_tasks": 7,
+      "generated_tasks": 6,
+      "matched": [
+        {
+          "reference": {
+            "id": "credit_history",
+            "name": "Check credit history"
+          },
+          "generated": {
+            "id": "Activity_13d4adc1",
+            "name": "Check history"
+          },
+          "score": 0.8
+        },
+        {
+          "reference": {
+            "id": "loan_risk",
+            "name": "Assess loan risk"
+          },
+          "generated": {
+            "id": "Activity_8177fa1b",
+            "name": "Assess the applicant’s"
+          },
+          "score": 0.7058823529411765
+        },
+        {
+          "reference": {
+            "id": "reject",
+            "name": "Reject application"
+          },
+          "generated": {
+            "id": "Activity_a4b57b3a",
+            "name": "Rejected the application"
+          },
+          "score": 1.0
+        },
+        {
+          "reference": {
+            "id": "acceptance_pack",
+            "name": "Prepare acceptance pack"
+          },
+          "generated": {
+            "id": "Activity_867ba14b",
+            "name": "Prepared the acceptance pack"
+          },
+          "score": 1.0
+        }
+      ],
+      "unmatched_reference": [
+        {
+          "id": "appraisal",
+          "name": "Appraise property",
+          "best_score": 0.43902439024390244,
+          "best_generated": [
+            {
+              "id": "Activity_867ba14b",
+              "name": "Prepared the acceptance pack",
+              "already_matched_to": {
+                "id": "acceptance_pack",
+                "name": "Prepare acceptance pack",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_db82430f",
+            "name": "Approved a loan application",
+            "score": 0.3333333333333333
+          }
+        },
+        {
+          "id": "eligibility",
+          "name": "Assess eligibility",
+          "best_score": 0.5555555555555556,
+          "best_generated": [
+            {
+              "id": "Activity_8177fa1b",
+              "name": "Assess the applicant’s",
+              "already_matched_to": {
+                "id": "loan_risk",
+                "name": "Assess loan risk",
+                "score": 0.7058823529411765
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "send_pack",
+          "name": "Send acceptance pack",
+          "best_score": 0.8181818181818182,
+          "best_generated": [
+            {
+              "id": "Activity_867ba14b",
+              "name": "Prepared the acceptance pack",
+              "already_matched_to": {
+                "id": "acceptance_pack",
+                "name": "Prepare acceptance pack",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_c7a980a9",
+            "name": "Sent",
+            "score": 0.3333333333333333
+          }
+        }
+      ],
+      "unmatched_generated": [
+        {
+          "id": "Activity_db82430f",
+          "name": "Approved a loan application",
+          "best_score": 0.6511627906976745,
+          "best_reference": [
+            {
+              "id": "reject",
+              "name": "Reject application",
+              "already_matched_to": {
+                "id": "Activity_a4b57b3a",
+                "name": "Rejected the application",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "appraisal",
+            "name": "Appraise property",
+            "score": 0.3333333333333333
+          }
+        },
+        {
+          "id": "Activity_c7a980a9",
+          "name": "Sent",
+          "best_score": 0.3333333333333333,
+          "best_reference": [
+            {
+              "id": "send_pack",
+              "name": "Send acceptance pack",
+              "already_matched_to": null
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "send_pack",
+            "name": "Send acceptance pack",
+            "score": 0.3333333333333333
+          }
+        }
+      ],
+      "unmatched_pairs_above_threshold": [],
+      "agreement": {
+        "counts_recomputed_by_compare": {
+          "tp": 4,
+          "fp": 2,
+          "fn": 3
+        },
+        "counts_from_these_sets": {
+          "tp": 4,
+          "fp": 2,
+          "fn": 3
+        },
+        "counts_saved": {
+          "tp": 4,
+          "fp": 2,
+          "fn": 3
+        },
+        "counts_reproduce_saved": true,
+        "mapping_reproduces_saved": true,
+        "unmatched_reference_reproduces_saved": true,
+        "unmatched_generated_reproduces_saved": true,
+        "differences": {}
+      },
+      "score_matrix": {
+        "reference": [
+          "credit_history",
+          "loan_risk",
+          "appraisal",
+          "eligibility",
+          "reject",
+          "acceptance_pack",
+          "send_pack"
+        ],
+        "generated": [
+          "Activity_db82430f",
+          "Activity_13d4adc1",
+          "Activity_8177fa1b",
+          "Activity_a4b57b3a",
+          "Activity_867ba14b",
+          "Activity_c7a980a9"
+        ],
+        "scores": [
+          [
+            0.3111111111111111,
+            0.8,
+            0.21052631578947367,
+            0.4,
+            0.36363636363636365,
+            0.16666666666666666
+          ],
+          [
+            0.43902439024390244,
+            0.27586206896551724,
+            0.7058823529411765,
+            0.3333333333333333,
+            0.35,
+            0.3
+          ],
+          [
+            0.3333333333333333,
+            0.26666666666666666,
+            0.4,
+            0.3783783783783784,
+            0.43902439024390244,
+            0.2857142857142857
+          ],
+          [
+            0.27906976744186046,
+            0.1935483870967742,
+            0.5555555555555556,
+            0.2631578947368421,
+            0.23809523809523808,
+            0.2727272727272727
+          ],
+          [
+            0.6511627906976745,
+            0.25806451612903225,
+            0.5555555555555556,
+            1.0,
+            0.38095238095238093,
+            0.18181818181818182
+          ],
+          [
+            0.375,
+            0.3333333333333333,
+            0.34146341463414637,
+            0.37209302325581395,
+            1.0,
+            0.14814814814814814
+          ],
+          [
+            0.3111111111111111,
+            0.36363636363636365,
+            0.42105263157894735,
+            0.35,
+            0.8181818181818182,
+            0.3333333333333333
+          ]
+        ]
+      }
+    }
+  }
+}

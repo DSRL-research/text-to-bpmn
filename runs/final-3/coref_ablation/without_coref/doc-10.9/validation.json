@@ -1,0 +1,42 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 2,
+    "split/join": 1,
+    "lanes": 4
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "pass-through gateway 'Or' removed"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'Or' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'End'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The SP / PU / GO' -> 'SP / PU / GO'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The MPO' -> 'MPO'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Start' in 'Main Process', which holds no task -> 'SP / PU / GO'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Or' in 'GO', which holds no task -> 'MPO'"
+    }
+  ]
+}

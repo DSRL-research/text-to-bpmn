@@ -1,0 +1,33 @@
+{
+  "calls": 4,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+    {
+      "node_A": "If",
+      "node_B": "Sends the bill for the temporary continuation of the metering point operations | Examines the bill | decision: If | Sends the bill for the temporary continuation of the measurement | Examines the bill | decision: If | Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition",
+      "label": "after after after after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If",
+      "node_B": "Sends the bill for the temporary continuation of the measurement | Examines the bill | decision: If | Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or",
+      "label": "yes yes after after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If",
+      "node_B": "Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or | Rejects the invoice of",
+      "label": "yes yes after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If",
+      "node_B": "Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or | Rejects the invoice of",
+      "label": "yes yes yes same yes",
+      "source": "llm"
+    }
+  ]
+}

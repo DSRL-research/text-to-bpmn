@@ -1,0 +1,499 @@
+{
+  "structured_data": {
+    "participants": [
+      "An employee",
+      "Main Process",
+      "One of my masters",
+      "Our",
+      "Our production planning system",
+      "PPS",
+      "The sales department",
+      "The system",
+      "We"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_20418afa",
+        "name": "Get a new order",
+        "type": "task",
+        "lane": "The sales department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_dd15cb10",
+        "name": "Determines the necessary parts and quantities as well as the delivery date",
+        "type": "task",
+        "lane": "One of my masters",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5ebc4152",
+        "name": "Entered the necessary parts and quantities as well as the delivery date",
+        "type": "task",
+        "lane": "One of my masters",
+        "metadata": []
+      },
+      {
+        "id": "Activity_f051454c",
+        "name": "Creates a list of parts",
+        "type": "task",
+        "lane": "PPS",
+        "metadata": []
+      },
+      {
+        "id": "Activity_30bccedd",
+        "name": "Transferred the data",
+        "type": "task",
+        "lane": "PPS",
+        "metadata": []
+      },
+      {
+        "id": "Activity_568f3a89",
+        "name": "Decide",
+        "type": "task",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Condition Specification_7d0ab642",
+        "name": "Any missing",
+        "type": "exclusiveGateway",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_4189f1be",
+        "name": "If",
+        "type": "exclusiveGateway",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Activity_45d7dc5a",
+        "name": "Receive a notice",
+        "type": "task",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Activity_68b8e4f4",
+        "name": "Checked the order",
+        "type": "task",
+        "lane": "An employee",
+        "metadata": [
+          "For",
+          "Order's quality"
+        ]
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "An employee"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_20418afa",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_20418afa",
+        "target": "Activity_dd15cb10",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_dd15cb10",
+        "target": "Activity_5ebc4152",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_5ebc4152",
+        "target": "Activity_f051454c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_f051454c",
+        "target": "Activity_30bccedd",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_30bccedd",
+        "target": "Activity_568f3a89",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_568f3a89",
+        "target": "Condition Specification_7d0ab642",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Condition Specification_7d0ab642",
+        "target": "XOR Gateway_4189f1be",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "XOR Gateway_4189f1be",
+        "target": "Activity_45d7dc5a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_45d7dc5a",
+        "target": "Activity_68b8e4f4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_68b8e4f4",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 10
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 14,
+      "end": 17,
+      "label": "Activity",
+      "id": "Activity_20418afa",
+      "type": "task",
+      "name": "Get a new order"
+    },
+    {
+      "start": 18,
+      "end": 29,
+      "label": "Activity Data",
+      "id": "Activity Data_4b0a968b",
+      "type": null,
+      "name": "A new order"
+    },
+    {
+      "start": 35,
+      "end": 55,
+      "label": "Actor",
+      "id": "Actor_4dfb9b79",
+      "type": "Lane",
+      "name": "The sales department"
+    },
+    {
+      "start": 66,
+      "end": 83,
+      "label": "Actor",
+      "id": "Actor_af4c4a8f",
+      "type": "Lane",
+      "name": "One of my masters"
+    },
+    {
+      "start": 84,
+      "end": 94,
+      "label": "Activity",
+      "id": "Activity_dd15cb10",
+      "type": "task",
+      "name": "Determines the necessary parts and quantities as well as the delivery date"
+    },
+    {
+      "start": 95,
+      "end": 158,
+      "label": "Activity Data",
+      "id": "Activity Data_cff9bc21",
+      "type": null,
+      "name": "The necessary parts and quantities as well as the delivery date"
+    },
+    {
+      "start": 196,
+      "end": 259,
+      "label": "Activity Data",
+      "id": "Activity Data_b220108f",
+      "type": null,
+      "name": "The necessary parts and quantities as well as the delivery date"
+    },
+    {
+      "start": 270,
+      "end": 277,
+      "label": "Activity",
+      "id": "Activity_5ebc4152",
+      "type": "task",
+      "name": "Entered the necessary parts and quantities as well as the delivery date"
+    },
+    {
+      "start": 324,
+      "end": 327,
+      "label": "Actor",
+      "id": "Actor_2deb17d3",
+      "type": "Lane",
+      "name": "Our"
+    },
+    {
+      "start": 491,
+      "end": 521,
+      "label": "Actor",
+      "id": "Actor_a5520946",
+      "type": "Lane",
+      "name": "Our production planning system"
+    },
+    {
+      "start": 524,
+      "end": 527,
+      "label": "Actor",
+      "id": "Actor_288da07a",
+      "type": "Lane",
+      "name": "PPS"
+    },
+    {
+      "start": 530,
+      "end": 537,
+      "label": "Activity",
+      "id": "Activity_f051454c",
+      "type": "task",
+      "name": "Creates a list of parts"
+    },
+    {
+      "start": 538,
+      "end": 553,
+      "label": "Activity Data",
+      "id": "Activity Data_589c16ac",
+      "type": null,
+      "name": "A list of parts"
+    },
+    {
+      "start": 705,
+      "end": 713,
+      "label": "Activity Data",
+      "id": "Activity Data_c373244d",
+      "type": null,
+      "name": "The data"
+    },
+    {
+      "start": 722,
+      "end": 733,
+      "label": "Activity",
+      "id": "Activity_30bccedd",
+      "type": "task",
+      "name": "Transferred the data"
+    },
+    {
+      "start": 822,
+      "end": 824,
+      "label": "Actor",
+      "id": "Actor_4f3eecae",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 833,
+      "end": 839,
+      "label": "Activity",
+      "id": "Activity_568f3a89",
+      "type": "task",
+      "name": "Decide"
+    },
+    {
+      "start": 848,
+      "end": 851,
+      "label": "Condition Specification",
+      "id": "Condition Specification_7d0ab642",
+      "type": "exclusiveGateway",
+      "name": "Any missing"
+    },
+    {
+      "start": 862,
+      "end": 869,
+      "label": "Condition Specification",
+      "id": "Condition Specification_c17308fc",
+      "type": "exclusiveGateway",
+      "name": "Missing"
+    },
+    {
+      "start": 894,
+      "end": 896,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_4189f1be",
+      "type": "exclusiveGateway",
+      "name": "If"
+    },
+    {
+      "start": 965,
+      "end": 967,
+      "label": "Actor",
+      "id": "Actor_104ae97f",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 968,
+      "end": 975,
+      "label": "Activity",
+      "id": "Activity_45d7dc5a",
+      "type": "task",
+      "name": "Receive a notice"
+    },
+    {
+      "start": 976,
+      "end": 984,
+      "label": "Activity Data",
+      "id": "Activity Data_aa782633",
+      "type": null,
+      "name": "A notice"
+    },
+    {
+      "start": 990,
+      "end": 1000,
+      "label": "Actor",
+      "id": "Actor_7b7887d2",
+      "type": "Lane",
+      "name": "The system"
+    },
+    {
+      "start": 1005,
+      "end": 1016,
+      "label": "Actor",
+      "id": "Actor_caef57e1",
+      "type": "Lane",
+      "name": "An employee"
+    },
+    {
+      "start": 1062,
+      "end": 1071,
+      "label": "Activity Data",
+      "id": "Activity Data_8d18cc12",
+      "type": null,
+      "name": "The order"
+    },
+    {
+      "start": 1080,
+      "end": 1087,
+      "label": "Activity",
+      "id": "Activity_68b8e4f4",
+      "type": "task",
+      "name": "Checked the order"
+    },
+    {
+      "start": 1094,
+      "end": 1097,
+      "label": "Further Specification",
+      "id": "Further Specification_6ea9a32e",
+      "type": null,
+      "name": "For"
+    },
+    {
+      "start": 1102,
+      "end": 1117,
+      "label": "Further Specification",
+      "id": "Further Specification_fa9c6fd2",
+      "type": null,
+      "name": "Order's quality"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 2,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Any missing",
+        "node_B": "decision: If | Receive a notice | Checked the order",
+        "label": "same after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If",
+        "node_B": "Receive a notice | Checked the order",
+        "label": "after after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

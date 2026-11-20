@@ -1,0 +1,303 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MSPN",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_6982cbd9",
+    "name": "Sents a dismissal",
+    "type": "task",
+    "lane": "The MSPN",
+    "metadata": []
+   },
+   {
+    "id": "Activity_751010eb",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_14f3b590",
+    "name": "Rejects the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_be2cdffa",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_8bce7541",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e6e326bd",
+    "name": "Confirms the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_9a3e94af",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MSPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_99034612",
+    "source": "StartEvent_1",
+    "target": "Activity_6982cbd9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f1faeb5f",
+    "source": "Activity_6982cbd9",
+    "target": "Activity_751010eb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3d83ea13",
+    "source": "Activity_751010eb",
+    "target": "ParallelGateway_split_be2cdffa",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_895678f6",
+    "source": "ParallelGateway_split_be2cdffa",
+    "target": "Activity_14f3b590",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_d60152ab",
+    "source": "Activity_14f3b590",
+    "target": "ParallelGateway_join_8bce7541",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_f5545cc3",
+    "source": "ParallelGateway_split_be2cdffa",
+    "target": "Activity_e6e326bd",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_46677db9",
+    "source": "Activity_e6e326bd",
+    "target": "ParallelGateway_join_8bce7541",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_77c6511e",
+    "source": "ParallelGateway_join_8bce7541",
+    "target": "XOR Gateway_9a3e94af",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5f672332",
+    "source": "XOR Gateway_9a3e94af",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_58d29ddb",
+   "type": "Lane",
+   "name": "The MSPN"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_6982cbd9",
+   "type": "task",
+   "name": "Sents a dismissal"
+  },
+  {
+   "start": 15,
+   "end": 26,
+   "label": "Activity Data",
+   "id": "Activity Data_47ce4a97",
+   "type": null,
+   "name": "A dismissal"
+  },
+  {
+   "start": 30,
+   "end": 38,
+   "label": "Actor",
+   "id": "Actor_76d45753",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 41,
+   "end": 49,
+   "label": "Actor",
+   "id": "Actor_df1beb97",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 50,
+   "end": 57,
+   "label": "Activity",
+   "id": "Activity_751010eb",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 58,
+   "end": 71,
+   "label": "Activity Data",
+   "id": "Activity Data_0022f71e",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 74,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_1f1e357f",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 83,
+   "end": 90,
+   "label": "Activity",
+   "id": "Activity_14f3b590",
+   "type": "task",
+   "name": "Rejects the dismissal of the MSPN"
+  },
+  {
+   "start": 91,
+   "end": 116,
+   "label": "Activity Data",
+   "id": "Activity Data_111ae37f",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  },
+  {
+   "start": 117,
+   "end": 119,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9a3e94af",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 120,
+   "end": 128,
+   "label": "Actor",
+   "id": "Actor_055df780",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 129,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_e6e326bd",
+   "type": "task",
+   "name": "Confirms the dismissal of the MSPN"
+  },
+  {
+   "start": 138,
+   "end": 163,
+   "label": "Activity Data",
+   "id": "Activity Data_7e3b454d",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 8,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Reviews the dismissal",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Or",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "PARALLEL",
+    "source": "llm"
+   }
+  ]
+ }
+}

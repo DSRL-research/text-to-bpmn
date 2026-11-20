@@ -1,0 +1,2734 @@
+{
+ "structured_data": {
+  "participants": [
+   "Customer service",
+   "Main Process",
+   "The CIS",
+   "The customer",
+   "The grid operator",
+   "The old supplier"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_e21784cc",
+    "name": "Transmits his data",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0b1c52ea",
+    "name": "Received the customer data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f7cc116b",
+    "name": "Entered a customer data object",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": [
+     "Into the CRM system"
+    ]
+   },
+   {
+    "id": "Activity_2adb3bdb",
+    "name": "Compared it",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8a1a2b7f",
+    "name": "Checked the internal customer data base",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": [
+     "For completeness and plausibility"
+    ]
+   },
+   {
+    "id": "XOR Gateway_8c53895c",
+    "name": "In case of any errors",
+    "type": "exclusiveGateway",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_675e1917",
+    "name": "Corrected these",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_38d67aa2",
+    "name": "In case the customer does not exist in the customer data base",
+    "type": "exclusiveGateway",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bc7c952c",
+    "name": "Created a new customer object",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_22118b94",
+    "name": "Prepare the contract documents for the power supplier switch",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_83932f2d",
+    "name": "Check the contract documents",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_265536cc",
+    "name": "In case of a negative response",
+    "type": "exclusiveGateway",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ab82d4cb",
+    "name": "Analyzed the causing issues",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0aa1afed",
+    "name": "Resolved",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9a10ca9b",
+    "name": "Generated the contract documents",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_12e0e3bb",
+    "name": "In case of a positive response",
+    "type": "exclusiveGateway",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0a01cd75",
+    "name": "Sent out a confirmation document",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4e8d9a9b",
+    "name": "Sent out a request",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8d415f5e",
+    "name": "Checked the switch-over request",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_63731778",
+    "name": "Transmits a response comment",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_933993cf",
+    "name": "In the case of supplier concurrence",
+    "type": "exclusiveGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_60bb6bce",
+    "name": "Inform",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1fd36694",
+    "name": "Demand the resolution of the conflict",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0c8241e0",
+    "name": "Communicates",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2d36e9ea",
+    "name": "Carries out the termination of the sales agreement",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a926cedd",
+    "name": "If there are not any objections by the grid operator",
+    "type": "exclusiveGateway",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2197b936",
+    "name": "Creates a CIS contract",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5f76de0a",
+    "name": "Check the contract details",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_e107cb56",
+    "name": "Either",
+    "type": "exclusiveGateway",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3d6291d2",
+    "name": "Withdraw",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_56529d86",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_64e77693",
+    "name": "Confirm it",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": [
+     "The switch contract"
+    ]
+   },
+   {
+    "id": "Activity_03020842",
+    "name": "Transmits the power meter data",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": [
+     "Via messages containing a services consumption report"
+    ]
+   },
+   {
+    "id": "AND Gateway_8a677bb1",
+    "name": "At the same time",
+    "type": "parallelGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f51d7540",
+    "name": "Computes the final billing",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3ad7eb62",
+    "name": "Sends it",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8b9bb120",
+    "name": "Creates",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9a5a024f",
+    "name": "Sends the final billing",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b3dd5b24",
+    "name": "Receiving the meter data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3f6051c8",
+    "name": "Imports the meter data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Customer service"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_fcf04eba",
+    "source": "StartEvent_1",
+    "target": "Activity_e21784cc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cb252f0a",
+    "source": "Activity_e21784cc",
+    "target": "Activity_0b1c52ea",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_45e6d4e0",
+    "source": "Activity_0b1c52ea",
+    "target": "Activity_f7cc116b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7a8769e6",
+    "source": "Activity_f7cc116b",
+    "target": "Activity_2adb3bdb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_47ef08ec",
+    "source": "Activity_2adb3bdb",
+    "target": "Activity_8a1a2b7f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a085a5a6",
+    "source": "Activity_8a1a2b7f",
+    "target": "XOR Gateway_8c53895c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_275508c6",
+    "source": "XOR Gateway_8c53895c",
+    "target": "Activity_675e1917",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_207c6990",
+    "source": "Activity_675e1917",
+    "target": "XOR Gateway_38d67aa2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f479eb51",
+    "source": "XOR Gateway_38d67aa2",
+    "target": "Activity_bc7c952c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2469575a",
+    "source": "Activity_bc7c952c",
+    "target": "Activity_22118b94",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_125bf148",
+    "source": "Activity_22118b94",
+    "target": "Activity_83932f2d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bc12932b",
+    "source": "Activity_83932f2d",
+    "target": "XOR Gateway_265536cc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_34bb71f2",
+    "source": "XOR Gateway_265536cc",
+    "target": "Activity_ab82d4cb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_41a451a5",
+    "source": "Activity_ab82d4cb",
+    "target": "Activity_0aa1afed",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bc0dd0ab",
+    "source": "Activity_0aa1afed",
+    "target": "Activity_9a10ca9b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6ff38940",
+    "source": "Activity_9a10ca9b",
+    "target": "XOR Gateway_12e0e3bb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b4c6a832",
+    "source": "XOR Gateway_12e0e3bb",
+    "target": "Activity_0a01cd75",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a0dbda8c",
+    "source": "Activity_0a01cd75",
+    "target": "Activity_4e8d9a9b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2eac04eb",
+    "source": "Activity_4e8d9a9b",
+    "target": "Activity_8d415f5e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9b4c3e1e",
+    "source": "Activity_8d415f5e",
+    "target": "Activity_63731778",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e23a0617",
+    "source": "Activity_63731778",
+    "target": "XOR Gateway_933993cf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dedf0c48",
+    "source": "XOR Gateway_933993cf",
+    "target": "Activity_60bb6bce",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_80560764",
+    "source": "Activity_60bb6bce",
+    "target": "Activity_1fd36694",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_61a2f7be",
+    "source": "Activity_1fd36694",
+    "target": "Activity_0c8241e0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_862018fa",
+    "source": "Activity_0c8241e0",
+    "target": "Activity_2d36e9ea",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a4347ad1",
+    "source": "Activity_2d36e9ea",
+    "target": "XOR Gateway_a926cedd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_35c9d463",
+    "source": "XOR Gateway_a926cedd",
+    "target": "Activity_2197b936",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d0ad45e3",
+    "source": "Activity_2197b936",
+    "target": "Activity_5f76de0a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9b750332",
+    "source": "Activity_5f76de0a",
+    "target": "XOR Gateway_e107cb56",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fbae7bd3",
+    "source": "XOR Gateway_e107cb56",
+    "target": "Activity_3d6291d2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2727b914",
+    "source": "Activity_3d6291d2",
+    "target": "XOR Gateway_56529d86",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e7a7b266",
+    "source": "XOR Gateway_56529d86",
+    "target": "Activity_64e77693",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_678852c9",
+    "source": "Activity_64e77693",
+    "target": "Activity_03020842",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2812eaad",
+    "source": "Activity_03020842",
+    "target": "AND Gateway_8a677bb1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6e26c7ea",
+    "source": "AND Gateway_8a677bb1",
+    "target": "Activity_f51d7540",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c390867b",
+    "source": "Activity_f51d7540",
+    "target": "Activity_3ad7eb62",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_12f7d334",
+    "source": "Activity_3ad7eb62",
+    "target": "Activity_8b9bb120",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_143b6352",
+    "source": "Activity_8b9bb120",
+    "target": "Activity_9a5a024f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_03b0018c",
+    "source": "Activity_9a5a024f",
+    "target": "Activity_b3dd5b24",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_24b93bc5",
+    "source": "Activity_b3dd5b24",
+    "target": "Activity_3f6051c8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3bc534ea",
+    "source": "Activity_3f6051c8",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 66,
+   "end": 78,
+   "label": "Actor",
+   "id": "Actor_cd5965e1",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 79,
+   "end": 88,
+   "label": "Activity",
+   "id": "Activity_e21784cc",
+   "type": "task",
+   "name": "Transmits his data"
+  },
+  {
+   "start": 89,
+   "end": 97,
+   "label": "Activity Data",
+   "id": "Activity Data_42459a74",
+   "type": null,
+   "name": "His data"
+  },
+  {
+   "start": 101,
+   "end": 132,
+   "label": "Actor",
+   "id": "Actor_5207830b",
+   "type": "Lane",
+   "name": "The customer service department"
+  },
+  {
+   "start": 243,
+   "end": 260,
+   "label": "Activity Data",
+   "id": "Activity Data_f80f5eae",
+   "type": null,
+   "name": "The customer data"
+  },
+  {
+   "start": 264,
+   "end": 272,
+   "label": "Activity",
+   "id": "Activity_0b1c52ea",
+   "type": "task",
+   "name": "Received the customer data"
+  },
+  {
+   "start": 276,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_0f00fa19",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 316,
+   "end": 338,
+   "label": "Activity Data",
+   "id": "Activity Data_aa06ffb3",
+   "type": null,
+   "name": "A customer data object"
+  },
+  {
+   "start": 342,
+   "end": 349,
+   "label": "Activity",
+   "id": "Activity_f7cc116b",
+   "type": "task",
+   "name": "Entered a customer data object"
+  },
+  {
+   "start": 350,
+   "end": 369,
+   "label": "Further Specification",
+   "id": "Further Specification_f5a2c431",
+   "type": null,
+   "name": "Into the CRM system"
+  },
+  {
+   "start": 409,
+   "end": 411,
+   "label": "Activity Data",
+   "id": "Activity Data_3b37d210",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 427,
+   "end": 435,
+   "label": "Activity",
+   "id": "Activity_2adb3bdb",
+   "type": "task",
+   "name": "Compared it"
+  },
+  {
+   "start": 441,
+   "end": 472,
+   "label": "Activity Data",
+   "id": "Activity Data_a5cb264f",
+   "type": null,
+   "name": "The internal customer data base"
+  },
+  {
+   "start": 477,
+   "end": 484,
+   "label": "Activity",
+   "id": "Activity_8a1a2b7f",
+   "type": "task",
+   "name": "Checked the internal customer data base"
+  },
+  {
+   "start": 485,
+   "end": 518,
+   "label": "Further Specification",
+   "id": "Further Specification_e01e1dd9",
+   "type": null,
+   "name": "For completeness and plausibility"
+  },
+  {
+   "start": 521,
+   "end": 531,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_8c53895c",
+   "type": "exclusiveGateway",
+   "name": "In case of any errors"
+  },
+  {
+   "start": 532,
+   "end": 542,
+   "label": "Condition Specification",
+   "id": "Condition Specification_78d7af29",
+   "type": "exclusiveGateway",
+   "name": "Any errors"
+  },
+  {
+   "start": 543,
+   "end": 548,
+   "label": "Activity Data",
+   "id": "Activity Data_4f9d063d",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 559,
+   "end": 568,
+   "label": "Activity",
+   "id": "Activity_675e1917",
+   "type": "task",
+   "name": "Corrected these"
+  },
+  {
+   "start": 704,
+   "end": 711,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_38d67aa2",
+   "type": "exclusiveGateway",
+   "name": "In case the customer does not exist in the customer data base"
+  },
+  {
+   "start": 712,
+   "end": 765,
+   "label": "Condition Specification",
+   "id": "Condition Specification_0f576567",
+   "type": "exclusiveGateway",
+   "name": "The customer does not exist in the customer data base"
+  },
+  {
+   "start": 768,
+   "end": 789,
+   "label": "Activity Data",
+   "id": "Activity Data_1d7f278c",
+   "type": null,
+   "name": "A new customer object"
+  },
+  {
+   "start": 799,
+   "end": 806,
+   "label": "Activity",
+   "id": "Activity_bc7c952c",
+   "type": "task",
+   "name": "Created a new customer object"
+  },
+  {
+   "start": 1088,
+   "end": 1095,
+   "label": "Activity",
+   "id": "Activity_22118b94",
+   "type": "task",
+   "name": "Prepare the contract documents for the power supplier switch"
+  },
+  {
+   "start": 1096,
+   "end": 1148,
+   "label": "Activity Data",
+   "id": "Activity Data_ca8123a1",
+   "type": null,
+   "name": "The contract documents for the power supplier switch"
+  },
+  {
+   "start": 1291,
+   "end": 1296,
+   "label": "Activity",
+   "id": "Activity_83932f2d",
+   "type": "task",
+   "name": "Check the contract documents"
+  },
+  {
+   "start": 1300,
+   "end": 1322,
+   "label": "Activity Data",
+   "id": "Activity Data_7e2de820",
+   "type": null,
+   "name": "The contract documents"
+  },
+  {
+   "start": 1345,
+   "end": 1352,
+   "label": "Actor",
+   "id": "Actor_1e319cb2",
+   "type": "Lane",
+   "name": "The CIS"
+  },
+  {
+   "start": 1435,
+   "end": 1445,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_265536cc",
+   "type": "exclusiveGateway",
+   "name": "In case of a negative response"
+  },
+  {
+   "start": 1446,
+   "end": 1465,
+   "label": "Condition Specification",
+   "id": "Condition Specification_7f9d9991",
+   "type": "exclusiveGateway",
+   "name": "A negative response"
+  },
+  {
+   "start": 1536,
+   "end": 1554,
+   "label": "Activity Data",
+   "id": "Activity Data_2a353449",
+   "type": null,
+   "name": "The causing issues"
+  },
+  {
+   "start": 1565,
+   "end": 1573,
+   "label": "Activity",
+   "id": "Activity_ab82d4cb",
+   "type": "task",
+   "name": "Analyzed the causing issues"
+  },
+  {
+   "start": 1578,
+   "end": 1586,
+   "label": "Activity",
+   "id": "Activity_0aa1afed",
+   "type": "task",
+   "name": "Resolved"
+  },
+  {
+   "start": 1602,
+   "end": 1624,
+   "label": "Activity Data",
+   "id": "Activity Data_dc0d55d6",
+   "type": null,
+   "name": "The contract documents"
+  },
+  {
+   "start": 1629,
+   "end": 1638,
+   "label": "Activity",
+   "id": "Activity_9a10ca9b",
+   "type": "task",
+   "name": "Generated the contract documents"
+  },
+  {
+   "start": 1652,
+   "end": 1662,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_12e0e3bb",
+   "type": "exclusiveGateway",
+   "name": "In case of a positive response"
+  },
+  {
+   "start": 1663,
+   "end": 1682,
+   "label": "Condition Specification",
+   "id": "Condition Specification_96914d0e",
+   "type": "exclusiveGateway",
+   "name": "A positive response"
+  },
+  {
+   "start": 1683,
+   "end": 1706,
+   "label": "Activity Data",
+   "id": "Activity Data_55af3f78",
+   "type": null,
+   "name": "A confirmation document"
+  },
+  {
+   "start": 1710,
+   "end": 1718,
+   "label": "Activity",
+   "id": "Activity_0a01cd75",
+   "type": "task",
+   "name": "Sent out a confirmation document"
+  },
+  {
+   "start": 1722,
+   "end": 1734,
+   "label": "Actor",
+   "id": "Actor_6c44ef68",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 1802,
+   "end": 1811,
+   "label": "Activity Data",
+   "id": "Activity Data_111a52c4",
+   "type": null,
+   "name": "A request"
+  },
+  {
+   "start": 1815,
+   "end": 1832,
+   "label": "Actor",
+   "id": "Actor_2b630fb4",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 1850,
+   "end": 1858,
+   "label": "Activity",
+   "id": "Activity_4e8d9a9b",
+   "type": "task",
+   "name": "Sent out a request"
+  },
+  {
+   "start": 1862,
+   "end": 1869,
+   "label": "Actor",
+   "id": "Actor_91021438",
+   "type": "Lane",
+   "name": "The CIS"
+  },
+  {
+   "start": 1971,
+   "end": 1994,
+   "label": "Activity Data",
+   "id": "Activity Data_93c7d695",
+   "type": null,
+   "name": "The switch-over request"
+  },
+  {
+   "start": 1998,
+   "end": 2005,
+   "label": "Activity",
+   "id": "Activity_8d415f5e",
+   "type": "task",
+   "name": "Checked the switch-over request"
+  },
+  {
+   "start": 2009,
+   "end": 2026,
+   "label": "Actor",
+   "id": "Actor_7d3c1901",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2058,
+   "end": 2075,
+   "label": "Actor",
+   "id": "Actor_5cebd448",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2076,
+   "end": 2085,
+   "label": "Activity",
+   "id": "Activity_63731778",
+   "type": "task",
+   "name": "Transmits a response comment"
+  },
+  {
+   "start": 2086,
+   "end": 2104,
+   "label": "Activity Data",
+   "id": "Activity Data_0f3d54d7",
+   "type": null,
+   "name": "A response comment"
+  },
+  {
+   "start": 2107,
+   "end": 2121,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_933993cf",
+   "type": "exclusiveGateway",
+   "name": "In the case of supplier concurrence"
+  },
+  {
+   "start": 2122,
+   "end": 2142,
+   "label": "Condition Specification",
+   "id": "Condition Specification_37a892c4",
+   "type": "exclusiveGateway",
+   "name": "Supplier concurrence"
+  },
+  {
+   "start": 2143,
+   "end": 2160,
+   "label": "Actor",
+   "id": "Actor_d692d3df",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2167,
+   "end": 2173,
+   "label": "Activity",
+   "id": "Activity_60bb6bce",
+   "type": "task",
+   "name": "Inform"
+  },
+  {
+   "start": 2174,
+   "end": 2196,
+   "label": "Actor",
+   "id": "Actor_254101f2",
+   "type": "Lane",
+   "name": "All involved suppliers"
+  },
+  {
+   "start": 2201,
+   "end": 2207,
+   "label": "Activity",
+   "id": "Activity_1fd36694",
+   "type": "task",
+   "name": "Demand the resolution of the conflict"
+  },
+  {
+   "start": 2208,
+   "end": 2238,
+   "label": "Activity Data",
+   "id": "Activity Data_6aff2331",
+   "type": null,
+   "name": "The resolution of the conflict"
+  },
+  {
+   "start": 2241,
+   "end": 2258,
+   "label": "Actor",
+   "id": "Actor_8789bf97",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2259,
+   "end": 2271,
+   "label": "Activity",
+   "id": "Activity_0c8241e0",
+   "type": "task",
+   "name": "Communicates"
+  },
+  {
+   "start": 2277,
+   "end": 2293,
+   "label": "Actor",
+   "id": "Actor_737f8545",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 2298,
+   "end": 2309,
+   "label": "Activity",
+   "id": "Activity_2d36e9ea",
+   "type": "task",
+   "name": "Carries out the termination of the sales agreement"
+  },
+  {
+   "start": 2310,
+   "end": 2348,
+   "label": "Activity Data",
+   "id": "Activity Data_ba91eb9c",
+   "type": null,
+   "name": "The termination of the sales agreement"
+  },
+  {
+   "start": 2518,
+   "end": 2520,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a926cedd",
+   "type": "exclusiveGateway",
+   "name": "If there are not any objections by the grid operator"
+  },
+  {
+   "start": 2521,
+   "end": 2570,
+   "label": "Condition Specification",
+   "id": "Condition Specification_0069cea4",
+   "type": "exclusiveGateway",
+   "name": "There are not any objections by the grid operator"
+  },
+  {
+   "start": 2607,
+   "end": 2623,
+   "label": "Actor",
+   "id": "Actor_9d6fab9e",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 2624,
+   "end": 2631,
+   "label": "Activity",
+   "id": "Activity_2197b936",
+   "type": "task",
+   "name": "Creates a CIS contract"
+  },
+  {
+   "start": 2632,
+   "end": 2646,
+   "label": "Activity Data",
+   "id": "Activity Data_70cffef6",
+   "type": null,
+   "name": "A CIS contract"
+  },
+  {
+   "start": 2649,
+   "end": 2661,
+   "label": "Actor",
+   "id": "Actor_e26a8e04",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 2685,
+   "end": 2690,
+   "label": "Activity",
+   "id": "Activity_5f76de0a",
+   "type": "task",
+   "name": "Check the contract details"
+  },
+  {
+   "start": 2691,
+   "end": 2711,
+   "label": "Activity Data",
+   "id": "Activity Data_e2e4d534",
+   "type": null,
+   "name": "The contract details"
+  },
+  {
+   "start": 2750,
+   "end": 2756,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e107cb56",
+   "type": "exclusiveGateway",
+   "name": "Either"
+  },
+  {
+   "start": 2757,
+   "end": 2765,
+   "label": "Activity",
+   "id": "Activity_3d6291d2",
+   "type": "task",
+   "name": "Withdraw"
+  },
+  {
+   "start": 2771,
+   "end": 2790,
+   "label": "Activity Data",
+   "id": "Activity Data_8a8becf0",
+   "type": null,
+   "name": "The switch contract"
+  },
+  {
+   "start": 2791,
+   "end": 2793,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_56529d86",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 2794,
+   "end": 2801,
+   "label": "Activity",
+   "id": "Activity_64e77693",
+   "type": "task",
+   "name": "Confirm it"
+  },
+  {
+   "start": 2802,
+   "end": 2804,
+   "label": "Activity Data",
+   "id": "Activity Data_cd6e1b34",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 3425,
+   "end": 3442,
+   "label": "Actor",
+   "id": "Actor_47530cc0",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 3443,
+   "end": 3452,
+   "label": "Activity",
+   "id": "Activity_03020842",
+   "type": "task",
+   "name": "Transmits the power meter data"
+  },
+  {
+   "start": 3453,
+   "end": 3473,
+   "label": "Activity Data",
+   "id": "Activity Data_e485fbea",
+   "type": null,
+   "name": "The power meter data"
+  },
+  {
+   "start": 3477,
+   "end": 3497,
+   "label": "Actor",
+   "id": "Actor_91f85db6",
+   "type": "Lane",
+   "name": "The customer service"
+  },
+  {
+   "start": 3502,
+   "end": 3518,
+   "label": "Actor",
+   "id": "Actor_e24f6e26",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3519,
+   "end": 3572,
+   "label": "Further Specification",
+   "id": "Further Specification_051d0fa3",
+   "type": null,
+   "name": "Via messages containing a services consumption report"
+  },
+  {
+   "start": 3575,
+   "end": 3591,
+   "label": "AND Gateway",
+   "id": "AND Gateway_8a677bb1",
+   "type": "parallelGateway",
+   "name": "At the same time"
+  },
+  {
+   "start": 3594,
+   "end": 3611,
+   "label": "Actor",
+   "id": "Actor_39bce63c",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 3612,
+   "end": 3620,
+   "label": "Activity",
+   "id": "Activity_f51d7540",
+   "type": "task",
+   "name": "Computes the final billing"
+  },
+  {
+   "start": 3621,
+   "end": 3638,
+   "label": "Activity Data",
+   "id": "Activity Data_1f6278b0",
+   "type": null,
+   "name": "The final billing"
+  },
+  {
+   "start": 3667,
+   "end": 3672,
+   "label": "Activity",
+   "id": "Activity_3ad7eb62",
+   "type": "task",
+   "name": "Sends it"
+  },
+  {
+   "start": 3673,
+   "end": 3675,
+   "label": "Activity Data",
+   "id": "Activity Data_a02be230",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 3679,
+   "end": 3695,
+   "label": "Actor",
+   "id": "Actor_b3d58753",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3707,
+   "end": 3723,
+   "label": "Actor",
+   "id": "Actor_d0598948",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3724,
+   "end": 3731,
+   "label": "Activity",
+   "id": "Activity_8b9bb120",
+   "type": "task",
+   "name": "Creates"
+  },
+  {
+   "start": 3736,
+   "end": 3741,
+   "label": "Activity",
+   "id": "Activity_9a5a024f",
+   "type": "task",
+   "name": "Sends the final billing"
+  },
+  {
+   "start": 3742,
+   "end": 3759,
+   "label": "Activity Data",
+   "id": "Activity Data_46b4a0f0",
+   "type": null,
+   "name": "The final billing"
+  },
+  {
+   "start": 3763,
+   "end": 3775,
+   "label": "Actor",
+   "id": "Actor_b1361342",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 3854,
+   "end": 3863,
+   "label": "Activity",
+   "id": "Activity_b3dd5b24",
+   "type": "task",
+   "name": "Receiving the meter data"
+  },
+  {
+   "start": 3864,
+   "end": 3878,
+   "label": "Activity Data",
+   "id": "Activity Data_f9acd9b8",
+   "type": null,
+   "name": "The meter data"
+  },
+  {
+   "start": 3879,
+   "end": 3895,
+   "label": "Actor",
+   "id": "Actor_a182dda5",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 3896,
+   "end": 3903,
+   "label": "Activity",
+   "id": "Activity_3f6051c8",
+   "type": "task",
+   "name": "Imports the meter data"
+  },
+  {
+   "start": 3904,
+   "end": 3918,
+   "label": "Activity Data",
+   "id": "Activity Data_6ac6c18b",
+   "type": null,
+   "name": "The meter data"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 114,
+  "skipped": 0,
+  "failures": 114,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Received the customer data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Entered a customer data object",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Compared it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Entered a customer data object",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Compared it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Checked the internal customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Compared it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Checked the internal customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "In case of any errors",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Checked the internal customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "In case of any errors",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Corrected these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case of any errors",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "Corrected these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Corrected these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Created a new customer object",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "Created a new customer object",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Created a new customer object",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Check the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "Check the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "In case of a negative response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Check the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "In case of a negative response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Analyzed the causing issues",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "In case of a negative response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Analyzed the causing issues",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Resolved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Analyzed the causing issues",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Resolved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Generated the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "Resolved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "Generated the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "In case of a positive response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "Generated the contract documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "In case of a positive response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "Sent out a confirmation document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "In case of a positive response",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "Sent out a confirmation document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "Sent out a request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a confirmation document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Checked the switch-over request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Sent out a request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Checked the switch-over request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Transmits a response comment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Checked the switch-over request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Transmits a response comment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "In the case of supplier concurrence",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Transmits a response comment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "In the case of supplier concurrence",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Inform",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "In the case of supplier concurrence",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Inform",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Demand the resolution of the conflict",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Inform",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Demand the resolution of the conflict",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Communicates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Demand the resolution of the conflict",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Communicates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Carries out the termination of the sales agreement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Communicates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Carries out the termination of the sales agreement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "If there are not any objections by the grid operator",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Carries out the termination of the sales agreement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "If there are not any objections by the grid operator",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Creates a CIS contract",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "If there are not any objections by the grid operator",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Creates a CIS contract",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Check the contract details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Creates a CIS contract",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Check the contract details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Either",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Check the contract details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Either",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Withdraw",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Either",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Withdraw",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Withdraw",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Confirm it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Confirm it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Transmits the power meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirm it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Transmits the power meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "At the same time",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "Transmits the power meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "At the same time",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "Computes the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "At the same time",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Computes the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Computes the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Creates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Creates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Sends the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Creates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Sends the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Receiving the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Sends the final billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Receiving the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Imports the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the final billing",
+    "node_B": "Receiving the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the final billing",
+    "node_B": "Imports the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving the meter data",
+    "node_B": "Imports the meter data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Received the customer data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Entered a customer data object",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Compared it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Entered a customer data object",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Compared it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Checked the internal customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Compared it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Checked the internal customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "In case of any errors",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Checked the internal customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "In case of any errors",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Corrected these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case of any errors",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "Corrected these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Corrected these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Created a new customer object",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "Created a new customer object",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Corrected these",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Created a new customer object",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Check the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "Check the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created a new customer object",
+    "node_B": "In case of a negative response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Check the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "In case of a negative response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Analyzed the causing issues",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "In case of a negative response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Analyzed the causing issues",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Resolved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Analyzed the causing issues",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Resolved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Generated the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "Resolved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "Generated the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Analyzed the causing issues",
+    "node_B": "In case of a positive response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "Generated the contract documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "In case of a positive response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Resolved",
+    "node_B": "Sent out a confirmation document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "In case of a positive response",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "Sent out a confirmation document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generated the contract documents",
+    "node_B": "Sent out a request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a confirmation document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Checked the switch-over request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Sent out a request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Checked the switch-over request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a confirmation document",
+    "node_B": "Transmits a response comment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Checked the switch-over request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Transmits a response comment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "In the case of supplier concurrence",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Transmits a response comment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "In the case of supplier concurrence",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Inform",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "In the case of supplier concurrence",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Inform",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Inform",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Communicates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Communicates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Communicates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Creates a CIS contract",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Creates a CIS contract",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Check the contract details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Creates a CIS contract",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Check the contract details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Either",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Check the contract details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Either",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Withdraw",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Either",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Withdraw",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Withdraw",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Confirm it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Confirm it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Withdraw",
+    "node_B": "Transmits the power meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirm it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Transmits the power meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "At the same time",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "Transmits the power meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "At the same time",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirm it",
+    "node_B": "Computes the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "At the same time",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Computes the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Computes the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Creates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Creates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Computes the final billing",
+    "node_B": "Sends the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Creates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Sends the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Receiving the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Sends the final billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Receiving the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates",
+    "node_B": "Imports the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the final billing",
+    "node_B": "Receiving the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the final billing",
+    "node_B": "Imports the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving the meter data",
+    "node_B": "Imports the meter data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

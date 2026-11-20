@@ -1,0 +1,1072 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The employee",
+   "The supervisor"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_896f6a2f",
+    "name": "Received a new account",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "The Expense Report"
+    ]
+   },
+   {
+    "id": "Activity_5e8144dd",
+    "name": "Created",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_c026f4eb",
+    "name": "If the employee does not already have one",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": [
+     "Amounts under $200"
+    ]
+   },
+   {
+    "id": "Activity_62cbca96",
+    "name": "Reviewed the report",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "For automatic approval"
+    ]
+   },
+   {
+    "id": "Activity_7eb48860",
+    "name": "Approved",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": [
+     "Automatically"
+    ]
+   },
+   {
+    "id": "XOR Gateway_dc2abf88",
+    "name": "Whereas amounts equal to or over $200",
+    "type": "exclusiveGateway",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a4437647",
+    "name": "Require approval",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_6dcd4a31",
+    "name": "In case of rejection",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d8a07ecd",
+    "name": "Receive a rejection notice",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": [
+     "By email"
+    ]
+   },
+   {
+    "id": "Activity_0e9bb5a1",
+    "name": "Goes the reimbursement",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": [
+     "To the employees direct deposit bank account"
+    ]
+   },
+   {
+    "id": "XOR Gateway_4f84319c",
+    "name": "If the request is not completed in 7 days",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a139db16",
+    "name": "Receive an approval in progress email",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_f8ad5f1c",
+    "name": "If the request is not finished within 30 days",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_799e92b4",
+    "name": "Receives an email cancellation notice",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_42c0f005",
+    "name": "Re-submit the expense report",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_a180c9c9",
+    "source": "StartEvent_1",
+    "target": "Activity_896f6a2f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_210b2146",
+    "source": "Activity_896f6a2f",
+    "target": "Activity_5e8144dd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_be4eb499",
+    "source": "Activity_5e8144dd",
+    "target": "XOR Gateway_c026f4eb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c90d4889",
+    "source": "XOR Gateway_c026f4eb",
+    "target": "Activity_62cbca96",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e51da72f",
+    "source": "Activity_62cbca96",
+    "target": "Activity_7eb48860",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_09880c40",
+    "source": "Activity_7eb48860",
+    "target": "XOR Gateway_dc2abf88",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_405f33c1",
+    "source": "XOR Gateway_dc2abf88",
+    "target": "Activity_a4437647",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3f91bbf0",
+    "source": "Activity_a4437647",
+    "target": "XOR Gateway_6dcd4a31",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_85c2ccf1",
+    "source": "XOR Gateway_6dcd4a31",
+    "target": "Activity_d8a07ecd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_05f92d3e",
+    "source": "XOR Gateway_6dcd4a31",
+    "target": "Activity_0e9bb5a1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4095d8f7",
+    "source": "Activity_0e9bb5a1",
+    "target": "XOR Gateway_4f84319c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_62b17452",
+    "source": "XOR Gateway_4f84319c",
+    "target": "Activity_a139db16",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c4a305e2",
+    "source": "Activity_a139db16",
+    "target": "XOR Gateway_f8ad5f1c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5871ca6c",
+    "source": "XOR Gateway_f8ad5f1c",
+    "target": "Activity_799e92b4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8c3b5655",
+    "source": "Activity_799e92b4",
+    "target": "Activity_42c0f005",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_83ae70e2",
+    "source": "Activity_d8a07ecd",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_052c53e6",
+    "source": "Activity_42c0f005",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 6,
+   "end": 24,
+   "label": "Activity Data",
+   "id": "Activity Data_6de5de11",
+   "type": null,
+   "name": "The Expense Report"
+  },
+  {
+   "start": 28,
+   "end": 36,
+   "label": "Activity",
+   "id": "Activity_896f6a2f",
+   "type": "task",
+   "name": "Received a new account"
+  },
+  {
+   "start": 39,
+   "end": 52,
+   "label": "Activity Data",
+   "id": "Activity Data_bdc926ed",
+   "type": null,
+   "name": "A new account"
+  },
+  {
+   "start": 61,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_5e8144dd",
+   "type": "task",
+   "name": "Created"
+  },
+  {
+   "start": 69,
+   "end": 71,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c026f4eb",
+   "type": "exclusiveGateway",
+   "name": "If the employee does not already have one"
+  },
+  {
+   "start": 72,
+   "end": 110,
+   "label": "Condition Specification",
+   "id": "Condition Specification_bf23737f",
+   "type": "exclusiveGateway",
+   "name": "The employee does not already have one"
+  },
+  {
+   "start": 113,
+   "end": 123,
+   "label": "Activity Data",
+   "id": "Activity Data_dcbf4724",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 132,
+   "end": 140,
+   "label": "Activity",
+   "id": "Activity_62cbca96",
+   "type": "task",
+   "name": "Reviewed the report"
+  },
+  {
+   "start": 141,
+   "end": 163,
+   "label": "Further Specification",
+   "id": "Further Specification_297caaa8",
+   "type": null,
+   "name": "For automatic approval"
+  },
+  {
+   "start": 166,
+   "end": 184,
+   "label": "Condition Specification",
+   "id": "Condition Specification_3499822b",
+   "type": "exclusiveGateway",
+   "name": "Amounts under $200"
+  },
+  {
+   "start": 189,
+   "end": 202,
+   "label": "Further Specification",
+   "id": "Further Specification_d3e81101",
+   "type": null,
+   "name": "Automatically"
+  },
+  {
+   "start": 203,
+   "end": 211,
+   "label": "Activity",
+   "id": "Activity_7eb48860",
+   "type": "task",
+   "name": "Approved"
+  },
+  {
+   "start": 214,
+   "end": 221,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_dc2abf88",
+   "type": "exclusiveGateway",
+   "name": "Whereas amounts equal to or over $200"
+  },
+  {
+   "start": 222,
+   "end": 251,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1623669f",
+   "type": "exclusiveGateway",
+   "name": "Amounts equal to or over $200"
+  },
+  {
+   "start": 252,
+   "end": 259,
+   "label": "Activity",
+   "id": "Activity_a4437647",
+   "type": "task",
+   "name": "Require approval"
+  },
+  {
+   "start": 260,
+   "end": 268,
+   "label": "Activity Data",
+   "id": "Activity Data_f4821f1b",
+   "type": null,
+   "name": "Approval"
+  },
+  {
+   "start": 272,
+   "end": 286,
+   "label": "Actor",
+   "id": "Actor_74fb5d68",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 289,
+   "end": 299,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_6dcd4a31",
+   "type": "exclusiveGateway",
+   "name": "In case of rejection"
+  },
+  {
+   "start": 300,
+   "end": 309,
+   "label": "Condition Specification",
+   "id": "Condition Specification_00012a88",
+   "type": "exclusiveGateway",
+   "name": "Rejection"
+  },
+  {
+   "start": 312,
+   "end": 324,
+   "label": "Actor",
+   "id": "Actor_1c300271",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 330,
+   "end": 337,
+   "label": "Activity",
+   "id": "Activity_d8a07ecd",
+   "type": "task",
+   "name": "Receive a rejection notice"
+  },
+  {
+   "start": 338,
+   "end": 356,
+   "label": "Activity Data",
+   "id": "Activity Data_44ea76ad",
+   "type": null,
+   "name": "A rejection notice"
+  },
+  {
+   "start": 357,
+   "end": 365,
+   "label": "Further Specification",
+   "id": "Further Specification_1122248b",
+   "type": null,
+   "name": "By email"
+  },
+  {
+   "start": 368,
+   "end": 377,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_17cb5044",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 380,
+   "end": 397,
+   "label": "Activity Data",
+   "id": "Activity Data_3f595fde",
+   "type": null,
+   "name": "The reimbursement"
+  },
+  {
+   "start": 398,
+   "end": 402,
+   "label": "Activity",
+   "id": "Activity_0e9bb5a1",
+   "type": "task",
+   "name": "Goes the reimbursement"
+  },
+  {
+   "start": 403,
+   "end": 447,
+   "label": "Further Specification",
+   "id": "Further Specification_949e257f",
+   "type": null,
+   "name": "To the employees direct deposit bank account"
+  },
+  {
+   "start": 450,
+   "end": 452,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_4f84319c",
+   "type": "exclusiveGateway",
+   "name": "If the request is not completed in 7 days"
+  },
+  {
+   "start": 453,
+   "end": 491,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1767304d",
+   "type": "exclusiveGateway",
+   "name": "The request is not completed in 7 days"
+  },
+  {
+   "start": 499,
+   "end": 511,
+   "label": "Actor",
+   "id": "Actor_62df7395",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 517,
+   "end": 524,
+   "label": "Activity",
+   "id": "Activity_a139db16",
+   "type": "task",
+   "name": "Receive an approval in progress email"
+  },
+  {
+   "start": 525,
+   "end": 554,
+   "label": "Activity Data",
+   "id": "Activity Data_b5a13e36",
+   "type": null,
+   "name": "An approval in progress email"
+  },
+  {
+   "start": 557,
+   "end": 559,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f8ad5f1c",
+   "type": "exclusiveGateway",
+   "name": "If the request is not finished within 30 days"
+  },
+  {
+   "start": 560,
+   "end": 602,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a5e2e5e7",
+   "type": "exclusiveGateway",
+   "name": "The request is not finished within 30 days"
+  },
+  {
+   "start": 637,
+   "end": 649,
+   "label": "Actor",
+   "id": "Actor_61ba15cf",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 650,
+   "end": 658,
+   "label": "Activity",
+   "id": "Activity_799e92b4",
+   "type": "task",
+   "name": "Receives an email cancellation notice"
+  },
+  {
+   "start": 659,
+   "end": 687,
+   "label": "Activity Data",
+   "id": "Activity Data_a0629644",
+   "type": null,
+   "name": "An email cancellation notice"
+  },
+  {
+   "start": 697,
+   "end": 706,
+   "label": "Activity",
+   "id": "Activity_42c0f005",
+   "type": "task",
+   "name": "Re-submit the expense report"
+  },
+  {
+   "start": 707,
+   "end": 725,
+   "label": "Activity Data",
+   "id": "Activity Data_ea1c5491",
+   "type": null,
+   "name": "The expense report"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 42,
+  "skipped": 0,
+  "failures": 42,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Received a new account",
+    "node_B": "Created",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received a new account",
+    "node_B": "If the employee does not already have one",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received a new account",
+    "node_B": "Reviewed the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created",
+    "node_B": "If the employee does not already have one",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created",
+    "node_B": "Reviewed the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Created",
+    "node_B": "Approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Reviewed the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Whereas amounts equal to or over $200",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Whereas amounts equal to or over $200",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Require approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "Whereas amounts equal to or over $200",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "Require approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "In case of rejection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "Require approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "In case of rejection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "Receive a rejection notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "In case of rejection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "Receive a rejection notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Receive a rejection notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Goes the reimbursement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "Goes the reimbursement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "If the request is not completed in 7 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Goes the reimbursement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "If the request is not completed in 7 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Receive an approval in progress email",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "If the request is not completed in 7 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "Receive an approval in progress email",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "If the request is not finished within 30 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "Receive an approval in progress email",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "If the request is not finished within 30 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "Receives an email cancellation notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "If the request is not finished within 30 days",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "Receives an email cancellation notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "Re-submit the expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is not finished within 30 days",
+    "node_B": "Receives an email cancellation notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is not finished within 30 days",
+    "node_B": "Re-submit the expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives an email cancellation notice",
+    "node_B": "Re-submit the expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Received a new account",
+    "node_B": "Created",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received a new account",
+    "node_B": "If the employee does not already have one",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received a new account",
+    "node_B": "Reviewed the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created",
+    "node_B": "If the employee does not already have one",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created",
+    "node_B": "Reviewed the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Created",
+    "node_B": "Approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Reviewed the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Whereas amounts equal to or over $200",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Whereas amounts equal to or over $200",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviewed the report",
+    "node_B": "Require approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "Whereas amounts equal to or over $200",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "Require approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved",
+    "node_B": "In case of rejection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "Require approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "In case of rejection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "Receive a rejection notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "In case of rejection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "Receive a rejection notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Require approval",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Receive a rejection notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Goes the reimbursement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "Goes the reimbursement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive a rejection notice",
+    "node_B": "If the request is not completed in 7 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Goes the reimbursement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "If the request is not completed in 7 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Receive an approval in progress email",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "If the request is not completed in 7 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "Receive an approval in progress email",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes the reimbursement",
+    "node_B": "If the request is not finished within 30 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "Receive an approval in progress email",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "If the request is not finished within 30 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "Receives an email cancellation notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "If the request is not finished within 30 days",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "Receives an email cancellation notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive an approval in progress email",
+    "node_B": "Re-submit the expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is not finished within 30 days",
+    "node_B": "Receives an email cancellation notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is not finished within 30 days",
+    "node_B": "Re-submit the expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives an email cancellation notice",
+    "node_B": "Re-submit the expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

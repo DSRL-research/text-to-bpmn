@@ -1,0 +1,1715 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_4071c7cb",
+    "name": "Reports the meter operation",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fb9ebd0f",
+    "name": "Examines the application",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e32c545e",
+    "name": "Rejects the application of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_d3d29f1e",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_af78ac2d",
+    "name": "Confirmes the application of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_45a62780",
+    "name": "Informs about the registration confirmation of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_00d1aa16",
+    "name": "Informs about the registration confirmation of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dca999fb",
+    "name": "Perform the equipment acquisition and / or equipment changes",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c31e80f2",
+    "name": "Informs about the failure of the entire process",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_c0f546e8",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3c79c27b",
+    "name": "Informs about the successful completion of the entire process",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a08ac506",
+    "name": "Informs about the failure of the overall transaction by deadline",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_246a9009",
+    "name": "If after a maximum time limit no message of the MPON is present at the GO",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_fdd35a8d",
+    "name": "If the MPON informs the GO about the failure of the entire process",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7734894e",
+    "name": "Confirms the failure of the assignment",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_012927e3",
+    "name": "If the MPON informs the GO about the successful completion of the overall process",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_89c9c19f",
+    "name": "Assigns the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_66ad28eb",
+    "name": "Confirms the assignment",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_072839a1",
+    "name": "Informs about the failure of the assignment of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_69a711ea",
+    "name": "Informs about the assignment of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5f1c1629",
+    "name": "Informs about the failure of the assignment of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c7c13680",
+    "name": "Informs about the assignment of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6f72908e",
+    "name": "Informs about the assignment of the MPON",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_3fccd247",
+    "source": "StartEvent_1",
+    "target": "Activity_4071c7cb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_24e211c7",
+    "source": "Activity_4071c7cb",
+    "target": "Activity_fb9ebd0f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ecf29912",
+    "source": "Activity_fb9ebd0f",
+    "target": "Activity_e32c545e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1dbacdf1",
+    "source": "Activity_e32c545e",
+    "target": "XOR Gateway_d3d29f1e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_535fd226",
+    "source": "XOR Gateway_d3d29f1e",
+    "target": "Activity_af78ac2d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0d51874f",
+    "source": "Activity_af78ac2d",
+    "target": "Activity_45a62780",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b18ed087",
+    "source": "Activity_45a62780",
+    "target": "Activity_00d1aa16",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4195f4d8",
+    "source": "Activity_00d1aa16",
+    "target": "Activity_dca999fb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e429560d",
+    "source": "Activity_dca999fb",
+    "target": "Activity_c31e80f2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f27f69c5",
+    "source": "Activity_c31e80f2",
+    "target": "XOR Gateway_c0f546e8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3d5fa3ee",
+    "source": "XOR Gateway_c0f546e8",
+    "target": "Activity_3c79c27b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_462e0b44",
+    "source": "Activity_3c79c27b",
+    "target": "Activity_a08ac506",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dc56b164",
+    "source": "Activity_a08ac506",
+    "target": "XOR Gateway_246a9009",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_63efe7b0",
+    "source": "XOR Gateway_246a9009",
+    "target": "XOR Gateway_fdd35a8d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2ed83cb1",
+    "source": "XOR Gateway_fdd35a8d",
+    "target": "Activity_7734894e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ab648d15",
+    "source": "Activity_7734894e",
+    "target": "XOR Gateway_012927e3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9204b4a7",
+    "source": "XOR Gateway_012927e3",
+    "target": "Activity_89c9c19f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7c308a94",
+    "source": "Activity_89c9c19f",
+    "target": "Activity_66ad28eb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9ba46240",
+    "source": "Activity_66ad28eb",
+    "target": "Activity_072839a1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c3a2ca7a",
+    "source": "Activity_072839a1",
+    "target": "Activity_69a711ea",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_49b5c1e0",
+    "source": "Activity_69a711ea",
+    "target": "Activity_5f1c1629",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_74fec345",
+    "source": "Activity_5f1c1629",
+    "target": "Activity_c7c13680",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bca1b680",
+    "source": "Activity_c7c13680",
+    "target": "Activity_6f72908e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b3f4d0ba",
+    "source": "Activity_6f72908e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_2971e98b",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 16,
+   "label": "Activity",
+   "id": "Activity_4071c7cb",
+   "type": "task",
+   "name": "Reports the meter operation"
+  },
+  {
+   "start": 17,
+   "end": 36,
+   "label": "Activity Data",
+   "id": "Activity Data_3bfe7cff",
+   "type": null,
+   "name": "The meter operation"
+  },
+  {
+   "start": 40,
+   "end": 46,
+   "label": "Actor",
+   "id": "Actor_7ac0e27a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 49,
+   "end": 55,
+   "label": "Actor",
+   "id": "Actor_ef617b12",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 56,
+   "end": 64,
+   "label": "Activity",
+   "id": "Activity_fb9ebd0f",
+   "type": "task",
+   "name": "Examines the application"
+  },
+  {
+   "start": 65,
+   "end": 80,
+   "label": "Activity Data",
+   "id": "Activity Data_710b9a75",
+   "type": null,
+   "name": "The application"
+  },
+  {
+   "start": 84,
+   "end": 92,
+   "label": "Actor",
+   "id": "Actor_c65e3833",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 95,
+   "end": 101,
+   "label": "Actor",
+   "id": "Actor_fbd5fd8a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 102,
+   "end": 109,
+   "label": "Activity",
+   "id": "Activity_e32c545e",
+   "type": "task",
+   "name": "Rejects the application of the MPON"
+  },
+  {
+   "start": 110,
+   "end": 137,
+   "label": "Activity Data",
+   "id": "Activity Data_016c16c0",
+   "type": null,
+   "name": "The application of the MPON"
+  },
+  {
+   "start": 138,
+   "end": 140,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d3d29f1e",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 141,
+   "end": 147,
+   "label": "Actor",
+   "id": "Actor_e284a5e5",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 148,
+   "end": 157,
+   "label": "Activity",
+   "id": "Activity_af78ac2d",
+   "type": "task",
+   "name": "Confirmes the application of the MPON"
+  },
+  {
+   "start": 158,
+   "end": 185,
+   "label": "Activity Data",
+   "id": "Activity Data_4a954cad",
+   "type": null,
+   "name": "The application of the MPON"
+  },
+  {
+   "start": 188,
+   "end": 194,
+   "label": "Actor",
+   "id": "Actor_f0865e67",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 195,
+   "end": 202,
+   "label": "Activity",
+   "id": "Activity_45a62780",
+   "type": "task",
+   "name": "Informs about the registration confirmation of the MPON"
+  },
+  {
+   "start": 203,
+   "end": 211,
+   "label": "Actor",
+   "id": "Actor_fee3ed73",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 212,
+   "end": 259,
+   "label": "Activity Data",
+   "id": "Activity Data_60f57bfe",
+   "type": null,
+   "name": "About the registration confirmation of the MPON"
+  },
+  {
+   "start": 262,
+   "end": 268,
+   "label": "Actor",
+   "id": "Actor_7d31ab10",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 269,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_00d1aa16",
+   "type": "task",
+   "name": "Informs about the registration confirmation of the MPON"
+  },
+  {
+   "start": 277,
+   "end": 285,
+   "label": "Actor",
+   "id": "Actor_d7fb7652",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 286,
+   "end": 333,
+   "label": "Activity Data",
+   "id": "Activity Data_60aa405d",
+   "type": null,
+   "name": "About the registration confirmation of the MPON"
+  },
+  {
+   "start": 336,
+   "end": 344,
+   "label": "Actor",
+   "id": "Actor_2948893f",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 349,
+   "end": 357,
+   "label": "Actor",
+   "id": "Actor_67c5e334",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 358,
+   "end": 365,
+   "label": "Activity",
+   "id": "Activity_dca999fb",
+   "type": "task",
+   "name": "Perform the equipment acquisition and / or equipment changes"
+  },
+  {
+   "start": 366,
+   "end": 418,
+   "label": "Activity Data",
+   "id": "Activity Data_265858b5",
+   "type": null,
+   "name": "The equipment acquisition and / or equipment changes"
+  },
+  {
+   "start": 421,
+   "end": 429,
+   "label": "Actor",
+   "id": "Actor_da41e328",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 430,
+   "end": 437,
+   "label": "Activity",
+   "id": "Activity_c31e80f2",
+   "type": "task",
+   "name": "Informs about the failure of the entire process"
+  },
+  {
+   "start": 438,
+   "end": 444,
+   "label": "Actor",
+   "id": "Actor_3bb06c2e",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 445,
+   "end": 484,
+   "label": "Activity Data",
+   "id": "Activity Data_175199e3",
+   "type": null,
+   "name": "About the failure of the entire process"
+  },
+  {
+   "start": 485,
+   "end": 487,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c0f546e8",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 488,
+   "end": 496,
+   "label": "Actor",
+   "id": "Actor_a0f01522",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 497,
+   "end": 504,
+   "label": "Activity",
+   "id": "Activity_3c79c27b",
+   "type": "task",
+   "name": "Informs about the successful completion of the entire process"
+  },
+  {
+   "start": 505,
+   "end": 511,
+   "label": "Actor",
+   "id": "Actor_078cca09",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 512,
+   "end": 565,
+   "label": "Activity Data",
+   "id": "Activity Data_ed645e0b",
+   "type": null,
+   "name": "About the successful completion of the entire process"
+  },
+  {
+   "start": 568,
+   "end": 574,
+   "label": "Actor",
+   "id": "Actor_b9200b14",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 575,
+   "end": 582,
+   "label": "Activity",
+   "id": "Activity_a08ac506",
+   "type": "task",
+   "name": "Informs about the failure of the overall transaction by deadline"
+  },
+  {
+   "start": 583,
+   "end": 591,
+   "label": "Actor",
+   "id": "Actor_6b9d2c6f",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 592,
+   "end": 648,
+   "label": "Activity Data",
+   "id": "Activity Data_5872c65b",
+   "type": null,
+   "name": "About the failure of the overall transaction by deadline"
+  },
+  {
+   "start": 649,
+   "end": 651,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_246a9009",
+   "type": "exclusiveGateway",
+   "name": "If after a maximum time limit no message of the MPON is present at the GO"
+  },
+  {
+   "start": 652,
+   "end": 722,
+   "label": "Condition Specification",
+   "id": "Condition Specification_4afe4fee",
+   "type": "exclusiveGateway",
+   "name": "After a maximum time limit no message of the MPON is present at the GO"
+  },
+  {
+   "start": 725,
+   "end": 727,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_fdd35a8d",
+   "type": "exclusiveGateway",
+   "name": "If the MPON informs the GO about the failure of the entire process"
+  },
+  {
+   "start": 728,
+   "end": 791,
+   "label": "Condition Specification",
+   "id": "Condition Specification_4a0337a1",
+   "type": "exclusiveGateway",
+   "name": "The MPON informs the GO about the failure of the entire process"
+  },
+  {
+   "start": 794,
+   "end": 800,
+   "label": "Actor",
+   "id": "Actor_2a3f2be1",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 801,
+   "end": 809,
+   "label": "Activity",
+   "id": "Activity_7734894e",
+   "type": "task",
+   "name": "Confirms the failure of the assignment"
+  },
+  {
+   "start": 810,
+   "end": 839,
+   "label": "Activity Data",
+   "id": "Activity Data_d7c9f84a",
+   "type": null,
+   "name": "The failure of the assignment"
+  },
+  {
+   "start": 843,
+   "end": 851,
+   "label": "Actor",
+   "id": "Actor_bdd879b6",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 854,
+   "end": 856,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_012927e3",
+   "type": "exclusiveGateway",
+   "name": "If the MPON informs the GO about the successful completion of the overall process"
+  },
+  {
+   "start": 857,
+   "end": 935,
+   "label": "Condition Specification",
+   "id": "Condition Specification_53bb3d91",
+   "type": "exclusiveGateway",
+   "name": "The MPON informs the GO about the successful completion of the overall process"
+  },
+  {
+   "start": 938,
+   "end": 944,
+   "label": "Actor",
+   "id": "Actor_4b900b97",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 945,
+   "end": 952,
+   "label": "Activity",
+   "id": "Activity_89c9c19f",
+   "type": "task",
+   "name": "Assigns the MPON"
+  },
+  {
+   "start": 953,
+   "end": 961,
+   "label": "Activity Data",
+   "id": "Activity Data_42da0768",
+   "type": null,
+   "name": "The MPON"
+  },
+  {
+   "start": 964,
+   "end": 970,
+   "label": "Actor",
+   "id": "Actor_60b25447",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 971,
+   "end": 979,
+   "label": "Activity",
+   "id": "Activity_66ad28eb",
+   "type": "task",
+   "name": "Confirms the assignment"
+  },
+  {
+   "start": 980,
+   "end": 994,
+   "label": "Activity Data",
+   "id": "Activity Data_d6839213",
+   "type": null,
+   "name": "The assignment"
+  },
+  {
+   "start": 998,
+   "end": 1006,
+   "label": "Actor",
+   "id": "Actor_43c131e6",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 1009,
+   "end": 1015,
+   "label": "Actor",
+   "id": "Actor_b023b692",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 1016,
+   "end": 1023,
+   "label": "Activity",
+   "id": "Activity_072839a1",
+   "type": "task",
+   "name": "Informs about the failure of the assignment of the MPON"
+  },
+  {
+   "start": 1024,
+   "end": 1032,
+   "label": "Actor",
+   "id": "Actor_0b8bee2a",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 1033,
+   "end": 1080,
+   "label": "Activity Data",
+   "id": "Activity Data_9acb7643",
+   "type": null,
+   "name": "About the failure of the assignment of the MPON"
+  },
+  {
+   "start": 1084,
+   "end": 1090,
+   "label": "Actor",
+   "id": "Actor_f9de92d7",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 1091,
+   "end": 1098,
+   "label": "Activity",
+   "id": "Activity_69a711ea",
+   "type": "task",
+   "name": "Informs about the assignment of the MPON"
+  },
+  {
+   "start": 1099,
+   "end": 1107,
+   "label": "Actor",
+   "id": "Actor_cb0492f8",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 1108,
+   "end": 1140,
+   "label": "Activity Data",
+   "id": "Activity Data_b2754b50",
+   "type": null,
+   "name": "About the assignment of the MPON"
+  },
+  {
+   "start": 1143,
+   "end": 1149,
+   "label": "Actor",
+   "id": "Actor_aab8b001",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 1150,
+   "end": 1157,
+   "label": "Activity",
+   "id": "Activity_5f1c1629",
+   "type": "task",
+   "name": "Informs about the failure of the assignment of the MPON"
+  },
+  {
+   "start": 1158,
+   "end": 1166,
+   "label": "Actor",
+   "id": "Actor_809f80a5",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 1167,
+   "end": 1214,
+   "label": "Activity Data",
+   "id": "Activity Data_2775c680",
+   "type": null,
+   "name": "About the failure of the assignment of the MPON"
+  },
+  {
+   "start": 1218,
+   "end": 1224,
+   "label": "Actor",
+   "id": "Actor_c2cf6607",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 1225,
+   "end": 1232,
+   "label": "Activity",
+   "id": "Activity_c7c13680",
+   "type": "task",
+   "name": "Informs about the assignment of the MPON"
+  },
+  {
+   "start": 1233,
+   "end": 1241,
+   "label": "Actor",
+   "id": "Actor_1446e1e1",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 1242,
+   "end": 1274,
+   "label": "Activity Data",
+   "id": "Activity Data_94e3d860",
+   "type": null,
+   "name": "About the assignment of the MPON"
+  },
+  {
+   "start": 1277,
+   "end": 1283,
+   "label": "Actor",
+   "id": "Actor_fb74f9d6",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 1284,
+   "end": 1291,
+   "label": "Activity",
+   "id": "Activity_6f72908e",
+   "type": "task",
+   "name": "Informs about the assignment of the MPON"
+  },
+  {
+   "start": 1292,
+   "end": 1298,
+   "label": "Actor",
+   "id": "Actor_93a10a92",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 1299,
+   "end": 1331,
+   "label": "Activity Data",
+   "id": "Activity Data_12334196",
+   "type": null,
+   "name": "About the assignment of the MPON"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 63,
+  "skipped": 0,
+  "failures": 63,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Examines the application",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Rejects the application of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Rejects the application of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Confirmes the application of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Confirmes the application of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the application of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Informs about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Informs about the successful completion of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Informs about the successful completion of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the successful completion of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "Confirms the failure of the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "Confirms the failure of the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "Confirms the failure of the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "Assigns the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "Assigns the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "Confirms the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Assigns the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Confirms the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Confirms the assignment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Examines the application",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Rejects the application of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reports the meter operation",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Rejects the application of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application",
+    "node_B": "Confirmes the application of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Confirmes the application of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the application of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the registration confirmation of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Perform the equipment acquisition and / or equipment changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Informs about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the registration confirmation of the MPON",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Informs about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the equipment acquisition and / or equipment changes",
+    "node_B": "Informs about the successful completion of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Informs about the successful completion of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the entire process",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the successful completion of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "Informs about the failure of the overall transaction by deadline",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the successful completion of the entire process",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "If after a maximum time limit no message of the MPON is present at the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the overall transaction by deadline",
+    "node_B": "Confirms the failure of the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "If the MPON informs the GO about the failure of the entire process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "Confirms the failure of the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If after a maximum time limit no message of the MPON is present at the GO",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "Confirms the failure of the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the failure of the entire process",
+    "node_B": "Assigns the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "If the MPON informs the GO about the successful completion of the overall process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "Assigns the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the failure of the assignment",
+    "node_B": "Confirms the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Assigns the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Confirms the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the MPON informs the GO about the successful completion of the overall process",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Confirms the assignment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the assignment",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the failure of the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the MPON",
+    "node_B": "Informs about the assignment of the MPON",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

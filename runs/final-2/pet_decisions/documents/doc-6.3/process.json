@@ -1,0 +1,428 @@
+{
+ "structured_data": {
+  "participants": [
+   "An employee",
+   "It",
+   "Main Process",
+   "One of my masters",
+   "The sales department",
+   "The system",
+   "We"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_728bdf69",
+    "name": "Get a new order",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9f7c1703",
+    "name": "Determines the necessary parts and quantities as well as the delivery date",
+    "type": "task",
+    "lane": "One of my masters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1f2cc746",
+    "name": "Entered it",
+    "type": "task",
+    "lane": "One of my masters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_efb2c6ff",
+    "name": "Creates a list of parts",
+    "type": "task",
+    "lane": "It",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4f588a79",
+    "name": "Transferred the data",
+    "type": "task",
+    "lane": "It",
+    "metadata": [
+     "Manually"
+    ]
+   },
+   {
+    "id": "Condition Specification_e4bb2927",
+    "name": "Any parts are missing",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ddb76fd6",
+    "name": "Procured",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5646df55",
+    "name": "Receive a notice",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1cb5c024",
+    "name": "Takes care the implementation",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0c619eea",
+    "name": "Checked the order",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": [
+     "For its quality"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "An employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_728bdf69",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_728bdf69",
+    "target": "Activity_9f7c1703",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_9f7c1703",
+    "target": "Activity_1f2cc746",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_1f2cc746",
+    "target": "Activity_efb2c6ff",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_efb2c6ff",
+    "target": "Activity_4f588a79",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_4f588a79",
+    "target": "Condition Specification_e4bb2927",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Condition Specification_e4bb2927",
+    "target": "Activity_ddb76fd6",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_ddb76fd6",
+    "target": "Activity_5646df55",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Condition Specification_e4bb2927",
+    "target": "Activity_5646df55",
+    "name": "Or",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_5646df55",
+    "target": "Activity_1cb5c024",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_1cb5c024",
+    "target": "Activity_0c619eea",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_0c619eea",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 14,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_728bdf69",
+   "type": "task",
+   "name": "Get a new order"
+  },
+  {
+   "start": 18,
+   "end": 29,
+   "label": "Activity Data",
+   "id": "Activity Data_1a99dcff",
+   "type": null,
+   "name": "A new order"
+  },
+  {
+   "start": 35,
+   "end": 55,
+   "label": "Actor",
+   "id": "Actor_9eaa725e",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 66,
+   "end": 83,
+   "label": "Actor",
+   "id": "Actor_de927fd2",
+   "type": "Lane",
+   "name": "One of my masters"
+  },
+  {
+   "start": 84,
+   "end": 94,
+   "label": "Activity",
+   "id": "Activity_9f7c1703",
+   "type": "task",
+   "name": "Determines the necessary parts and quantities as well as the delivery date"
+  },
+  {
+   "start": 95,
+   "end": 158,
+   "label": "Activity Data",
+   "id": "Activity Data_659a6ce1",
+   "type": null,
+   "name": "The necessary parts and quantities as well as the delivery date"
+  },
+  {
+   "start": 196,
+   "end": 198,
+   "label": "Activity Data",
+   "id": "Activity Data_8e0e0261",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 209,
+   "end": 216,
+   "label": "Activity",
+   "id": "Activity_1f2cc746",
+   "type": "task",
+   "name": "Entered it"
+  },
+  {
+   "start": 394,
+   "end": 396,
+   "label": "Actor",
+   "id": "Actor_7e170658",
+   "type": "Lane",
+   "name": "It"
+  },
+  {
+   "start": 397,
+   "end": 404,
+   "label": "Activity",
+   "id": "Activity_efb2c6ff",
+   "type": "task",
+   "name": "Creates a list of parts"
+  },
+  {
+   "start": 405,
+   "end": 420,
+   "label": "Activity Data",
+   "id": "Activity Data_7eff9941",
+   "type": null,
+   "name": "A list of parts"
+  },
+  {
+   "start": 536,
+   "end": 544,
+   "label": "Activity Data",
+   "id": "Activity Data_eb21fa92",
+   "type": null,
+   "name": "The data"
+  },
+  {
+   "start": 553,
+   "end": 564,
+   "label": "Activity",
+   "id": "Activity_4f588a79",
+   "type": "task",
+   "name": "Transferred the data"
+  },
+  {
+   "start": 565,
+   "end": 573,
+   "label": "Further Specification",
+   "id": "Further Specification_28cc9c81",
+   "type": null,
+   "name": "Manually"
+  },
+  {
+   "start": 646,
+   "end": 648,
+   "label": "Actor",
+   "id": "Actor_8fcb559f",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 672,
+   "end": 693,
+   "label": "Condition Specification",
+   "id": "Condition Specification_e4bb2927",
+   "type": "exclusiveGateway",
+   "name": "Any parts are missing"
+  },
+  {
+   "start": 706,
+   "end": 714,
+   "label": "Activity",
+   "id": "Activity_ddb76fd6",
+   "type": "task",
+   "name": "Procured"
+  },
+  {
+   "start": 715,
+   "end": 717,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e26291fc",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 785,
+   "end": 787,
+   "label": "Actor",
+   "id": "Actor_bcdcb683",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 788,
+   "end": 795,
+   "label": "Activity",
+   "id": "Activity_5646df55",
+   "type": "task",
+   "name": "Receive a notice"
+  },
+  {
+   "start": 796,
+   "end": 804,
+   "label": "Activity Data",
+   "id": "Activity Data_cdf54cfb",
+   "type": null,
+   "name": "A notice"
+  },
+  {
+   "start": 810,
+   "end": 820,
+   "label": "Actor",
+   "id": "Actor_716fab89",
+   "type": "Lane",
+   "name": "The system"
+  },
+  {
+   "start": 825,
+   "end": 836,
+   "label": "Actor",
+   "id": "Actor_9d834308",
+   "type": "Lane",
+   "name": "An employee"
+  },
+  {
+   "start": 837,
+   "end": 847,
+   "label": "Activity",
+   "id": "Activity_1cb5c024",
+   "type": "task",
+   "name": "Takes care the implementation"
+  },
+  {
+   "start": 851,
+   "end": 869,
+   "label": "Activity Data",
+   "id": "Activity Data_21526414",
+   "type": null,
+   "name": "The implementation"
+  },
+  {
+   "start": 882,
+   "end": 891,
+   "label": "Activity Data",
+   "id": "Activity Data_d7d98fe7",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 900,
+   "end": 907,
+   "label": "Activity",
+   "id": "Activity_0c619eea",
+   "type": "task",
+   "name": "Checked the order"
+  },
+  {
+   "start": 914,
+   "end": 929,
+   "label": "Further Specification",
+   "id": "Further Specification_fef90db0",
+   "type": null,
+   "name": "For its quality"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Procured | decision: Or | Receive a notice | Takes care the implementation | Checked the order",
+    "label": "yes same after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

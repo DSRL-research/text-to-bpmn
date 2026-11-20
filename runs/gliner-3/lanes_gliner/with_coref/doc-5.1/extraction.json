@@ -1,0 +1,393 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The assessor or approver",
+      "The customer",
+      "The risk assessment Web service"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_929fea3b",
+        "name": "Receiving a customer request for a loan amount",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_805075c3",
+        "name": "Assess the request",
+        "type": "task",
+        "lane": "The risk assessment Web service",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_3c56f945",
+        "name": "If the loan is small and the customer is low risk",
+        "type": "exclusiveGateway",
+        "lane": "The risk assessment Web service",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1e83b579",
+        "name": "Approved the loan",
+        "type": "task",
+        "lane": "The risk assessment Web service",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2bb69b8f",
+        "name": "Denied the loan",
+        "type": "task",
+        "lane": "The risk assessment Web service",
+        "metadata": []
+      },
+      {
+        "id": "Activity_f7081936",
+        "name": "Sent the request",
+        "type": "task",
+        "lane": "The risk assessment Web service",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5d2cb5ce",
+        "name": "Receives feedback",
+        "type": "task",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The customer"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_929fea3b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_929fea3b",
+        "target": "Activity_805075c3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_805075c3",
+        "target": "XOR Gateway_3c56f945",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "XOR Gateway_3c56f945",
+        "target": "Activity_1e83b579",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_3c56f945",
+        "target": "Activity_2bb69b8f",
+        "name": "If the customer is high risk",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_3c56f945",
+        "target": "Activity_f7081936",
+        "name": "If",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_1e83b579",
+        "target": "Activity_5d2cb5ce",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_2bb69b8f",
+        "target": "Activity_5d2cb5ce",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_f7081936",
+        "target": "Activity_5d2cb5ce",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_5d2cb5ce",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 12
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 36,
+      "end": 45,
+      "label": "Activity",
+      "id": "Activity_929fea3b",
+      "type": "task",
+      "name": "Receiving a customer request for a loan amount"
+    },
+    {
+      "start": 46,
+      "end": 82,
+      "label": "Activity Data",
+      "id": "Activity Data_4238b8b7",
+      "type": null,
+      "name": "A customer request for a loan amount"
+    },
+    {
+      "start": 85,
+      "end": 116,
+      "label": "Actor",
+      "id": "Actor_acb75055",
+      "type": "Lane",
+      "name": "The risk assessment Web service"
+    },
+    {
+      "start": 131,
+      "end": 137,
+      "label": "Activity",
+      "id": "Activity_805075c3",
+      "type": "task",
+      "name": "Assess the request"
+    },
+    {
+      "start": 138,
+      "end": 149,
+      "label": "Activity Data",
+      "id": "Activity Data_7acfc150",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 152,
+      "end": 154,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_3c56f945",
+      "type": "exclusiveGateway",
+      "name": "If the loan is small and the customer is low risk"
+    },
+    {
+      "start": 155,
+      "end": 201,
+      "label": "Condition Specification",
+      "id": "Condition Specification_ce81a788",
+      "type": "exclusiveGateway",
+      "name": "The loan is small and the customer is low risk"
+    },
+    {
+      "start": 204,
+      "end": 212,
+      "label": "Activity Data",
+      "id": "Activity Data_c179d994",
+      "type": null,
+      "name": "The loan"
+    },
+    {
+      "start": 216,
+      "end": 224,
+      "label": "Activity",
+      "id": "Activity_1e83b579",
+      "type": "task",
+      "name": "Approved the loan"
+    },
+    {
+      "start": 227,
+      "end": 229,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_f4ac86d5",
+      "type": "exclusiveGateway",
+      "name": "If the customer is high risk"
+    },
+    {
+      "start": 230,
+      "end": 255,
+      "label": "Condition Specification",
+      "id": "Condition Specification_d52c3c9e",
+      "type": "exclusiveGateway",
+      "name": "The customer is high risk"
+    },
+    {
+      "start": 258,
+      "end": 266,
+      "label": "Activity Data",
+      "id": "Activity Data_63686f20",
+      "type": null,
+      "name": "The loan"
+    },
+    {
+      "start": 270,
+      "end": 276,
+      "label": "Activity",
+      "id": "Activity_2bb69b8f",
+      "type": "task",
+      "name": "Denied the loan"
+    },
+    {
+      "start": 279,
+      "end": 281,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_9695dc70",
+      "type": "exclusiveGateway",
+      "name": "If"
+    },
+    {
+      "start": 360,
+      "end": 371,
+      "label": "Activity Data",
+      "id": "Activity Data_a65e480b",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 375,
+      "end": 379,
+      "label": "Activity",
+      "id": "Activity_f7081936",
+      "type": "task",
+      "name": "Sent the request"
+    },
+    {
+      "start": 383,
+      "end": 407,
+      "label": "Actor",
+      "id": "Actor_a84f614e",
+      "type": "Lane",
+      "name": "The approver Web service"
+    },
+    {
+      "start": 410,
+      "end": 422,
+      "label": "Actor",
+      "id": "Actor_b4134f67",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 423,
+      "end": 431,
+      "label": "Activity",
+      "id": "Activity_5d2cb5ce",
+      "type": "task",
+      "name": "Receives feedback"
+    },
+    {
+      "start": 432,
+      "end": 440,
+      "label": "Activity Data",
+      "id": "Activity Data_7d9b4f7c",
+      "type": null,
+      "name": "Feedback"
+    },
+    {
+      "start": 446,
+      "end": 470,
+      "label": "Actor",
+      "id": "Actor_1ff1240b",
+      "type": "Lane",
+      "name": "The assessor or approver"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the loan is small and the customer is low risk",
+        "node_B": "Approved the loan | decision: If the customer is high risk | Denied the loan | decision: If | Sent the request | Receives feedback",
+        "label": "yes same yes same yes after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

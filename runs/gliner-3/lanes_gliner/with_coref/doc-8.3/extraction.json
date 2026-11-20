@@ -1,0 +1,423 @@
+{
+  "structured_data": {
+    "participants": [
+      "I",
+      "Main Process",
+      "The colleague from the HR department"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_1d50bfd3",
+        "name": "Detected a number of personnel requirements",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d27f1ea9",
+        "name": "Report the vacancy",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_0347ed6f",
+        "name": "Get the job description for review",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2f3deb71",
+        "name": "Advertized the job description",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ac2b5510",
+        "name": "Ask corrections",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_7cfc4cbd",
+        "name": "Otherwise",
+        "type": "exclusiveGateway",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5987b459",
+        "name": "Approve the job description",
+        "type": "task",
+        "lane": "I",
+        "metadata": []
+      },
+      {
+        "id": "Activity_bd32466e",
+        "name": "Describe the job",
+        "type": "task",
+        "lane": "The colleague from the HR department",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The colleague from the HR department"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_1d50bfd3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_1d50bfd3",
+        "target": "Activity_d27f1ea9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_d27f1ea9",
+        "target": "Activity_0347ed6f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_0347ed6f",
+        "target": "Activity_2f3deb71",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_2f3deb71",
+        "target": "Activity_ac2b5510",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_ac2b5510",
+        "target": "XOR Gateway_7cfc4cbd",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_7cfc4cbd",
+        "target": "Activity_5987b459",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_5987b459",
+        "target": "Activity_bd32466e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "XOR Gateway_7cfc4cbd",
+        "target": "Activity_bd32466e",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_bd32466e",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 12
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 50,
+      "end": 51,
+      "label": "Actor",
+      "id": "Actor_bb22ee34",
+      "type": "Lane",
+      "name": "I"
+    },
+    {
+      "start": 57,
+      "end": 65,
+      "label": "Activity",
+      "id": "Activity_1d50bfd3",
+      "type": "task",
+      "name": "Detected a number of personnel requirements"
+    },
+    {
+      "start": 66,
+      "end": 100,
+      "label": "Activity Data",
+      "id": "Activity Data_2382664d",
+      "type": null,
+      "name": "A number of personnel requirements"
+    },
+    {
+      "start": 103,
+      "end": 104,
+      "label": "Actor",
+      "id": "Actor_3510ab21",
+      "type": "Lane",
+      "name": "I"
+    },
+    {
+      "start": 105,
+      "end": 111,
+      "label": "Activity",
+      "id": "Activity_d27f1ea9",
+      "type": "task",
+      "name": "Report the vacancy"
+    },
+    {
+      "start": 112,
+      "end": 123,
+      "label": "Activity Data",
+      "id": "Activity Data_7c66a23d",
+      "type": null,
+      "name": "The vacancy"
+    },
+    {
+      "start": 127,
+      "end": 151,
+      "label": "Actor",
+      "id": "Actor_a15021d0",
+      "type": "Lane",
+      "name": "The Personnel Department"
+    },
+    {
+      "start": 159,
+      "end": 160,
+      "label": "Actor",
+      "id": "Actor_6a93bdde",
+      "type": "Lane",
+      "name": "I"
+    },
+    {
+      "start": 169,
+      "end": 172,
+      "label": "Activity",
+      "id": "Activity_0347ed6f",
+      "type": "task",
+      "name": "Get the job description for review"
+    },
+    {
+      "start": 173,
+      "end": 203,
+      "label": "Activity Data",
+      "id": "Activity Data_8460f766",
+      "type": null,
+      "name": "The job description for review"
+    },
+    {
+      "start": 211,
+      "end": 230,
+      "label": "Activity Data",
+      "id": "Activity Data_875bb430",
+      "type": null,
+      "name": "The job description"
+    },
+    {
+      "start": 234,
+      "end": 244,
+      "label": "Activity",
+      "id": "Activity_2f3deb71",
+      "type": "task",
+      "name": "Advertized the job description"
+    },
+    {
+      "start": 277,
+      "end": 278,
+      "label": "Actor",
+      "id": "Actor_5e17f856",
+      "type": "Lane",
+      "name": "I"
+    },
+    {
+      "start": 284,
+      "end": 287,
+      "label": "Activity",
+      "id": "Activity_ac2b5510",
+      "type": "task",
+      "name": "Ask corrections"
+    },
+    {
+      "start": 292,
+      "end": 303,
+      "label": "Activity Data",
+      "id": "Activity Data_c690f962",
+      "type": null,
+      "name": "Corrections"
+    },
+    {
+      "start": 312,
+      "end": 321,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_7cfc4cbd",
+      "type": "exclusiveGateway",
+      "name": "Otherwise"
+    },
+    {
+      "start": 322,
+      "end": 323,
+      "label": "Actor",
+      "id": "Actor_2942bad3",
+      "type": "Lane",
+      "name": "I"
+    },
+    {
+      "start": 324,
+      "end": 331,
+      "label": "Activity",
+      "id": "Activity_5987b459",
+      "type": "task",
+      "name": "Approve the job description"
+    },
+    {
+      "start": 332,
+      "end": 351,
+      "label": "Activity Data",
+      "id": "Activity Data_2aa63b53",
+      "type": null,
+      "name": "The job description"
+    },
+    {
+      "start": 385,
+      "end": 421,
+      "label": "Actor",
+      "id": "Actor_2c05549c",
+      "type": "Lane",
+      "name": "The colleague from the HR department"
+    },
+    {
+      "start": 482,
+      "end": 518,
+      "label": "Actor",
+      "id": "Actor_a9718b76",
+      "type": "Lane",
+      "name": "The colleague from the HR department"
+    },
+    {
+      "start": 523,
+      "end": 531,
+      "label": "Activity",
+      "id": "Activity_bd32466e",
+      "type": "task",
+      "name": "Describe the job"
+    },
+    {
+      "start": 532,
+      "end": 539,
+      "label": "Activity Data",
+      "id": "Activity Data_612333cf",
+      "type": null,
+      "name": "The job"
+    },
+    {
+      "start": 547,
+      "end": 548,
+      "label": "Actor",
+      "id": "Actor_8bbdc0d8",
+      "type": "Lane",
+      "name": "I"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Otherwise",
+        "node_B": "Approve the job description | Describe the job",
+        "label": "yes after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

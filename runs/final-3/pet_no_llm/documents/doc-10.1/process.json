@@ -1,0 +1,328 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_e2935558",
+    "name": "Sents the dismissal",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_baecfbdb",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2bd964ee",
+    "name": "Opposes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_89865a36",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_138710ed",
+    "name": "Confirmes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPOO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_2a563ee8",
+    "source": "StartEvent_1",
+    "target": "Activity_e2935558",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3986e2e3",
+    "source": "Activity_e2935558",
+    "target": "Activity_baecfbdb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_92d62afd",
+    "source": "Activity_baecfbdb",
+    "target": "Activity_2bd964ee",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c6ae80e1",
+    "source": "Activity_2bd964ee",
+    "target": "XOR Gateway_89865a36",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ce53242b",
+    "source": "XOR Gateway_89865a36",
+    "target": "Activity_138710ed",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_99145b7d",
+    "source": "Activity_138710ed",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_55bb3ecf",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_e2935558",
+   "type": "task",
+   "name": "Sents the dismissal"
+  },
+  {
+   "start": 15,
+   "end": 28,
+   "label": "Activity Data",
+   "id": "Activity Data_e5da1219",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 32,
+   "end": 40,
+   "label": "Actor",
+   "id": "Actor_da881ae7",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 43,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_7df3ccaf",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 52,
+   "end": 59,
+   "label": "Activity",
+   "id": "Activity_baecfbdb",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 60,
+   "end": 73,
+   "label": "Activity Data",
+   "id": "Activity Data_69698800",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 76,
+   "end": 84,
+   "label": "Actor",
+   "id": "Actor_0c51258c",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 85,
+   "end": 92,
+   "label": "Activity",
+   "id": "Activity_2bd964ee",
+   "type": "task",
+   "name": "Opposes the dismissal"
+  },
+  {
+   "start": 93,
+   "end": 106,
+   "label": "Activity Data",
+   "id": "Activity Data_0561024b",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 115,
+   "end": 117,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_89865a36",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 118,
+   "end": 126,
+   "label": "Actor",
+   "id": "Actor_7e74bd27",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 127,
+   "end": 136,
+   "label": "Activity",
+   "id": "Activity_138710ed",
+   "type": "task",
+   "name": "Confirmes the dismissal"
+  },
+  {
+   "start": 137,
+   "end": 150,
+   "label": "Activity Data",
+   "id": "Activity Data_15599141",
+   "type": null,
+   "name": "The dismissal"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 9,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Reviews the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Opposes the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Opposes the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Reviews the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Opposes the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Opposes the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

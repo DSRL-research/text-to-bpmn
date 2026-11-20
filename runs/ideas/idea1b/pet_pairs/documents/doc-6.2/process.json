@@ -1,0 +1,315 @@
+{
+ "structured_data": {
+  "participants": [
+   "Assembler AG",
+   "Main Process",
+   "The supplier"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_387066b7",
+    "name": "Places an order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": [
+     "In order to request more product parts"
+    ]
+   },
+   {
+    "id": "Activity_5e37b595",
+    "name": "Sends the order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e577339b",
+    "name": "Processes the order",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_02286a7d",
+    "name": "Sends an invoice",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c188ac9d",
+    "name": "Receives the invoice",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Assembler AG"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_ab7ebf51",
+    "source": "StartEvent_1",
+    "target": "Activity_387066b7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6eeb149a",
+    "source": "Activity_387066b7",
+    "target": "Activity_5e37b595",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c23a737a",
+    "source": "Activity_5e37b595",
+    "target": "Activity_e577339b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_621bd532",
+    "source": "Activity_e577339b",
+    "target": "Activity_02286a7d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_67070257",
+    "source": "Activity_02286a7d",
+    "target": "Activity_c188ac9d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5e87d952",
+    "source": "Activity_c188ac9d",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 66,
+   "end": 78,
+   "label": "Actor",
+   "id": "Actor_5c972337",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 79,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_387066b7",
+   "type": "task",
+   "name": "Places an order"
+  },
+  {
+   "start": 86,
+   "end": 94,
+   "label": "Activity Data",
+   "id": "Activity Data_44a06818",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 100,
+   "end": 112,
+   "label": "Actor",
+   "id": "Actor_ffb9b9c7",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 113,
+   "end": 151,
+   "label": "Further Specification",
+   "id": "Further Specification_3c3fe2bf",
+   "type": null,
+   "name": "In order to request more product parts"
+  },
+  {
+   "start": 158,
+   "end": 170,
+   "label": "Actor",
+   "id": "Actor_56e48a1a",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 171,
+   "end": 176,
+   "label": "Activity",
+   "id": "Activity_5e37b595",
+   "type": "task",
+   "name": "Sends the order"
+  },
+  {
+   "start": 177,
+   "end": 186,
+   "label": "Activity Data",
+   "id": "Activity Data_54a495e6",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 190,
+   "end": 202,
+   "label": "Actor",
+   "id": "Actor_8f749358",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 209,
+   "end": 221,
+   "label": "Actor",
+   "id": "Actor_8f03171a",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 222,
+   "end": 231,
+   "label": "Activity",
+   "id": "Activity_e577339b",
+   "type": "task",
+   "name": "Processes the order"
+  },
+  {
+   "start": 232,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_da874507",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 248,
+   "end": 260,
+   "label": "Actor",
+   "id": "Actor_dbae0624",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 261,
+   "end": 266,
+   "label": "Activity",
+   "id": "Activity_02286a7d",
+   "type": "task",
+   "name": "Sends an invoice"
+  },
+  {
+   "start": 267,
+   "end": 277,
+   "label": "Activity Data",
+   "id": "Activity Data_d34ebc3e",
+   "type": null,
+   "name": "An invoice"
+  },
+  {
+   "start": 281,
+   "end": 293,
+   "label": "Actor",
+   "id": "Actor_47ae1011",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 300,
+   "end": 312,
+   "label": "Actor",
+   "id": "Actor_0c2a3ec0",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 313,
+   "end": 321,
+   "label": "Activity",
+   "id": "Activity_c188ac9d",
+   "type": "task",
+   "name": "Receives the invoice"
+  },
+  {
+   "start": 322,
+   "end": 333,
+   "label": "Activity Data",
+   "id": "Activity Data_7e08b703",
+   "type": null,
+   "name": "The invoice"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends the order",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Processes the order",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends an invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Processes the order",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Sends an invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Receives the invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Sends an invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Receives the invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends an invoice",
+    "node_B": "Receives the invoice",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

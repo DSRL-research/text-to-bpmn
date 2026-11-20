@@ -1,0 +1,295 @@
+{
+  "limits": {
+    "PET": {
+      "decisions asked": 78,
+      "no branch in the answer (text order kept)": 5,
+      "second mentions absorbed ('same')": 27,
+      "decisions that absorbed a second mention": 22,
+      "ended by a later decision word after branch steps (possible nesting)": 25,
+      "no 'after' before the text's end": 19,
+      "concurrency words asked": 6,
+      "concurrency answers with two lines or more": 6,
+      "window full (10 items), no 'after'": 1,
+      "concurrency words in the text": 8,
+      "gold Flow relations": 674,
+      "gold Flow relations running backward in the text": 43,
+      "of them, from a concurrency word to a line before it": 5
+    },
+    "cases": {
+      "decisions asked": 9,
+      "no branch in the answer (text order kept)": 3,
+      "second mentions absorbed ('same')": 1,
+      "decisions that absorbed a second mention": 1,
+      "no 'after' before the text's end": 2,
+      "concurrency words asked": 1,
+      "concurrency answers with two lines or more": 1,
+      "ended by a later decision word after branch steps (possible nesting)": 1,
+      "concurrency words in the text (recognised)": 1
+    }
+  },
+  "validation_rules": {
+    "PET": {
+      "models": 45,
+      "fired": {
+        "gateways": 34,
+        "split/join": 51,
+        "lanes": 163
+      },
+      "in_models": {
+        "gateways": 21,
+        "lanes": 44,
+        "split/join": 37
+      },
+      "kinds": {
+        "lanes: lane …": 122,
+        "split/join: exclusiveGateway join added before …": 45,
+        "lanes: … in …, which holds no task": 41,
+        "gateways: mixed gateway … divided into exclusiveGateway join + split": 28,
+        "gateways: pass-through gateway … removed": 6,
+        "split/join: parallelGateway join added before …": 6
+      }
+    },
+    "cases": {
+      "models": 3,
+      "fired": {
+        "gateways": 5,
+        "split/join": 4,
+        "lanes": 17
+      },
+      "in_models": {
+        "gateways": 3,
+        "lanes": 3,
+        "split/join": 3
+      },
+      "kinds": {
+        "lanes: lane …": 12,
+        "split/join: exclusiveGateway join added before …": 4,
+        "lanes: … in …, which holds no task": 4,
+        "gateways: pass-through gateway … removed": 2,
+        "gateways: mixed gateway … divided into exclusiveGateway join + split": 2,
+        "gateways: merging exclusiveGateway …": 1,
+        "lanes: lane \"The Patient…s Family\"": 1
+      }
+    }
+  },
+  "decisions": {
+    "totals": {
+      "the method (idea 3)": {
+        "right: the same branch heads": 37,
+        "a wrong branch head": 15,
+        "not built: one way on or none": 17,
+        "an extra branch head": 6
+      },
+      "idea 1c": {
+        "right: the same branch heads": 37,
+        "a wrong branch head": 15,
+        "not built: one way on or none": 17,
+        "an extra branch head": 6
+      },
+      "the method's no-LLM control": {
+        "not built: one way on or none": 46,
+        "right: the same branch heads": 24,
+        "a branch head missed": 4,
+        "a wrong branch head": 1
+      },
+      "text order, no LLM": {
+        "right: the same branch heads": 32,
+        "not built: one way on or none": 38,
+        "a branch head missed": 3,
+        "a wrong branch head": 2
+      }
+    },
+    "share_right": {
+      "the method (idea 3)": 0.49333333333333335,
+      "idea 1c": 0.49333333333333335,
+      "the method's no-LLM control": 0.32,
+      "text order, no LLM": 0.4266666666666667
+    },
+    "examples": {
+      "right: the same branch heads": [
+        "doc-8.3: 'Under certain circumstances' gold ['approve', 'ask'], built ['approve', 'ask']",
+        "doc-6.3: 'or' gold ['procured', 'receive'], built ['procured', 'receive']"
+      ],
+      "a wrong branch head": [
+        "doc-10.8: 'or' gold ['confirms', 'rejects'], built ['assigns', 'confirms']",
+        "doc-9.5: 'whereas' gold ['approved', 'require'], built ['In case of', 'require']"
+      ],
+      "not built: one way on or none": [
+        "doc-9.5: 'if' gold ['created', 'reviewed'], built ['reviewed']",
+        "doc-1.3: 'if' gold ['debits', 'wait'], built []"
+      ],
+      "an extra branch head": [
+        "doc-9.5: 'In case of' gold ['goes', 'receive', 'receive'], built ['If', 'goes', 'receive', 'receive']",
+        "doc-6.4: 'If' gold ['given'], built ['If', 'given']"
+      ]
+    },
+    "differences": {
+      "the method (idea 3) − idea 1c": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "the method (idea 3) − the method's no-LLM control": {
+        "difference": 0.17333333333333334,
+        "ci95": [
+          0.07042253521126757,
+          0.2933333333333333
+        ]
+      },
+      "the method (idea 3) − text order, no LLM": {
+        "difference": 0.06666666666666665,
+        "ci95": [
+          -0.02564102564102566,
+          0.1686746987951807
+        ]
+      }
+    }
+  },
+  "errors": {
+    "missed": {
+      "backward in the text (cannot be built)": 41,
+      "activity -> xor gateway": 28,
+      "an end the model does not use": 26,
+      "activity -> activity": 19,
+      "condition specification -> activity": 5,
+      "xor gateway -> activity": 4,
+      "xor gateway -> xor gateway": 3,
+      "activity -> and gateway": 2,
+      "condition specification -> xor gateway": 1,
+      "and gateway -> activity": 1
+    },
+    "missed_examples": {
+      "activity -> xor gateway": [
+        "doc-8.3: 'get' -> 'Under certain circumstances'",
+        "doc-6.3: 'transferred' -> 'or'"
+      ],
+      "backward in the text (cannot be built)": [
+        "doc-8.3: 'ask' -> 'get'",
+        "doc-8.3: 'approve' -> 'advertized'"
+      ],
+      "an end the model does not use": [
+        "doc-1.4: 'makes' -> 'select'",
+        "doc-1.4: 'select' -> 'prepare'"
+      ],
+      "activity -> activity": [
+        "doc-10.8: 'rejects' -> 'assigns'",
+        "doc-9.5: 'created' -> 'reviewed'"
+      ],
+      "xor gateway -> activity": [
+        "doc-9.5: 'if' -> 'reviewed'",
+        "doc-4.1: 'if' -> 'puts'"
+      ],
+      "activity -> and gateway": [
+        "doc-3.5: 'takes' -> 'Meantime'",
+        "doc-2.2: 'transmits' -> 'At the same time'"
+      ],
+      "xor gateway -> xor gateway": [
+        "doc-9.1: 'If' -> 'otherwise'",
+        "doc-6.4: 'If' -> 'If'"
+      ],
+      "condition specification -> activity": [
+        "doc-5.3: 'the request is rejected' -> 'send'",
+        "doc-5.3: 'the request is asked to make a change' -> 'send'"
+      ],
+      "condition specification -> xor gateway": [
+        "doc-6.4: 'this is not the case' -> 'if'"
+      ],
+      "and gateway -> activity": [
+        "doc-2.2: 'At the same time' -> 'computes'"
+      ]
+    },
+    "extra": {
+      "activity -> activity": 50,
+      "activity -> xor gateway": 43,
+      "xor gateway -> activity": 13,
+      "xor gateway -> xor gateway": 12,
+      "condition specification -> activity": 7,
+      "activity -> and gateway": 4,
+      "condition specification -> xor gateway": 3,
+      "activity -> condition specification": 1,
+      "and gateway -> activity": 1
+    },
+    "extra_examples": {
+      "activity -> activity": [
+        "doc-8.3: 'get' -> 'advertized'",
+        "doc-1.4: 'makes' -> 'prepare'"
+      ],
+      "activity -> xor gateway": [
+        "doc-8.3: 'advertized' -> 'Under certain circumstances'",
+        "doc-10.8: 'rejects' -> 'or'"
+      ],
+      "activity -> condition specification": [
+        "doc-6.3: 'transferred' -> 'any parts are missing'"
+      ],
+      "xor gateway -> activity": [
+        "doc-10.8: 'or' -> 'assigns'",
+        "doc-10.2: 'or' -> 'informs'"
+      ],
+      "condition specification -> activity": [
+        "doc-9.5: 'the employee does not already have one' -> 'reviewed'",
+        "doc-5.3: 'the request is approved' -> 'making'"
+      ],
+      "xor gateway -> xor gateway": [
+        "doc-9.5: 'whereas' -> 'In case of'",
+        "doc-9.5: 'If' -> 'If'"
+      ],
+      "condition specification -> xor gateway": [
+        "doc-10.2: 'after a maximum time limit no message of the MPON is present at the GO' -> 'If'",
+        "doc-5.3: 'the request is rejected' -> 'If'"
+      ],
+      "activity -> and gateway": [
+        "doc-3.5: 'sent back' -> 'Meantime'",
+        "doc-3.5: 'posts' -> 'Meantime'"
+      ],
+      "and gateway -> activity": [
+        "doc-3.5: 'Meantime' -> 'prints'"
+      ]
+    }
+  },
+  "lanes_without_recipients": {
+    "BERT, with FastCoref": {
+      "all": {
+        "activities_with_a_gold_performer": 396,
+        "recognised": 378,
+        "in_performer_lane": 0.8333,
+        "correct": 315
+      },
+      "without_recipients": {
+        "activities_with_a_gold_performer": 274,
+        "recognised": 259,
+        "in_performer_lane": 0.8263,
+        "correct": 214
+      }
+    },
+    "BERT, without FastCoref": {
+      "all": {
+        "activities_with_a_gold_performer": 396,
+        "recognised": 381,
+        "in_performer_lane": 0.769,
+        "correct": 293
+      },
+      "without_recipients": {
+        "activities_with_a_gold_performer": 274,
+        "recognised": 262,
+        "in_performer_lane": 0.7786,
+        "correct": 204
+      }
+    },
+    "GLiNER A, with FastCoref": {
+      "all": {
+        "activities_with_a_gold_performer": 396,
+        "recognised": 371,
+        "in_performer_lane": 0.8248,
+        "correct": 306
+      },
+      "without_recipients": {
+        "activities_with_a_gold_performer": 274,
+        "recognised": 251,
+        "in_performer_lane": 0.8167,
+        "correct": 205
+      }
+    }
+  }
+}

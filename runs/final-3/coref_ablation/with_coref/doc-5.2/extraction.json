@@ -1,0 +1,415 @@
+{
+  "structured_data": {
+    "participants": [
+      "Any employee",
+      "Main Process",
+      "The immediate supervisor of",
+      "The supervisor"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_f7a73aba",
+        "name": "Submits a vacation request",
+        "type": "task",
+        "lane": "Any employee",
+        "metadata": []
+      },
+      {
+        "id": "Activity_fe09f011",
+        "name": "Registered the request",
+        "type": "task",
+        "lane": "The immediate supervisor of",
+        "metadata": [
+          "The requirement"
+        ]
+      },
+      {
+        "id": "Activity_4db04f9d",
+        "name": "Received",
+        "type": "task",
+        "lane": "The immediate supervisor of",
+        "metadata": []
+      },
+      {
+        "id": "Activity_cd8a3d39",
+        "name": "Approve or reject the request",
+        "type": "task",
+        "lane": "The supervisor",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_d2bb4a9d",
+        "name": "If the request is rejected",
+        "type": "exclusiveGateway",
+        "lane": "The supervisor",
+        "metadata": []
+      },
+      {
+        "id": "Activity_4139feae",
+        "name": "Returned the application",
+        "type": "task",
+        "lane": "The supervisor",
+        "metadata": []
+      },
+      {
+        "id": "Activity_074aef2e",
+        "name": "Generated a notification",
+        "type": "task",
+        "lane": "The supervisor",
+        "metadata": [
+          "The respective",
+          "Procedures"
+        ]
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The supervisor"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_f7a73aba",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_f7a73aba",
+        "target": "Activity_fe09f011",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_fe09f011",
+        "target": "Activity_4db04f9d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_4db04f9d",
+        "target": "Activity_cd8a3d39",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_cd8a3d39",
+        "target": "XOR Gateway_d2bb4a9d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_d2bb4a9d",
+        "target": "Activity_4139feae",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_d2bb4a9d",
+        "target": "Activity_074aef2e",
+        "name": "If the request is approved",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_4139feae",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_074aef2e",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 11
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 45,
+      "end": 57,
+      "label": "Actor",
+      "id": "Actor_b5e90ae6",
+      "type": "Lane",
+      "name": "Any employee"
+    },
+    {
+      "start": 78,
+      "end": 85,
+      "label": "Activity",
+      "id": "Activity_f7a73aba",
+      "type": "task",
+      "name": "Submits a vacation request"
+    },
+    {
+      "start": 86,
+      "end": 104,
+      "label": "Activity Data",
+      "id": "Activity Data_3bf0f709",
+      "type": null,
+      "name": "A vacation request"
+    },
+    {
+      "start": 112,
+      "end": 127,
+      "label": "Activity Data",
+      "id": "Activity Data_186b1d21",
+      "type": null,
+      "name": "The requirement"
+    },
+    {
+      "start": 131,
+      "end": 141,
+      "label": "Activity",
+      "id": "Activity_fe09f011",
+      "type": "task",
+      "name": "Registered the request"
+    },
+    {
+      "start": 144,
+      "end": 155,
+      "label": "Activity Data",
+      "id": "Activity Data_ea422865",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 159,
+      "end": 167,
+      "label": "Activity",
+      "id": "Activity_4db04f9d",
+      "type": "task",
+      "name": "Received"
+    },
+    {
+      "start": 171,
+      "end": 198,
+      "label": "Actor",
+      "id": "Actor_4f25a0ef",
+      "type": "Lane",
+      "name": "The immediate supervisor of"
+    },
+    {
+      "start": 238,
+      "end": 252,
+      "label": "Actor",
+      "id": "Actor_9b7a55b4",
+      "type": "Lane",
+      "name": "The supervisor"
+    },
+    {
+      "start": 258,
+      "end": 275,
+      "label": "Activity",
+      "id": "Activity_cd8a3d39",
+      "type": "task",
+      "name": "Approve or reject the request"
+    },
+    {
+      "start": 276,
+      "end": 287,
+      "label": "Activity Data",
+      "id": "Activity Data_36755b3c",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 290,
+      "end": 292,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_d2bb4a9d",
+      "type": "exclusiveGateway",
+      "name": "If the request is rejected"
+    },
+    {
+      "start": 293,
+      "end": 316,
+      "label": "Condition Specification",
+      "id": "Condition Specification_5ecec1a7",
+      "type": "exclusiveGateway",
+      "name": "The request is rejected"
+    },
+    {
+      "start": 319,
+      "end": 334,
+      "label": "Activity Data",
+      "id": "Activity Data_06373aab",
+      "type": null,
+      "name": "The application"
+    },
+    {
+      "start": 338,
+      "end": 346,
+      "label": "Activity",
+      "id": "Activity_4139feae",
+      "type": "task",
+      "name": "Returned the application"
+    },
+    {
+      "start": 350,
+      "end": 374,
+      "label": "Actor",
+      "id": "Actor_9b2084a3",
+      "type": "Lane",
+      "name": "The applicant / employee"
+    },
+    {
+      "start": 414,
+      "end": 416,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_4049bff8",
+      "type": "exclusiveGateway",
+      "name": "If the request is approved"
+    },
+    {
+      "start": 417,
+      "end": 440,
+      "label": "Condition Specification",
+      "id": "Condition Specification_e64ecc74",
+      "type": "exclusiveGateway",
+      "name": "The request is approved"
+    },
+    {
+      "start": 441,
+      "end": 455,
+      "label": "Activity Data",
+      "id": "Activity Data_a199b1d9",
+      "type": null,
+      "name": "A notification"
+    },
+    {
+      "start": 459,
+      "end": 468,
+      "label": "Activity",
+      "id": "Activity_074aef2e",
+      "type": "task",
+      "name": "Generated a notification"
+    },
+    {
+      "start": 472,
+      "end": 506,
+      "label": "Actor",
+      "id": "Actor_ad8e2a4f",
+      "type": "Lane",
+      "name": "The Human Resources Representative"
+    },
+    {
+      "start": 518,
+      "end": 526,
+      "label": "Activity",
+      "id": "Activity_45f26a2b",
+      "type": null,
+      "name": null
+    },
+    {
+      "start": 527,
+      "end": 541,
+      "label": "Activity Data",
+      "id": "Activity Data_5613917a",
+      "type": null,
+      "name": "The respective"
+    },
+    {
+      "start": 553,
+      "end": 563,
+      "label": "Activity Data",
+      "id": "Activity Data_02956a1a",
+      "type": null,
+      "name": "Procedures"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the request is rejected",
+        "node_B": "Returned the application | decision: If the request is approved | Generated a notification",
+        "label": "yes same yes",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

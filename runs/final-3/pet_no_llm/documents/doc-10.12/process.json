@@ -1,0 +1,412 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The EC",
+   "The INQ",
+   "The IP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_e4d6c2ba",
+    "name": "Tells about the change of his master data",
+    "type": "task",
+    "lane": "The EC",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f167523b",
+    "name": "Notifies the change",
+    "type": "task",
+    "lane": "The INQ",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e1a04065",
+    "name": "Checks",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": [
+     "Whether the master data can be changed at the desired time"
+    ]
+   },
+   {
+    "id": "Activity_a78c7630",
+    "name": "Confirmes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_6ec3f2bc",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3f03d320",
+    "name": "Rejectes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The IP"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_88940d04",
+    "source": "StartEvent_1",
+    "target": "Activity_e4d6c2ba",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0b0b2855",
+    "source": "Activity_e4d6c2ba",
+    "target": "Activity_f167523b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7b47852a",
+    "source": "Activity_f167523b",
+    "target": "Activity_e1a04065",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b183ee19",
+    "source": "Activity_e1a04065",
+    "target": "Activity_a78c7630",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_acdccd61",
+    "source": "Activity_a78c7630",
+    "target": "XOR Gateway_6ec3f2bc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_79cfb34a",
+    "source": "XOR Gateway_6ec3f2bc",
+    "target": "Activity_3f03d320",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8c26d121",
+    "source": "Activity_3f03d320",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 6,
+   "label": "Actor",
+   "id": "Actor_f7b8f5e6",
+   "type": "Lane",
+   "name": "The EC"
+  },
+  {
+   "start": 7,
+   "end": 12,
+   "label": "Activity",
+   "id": "Activity_e4d6c2ba",
+   "type": "task",
+   "name": "Tells about the change of his master data"
+  },
+  {
+   "start": 13,
+   "end": 20,
+   "label": "Actor",
+   "id": "Actor_54821159",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 21,
+   "end": 56,
+   "label": "Activity Data",
+   "id": "Activity Data_584bf502",
+   "type": null,
+   "name": "About the change of his master data"
+  },
+  {
+   "start": 59,
+   "end": 66,
+   "label": "Actor",
+   "id": "Actor_21dc5466",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 67,
+   "end": 75,
+   "label": "Activity",
+   "id": "Activity_f167523b",
+   "type": "task",
+   "name": "Notifies the change"
+  },
+  {
+   "start": 76,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_4239c4ba",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 86,
+   "end": 96,
+   "label": "Activity Data",
+   "id": "Activity Data_abf76b4a",
+   "type": null,
+   "name": "The change"
+  },
+  {
+   "start": 99,
+   "end": 105,
+   "label": "Actor",
+   "id": "Actor_48b1ad27",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 106,
+   "end": 112,
+   "label": "Activity",
+   "id": "Activity_e1a04065",
+   "type": "task",
+   "name": "Checks"
+  },
+  {
+   "start": 113,
+   "end": 171,
+   "label": "Further Specification",
+   "id": "Further Specification_5a56c2fe",
+   "type": null,
+   "name": "Whether the master data can be changed at the desired time"
+  },
+  {
+   "start": 174,
+   "end": 180,
+   "label": "Actor",
+   "id": "Actor_89481a9b",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "label": "Activity",
+   "id": "Activity_a78c7630",
+   "type": "task",
+   "name": "Confirmes the changes of the INQ"
+  },
+  {
+   "start": 191,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_8952cd8c",
+   "type": null,
+   "name": "The changes of the INQ"
+  },
+  {
+   "start": 214,
+   "end": 216,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_6ec3f2bc",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 217,
+   "end": 223,
+   "label": "Actor",
+   "id": "Actor_2d2992e7",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 224,
+   "end": 232,
+   "label": "Activity",
+   "id": "Activity_3f03d320",
+   "type": "task",
+   "name": "Rejectes the changes of the INQ"
+  },
+  {
+   "start": 233,
+   "end": 255,
+   "label": "Activity Data",
+   "id": "Activity Data_bdb036ca",
+   "type": null,
+   "name": "The changes of the INQ"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 12,
+  "skipped": 0,
+  "failures": 12,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Notifies the change",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Checks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Confirmes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Checks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Confirmes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Confirmes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Rejectes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Rejectes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Rejectes the changes of the INQ",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Notifies the change",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Checks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Checks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

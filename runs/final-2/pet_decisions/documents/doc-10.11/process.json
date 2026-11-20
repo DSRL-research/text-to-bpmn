@@ -1,0 +1,475 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_4eda7e71",
+    "name": "Requests the measurements",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bb57ceb4",
+    "name": "Checks the received request",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e07b7ad8",
+    "name": "Denies the request of the GO",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_d5e8cc35",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fd727556",
+    "name": "Performs the measurement",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_52f6099b",
+    "name": "Transmits the measured values",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_45e0d793",
+    "name": "Informs about the failure of the reading",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1ed82613",
+    "name": "Processes the measured values",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8e0353b1",
+    "name": "Sends the changed values",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_48f6cdc8",
+    "name": "Transmit the readings",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_4eda7e71",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_4eda7e71",
+    "target": "Activity_bb57ceb4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_bb57ceb4",
+    "target": "Activity_e07b7ad8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_e07b7ad8",
+    "target": "XOR Gateway_d5e8cc35",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_d5e8cc35",
+    "target": "Activity_fd727556",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "XOR Gateway_d5e8cc35",
+    "target": "Activity_52f6099b",
+    "name": "Or",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_d5e8cc35",
+    "target": "Activity_45e0d793",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_fd727556",
+    "target": "Activity_1ed82613",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_52f6099b",
+    "target": "Activity_1ed82613",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_45e0d793",
+    "target": "Activity_1ed82613",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_1ed82613",
+    "target": "Activity_8e0353b1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_8e0353b1",
+    "target": "Activity_48f6cdc8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_48f6cdc8",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 6,
+   "label": "Actor",
+   "id": "Actor_bc1b9813",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 7,
+   "end": 15,
+   "label": "Activity",
+   "id": "Activity_4eda7e71",
+   "type": "task",
+   "name": "Requests the measurements"
+  },
+  {
+   "start": 16,
+   "end": 32,
+   "label": "Activity Data",
+   "id": "Activity Data_7503db54",
+   "type": null,
+   "name": "The measurements"
+  },
+  {
+   "start": 36,
+   "end": 43,
+   "label": "Actor",
+   "id": "Actor_90636632",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 46,
+   "end": 53,
+   "label": "Actor",
+   "id": "Actor_352a3326",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 54,
+   "end": 60,
+   "label": "Activity",
+   "id": "Activity_bb57ceb4",
+   "type": "task",
+   "name": "Checks the received request"
+  },
+  {
+   "start": 61,
+   "end": 81,
+   "label": "Activity Data",
+   "id": "Activity Data_85b5e7d1",
+   "type": null,
+   "name": "The received request"
+  },
+  {
+   "start": 84,
+   "end": 91,
+   "label": "Actor",
+   "id": "Actor_da46b4d8",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 92,
+   "end": 98,
+   "label": "Activity",
+   "id": "Activity_e07b7ad8",
+   "type": "task",
+   "name": "Denies the request of the GO"
+  },
+  {
+   "start": 99,
+   "end": 120,
+   "label": "Activity Data",
+   "id": "Activity Data_11faaf4a",
+   "type": null,
+   "name": "The request of the GO"
+  },
+  {
+   "start": 121,
+   "end": 123,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d5e8cc35",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 124,
+   "end": 131,
+   "label": "Actor",
+   "id": "Actor_bbe49944",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 132,
+   "end": 140,
+   "label": "Activity",
+   "id": "Activity_fd727556",
+   "type": "task",
+   "name": "Performs the measurement"
+  },
+  {
+   "start": 141,
+   "end": 156,
+   "label": "Activity Data",
+   "id": "Activity Data_a28b122f",
+   "type": null,
+   "name": "The measurement"
+  },
+  {
+   "start": 159,
+   "end": 166,
+   "label": "Actor",
+   "id": "Actor_051fb0fd",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 167,
+   "end": 174,
+   "label": "Activity",
+   "id": "Activity_45e0d793",
+   "type": "task",
+   "name": "Informs about the failure of the reading"
+  },
+  {
+   "start": 175,
+   "end": 181,
+   "label": "Actor",
+   "id": "Actor_d6a5836f",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 182,
+   "end": 214,
+   "label": "Activity Data",
+   "id": "Activity Data_682dadf2",
+   "type": null,
+   "name": "About the failure of the reading"
+  },
+  {
+   "start": 215,
+   "end": 217,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2f366dfb",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 218,
+   "end": 225,
+   "label": "Actor",
+   "id": "Actor_a9c10d2a",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 226,
+   "end": 235,
+   "label": "Activity",
+   "id": "Activity_52f6099b",
+   "type": "task",
+   "name": "Transmits the measured values"
+  },
+  {
+   "start": 236,
+   "end": 255,
+   "label": "Activity Data",
+   "id": "Activity Data_8b744254",
+   "type": null,
+   "name": "The measured values"
+  },
+  {
+   "start": 259,
+   "end": 265,
+   "label": "Actor",
+   "id": "Actor_d4b4f7b2",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 268,
+   "end": 274,
+   "label": "Actor",
+   "id": "Actor_604a7922",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 275,
+   "end": 284,
+   "label": "Activity",
+   "id": "Activity_1ed82613",
+   "type": "task",
+   "name": "Processes the measured values"
+  },
+  {
+   "start": 285,
+   "end": 304,
+   "label": "Activity Data",
+   "id": "Activity Data_022f3a71",
+   "type": null,
+   "name": "The measured values"
+  },
+  {
+   "start": 307,
+   "end": 313,
+   "label": "Actor",
+   "id": "Actor_61ea1af5",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 314,
+   "end": 319,
+   "label": "Activity",
+   "id": "Activity_8e0353b1",
+   "type": "task",
+   "name": "Sends the changed values"
+  },
+  {
+   "start": 320,
+   "end": 338,
+   "label": "Activity Data",
+   "id": "Activity Data_4fee96ff",
+   "type": null,
+   "name": "The changed values"
+  },
+  {
+   "start": 342,
+   "end": 349,
+   "label": "Actor",
+   "id": "Actor_d93d3d00",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 352,
+   "end": 358,
+   "label": "Actor",
+   "id": "Actor_fdb43c2c",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 359,
+   "end": 367,
+   "label": "Activity",
+   "id": "Activity_48f6cdc8",
+   "type": "task",
+   "name": "Transmit the readings"
+  },
+  {
+   "start": 368,
+   "end": 380,
+   "label": "Activity Data",
+   "id": "Activity Data_20b91828",
+   "type": null,
+   "name": "The readings"
+  },
+  {
+   "start": 384,
+   "end": 390,
+   "label": "Actor",
+   "id": "Actor_b74962fc",
+   "type": "Lane",
+   "name": "The SP"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Performs the measurement | Informs about the failure of the reading | decision: Or | Transmits the measured values | Processes the measured values | Sends the changed values | Transmit the readings",
+    "label": "yes no same yes after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

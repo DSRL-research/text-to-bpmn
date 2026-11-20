@@ -1,0 +1,340 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The EC",
+      "The INQ",
+      "The IP"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_a78a0f80",
+        "name": "Tells",
+        "type": "task",
+        "lane": "The EC",
+        "metadata": []
+      },
+      {
+        "id": "Activity_171dee61",
+        "name": "Notifies of the change",
+        "type": "task",
+        "lane": "The INQ",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a7bc7be9",
+        "name": "Checks",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "Activity_b0b83185",
+        "name": "Confirmes the changes of the INQ",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_caec345f",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "Activity_4d627854",
+        "name": "Rejectes the changes of the INQ",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The IP"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_a78a0f80",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_a78a0f80",
+        "target": "Activity_171dee61",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_171dee61",
+        "target": "Activity_a7bc7be9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_a7bc7be9",
+        "target": "Activity_b0b83185",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_b0b83185",
+        "target": "XOR Gateway_caec345f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_caec345f",
+        "target": "Activity_4d627854",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_caec345f",
+        "target": "EndEvent_1",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_4d627854",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 10
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 6,
+      "label": "Actor",
+      "id": "Actor_be5fb3b3",
+      "type": "Lane",
+      "name": "The EC"
+    },
+    {
+      "start": 7,
+      "end": 12,
+      "label": "Activity",
+      "id": "Activity_a78a0f80",
+      "type": "task",
+      "name": "Tells"
+    },
+    {
+      "start": 13,
+      "end": 20,
+      "label": "Actor",
+      "id": "Actor_80702081",
+      "type": "Lane",
+      "name": "The INQ"
+    },
+    {
+      "start": 41,
+      "end": 47,
+      "label": "Actor",
+      "id": "Actor_01b1decd",
+      "type": "Lane",
+      "name": "The EC"
+    },
+    {
+      "start": 64,
+      "end": 71,
+      "label": "Actor",
+      "id": "Actor_27e49b63",
+      "type": "Lane",
+      "name": "The INQ"
+    },
+    {
+      "start": 72,
+      "end": 80,
+      "label": "Activity",
+      "id": "Activity_171dee61",
+      "type": "task",
+      "name": "Notifies of the change"
+    },
+    {
+      "start": 81,
+      "end": 87,
+      "label": "Actor",
+      "id": "Actor_44d89319",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 88,
+      "end": 101,
+      "label": "Activity Data",
+      "id": "Activity Data_6e043c10",
+      "type": null,
+      "name": "Of the change"
+    },
+    {
+      "start": 104,
+      "end": 110,
+      "label": "Actor",
+      "id": "Actor_2c73284c",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 111,
+      "end": 117,
+      "label": "Activity",
+      "id": "Activity_a7bc7be9",
+      "type": "task",
+      "name": "Checks"
+    },
+    {
+      "start": 179,
+      "end": 185,
+      "label": "Actor",
+      "id": "Actor_95488ecb",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 186,
+      "end": 195,
+      "label": "Activity",
+      "id": "Activity_b0b83185",
+      "type": "task",
+      "name": "Confirmes the changes of the INQ"
+    },
+    {
+      "start": 196,
+      "end": 218,
+      "label": "Activity Data",
+      "id": "Activity Data_a2952eb4",
+      "type": null,
+      "name": "The changes of the INQ"
+    },
+    {
+      "start": 219,
+      "end": 221,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_caec345f",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 222,
+      "end": 228,
+      "label": "Actor",
+      "id": "Actor_37d3aab6",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 229,
+      "end": 237,
+      "label": "Activity",
+      "id": "Activity_4d627854",
+      "type": "task",
+      "name": "Rejectes the changes of the INQ"
+    },
+    {
+      "start": 238,
+      "end": 260,
+      "label": "Activity Data",
+      "id": "Activity Data_e76d03e8",
+      "type": null,
+      "name": "The changes of the INQ"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Rejectes the changes of the INQ",
+        "label": "no",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

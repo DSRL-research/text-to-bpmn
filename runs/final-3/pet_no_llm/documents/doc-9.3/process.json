@@ -1,0 +1,616 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The Coordination Unit",
+   "The Coordination Unit at the Town Planning Authority",
+   "The Support Officer",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_bb17529c",
+    "name": "Drafts a schedule of meetings",
+    "type": "task",
+    "lane": "The Coordination Unit at the Town Planning Authority",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9104f586",
+    "name": "Adds draft dates",
+    "type": "task",
+    "lane": "The Coordination Unit at the Town Planning Authority",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e80f81da",
+    "name": "Checks the dates",
+    "type": "task",
+    "lane": "The Support Officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_39e51aba",
+    "name": "Suggests modifications",
+    "type": "task",
+    "lane": "The Support Officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6a063b7b",
+    "name": "Rechecks all dates",
+    "type": "task",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_285dbf4a",
+    "name": "Looks for potential conflicts",
+    "type": "task",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5e271cd1",
+    "name": "Sent the final schedule of meeting dates",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_527880e0",
+    "name": "Check their diaries",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "By email"
+    ]
+   },
+   {
+    "id": "Activity_2e2ccfe8",
+    "name": "Advise of any conflicts",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_1d3e9c13",
+    "source": "StartEvent_1",
+    "target": "Activity_bb17529c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_36dd701c",
+    "source": "Activity_bb17529c",
+    "target": "Activity_9104f586",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d87c7f70",
+    "source": "Activity_9104f586",
+    "target": "Activity_e80f81da",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1aa279a9",
+    "source": "Activity_e80f81da",
+    "target": "Activity_39e51aba",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_60848445",
+    "source": "Activity_39e51aba",
+    "target": "Activity_6a063b7b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d40c2669",
+    "source": "Activity_6a063b7b",
+    "target": "Activity_285dbf4a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_57885623",
+    "source": "Activity_285dbf4a",
+    "target": "Activity_5e271cd1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2698c5b7",
+    "source": "Activity_5e271cd1",
+    "target": "Activity_527880e0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_90023877",
+    "source": "Activity_527880e0",
+    "target": "Activity_2e2ccfe8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_26a212f9",
+    "source": "Activity_2e2ccfe8",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 27,
+   "end": 79,
+   "label": "Actor",
+   "id": "Actor_f8d2e7f1",
+   "type": "Lane",
+   "name": "The Coordination Unit at the Town Planning Authority"
+  },
+  {
+   "start": 80,
+   "end": 86,
+   "label": "Activity",
+   "id": "Activity_bb17529c",
+   "type": "task",
+   "name": "Drafts a schedule of meetings"
+  },
+  {
+   "start": 87,
+   "end": 109,
+   "label": "Activity Data",
+   "id": "Activity Data_d4f7b96f",
+   "type": null,
+   "name": "A schedule of meetings"
+  },
+  {
+   "start": 141,
+   "end": 145,
+   "label": "Activity",
+   "id": "Activity_9104f586",
+   "type": "task",
+   "name": "Adds draft dates"
+  },
+  {
+   "start": 146,
+   "end": 157,
+   "label": "Activity Data",
+   "id": "Activity Data_22852834",
+   "type": null,
+   "name": "Draft dates"
+  },
+  {
+   "start": 177,
+   "end": 196,
+   "label": "Actor",
+   "id": "Actor_d99261a4",
+   "type": "Lane",
+   "name": "The Support Officer"
+  },
+  {
+   "start": 202,
+   "end": 208,
+   "label": "Activity",
+   "id": "Activity_e80f81da",
+   "type": "task",
+   "name": "Checks the dates"
+  },
+  {
+   "start": 209,
+   "end": 218,
+   "label": "Activity Data",
+   "id": "Activity Data_b4bea39b",
+   "type": null,
+   "name": "The dates"
+  },
+  {
+   "start": 223,
+   "end": 231,
+   "label": "Activity",
+   "id": "Activity_39e51aba",
+   "type": "task",
+   "name": "Suggests modifications"
+  },
+  {
+   "start": 232,
+   "end": 245,
+   "label": "Activity Data",
+   "id": "Activity Data_6c764e11",
+   "type": null,
+   "name": "Modifications"
+  },
+  {
+   "start": 248,
+   "end": 269,
+   "label": "Actor",
+   "id": "Actor_753b8954",
+   "type": "Lane",
+   "name": "The Coordination Unit"
+  },
+  {
+   "start": 275,
+   "end": 283,
+   "label": "Activity",
+   "id": "Activity_6a063b7b",
+   "type": "task",
+   "name": "Rechecks all dates"
+  },
+  {
+   "start": 284,
+   "end": 293,
+   "label": "Activity Data",
+   "id": "Activity Data_a1a894c3",
+   "type": null,
+   "name": "All dates"
+  },
+  {
+   "start": 298,
+   "end": 307,
+   "label": "Activity",
+   "id": "Activity_285dbf4a",
+   "type": "task",
+   "name": "Looks for potential conflicts"
+  },
+  {
+   "start": 308,
+   "end": 327,
+   "label": "Activity Data",
+   "id": "Activity Data_66943f40",
+   "type": null,
+   "name": "Potential conflicts"
+  },
+  {
+   "start": 330,
+   "end": 365,
+   "label": "Activity Data",
+   "id": "Activity Data_30b68b5b",
+   "type": null,
+   "name": "The final schedule of meeting dates"
+  },
+  {
+   "start": 369,
+   "end": 373,
+   "label": "Activity",
+   "id": "Activity_5e271cd1",
+   "type": "task",
+   "name": "Sent the final schedule of meeting dates"
+  },
+  {
+   "start": 377,
+   "end": 414,
+   "label": "Actor",
+   "id": "Actor_63c2c43a",
+   "type": "Lane",
+   "name": "All the independent Committee Members"
+  },
+  {
+   "start": 415,
+   "end": 423,
+   "label": "Further Specification",
+   "id": "Further Specification_7065df29",
+   "type": null,
+   "name": "By email"
+  },
+  {
+   "start": 426,
+   "end": 429,
+   "label": "Actor",
+   "id": "Actor_e8ce7cc0",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 435,
+   "end": 440,
+   "label": "Activity",
+   "id": "Activity_527880e0",
+   "type": "task",
+   "name": "Check their diaries"
+  },
+  {
+   "start": 441,
+   "end": 454,
+   "label": "Activity Data",
+   "id": "Activity Data_6f4d7590",
+   "type": null,
+   "name": "Their diaries"
+  },
+  {
+   "start": 459,
+   "end": 465,
+   "label": "Activity",
+   "id": "Activity_2e2ccfe8",
+   "type": "task",
+   "name": "Advise of any conflicts"
+  },
+  {
+   "start": 466,
+   "end": 487,
+   "label": "Actor",
+   "id": "Actor_ddb286b7",
+   "type": "Lane",
+   "name": "The Coordination Unit"
+  },
+  {
+   "start": 488,
+   "end": 504,
+   "label": "Activity Data",
+   "id": "Activity Data_0157525a",
+   "type": null,
+   "name": "Of any conflicts"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Adds draft dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Checks the dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Suggests modifications",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Checks the dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Suggests modifications",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Rechecks all dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Suggests modifications",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Rechecks all dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Looks for potential conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Rechecks all dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Looks for potential conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Sent the final schedule of meeting dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Looks for potential conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Sent the final schedule of meeting dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Check their diaries",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Sent the final schedule of meeting dates",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Check their diaries",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Advise of any conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Check their diaries",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Advise of any conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check their diaries",
+    "node_B": "Advise of any conflicts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Adds draft dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Checks the dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Suggests modifications",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Checks the dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Suggests modifications",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Rechecks all dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Suggests modifications",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Rechecks all dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Looks for potential conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Rechecks all dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Looks for potential conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Sent the final schedule of meeting dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Looks for potential conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Sent the final schedule of meeting dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Check their diaries",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Sent the final schedule of meeting dates",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Check their diaries",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Looks for potential conflicts",
+    "node_B": "Advise of any conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Check their diaries",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Advise of any conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check their diaries",
+    "node_B": "Advise of any conflicts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

@@ -1,0 +1,644 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSPN"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_2ccb0f61",
+    "name": "Registers the measurement",
+    "type": "task",
+    "lane": "The MSPN",
+    "metadata": []
+   },
+   {
+    "id": "Activity_20ed42a9",
+    "name": "Examines the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2b0ceffd",
+    "name": "Rejects the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_59a6ee05",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6d05739b",
+    "name": "Confirmes the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_aabd5a89",
+    "name": "Assigns the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_03c1ba8d",
+    "name": "Informs about the assignment of MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bd51944e",
+    "name": "Informs about the assignment of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f6ed6b99",
+    "name": "Informs about the assignment of MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_72ee2c59",
+    "source": "StartEvent_1",
+    "target": "Activity_2ccb0f61",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_217b17cc",
+    "source": "Activity_2ccb0f61",
+    "target": "Activity_20ed42a9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6f76c3c2",
+    "source": "Activity_20ed42a9",
+    "target": "Activity_2b0ceffd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_03cd5b61",
+    "source": "Activity_2b0ceffd",
+    "target": "XOR Gateway_59a6ee05",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fe7713e2",
+    "source": "XOR Gateway_59a6ee05",
+    "target": "Activity_6d05739b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0e257f67",
+    "source": "Activity_6d05739b",
+    "target": "Activity_aabd5a89",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8996747e",
+    "source": "Activity_aabd5a89",
+    "target": "Activity_03c1ba8d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c8a5bc72",
+    "source": "Activity_03c1ba8d",
+    "target": "Activity_bd51944e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9e540a60",
+    "source": "Activity_bd51944e",
+    "target": "Activity_f6ed6b99",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_300e3fb0",
+    "source": "Activity_f6ed6b99",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_6ef95422",
+   "type": "Lane",
+   "name": "The MSPN"
+  },
+  {
+   "start": 9,
+   "end": 18,
+   "label": "Activity",
+   "id": "Activity_2ccb0f61",
+   "type": "task",
+   "name": "Registers the measurement"
+  },
+  {
+   "start": 19,
+   "end": 34,
+   "label": "Activity Data",
+   "id": "Activity Data_193d442e",
+   "type": null,
+   "name": "The measurement"
+  },
+  {
+   "start": 38,
+   "end": 44,
+   "label": "Actor",
+   "id": "Actor_08334334",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 47,
+   "end": 53,
+   "label": "Actor",
+   "id": "Actor_6d5a3aac",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 54,
+   "end": 62,
+   "label": "Activity",
+   "id": "Activity_20ed42a9",
+   "type": "task",
+   "name": "Examines the application of the MSPN"
+  },
+  {
+   "start": 63,
+   "end": 90,
+   "label": "Activity Data",
+   "id": "Activity Data_6126cf26",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 93,
+   "end": 99,
+   "label": "Actor",
+   "id": "Actor_bfb5a4d7",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 100,
+   "end": 107,
+   "label": "Activity",
+   "id": "Activity_2b0ceffd",
+   "type": "task",
+   "name": "Rejects the application of the MSPN"
+  },
+  {
+   "start": 108,
+   "end": 135,
+   "label": "Activity Data",
+   "id": "Activity Data_e74d5aeb",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 136,
+   "end": 138,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_59a6ee05",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 139,
+   "end": 145,
+   "label": "Actor",
+   "id": "Actor_cce3af91",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 146,
+   "end": 155,
+   "label": "Activity",
+   "id": "Activity_6d05739b",
+   "type": "task",
+   "name": "Confirmes the application of the MSPN"
+  },
+  {
+   "start": 156,
+   "end": 183,
+   "label": "Activity Data",
+   "id": "Activity Data_24fe8707",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 186,
+   "end": 192,
+   "label": "Actor",
+   "id": "Actor_2d3c8576",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 193,
+   "end": 200,
+   "label": "Activity",
+   "id": "Activity_aabd5a89",
+   "type": "task",
+   "name": "Assigns the MSPN"
+  },
+  {
+   "start": 201,
+   "end": 209,
+   "label": "Activity Data",
+   "id": "Activity Data_fe07ca0b",
+   "type": null,
+   "name": "The MSPN"
+  },
+  {
+   "start": 212,
+   "end": 218,
+   "label": "Actor",
+   "id": "Actor_ce9108c8",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 219,
+   "end": 226,
+   "label": "Activity",
+   "id": "Activity_03c1ba8d",
+   "type": "task",
+   "name": "Informs about the assignment of MSPN"
+  },
+  {
+   "start": 227,
+   "end": 235,
+   "label": "Actor",
+   "id": "Actor_f507cc65",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 236,
+   "end": 264,
+   "label": "Activity Data",
+   "id": "Activity Data_f093eeb3",
+   "type": null,
+   "name": "About the assignment of MSPN"
+  },
+  {
+   "start": 267,
+   "end": 273,
+   "label": "Actor",
+   "id": "Actor_2d7925e5",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 274,
+   "end": 281,
+   "label": "Activity",
+   "id": "Activity_bd51944e",
+   "type": "task",
+   "name": "Informs about the assignment of the MSPN"
+  },
+  {
+   "start": 282,
+   "end": 289,
+   "label": "Actor",
+   "id": "Actor_fda93890",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 290,
+   "end": 322,
+   "label": "Activity Data",
+   "id": "Activity Data_3cd84446",
+   "type": null,
+   "name": "About the assignment of the MSPN"
+  },
+  {
+   "start": 325,
+   "end": 331,
+   "label": "Actor",
+   "id": "Actor_38b42f6e",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 332,
+   "end": 339,
+   "label": "Activity",
+   "id": "Activity_f6ed6b99",
+   "type": "task",
+   "name": "Informs about the assignment of MSPN"
+  },
+  {
+   "start": 340,
+   "end": 346,
+   "label": "Actor",
+   "id": "Actor_95b478e3",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 347,
+   "end": 375,
+   "label": "Activity Data",
+   "id": "Activity Data_ecf4e21d",
+   "type": null,
+   "name": "About the assignment of MSPN"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Examines the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Rejects the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Rejects the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Confirmes the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Confirmes the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Assigns the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the application of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Assigns the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Assigns the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Examines the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Rejects the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registers the measurement",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Rejects the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examines the application of the MSPN",
+    "node_B": "Confirmes the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Confirmes the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the application of the MSPN",
+    "node_B": "Assigns the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the application of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Assigns the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Assigns the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmes the application of the MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of MSPN",
+    "node_B": "Informs about the assignment of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the MSPN",
+    "node_B": "Informs about the assignment of MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

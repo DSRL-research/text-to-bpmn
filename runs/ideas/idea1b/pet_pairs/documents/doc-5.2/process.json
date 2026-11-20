@@ -1,0 +1,455 @@
+{
+ "structured_data": {
+  "participants": [
+   "Any employee",
+   "Main Process",
+   "The immediate supervisor",
+   "The supervisor",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_98a1a458",
+    "name": "Submits a vacation request",
+    "type": "task",
+    "lane": "Any employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7bdf2d76",
+    "name": "Registered the request",
+    "type": "task",
+    "lane": "The immediate supervisor",
+    "metadata": [
+     "The requirement"
+    ]
+   },
+   {
+    "id": "Activity_09cc642d",
+    "name": "Received",
+    "type": "task",
+    "lane": "The immediate supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7a4cab79",
+    "name": "Approve or reject the request",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_86e46d0d",
+    "name": "If the request is rejected",
+    "type": "exclusiveGateway",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_63dddbed",
+    "name": "Returned the application",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f2f6e9fc",
+    "name": "Generated a notification",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "The respective management procedures"
+    ]
+   },
+   {
+    "id": "XOR Gateway_338e3375",
+    "name": "If the request is approved",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_33e4173a",
+    "source": "StartEvent_1",
+    "target": "Activity_98a1a458",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cad2b666",
+    "source": "Activity_98a1a458",
+    "target": "Activity_7bdf2d76",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_24eaee32",
+    "source": "Activity_7bdf2d76",
+    "target": "Activity_09cc642d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_11464f65",
+    "source": "Activity_09cc642d",
+    "target": "Activity_7a4cab79",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_10335f45",
+    "source": "Activity_7a4cab79",
+    "target": "XOR Gateway_86e46d0d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6edef349",
+    "source": "XOR Gateway_86e46d0d",
+    "target": "Activity_63dddbed",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_b4fe9886",
+    "source": "XOR Gateway_86e46d0d",
+    "target": "Activity_f2f6e9fc",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_3a40a1cb",
+    "source": "XOR Gateway_86e46d0d",
+    "target": "XOR Gateway_338e3375",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_581fc029",
+    "source": "XOR Gateway_338e3375",
+    "target": "Activity_f2f6e9fc",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_b7e0d2c9",
+    "source": "Activity_63dddbed",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_143666f2",
+    "source": "Activity_f2f6e9fc",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 45,
+   "end": 57,
+   "label": "Actor",
+   "id": "Actor_c9271f70",
+   "type": "Lane",
+   "name": "Any employee"
+  },
+  {
+   "start": 78,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_98a1a458",
+   "type": "task",
+   "name": "Submits a vacation request"
+  },
+  {
+   "start": 86,
+   "end": 104,
+   "label": "Activity Data",
+   "id": "Activity Data_61a88291",
+   "type": null,
+   "name": "A vacation request"
+  },
+  {
+   "start": 112,
+   "end": 127,
+   "label": "Activity Data",
+   "id": "Activity Data_23a57210",
+   "type": null,
+   "name": "The requirement"
+  },
+  {
+   "start": 131,
+   "end": 141,
+   "label": "Activity",
+   "id": "Activity_7bdf2d76",
+   "type": "task",
+   "name": "Registered the request"
+  },
+  {
+   "start": 144,
+   "end": 155,
+   "label": "Activity Data",
+   "id": "Activity Data_bac28de9",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 159,
+   "end": 167,
+   "label": "Activity",
+   "id": "Activity_09cc642d",
+   "type": "task",
+   "name": "Received"
+  },
+  {
+   "start": 171,
+   "end": 195,
+   "label": "Actor",
+   "id": "Actor_3724f615",
+   "type": "Lane",
+   "name": "The immediate supervisor"
+  },
+  {
+   "start": 238,
+   "end": 252,
+   "label": "Actor",
+   "id": "Actor_a7c52802",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 258,
+   "end": 275,
+   "label": "Activity",
+   "id": "Activity_7a4cab79",
+   "type": "task",
+   "name": "Approve or reject the request"
+  },
+  {
+   "start": 276,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_63fa9402",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 290,
+   "end": 292,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_86e46d0d",
+   "type": "exclusiveGateway",
+   "name": "If the request is rejected"
+  },
+  {
+   "start": 293,
+   "end": 316,
+   "label": "Condition Specification",
+   "id": "Condition Specification_fa4259ca",
+   "type": "exclusiveGateway",
+   "name": "The request is rejected"
+  },
+  {
+   "start": 319,
+   "end": 334,
+   "label": "Activity Data",
+   "id": "Activity Data_3c408f93",
+   "type": null,
+   "name": "The application"
+  },
+  {
+   "start": 338,
+   "end": 346,
+   "label": "Activity",
+   "id": "Activity_63dddbed",
+   "type": "task",
+   "name": "Returned the application"
+  },
+  {
+   "start": 350,
+   "end": 374,
+   "label": "Actor",
+   "id": "Actor_dc7ba70f",
+   "type": "Lane",
+   "name": "The applicant / employee"
+  },
+  {
+   "start": 414,
+   "end": 416,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_338e3375",
+   "type": "exclusiveGateway",
+   "name": "If the request is approved"
+  },
+  {
+   "start": 417,
+   "end": 440,
+   "label": "Condition Specification",
+   "id": "Condition Specification_dde4f624",
+   "type": "exclusiveGateway",
+   "name": "The request is approved"
+  },
+  {
+   "start": 441,
+   "end": 455,
+   "label": "Activity Data",
+   "id": "Activity Data_3e0af77b",
+   "type": null,
+   "name": "A notification"
+  },
+  {
+   "start": 459,
+   "end": 468,
+   "label": "Activity",
+   "id": "Activity_f2f6e9fc",
+   "type": "task",
+   "name": "Generated a notification"
+  },
+  {
+   "start": 472,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_cf1fe606",
+   "type": "Lane",
+   "name": "The Human Resources Representative"
+  },
+  {
+   "start": 509,
+   "end": 512,
+   "label": "Actor",
+   "id": "Actor_ea9a5372",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 518,
+   "end": 526,
+   "label": "Activity",
+   "id": "Activity_44bb75af",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 527,
+   "end": 563,
+   "label": "Activity Data",
+   "id": "Activity Data_b5b450bb",
+   "type": null,
+   "name": "The respective management procedures"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 16,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Registered the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Received",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Approve or reject the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Received",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Approve or reject the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "If the request is rejected",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Approve or reject the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is rejected",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Returned the application",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is rejected",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "Returned the application",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is approved",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Returned the application",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "If the request is approved",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Generated a notification",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Generated a notification",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

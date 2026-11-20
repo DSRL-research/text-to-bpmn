@@ -1,0 +1,83 @@
+{
+  "case": "runs/final-3/cases/goods_dispatch",
+  "question_logged": {
+    "node_A": "parallel: Same",
+    "node_B": "Written a package label | Taken a parcel insurance",
+    "label": "a b",
+    "source": "llm"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You read a process description in which words that may say that steps happen at the same time are marked [P], and the steps around them are marked [1], [2], and so on.\n\nFor each marked step, say whether it is done\n- \"before\": before the steps that happen at the same time begin,\n- \"a\", \"b\" or \"c\": in one of the lines of work that run at the same time. Give each line its own letter; the steps of one line are done one after another,\n- \"after\": once every line of work is finished.\n\nOnly steps at the start can be \"before\". The first step you mark \"after\" ends the lines of work: mark it and every later step \"after\". If the marked words do not put any steps side by side, mark every step \"before\".\n\nExample.\nText: The clerk [1]registers the order. [P]In the meantime, the warehouse [2]picks the goods and [3]packs them. When both are done, the courier [4]collects the parcel.\nWords [P]: In the meantime\nSteps:\n[1] Registers the order (The clerk)\n[2] Picks the goods (The warehouse)\n[3] Packs them (The warehouse)\n[4] Collects the parcel (The courier)\nAnswer: {\"reasoning\": \"Registering runs alongside picking and packing, which follow each other; the courier comes when both are done.\", \"step_1\": \"a\", \"step_2\": \"b\", \"step_3\": \"b\", \"step_4\": \"after\"}\n\nExample.\nText: The nurse [1]admits the patient. [P]Two things then happen at once: the doctor [2]examines the patient, and the lab [3]tests the blood sample. The doctor then [4]writes the diagnosis.\nWords [P]: Two things then happen at once\nSteps:\n[1] Admits the patient (The nurse)\n[2] Examines the patient (The doctor)\n[3] Tests the blood sample (The lab)\n[4] Writes the diagnosis (The doctor)\nAnswer: {\"reasoning\": \"Admission comes first; the examination and the blood test run side by side; the diagnosis needs both.\", \"step_1\": \"before\", \"step_2\": \"a\", \"step_3\": \"b\", \"step_4\": \"after\"}\n\nExample.\nText: Once the manager [1]approves the budget, [P]three things are done in parallel: the designer [2]drafts the layout, the writer [3]writes the text and the buyer [4]orders the paper. The brochure is then [5]printed.\nWords [P]: three things are done in parallel\nSteps:\n[1] Approves the budget (The manager)\n[2] Drafts the layout (The designer)\n[3] Writes the text (The writer)\n[4] Orders the paper (The buyer)\n[5] Printed the brochure\nAnswer: {\"reasoning\": \"The budget comes first; layout, text and paper are three lines of work; printing waits for all three.\", \"step_1\": \"before\", \"step_2\": \"a\", \"step_3\": \"b\", \"step_4\": \"c\", \"step_5\": \"after\"}\n\nAnswer with JSON only: a short \"reasoning\", then one key per step, \"step_1\" to \"step_N\"."
+    },
+    {
+      "role": "user",
+      "content": "Text: If goods shall be shipped, the secretary clarifies who will do the shipping. In parallel, the goods can be already packaged by the warehousemen. If you have large amounts, special shipping will be necessary. In these cases the secretary invites three logistic companies to make offers and the secretary selects one of three logistic companies. In case of small amounts, normal post shipment is used. In the [P]same time, a package label is [1]written by the secretary, and a parcel insurance is [2]taken by the logistics department head if necessary. If everything is ready and merged, the packaged goods are prepared for being picked up by the logistic company.\nWords [P]: Same\nSteps:\n[1] Written a package label (The secretary)\n[2] Taken a parcel insurance (The logistics department head)"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "parallel",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "reasoning": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "step_1": {
+            "type": "string",
+            "enum": [
+              "before",
+              "a",
+              "b",
+              "c",
+              "after"
+            ]
+          },
+          "step_2": {
+            "type": "string",
+            "enum": [
+              "before",
+              "a",
+              "b",
+              "c",
+              "after"
+            ]
+          }
+        },
+        "required": [
+          "reasoning",
+          "step_1",
+          "step_2"
+        ]
+      }
+    }
+  },
+  "lanes_of_the_steps": [
+    "The secretary",
+    "The logistics department head"
+  ],
+  "lanes_in_the_user_message": true,
+  "request_settings": {
+    "model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "temperature": 0.0,
+    "seed": 0,
+    "max_tokens": 1024,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "replay": {
+    "same_graph_as_saved": true,
+    "messages_equal": true
+  },
+  "code": {
+    "messages": "text2bpmn/decisions.py ask_parallel_llm (system INSTRUCTIONS_PARALLEL, user parallel_question)",
+    "lanes": "text2bpmn/decisions.py parallel_plan passes nodes[j][1]['lane'] for each window step; parallel_question appends ' (lane)' unless the lane is empty or Main Process"
+  }
+}

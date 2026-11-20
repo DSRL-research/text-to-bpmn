@@ -1,0 +1,238 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MSPN",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_5246fe7f",
+    "name": "Sents a dismissal",
+    "type": "task",
+    "lane": "The MSPN",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5e9945c1",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c122a64e",
+    "name": "Rejects the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b4f03f82",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_932a30ca",
+    "name": "Confirms the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MSPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_5246fe7f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_5246fe7f",
+    "target": "Activity_5e9945c1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_5e9945c1",
+    "target": "Activity_c122a64e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_c122a64e",
+    "target": "XOR Gateway_b4f03f82",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_b4f03f82",
+    "target": "Activity_932a30ca",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_932a30ca",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_b4f03f82",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_482aae61",
+   "type": "Lane",
+   "name": "The MSPN"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_5246fe7f",
+   "type": "task",
+   "name": "Sents a dismissal"
+  },
+  {
+   "start": 15,
+   "end": 26,
+   "label": "Activity Data",
+   "id": "Activity Data_7ec474b6",
+   "type": null,
+   "name": "A dismissal"
+  },
+  {
+   "start": 30,
+   "end": 38,
+   "label": "Actor",
+   "id": "Actor_3fc5722c",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 41,
+   "end": 49,
+   "label": "Actor",
+   "id": "Actor_ae2b3ee4",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 50,
+   "end": 57,
+   "label": "Activity",
+   "id": "Activity_5e9945c1",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 58,
+   "end": 71,
+   "label": "Activity Data",
+   "id": "Activity Data_85060fb4",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 74,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_7fab80c7",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 83,
+   "end": 90,
+   "label": "Activity",
+   "id": "Activity_c122a64e",
+   "type": "task",
+   "name": "Rejects the dismissal of the MSPN"
+  },
+  {
+   "start": 91,
+   "end": 116,
+   "label": "Activity Data",
+   "id": "Activity Data_407792be",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  },
+  {
+   "start": 117,
+   "end": 119,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b4f03f82",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 120,
+   "end": 128,
+   "label": "Actor",
+   "id": "Actor_b4b542a9",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 129,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_932a30ca",
+   "type": "task",
+   "name": "Confirms the dismissal of the MSPN"
+  },
+  {
+   "start": 138,
+   "end": 163,
+   "label": "Activity Data",
+   "id": "Activity Data_9b1b2783",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

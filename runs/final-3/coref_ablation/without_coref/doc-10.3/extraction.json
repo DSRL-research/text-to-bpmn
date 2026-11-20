@@ -1,0 +1,692 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The GO",
+      "The MPOO"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_3a38cf41",
+        "name": "Deregisters deregisters",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_0c57a22f",
+        "name": "Deregisters",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_8e9e505a",
+        "name": "Verifies the deregistration",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ac7eb07b",
+        "name": "Rejects the deregistration of the MPOO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_c4e257e4",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a917d816",
+        "name": "Confirms the deregistration of the MPOO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": [
+          "Preliminarily"
+        ]
+      },
+      {
+        "id": "Activity_b5384647",
+        "name": "Prepares the readmission of the measuring point",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": [
+          "GO"
+        ]
+      },
+      {
+        "id": "XOR Gateway_6bfa3683",
+        "name": "If the GO binds the MPOO to continue the operation",
+        "type": "exclusiveGateway",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_85d9c7c8",
+        "name": "Confirmes the continuation",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a3afa8f8",
+        "name": "Performs the equipment acquisition and / or equipment changes",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_57994684",
+        "name": "Assigns the GO as MPO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_125c43db",
+        "name": "Informs about the end of the assignment of the MPOO and the beginning of the assignment of the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_874d7c66",
+        "name": "Informs about the assignment of the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_c952935f",
+        "name": "Informs about the assignment of the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The GO"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_3a38cf41",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_3a38cf41",
+        "target": "Activity_0c57a22f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_0c57a22f",
+        "target": "Activity_8e9e505a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_8e9e505a",
+        "target": "Activity_ac7eb07b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_ac7eb07b",
+        "target": "XOR Gateway_c4e257e4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_c4e257e4",
+        "target": "Activity_a917d816",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_a917d816",
+        "target": "Activity_b5384647",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_b5384647",
+        "target": "XOR Gateway_6bfa3683",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "XOR Gateway_c4e257e4",
+        "target": "XOR Gateway_6bfa3683",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "XOR Gateway_6bfa3683",
+        "target": "Activity_85d9c7c8",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_85d9c7c8",
+        "target": "Activity_a3afa8f8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_a3afa8f8",
+        "target": "Activity_57994684",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_57994684",
+        "target": "Activity_125c43db",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "Activity_125c43db",
+        "target": "Activity_874d7c66",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_874d7c66",
+        "target": "Activity_c952935f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "Activity_c952935f",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "XOR Gateway_6bfa3683",
+        "target": "EndEvent_1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 20
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 8,
+      "label": "Actor",
+      "id": "Actor_3fd4c2a1",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 9,
+      "end": 20,
+      "label": "Activity",
+      "id": "Activity_3a38cf41",
+      "type": "task",
+      "name": "Deregisters deregisters"
+    },
+    {
+      "start": 9,
+      "end": 20,
+      "label": "Activity Data",
+      "id": "Activity Data_624a3357",
+      "type": null,
+      "name": "Deregisters"
+    },
+    {
+      "start": 9,
+      "end": 20,
+      "label": "Activity",
+      "id": "Activity_0c57a22f",
+      "type": "task",
+      "name": "Deregisters"
+    },
+    {
+      "start": 24,
+      "end": 30,
+      "label": "Actor",
+      "id": "Actor_bc2bfa25",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 33,
+      "end": 39,
+      "label": "Actor",
+      "id": "Actor_61b4a214",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 40,
+      "end": 48,
+      "label": "Activity",
+      "id": "Activity_8e9e505a",
+      "type": "task",
+      "name": "Verifies the deregistration"
+    },
+    {
+      "start": 49,
+      "end": 67,
+      "label": "Activity Data",
+      "id": "Activity Data_73cfd18c",
+      "type": null,
+      "name": "The deregistration"
+    },
+    {
+      "start": 70,
+      "end": 76,
+      "label": "Actor",
+      "id": "Actor_6507350b",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 77,
+      "end": 84,
+      "label": "Activity",
+      "id": "Activity_ac7eb07b",
+      "type": "task",
+      "name": "Rejects the deregistration of the MPOO"
+    },
+    {
+      "start": 85,
+      "end": 115,
+      "label": "Activity Data",
+      "id": "Activity Data_d4f74328",
+      "type": null,
+      "name": "The deregistration of the MPOO"
+    },
+    {
+      "start": 116,
+      "end": 118,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_c4e257e4",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 119,
+      "end": 125,
+      "label": "Actor",
+      "id": "Actor_3bdc77ee",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 126,
+      "end": 139,
+      "label": "Further Specification",
+      "id": "Further Specification_53409da5",
+      "type": null,
+      "name": "Preliminarily"
+    },
+    {
+      "start": 140,
+      "end": 148,
+      "label": "Activity",
+      "id": "Activity_a917d816",
+      "type": "task",
+      "name": "Confirms the deregistration of the MPOO"
+    },
+    {
+      "start": 149,
+      "end": 179,
+      "label": "Activity Data",
+      "id": "Activity Data_f4a0fd79",
+      "type": null,
+      "name": "The deregistration of the MPOO"
+    },
+    {
+      "start": 182,
+      "end": 188,
+      "label": "Actor",
+      "id": "Actor_3483edf0",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 189,
+      "end": 197,
+      "label": "Activity",
+      "id": "Activity_b5384647",
+      "type": "task",
+      "name": "Prepares the readmission of the measuring point"
+    },
+    {
+      "start": 198,
+      "end": 236,
+      "label": "Activity Data",
+      "id": "Activity Data_cf2b3ffc",
+      "type": null,
+      "name": "The readmission of the measuring point"
+    },
+    {
+      "start": 256,
+      "end": 258,
+      "label": "Activity Data",
+      "id": "Activity Data_476ffccb",
+      "type": null,
+      "name": "GO"
+    },
+    {
+      "start": 270,
+      "end": 278,
+      "label": "Actor",
+      "id": "Actor_84ddd74f",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 308,
+      "end": 310,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_6bfa3683",
+      "type": "exclusiveGateway",
+      "name": "If the GO binds the MPOO to continue the operation"
+    },
+    {
+      "start": 311,
+      "end": 358,
+      "label": "Condition Specification",
+      "id": "Condition Specification_30385229",
+      "type": "exclusiveGateway",
+      "name": "The GO binds the MPOO to continue the operation"
+    },
+    {
+      "start": 361,
+      "end": 369,
+      "label": "Actor",
+      "id": "Actor_9c49e4d2",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 370,
+      "end": 379,
+      "label": "Activity",
+      "id": "Activity_85d9c7c8",
+      "type": "task",
+      "name": "Confirmes the continuation"
+    },
+    {
+      "start": 380,
+      "end": 396,
+      "label": "Activity Data",
+      "id": "Activity Data_c0d1292a",
+      "type": null,
+      "name": "The continuation"
+    },
+    {
+      "start": 400,
+      "end": 408,
+      "label": "Actor",
+      "id": "Actor_e581e832",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 411,
+      "end": 417,
+      "label": "Actor",
+      "id": "Actor_192513bb",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 418,
+      "end": 426,
+      "label": "Activity",
+      "id": "Activity_a3afa8f8",
+      "type": "task",
+      "name": "Performs the equipment acquisition and / or equipment changes"
+    },
+    {
+      "start": 427,
+      "end": 479,
+      "label": "Activity Data",
+      "id": "Activity Data_a203a2b1",
+      "type": null,
+      "name": "The equipment acquisition and / or equipment changes"
+    },
+    {
+      "start": 482,
+      "end": 488,
+      "label": "Actor",
+      "id": "Actor_4ae0dddf",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 489,
+      "end": 496,
+      "label": "Activity",
+      "id": "Activity_57994684",
+      "type": "task",
+      "name": "Assigns the GO as MPO"
+    },
+    {
+      "start": 497,
+      "end": 510,
+      "label": "Activity Data",
+      "id": "Activity Data_d7434017",
+      "type": null,
+      "name": "The GO as MPO"
+    },
+    {
+      "start": 513,
+      "end": 519,
+      "label": "Actor",
+      "id": "Actor_f698443b",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 520,
+      "end": 527,
+      "label": "Activity",
+      "id": "Activity_125c43db",
+      "type": "task",
+      "name": "Informs about the end of the assignment of the MPOO and the beginning of the assignment of the GO"
+    },
+    {
+      "start": 528,
+      "end": 536,
+      "label": "Actor",
+      "id": "Actor_875f1375",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 537,
+      "end": 626,
+      "label": "Activity Data",
+      "id": "Activity Data_3a8b026a",
+      "type": null,
+      "name": "About the end of the assignment of the MPOO and the beginning of the assignment of the GO"
+    },
+    {
+      "start": 629,
+      "end": 635,
+      "label": "Actor",
+      "id": "Actor_e7cee24d",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 636,
+      "end": 643,
+      "label": "Activity",
+      "id": "Activity_874d7c66",
+      "type": "task",
+      "name": "Informs about the assignment of the GO"
+    },
+    {
+      "start": 644,
+      "end": 652,
+      "label": "Actor",
+      "id": "Actor_7034966e",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 653,
+      "end": 683,
+      "label": "Activity Data",
+      "id": "Activity Data_f4ecad03",
+      "type": null,
+      "name": "About the assignment of the GO"
+    },
+    {
+      "start": 686,
+      "end": 692,
+      "label": "Actor",
+      "id": "Actor_9b4ffeba",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 693,
+      "end": 700,
+      "label": "Activity",
+      "id": "Activity_c952935f",
+      "type": "task",
+      "name": "Informs about the assignment of the GO"
+    },
+    {
+      "start": 701,
+      "end": 707,
+      "label": "Actor",
+      "id": "Actor_c264c8eb",
+      "type": "Lane",
+      "name": "The SP"
+    },
+    {
+      "start": 708,
+      "end": 738,
+      "label": "Activity Data",
+      "id": "Activity Data_9953dca3",
+      "type": null,
+      "name": "About the assignment of the GO"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 2,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Confirms the deregistration of the MPOO | Prepares the readmission of the measuring point | decision: If the GO binds the MPOO to continue the operation | Confirmes the continuation | Performs the equipment acquisition and / or equipment changes | Assigns the GO as MPO | Informs about the end of the assignment of the MPOO and the beginning of the assignment of the GO | Informs about the assignment of the GO | Informs about the assignment of the GO",
+        "label": "yes yes after after after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If the GO binds the MPOO to continue the operation",
+        "node_B": "Confirmes the continuation | Performs the equipment acquisition and / or equipment changes | Assigns the GO as MPO | Informs about the end of the assignment of the MPOO and the beginning of the assignment of the GO | Informs about the assignment of the GO | Informs about the assignment of the GO",
+        "label": "yes yes yes yes yes yes",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

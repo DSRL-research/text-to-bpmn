@@ -1,0 +1,2356 @@
+{
+ "structured_data": {
+  "participants": [
+   "ACME AG",
+   "He",
+   "Main Process",
+   "She",
+   "The Board",
+   "The Secretariat",
+   "The accounting employee",
+   "The cost center manager",
+   "The cost center managers"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_d265528d",
+    "name": "Receives invoices",
+    "type": "task",
+    "lane": "ACME AG",
+    "metadata": []
+   },
+   {
+    "id": "Activity_696c05a1",
+    "name": "Received these",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d518f8d9",
+    "name": "Forwarded",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a90331d3",
+    "name": "Inspection",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": [
+     "A short visual"
+    ]
+   },
+   {
+    "id": "Activity_de2107f2",
+    "name": "Identifies the charging suppliers",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_970d83d5",
+    "name": "Creates a new instance",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4588c2f6",
+    "name": "Checks the invoice items",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_37e0b338",
+    "name": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cb20a879",
+    "name": "Sent the docket and the copy of the invoice",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_83e054a9",
+    "name": "Reviews the content",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ab09e575",
+    "name": "Receiving the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "For accuracy"
+    ]
+   },
+   {
+    "id": "XOR Gateway_a33c5c0c",
+    "name": "Should everything be in order",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_41e60ce0",
+    "name": "Notes his code",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "On the docket"
+    ]
+   },
+   {
+    "id": "Activity_8fb4a6f0",
+    "name": "Returns the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7c38cb01",
+    "name": "Passed on the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_1a1982bd",
+    "name": "If all items are marked correct",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_58f79aa0",
+    "name": "Sent back",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_e780b60c",
+    "name": "If inconsistencies exist",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_50cecddf",
+    "name": "Rejects the AP",
+    "type": "task",
+    "lane": "The cost center manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d448f915",
+    "name": "Sent back the copy of the invoice",
+    "type": "task",
+    "lane": "The cost center manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_10ff76ad",
+    "name": "Proceede the clarification with the vendor",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_66c4af08",
+    "name": "If necessary",
+    "type": "exclusiveGateway",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ae3c22c4",
+    "name": "Consults",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8405e7fc",
+    "name": "Sent the copy of the invoice",
+    "type": "task",
+    "lane": "The cost center managers",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ec596edd",
+    "name": "Makes the commercial audit",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "The copy of the invoice"
+    ]
+   },
+   {
+    "id": "Activity_cd12d7a4",
+    "name": "Issues the approval for payment",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_57ff8b74",
+    "name": "If the bill amount exceeds EUR 20",
+    "type": "exclusiveGateway",
+    "lane": "The Board",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fdbf64f1",
+    "name": "Check it",
+    "type": "task",
+    "lane": "The Board",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5dbd2e63",
+    "name": "Moves back the copy of the invoice including the docket",
+    "type": "task",
+    "lane": "The Board",
+    "metadata": [
+     "In the appropriate signature file"
+    ]
+   },
+   {
+    "id": "XOR Gateway_fa04f6d5",
+    "name": "Should there be a complaint during the commercial audit",
+    "type": "exclusiveGateway",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ba29ac1a",
+    "name": "Resolved it",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f2d6138f",
+    "name": "Gives payment instructions",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8fbefd8c",
+    "name": "Closes the instance in `` ACME financial accounting ``",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The accounting employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_427c7c95",
+    "source": "StartEvent_1",
+    "target": "Activity_d265528d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d7f8844",
+    "source": "Activity_d265528d",
+    "target": "Activity_696c05a1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ef4b5791",
+    "source": "Activity_696c05a1",
+    "target": "Activity_d518f8d9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0d561f95",
+    "source": "Activity_d518f8d9",
+    "target": "Activity_a90331d3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d5f43b52",
+    "source": "Activity_a90331d3",
+    "target": "Activity_de2107f2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7a1471ef",
+    "source": "Activity_de2107f2",
+    "target": "Activity_970d83d5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ae8304c9",
+    "source": "Activity_970d83d5",
+    "target": "Activity_4588c2f6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dbe093f2",
+    "source": "Activity_4588c2f6",
+    "target": "Activity_37e0b338",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bc894451",
+    "source": "Activity_37e0b338",
+    "target": "Activity_cb20a879",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0ea76c84",
+    "source": "Activity_cb20a879",
+    "target": "Activity_83e054a9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3bef96d7",
+    "source": "Activity_83e054a9",
+    "target": "Activity_ab09e575",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fb8d83a1",
+    "source": "Activity_ab09e575",
+    "target": "XOR Gateway_a33c5c0c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7204b421",
+    "source": "XOR Gateway_a33c5c0c",
+    "target": "Activity_41e60ce0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7f12f718",
+    "source": "Activity_41e60ce0",
+    "target": "Activity_8fb4a6f0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_907b35f4",
+    "source": "Activity_8fb4a6f0",
+    "target": "Activity_7c38cb01",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0a04533d",
+    "source": "Activity_7c38cb01",
+    "target": "XOR Gateway_1a1982bd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_45b2b5f7",
+    "source": "XOR Gateway_1a1982bd",
+    "target": "Activity_58f79aa0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_aecb450f",
+    "source": "Activity_58f79aa0",
+    "target": "XOR Gateway_e780b60c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_123e20ab",
+    "source": "XOR Gateway_e780b60c",
+    "target": "Activity_50cecddf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f349e7a2",
+    "source": "Activity_50cecddf",
+    "target": "Activity_d448f915",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bfeb940b",
+    "source": "Activity_d448f915",
+    "target": "Activity_10ff76ad",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ed55912a",
+    "source": "Activity_10ff76ad",
+    "target": "XOR Gateway_66c4af08",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bb3fda06",
+    "source": "XOR Gateway_66c4af08",
+    "target": "Activity_ae3c22c4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9ec79244",
+    "source": "Activity_ae3c22c4",
+    "target": "Activity_8405e7fc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fdae6488",
+    "source": "Activity_8405e7fc",
+    "target": "Activity_ec596edd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d9fe2eda",
+    "source": "Activity_ec596edd",
+    "target": "Activity_cd12d7a4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bc4a0956",
+    "source": "Activity_cd12d7a4",
+    "target": "XOR Gateway_57ff8b74",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3ae511d1",
+    "source": "XOR Gateway_57ff8b74",
+    "target": "Activity_fdbf64f1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6bb4cb8e",
+    "source": "Activity_fdbf64f1",
+    "target": "Activity_5dbd2e63",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f25fec84",
+    "source": "Activity_5dbd2e63",
+    "target": "XOR Gateway_fa04f6d5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_90a79f2f",
+    "source": "XOR Gateway_fa04f6d5",
+    "target": "Activity_ba29ac1a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5e5a4991",
+    "source": "Activity_ba29ac1a",
+    "target": "Activity_f2d6138f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7178f2de",
+    "source": "Activity_f2d6138f",
+    "target": "Activity_8fbefd8c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_619213d9",
+    "source": "Activity_8fbefd8c",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 23,
+   "end": 30,
+   "label": "Actor",
+   "id": "Actor_1b74ae5f",
+   "type": "Lane",
+   "name": "ACME AG"
+  },
+  {
+   "start": 31,
+   "end": 39,
+   "label": "Activity",
+   "id": "Activity_d265528d",
+   "type": "task",
+   "name": "Receives invoices"
+  },
+  {
+   "start": 40,
+   "end": 48,
+   "label": "Activity Data",
+   "id": "Activity Data_ad3e3c71",
+   "type": null,
+   "name": "Invoices"
+  },
+  {
+   "start": 67,
+   "end": 72,
+   "label": "Activity Data",
+   "id": "Activity Data_f8c1a4f9",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 77,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_696c05a1",
+   "type": "task",
+   "name": "Received these"
+  },
+  {
+   "start": 89,
+   "end": 104,
+   "label": "Actor",
+   "id": "Actor_30c689ad",
+   "type": "Lane",
+   "name": "The Secretariat"
+  },
+  {
+   "start": 130,
+   "end": 139,
+   "label": "Activity",
+   "id": "Activity_d518f8d9",
+   "type": "task",
+   "name": "Forwarded"
+  },
+  {
+   "start": 146,
+   "end": 160,
+   "label": "Further Specification",
+   "id": "Further Specification_302b1c7f",
+   "type": null,
+   "name": "A short visual"
+  },
+  {
+   "start": 161,
+   "end": 171,
+   "label": "Activity",
+   "id": "Activity_a90331d3",
+   "type": "task",
+   "name": "Inspection"
+  },
+  {
+   "start": 175,
+   "end": 197,
+   "label": "Actor",
+   "id": "Actor_b3de6a7d",
+   "type": "Lane",
+   "name": "An accounting employee"
+  },
+  {
+   "start": 286,
+   "end": 289,
+   "label": "Actor",
+   "id": "Actor_fccc9421",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 290,
+   "end": 300,
+   "label": "Activity",
+   "id": "Activity_de2107f2",
+   "type": "task",
+   "name": "Identifies the charging suppliers"
+  },
+  {
+   "start": 301,
+   "end": 323,
+   "label": "Activity Data",
+   "id": "Activity Data_05170d3b",
+   "type": null,
+   "name": "The charging suppliers"
+  },
+  {
+   "start": 328,
+   "end": 335,
+   "label": "Activity",
+   "id": "Activity_970d83d5",
+   "type": "task",
+   "name": "Creates a new instance"
+  },
+  {
+   "start": 336,
+   "end": 350,
+   "label": "Activity Data",
+   "id": "Activity Data_f7bb8a2a",
+   "type": null,
+   "name": "A new instance"
+  },
+  {
+   "start": 365,
+   "end": 368,
+   "label": "Actor",
+   "id": "Actor_44d4649a",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 374,
+   "end": 380,
+   "label": "Activity",
+   "id": "Activity_4588c2f6",
+   "type": "task",
+   "name": "Checks the invoice items"
+  },
+  {
+   "start": 381,
+   "end": 398,
+   "label": "Activity Data",
+   "id": "Activity Data_bb8358b6",
+   "type": null,
+   "name": "The invoice items"
+  },
+  {
+   "start": 403,
+   "end": 408,
+   "label": "Activity",
+   "id": "Activity_37e0b338",
+   "type": "task",
+   "name": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position"
+  },
+  {
+   "start": 409,
+   "end": 508,
+   "label": "Activity Data",
+   "id": "Activity Data_b2137c87",
+   "type": null,
+   "name": "The corresponding cost center at the ACME AG and the related cost center managers for each position"
+  },
+  {
+   "start": 547,
+   "end": 585,
+   "label": "Activity Data",
+   "id": "Activity Data_96b004e4",
+   "type": null,
+   "name": "The docket and the copy of the invoice"
+  },
+  {
+   "start": 586,
+   "end": 588,
+   "label": "Activity",
+   "id": "Activity_0db2f880",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 592,
+   "end": 609,
+   "label": "Actor",
+   "id": "Actor_36b79f84",
+   "type": "Lane",
+   "name": "The internal mail"
+  },
+  {
+   "start": 627,
+   "end": 631,
+   "label": "Activity",
+   "id": "Activity_cb20a879",
+   "type": "task",
+   "name": "Sent the docket and the copy of the invoice"
+  },
+  {
+   "start": 635,
+   "end": 664,
+   "label": "Actor",
+   "id": "Actor_d09faf50",
+   "type": "Lane",
+   "name": "The first cost center manager"
+  },
+  {
+   "start": 679,
+   "end": 681,
+   "label": "Actor",
+   "id": "Actor_53f484f0",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 682,
+   "end": 689,
+   "label": "Activity",
+   "id": "Activity_83e054a9",
+   "type": "task",
+   "name": "Reviews the content"
+  },
+  {
+   "start": 690,
+   "end": 701,
+   "label": "Activity Data",
+   "id": "Activity Data_fd2bbb14",
+   "type": null,
+   "name": "The content"
+  },
+  {
+   "start": 702,
+   "end": 714,
+   "label": "Further Specification",
+   "id": "Further Specification_33963884",
+   "type": null,
+   "name": "For accuracy"
+  },
+  {
+   "start": 721,
+   "end": 730,
+   "label": "Activity",
+   "id": "Activity_ab09e575",
+   "type": "task",
+   "name": "Receiving the copy of the invoice"
+  },
+  {
+   "start": 731,
+   "end": 754,
+   "label": "Activity Data",
+   "id": "Activity Data_9a22a96c",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 757,
+   "end": 763,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a33c5c0c",
+   "type": "exclusiveGateway",
+   "name": "Should everything be in order"
+  },
+  {
+   "start": 764,
+   "end": 786,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cf299b59",
+   "type": "exclusiveGateway",
+   "name": "Everything be in order"
+  },
+  {
+   "start": 789,
+   "end": 791,
+   "label": "Actor",
+   "id": "Actor_15016975",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 792,
+   "end": 797,
+   "label": "Activity",
+   "id": "Activity_41e60ce0",
+   "type": "task",
+   "name": "Notes his code"
+  },
+  {
+   "start": 798,
+   "end": 806,
+   "label": "Activity Data",
+   "id": "Activity Data_539e0b8b",
+   "type": null,
+   "name": "His code"
+  },
+  {
+   "start": 811,
+   "end": 824,
+   "label": "Further Specification",
+   "id": "Further Specification_a4257874",
+   "type": null,
+   "name": "On the docket"
+  },
+  {
+   "start": 862,
+   "end": 869,
+   "label": "Activity",
+   "id": "Activity_8fb4a6f0",
+   "type": "task",
+   "name": "Returns the copy of the invoice"
+  },
+  {
+   "start": 870,
+   "end": 893,
+   "label": "Activity Data",
+   "id": "Activity Data_c6520148",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 897,
+   "end": 914,
+   "label": "Actor",
+   "id": "Actor_d35dbbaf",
+   "type": "Lane",
+   "name": "The internal mail"
+  },
+  {
+   "start": 927,
+   "end": 950,
+   "label": "Activity Data",
+   "id": "Activity Data_fcb4fa67",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 954,
+   "end": 963,
+   "label": "Activity",
+   "id": "Activity_7c38cb01",
+   "type": "task",
+   "name": "Passed on the copy of the invoice"
+  },
+  {
+   "start": 967,
+   "end": 995,
+   "label": "Actor",
+   "id": "Actor_b7df6b7d",
+   "type": "Lane",
+   "name": "The next cost center manager"
+  },
+  {
+   "start": 1023,
+   "end": 1025,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_1a1982bd",
+   "type": "exclusiveGateway",
+   "name": "If all items are marked correct"
+  },
+  {
+   "start": 1026,
+   "end": 1054,
+   "label": "Condition Specification",
+   "id": "Condition Specification_d4b70b1a",
+   "type": "exclusiveGateway",
+   "name": "All items are marked correct"
+  },
+  {
+   "start": 1057,
+   "end": 1066,
+   "label": "Activity",
+   "id": "Activity_58f79aa0",
+   "type": "task",
+   "name": "Sent back"
+  },
+  {
+   "start": 1070,
+   "end": 1080,
+   "label": "Actor",
+   "id": "Actor_54286b5e",
+   "type": "Lane",
+   "name": "Accounting"
+  },
+  {
+   "start": 1257,
+   "end": 1259,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e780b60c",
+   "type": "exclusiveGateway",
+   "name": "If inconsistencies exist"
+  },
+  {
+   "start": 1260,
+   "end": 1281,
+   "label": "Condition Specification",
+   "id": "Condition Specification_6525d66b",
+   "type": "exclusiveGateway",
+   "name": "Inconsistencies exist"
+  },
+  {
+   "start": 1363,
+   "end": 1386,
+   "label": "Actor",
+   "id": "Actor_6002142b",
+   "type": "Lane",
+   "name": "The cost center manager"
+  },
+  {
+   "start": 1387,
+   "end": 1394,
+   "label": "Activity",
+   "id": "Activity_50cecddf",
+   "type": "task",
+   "name": "Rejects the AP"
+  },
+  {
+   "start": 1395,
+   "end": 1401,
+   "label": "Activity Data",
+   "id": "Activity Data_d1513dc7",
+   "type": null,
+   "name": "The AP"
+  },
+  {
+   "start": 1460,
+   "end": 1483,
+   "label": "Activity Data",
+   "id": "Activity Data_bee187dc",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1487,
+   "end": 1496,
+   "label": "Activity",
+   "id": "Activity_d448f915",
+   "type": "task",
+   "name": "Sent back the copy of the invoice"
+  },
+  {
+   "start": 1500,
+   "end": 1510,
+   "label": "Actor",
+   "id": "Actor_4e052041",
+   "type": "Lane",
+   "name": "Accounting"
+  },
+  {
+   "start": 1576,
+   "end": 1579,
+   "label": "Actor",
+   "id": "Actor_2a62852d",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 1585,
+   "end": 1593,
+   "label": "Activity",
+   "id": "Activity_10ff76ad",
+   "type": "task",
+   "name": "Proceede the clarification with the vendor"
+  },
+  {
+   "start": 1599,
+   "end": 1632,
+   "label": "Activity Data",
+   "id": "Activity Data_fbeb58a6",
+   "type": null,
+   "name": "The clarification with the vendor"
+  },
+  {
+   "start": 1641,
+   "end": 1643,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_66c4af08",
+   "type": "exclusiveGateway",
+   "name": "If necessary"
+  },
+  {
+   "start": 1644,
+   "end": 1653,
+   "label": "Condition Specification",
+   "id": "Condition Specification_482c3ba0",
+   "type": "exclusiveGateway",
+   "name": "Necessary"
+  },
+  {
+   "start": 1656,
+   "end": 1659,
+   "label": "Actor",
+   "id": "Actor_0c53f796",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 1660,
+   "end": 1668,
+   "label": "Activity",
+   "id": "Activity_ae3c22c4",
+   "type": "task",
+   "name": "Consults"
+  },
+  {
+   "start": 1669,
+   "end": 1693,
+   "label": "Actor",
+   "id": "Actor_d89eb9a0",
+   "type": "Lane",
+   "name": "The cost center managers"
+  },
+  {
+   "start": 1765,
+   "end": 1788,
+   "label": "Activity Data",
+   "id": "Activity Data_b48e0a15",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1792,
+   "end": 1796,
+   "label": "Activity",
+   "id": "Activity_8405e7fc",
+   "type": "task",
+   "name": "Sent the copy of the invoice"
+  },
+  {
+   "start": 1800,
+   "end": 1824,
+   "label": "Actor",
+   "id": "Actor_de73b610",
+   "type": "Lane",
+   "name": "The cost center managers"
+  },
+  {
+   "start": 1894,
+   "end": 1917,
+   "label": "Actor",
+   "id": "Actor_c0302fd0",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 1918,
+   "end": 1926,
+   "label": "Activity",
+   "id": "Activity_8b09513d",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 1927,
+   "end": 1950,
+   "label": "Activity Data",
+   "id": "Activity Data_a8878686",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1954,
+   "end": 1976,
+   "label": "Actor",
+   "id": "Actor_13d6f688",
+   "type": "Lane",
+   "name": "The commercial manager"
+  },
+  {
+   "start": 1979,
+   "end": 1981,
+   "label": "Actor",
+   "id": "Actor_b72678ad",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 1982,
+   "end": 1987,
+   "label": "Activity",
+   "id": "Activity_ec596edd",
+   "type": "task",
+   "name": "Makes the commercial audit"
+  },
+  {
+   "start": 1988,
+   "end": 2008,
+   "label": "Activity Data",
+   "id": "Activity Data_e048991f",
+   "type": null,
+   "name": "The commercial audit"
+  },
+  {
+   "start": 2013,
+   "end": 2019,
+   "label": "Activity",
+   "id": "Activity_cd12d7a4",
+   "type": "task",
+   "name": "Issues the approval for payment"
+  },
+  {
+   "start": 2020,
+   "end": 2044,
+   "label": "Activity Data",
+   "id": "Activity Data_224777c7",
+   "type": null,
+   "name": "The approval for payment"
+  },
+  {
+   "start": 2047,
+   "end": 2049,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_57ff8b74",
+   "type": "exclusiveGateway",
+   "name": "If the bill amount exceeds EUR 20"
+  },
+  {
+   "start": 2050,
+   "end": 2080,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1d478bb1",
+   "type": "exclusiveGateway",
+   "name": "The bill amount exceeds EUR 20"
+  },
+  {
+   "start": 2083,
+   "end": 2092,
+   "label": "Actor",
+   "id": "Actor_251f600e",
+   "type": "Lane",
+   "name": "The Board"
+  },
+  {
+   "start": 2102,
+   "end": 2107,
+   "label": "Activity",
+   "id": "Activity_fdbf64f1",
+   "type": "task",
+   "name": "Check it"
+  },
+  {
+   "start": 2108,
+   "end": 2110,
+   "label": "Activity Data",
+   "id": "Activity Data_60e3fc35",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 2142,
+   "end": 2186,
+   "label": "Activity Data",
+   "id": "Activity Data_d6856f25",
+   "type": null,
+   "name": "The copy of the invoice including the docket"
+  },
+  {
+   "start": 2187,
+   "end": 2197,
+   "label": "Activity",
+   "id": "Activity_5dbd2e63",
+   "type": "task",
+   "name": "Moves back the copy of the invoice including the docket"
+  },
+  {
+   "start": 2201,
+   "end": 2224,
+   "label": "Actor",
+   "id": "Actor_710861a5",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2225,
+   "end": 2258,
+   "label": "Further Specification",
+   "id": "Further Specification_cb06c3eb",
+   "type": null,
+   "name": "In the appropriate signature file"
+  },
+  {
+   "start": 2261,
+   "end": 2267,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_fa04f6d5",
+   "type": "exclusiveGateway",
+   "name": "Should there be a complaint during the commercial audit"
+  },
+  {
+   "start": 2268,
+   "end": 2316,
+   "label": "Condition Specification",
+   "id": "Condition Specification_185d9386",
+   "type": "exclusiveGateway",
+   "name": "There be a complaint during the commercial audit"
+  },
+  {
+   "start": 2319,
+   "end": 2321,
+   "label": "Activity Data",
+   "id": "Activity Data_355d76ac",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 2330,
+   "end": 2338,
+   "label": "Activity",
+   "id": "Activity_ba29ac1a",
+   "type": "task",
+   "name": "Resolved it"
+  },
+  {
+   "start": 2342,
+   "end": 2365,
+   "label": "Actor",
+   "id": "Actor_66159167",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2441,
+   "end": 2464,
+   "label": "Actor",
+   "id": "Actor_e0be2103",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2465,
+   "end": 2470,
+   "label": "Activity",
+   "id": "Activity_f2d6138f",
+   "type": "task",
+   "name": "Gives payment instructions"
+  },
+  {
+   "start": 2471,
+   "end": 2491,
+   "label": "Activity Data",
+   "id": "Activity Data_21af87de",
+   "type": null,
+   "name": "Payment instructions"
+  },
+  {
+   "start": 2496,
+   "end": 2502,
+   "label": "Activity",
+   "id": "Activity_8fbefd8c",
+   "type": "task",
+   "name": "Closes the instance in `` ACME financial accounting ``"
+  },
+  {
+   "start": 2503,
+   "end": 2550,
+   "label": "Activity Data",
+   "id": "Activity Data_30e888d9",
+   "type": null,
+   "name": "The instance in `` ACME financial accounting ``"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 93,
+  "skipped": 0,
+  "failures": 93,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Received these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Forwarded",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Inspection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Forwarded",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Inspection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Identifies the charging suppliers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Inspection",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Identifies the charging suppliers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Creates a new instance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Identifies the charging suppliers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Creates a new instance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Checks the invoice items",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Creates a new instance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Checks the invoice items",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Checks the invoice items",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Reviews the content",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Reviews the content",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Receiving the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Reviews the content",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Receiving the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Should everything be in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Receiving the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Should everything be in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Notes his code",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Should everything be in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Notes his code",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Returns the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Notes his code",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Returns the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Passed on the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "Returns the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "Passed on the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "If all items are marked correct",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "Passed on the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "If all items are marked correct",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "If all items are marked correct",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "If inconsistencies exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "If inconsistencies exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "Rejects the AP",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "If inconsistencies exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Rejects the AP",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Sent back the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Rejects the AP",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Sent back the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Proceede the clarification with the vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "Sent back the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "Proceede the clarification with the vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "If necessary",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "Proceede the clarification with the vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "If necessary",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "Consults",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "If necessary",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "Consults",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "Sent the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Consults",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Sent the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Makes the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Sent the copy of the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Makes the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Issues the approval for payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "Makes the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "Issues the approval for payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "Issues the approval for payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "Check it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "Check it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Check it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Resolved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Resolved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Gives payment instructions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Resolved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Gives payment instructions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Resolved it",
+    "node_B": "Gives payment instructions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Resolved it",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Gives payment instructions",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Received these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Forwarded",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives invoices",
+    "node_B": "Inspection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Forwarded",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Inspection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received these",
+    "node_B": "Identifies the charging suppliers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Inspection",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Identifies the charging suppliers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded",
+    "node_B": "Creates a new instance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Identifies the charging suppliers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Creates a new instance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Inspection",
+    "node_B": "Checks the invoice items",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Creates a new instance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Checks the invoice items",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Identifies the charging suppliers",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Checks the invoice items",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a new instance",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the invoice items",
+    "node_B": "Reviews the content",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Sent the docket and the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Reviews the content",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "node_B": "Receiving the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Reviews the content",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Receiving the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the docket and the copy of the invoice",
+    "node_B": "Should everything be in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Receiving the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Should everything be in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the content",
+    "node_B": "Notes his code",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Should everything be in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Notes his code",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving the copy of the invoice",
+    "node_B": "Returns the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Notes his code",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Returns the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Passed on the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "Returns the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "Passed on the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notes his code",
+    "node_B": "If all items are marked correct",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "Passed on the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "If all items are marked correct",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returns the copy of the invoice",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "If all items are marked correct",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Passed on the copy of the invoice",
+    "node_B": "If inconsistencies exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "If inconsistencies exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "Rejects the AP",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "If inconsistencies exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Rejects the AP",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Sent back the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Rejects the AP",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Sent back the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If inconsistencies exist",
+    "node_B": "Proceede the clarification with the vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "Sent back the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "Proceede the clarification with the vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the AP",
+    "node_B": "If necessary",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "Proceede the clarification with the vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "If necessary",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back the copy of the invoice",
+    "node_B": "Consults",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "If necessary",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "Consults",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Proceede the clarification with the vendor",
+    "node_B": "Sent the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Consults",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Sent the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Makes the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Sent the copy of the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Makes the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Consults",
+    "node_B": "Issues the approval for payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "Makes the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "Issues the approval for payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the copy of the invoice",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "Issues the approval for payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Makes the commercial audit",
+    "node_B": "Check it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "If the bill amount exceeds EUR 20",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "Check it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Issues the approval for payment",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Check it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Moves back the copy of the invoice including the docket",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check it",
+    "node_B": "Resolved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Should there be a complaint during the commercial audit",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Resolved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Moves back the copy of the invoice including the docket",
+    "node_B": "Gives payment instructions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Resolved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Gives payment instructions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Resolved it",
+    "node_B": "Gives payment instructions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Resolved it",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Gives payment instructions",
+    "node_B": "Closes the instance in `` ACME financial accounting ``",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

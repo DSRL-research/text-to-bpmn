@@ -1,0 +1,174 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The INQ",
+   "The IP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_71af7cc2",
+    "name": "Transmits the transaction data request",
+    "type": "task",
+    "lane": "The INQ",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a5681d52",
+    "name": "Checks the request of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c6cd4264",
+    "name": "Answers the question of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": [
+     "Depending on the outcome of the examination"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The IP"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_71af7cc2",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_71af7cc2",
+    "target": "Activity_a5681d52",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_a5681d52",
+    "target": "Activity_c6cd4264",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_c6cd4264",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 7,
+   "label": "Actor",
+   "id": "Actor_7759f7cb",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 8,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_71af7cc2",
+   "type": "task",
+   "name": "Transmits the transaction data request"
+  },
+  {
+   "start": 18,
+   "end": 46,
+   "label": "Activity Data",
+   "id": "Activity Data_743a57fb",
+   "type": null,
+   "name": "The transaction data request"
+  },
+  {
+   "start": 50,
+   "end": 56,
+   "label": "Actor",
+   "id": "Actor_5e27c46d",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 59,
+   "end": 65,
+   "label": "Actor",
+   "id": "Actor_5d56edaf",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 66,
+   "end": 72,
+   "label": "Activity",
+   "id": "Activity_a5681d52",
+   "type": "task",
+   "name": "Checks the request of the INQ"
+  },
+  {
+   "start": 73,
+   "end": 95,
+   "label": "Activity Data",
+   "id": "Activity Data_20f2b3f5",
+   "type": null,
+   "name": "The request of the INQ"
+  },
+  {
+   "start": 98,
+   "end": 104,
+   "label": "Actor",
+   "id": "Actor_9211934d",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 105,
+   "end": 112,
+   "label": "Activity",
+   "id": "Activity_c6cd4264",
+   "type": "task",
+   "name": "Answers the question of the INQ"
+  },
+  {
+   "start": 113,
+   "end": 136,
+   "label": "Activity Data",
+   "id": "Activity Data_fefb2757",
+   "type": null,
+   "name": "The question of the INQ"
+  },
+  {
+   "start": 137,
+   "end": 180,
+   "label": "Further Specification",
+   "id": "Further Specification_c2b511bc",
+   "type": null,
+   "name": "Depending on the outcome of the examination"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

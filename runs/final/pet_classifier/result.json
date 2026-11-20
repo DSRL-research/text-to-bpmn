@@ -1,0 +1,184 @@
+{
+  "documents": 45,
+  "relation_calls": 1300,
+  "relation_answered": 1300,
+  "relation_failures": 0,
+  "relation_failure_rate": 0.0,
+  "overall": {
+    "tp": 354,
+    "fp": 152,
+    "fn": 115,
+    "precision": 0.7,
+    "recall": 0.755,
+    "f1": 0.726
+  },
+  "unmapped_gold_edges": 22,
+  "by_shape": {
+    "sequence": {
+      "tp": 247,
+      "fp": 0,
+      "fn": 74,
+      "precision": 1.0,
+      "recall": 0.769,
+      "f1": 0.87,
+      "unmapped": 13
+    },
+    "into a decision": {
+      "tp": 41,
+      "fp": 0,
+      "fn": 29,
+      "precision": 1.0,
+      "recall": 0.586,
+      "f1": 0.739,
+      "unmapped": 8
+    },
+    "out of a branch": {
+      "tp": 66,
+      "fp": 0,
+      "fn": 12,
+      "precision": 1.0,
+      "recall": 0.846,
+      "f1": 0.917,
+      "unmapped": 1
+    }
+  },
+  "examples_of_missing_edges": [
+    [
+      "doc-2.1",
+      "In case the customer is of certain significance",
+      "Determines the significance of the customer",
+      "out of a branch"
+    ],
+    [
+      "doc-2.1",
+      "Sent out the detailed problem report",
+      "Receives the detailed problem report",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Created a notification",
+      "Included a status report",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Analyzed this",
+      "Created a trouble report",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Sent back the actual service performance",
+      "Receives the actual service performance",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Created the problem resolution report",
+      "Sent out",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Sent out",
+      "Receives the actual service performance",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Created a report",
+      "Sent out the report",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Reported an SLA violation rebate",
+      "Adjust the billing",
+      "sequence"
+    ],
+    [
+      "doc-2.1",
+      "Adjust the billing",
+      "Sent out the report",
+      "sequence"
+    ],
+    [
+      "doc-4.1",
+      "Created a patient file",
+      "Stored the print from the information system",
+      "sequence"
+    ],
+    [
+      "doc-4.1",
+      "Recorded the assignments",
+      "Determined the medical file of the patient",
+      "sequence"
+    ]
+  ],
+  "jobs": {
+    "source": "pet_data/PETv1.1-relations.json",
+    "documents": 45,
+    "spans": 1679,
+    "scored_flows": {
+      "sequence": 334,
+      "into a decision": 78,
+      "out of a branch": 79
+    },
+    "span_order": "documents sorted by span count, largest first"
+  },
+  "run": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-09T19:01:54+00:00",
+    "code": {
+      "commit": "160b763042494e92c63d16dcebb00c8f9d695b0f",
+      "describe": "revision-final",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  },
+  "prompt": "corrected"
+}

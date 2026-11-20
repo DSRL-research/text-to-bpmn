@@ -1,0 +1,334 @@
+{
+ "structured_data": {
+  "participants": [
+   "A claims manager",
+   "Main Process",
+   "The claimant",
+   "The claims handler",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_63a9f841",
+    "name": "Searched the Police Report",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "Within the Police Report database"
+    ]
+   },
+   {
+    "id": "Activity_6df97118",
+    "name": "Put",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "In a file together with the Claim Documentation"
+    ]
+   },
+   {
+    "id": "Activity_0c442918",
+    "name": "Calculates an initial claim estimate",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d9e2bd76",
+    "name": "Creates an Action Plan",
+    "type": "task",
+    "lane": "The claims handler",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a1891454",
+    "name": "Negotiate a settlement",
+    "type": "task",
+    "lane": "A claims manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_03e97db6",
+    "name": "Informed the outcome",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The claimant"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_aea8e2ef",
+    "source": "StartEvent_1",
+    "target": "Activity_63a9f841",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8b531784",
+    "source": "Activity_63a9f841",
+    "target": "Activity_6df97118",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1c45773f",
+    "source": "Activity_6df97118",
+    "target": "Activity_0c442918",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_64403589",
+    "source": "Activity_0c442918",
+    "target": "Activity_d9e2bd76",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_890d4e1b",
+    "source": "Activity_d9e2bd76",
+    "target": "Activity_a1891454",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_89ab3ebc",
+    "source": "Activity_a1891454",
+    "target": "Activity_03e97db6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b9904489",
+    "source": "Activity_03e97db6",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 17,
+   "label": "Activity Data",
+   "id": "Activity Data_0a307778",
+   "type": null,
+   "name": "The Police Report"
+  },
+  {
+   "start": 49,
+   "end": 57,
+   "label": "Activity",
+   "id": "Activity_63a9f841",
+   "type": "task",
+   "name": "Searched the Police Report"
+  },
+  {
+   "start": 58,
+   "end": 91,
+   "label": "Further Specification",
+   "id": "Further Specification_541acafd",
+   "type": null,
+   "name": "Within the Police Report database"
+  },
+  {
+   "start": 96,
+   "end": 99,
+   "label": "Activity",
+   "id": "Activity_6df97118",
+   "type": "task",
+   "name": "Put"
+  },
+  {
+   "start": 100,
+   "end": 147,
+   "label": "Further Specification",
+   "id": "Further Specification_1443e427",
+   "type": null,
+   "name": "In a file together with the Claim Documentation"
+  },
+  {
+   "start": 196,
+   "end": 199,
+   "label": "Actor",
+   "id": "Actor_8d68cd2c",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 200,
+   "end": 210,
+   "label": "Activity",
+   "id": "Activity_0c442918",
+   "type": "task",
+   "name": "Calculates an initial claim estimate"
+  },
+  {
+   "start": 211,
+   "end": 236,
+   "label": "Activity Data",
+   "id": "Activity Data_4c7f488c",
+   "type": null,
+   "name": "An initial claim estimate"
+  },
+  {
+   "start": 246,
+   "end": 264,
+   "label": "Actor",
+   "id": "Actor_46dcf31c",
+   "type": "Lane",
+   "name": "The claims handler"
+  },
+  {
+   "start": 265,
+   "end": 272,
+   "label": "Activity",
+   "id": "Activity_d9e2bd76",
+   "type": "task",
+   "name": "Creates an Action Plan"
+  },
+  {
+   "start": 273,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_21e01ed3",
+   "type": null,
+   "name": "An Action Plan"
+  },
+  {
+   "start": 395,
+   "end": 411,
+   "label": "Actor",
+   "id": "Actor_959b21a9",
+   "type": "Lane",
+   "name": "A claims manager"
+  },
+  {
+   "start": 421,
+   "end": 430,
+   "label": "Activity",
+   "id": "Activity_a1891454",
+   "type": "task",
+   "name": "Negotiate a settlement"
+  },
+  {
+   "start": 431,
+   "end": 443,
+   "label": "Activity Data",
+   "id": "Activity Data_61185d26",
+   "type": null,
+   "name": "A settlement"
+  },
+  {
+   "start": 468,
+   "end": 480,
+   "label": "Actor",
+   "id": "Actor_e938a43f",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 484,
+   "end": 492,
+   "label": "Activity",
+   "id": "Activity_03e97db6",
+   "type": "task",
+   "name": "Informed the outcome"
+  },
+  {
+   "start": 496,
+   "end": 507,
+   "label": "Activity Data",
+   "id": "Activity Data_9e851790",
+   "type": null,
+   "name": "The outcome"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 12,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Searched the Police Report",
+    "node_B": "Put",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Searched the Police Report",
+    "node_B": "Calculates an initial claim estimate",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Searched the Police Report",
+    "node_B": "Creates an Action Plan",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Put",
+    "node_B": "Calculates an initial claim estimate",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Put",
+    "node_B": "Creates an Action Plan",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Put",
+    "node_B": "Negotiate a settlement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calculates an initial claim estimate",
+    "node_B": "Creates an Action Plan",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calculates an initial claim estimate",
+    "node_B": "Negotiate a settlement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calculates an initial claim estimate",
+    "node_B": "Informed the outcome",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Creates an Action Plan",
+    "node_B": "Negotiate a settlement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Creates an Action Plan",
+    "node_B": "Informed the outcome",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Negotiate a settlement",
+    "node_B": "Informed the outcome",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

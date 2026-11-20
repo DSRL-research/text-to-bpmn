@@ -1,0 +1,589 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The assessor or approver",
+   "The customer",
+   "The risk assessment Web service"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_d9ef69e4",
+    "name": "Receiving a customer request for a loan amount",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8cb5e878",
+    "name": "Assess the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_edfcb17a",
+    "name": "If the loan is small and the customer is low risk",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0b7533bd",
+    "name": "Approved the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_229a4adc",
+    "name": "If the customer is high risk",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_606f866f",
+    "name": "Denied the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_1ec41552",
+    "name": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_40d08ace",
+    "name": "Sent the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3a4a5da4",
+    "name": "Receives feedback",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The assessor or approver"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_be045071",
+    "source": "StartEvent_1",
+    "target": "Activity_d9ef69e4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b441bbea",
+    "source": "Activity_d9ef69e4",
+    "target": "Activity_8cb5e878",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cbbec2c0",
+    "source": "Activity_8cb5e878",
+    "target": "XOR Gateway_edfcb17a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_316376a6",
+    "source": "XOR Gateway_edfcb17a",
+    "target": "Activity_0b7533bd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3dc7aac9",
+    "source": "Activity_0b7533bd",
+    "target": "XOR Gateway_229a4adc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_eb6cf1f1",
+    "source": "XOR Gateway_229a4adc",
+    "target": "Activity_606f866f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8899dced",
+    "source": "Activity_606f866f",
+    "target": "XOR Gateway_1ec41552",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4b715ec3",
+    "source": "XOR Gateway_1ec41552",
+    "target": "Activity_40d08ace",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c974e5b3",
+    "source": "Activity_40d08ace",
+    "target": "Activity_3a4a5da4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bbcce681",
+    "source": "Activity_3a4a5da4",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 36,
+   "end": 45,
+   "label": "Activity",
+   "id": "Activity_d9ef69e4",
+   "type": "task",
+   "name": "Receiving a customer request for a loan amount"
+  },
+  {
+   "start": 46,
+   "end": 82,
+   "label": "Activity Data",
+   "id": "Activity Data_3e46c642",
+   "type": null,
+   "name": "A customer request for a loan amount"
+  },
+  {
+   "start": 85,
+   "end": 116,
+   "label": "Actor",
+   "id": "Actor_4c8b8bd4",
+   "type": "Lane",
+   "name": "The risk assessment Web service"
+  },
+  {
+   "start": 131,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_8cb5e878",
+   "type": "task",
+   "name": "Assess the request"
+  },
+  {
+   "start": 138,
+   "end": 149,
+   "label": "Activity Data",
+   "id": "Activity Data_a2a8ef54",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 152,
+   "end": 154,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_edfcb17a",
+   "type": "exclusiveGateway",
+   "name": "If the loan is small and the customer is low risk"
+  },
+  {
+   "start": 155,
+   "end": 201,
+   "label": "Condition Specification",
+   "id": "Condition Specification_0cbda883",
+   "type": "exclusiveGateway",
+   "name": "The loan is small and the customer is low risk"
+  },
+  {
+   "start": 204,
+   "end": 212,
+   "label": "Activity Data",
+   "id": "Activity Data_3c220880",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 216,
+   "end": 224,
+   "label": "Activity",
+   "id": "Activity_0b7533bd",
+   "type": "task",
+   "name": "Approved the loan"
+  },
+  {
+   "start": 227,
+   "end": 229,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_229a4adc",
+   "type": "exclusiveGateway",
+   "name": "If the customer is high risk"
+  },
+  {
+   "start": 230,
+   "end": 255,
+   "label": "Condition Specification",
+   "id": "Condition Specification_394e18ad",
+   "type": "exclusiveGateway",
+   "name": "The customer is high risk"
+  },
+  {
+   "start": 258,
+   "end": 266,
+   "label": "Activity Data",
+   "id": "Activity Data_2a63851a",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 270,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_606f866f",
+   "type": "task",
+   "name": "Denied the loan"
+  },
+  {
+   "start": 279,
+   "end": 281,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_1ec41552",
+   "type": "exclusiveGateway",
+   "name": "If the customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 282,
+   "end": 357,
+   "label": "Condition Specification",
+   "id": "Condition Specification_98c38bb1",
+   "type": "exclusiveGateway",
+   "name": "The customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 360,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_deb6c347",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 375,
+   "end": 379,
+   "label": "Activity",
+   "id": "Activity_40d08ace",
+   "type": "task",
+   "name": "Sent the request"
+  },
+  {
+   "start": 383,
+   "end": 407,
+   "label": "Actor",
+   "id": "Actor_1578be0c",
+   "type": "Lane",
+   "name": "The approver Web service"
+  },
+  {
+   "start": 410,
+   "end": 422,
+   "label": "Actor",
+   "id": "Actor_52f4953d",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 423,
+   "end": 431,
+   "label": "Activity",
+   "id": "Activity_3a4a5da4",
+   "type": "task",
+   "name": "Receives feedback"
+  },
+  {
+   "start": 432,
+   "end": 440,
+   "label": "Activity Data",
+   "id": "Activity Data_52e681b0",
+   "type": null,
+   "name": "Feedback"
+  },
+  {
+   "start": 446,
+   "end": 470,
+   "label": "Actor",
+   "id": "Actor_731e2199",
+   "type": "Lane",
+   "name": "The assessor or approver"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Assess the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "If the loan is small and the customer is low risk",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Approved the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the loan is small and the customer is low risk",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "Approved the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the customer is high risk",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Approved the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "If the customer is high risk",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Denied the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "If the customer is high risk",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "Denied the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Denied the loan",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Sent the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "Sent the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "Receives feedback",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Sent the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Receives feedback",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent the request",
+    "node_B": "Receives feedback",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Assess the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "If the loan is small and the customer is low risk",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Approved the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the loan is small and the customer is low risk",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "Approved the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the customer is high risk",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Approved the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "If the customer is high risk",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Denied the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "If the customer is high risk",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "Denied the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approved the loan",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Denied the loan",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Sent the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "Sent the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denied the loan",
+    "node_B": "Receives feedback",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Sent the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Receives feedback",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent the request",
+    "node_B": "Receives feedback",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

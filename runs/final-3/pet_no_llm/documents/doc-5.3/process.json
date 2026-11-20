@@ -1,0 +1,1257 @@
+{
+ "structured_data": {
+  "participants": [
+   "Any employee",
+   "Main Process",
+   "The immediate supervisor of the employee",
+   "The purchase department",
+   "The supervisor",
+   "The system",
+   "The user",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_ff062303",
+    "name": "Submits an office supply request",
+    "type": "task",
+    "lane": "Any employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6381421e",
+    "name": "Registered the request",
+    "type": "task",
+    "lane": "The immediate supervisor of the employee",
+    "metadata": [
+     "The requirement"
+    ]
+   },
+   {
+    "id": "Activity_a1623fbd",
+    "name": "Received",
+    "type": "task",
+    "lane": "The immediate supervisor of the employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1b89caf3",
+    "name": "Approve or ask for a change , or reject the request",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_0737476b",
+    "name": "If the request is rejected",
+    "type": "exclusiveGateway",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a9073cfc",
+    "name": "If the request is asked to make a change",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3f3ea15f",
+    "name": "Returned it",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7a50efdc",
+    "name": "Review the comments for the change request",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_5dddc135",
+    "name": "If the request is approved",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0c46a0e3",
+    "name": "Making quotations",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "It",
+     "A vendor"
+    ]
+   },
+   {
+    "id": "XOR Gateway_e5a9a0d0",
+    "name": "If the vendor is not valid in the system",
+    "type": "exclusiveGateway",
+    "lane": "The purchase department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9593dff5",
+    "name": "Choose a different vendor",
+    "type": "task",
+    "lane": "The purchase department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a1f5529f",
+    "name": "Selected a vendor",
+    "type": "task",
+    "lane": "The system",
+    "metadata": []
+   },
+   {
+    "id": "Activity_13d9d984",
+    "name": "Confirmed",
+    "type": "task",
+    "lane": "The system",
+    "metadata": []
+   },
+   {
+    "id": "Activity_909f5d24",
+    "name": "Generate",
+    "type": "task",
+    "lane": "The system",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5f4884b5",
+    "name": "Send a purchase order",
+    "type": "task",
+    "lane": "The system",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3c448a2e",
+    "name": "Wait for the product to be delivered",
+    "type": "task",
+    "lane": "The system",
+    "metadata": [
+     "The invoice received"
+    ]
+   },
+   {
+    "id": "Activity_1a3b99a7",
+    "name": "Send a notification",
+    "type": "task",
+    "lane": "The user",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The user"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_d5b35c08",
+    "source": "StartEvent_1",
+    "target": "Activity_ff062303",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fd746524",
+    "source": "Activity_ff062303",
+    "target": "Activity_6381421e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ac54eba9",
+    "source": "Activity_6381421e",
+    "target": "Activity_a1623fbd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_41e306ce",
+    "source": "Activity_a1623fbd",
+    "target": "Activity_1b89caf3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_452e01be",
+    "source": "Activity_1b89caf3",
+    "target": "XOR Gateway_0737476b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8efacc2e",
+    "source": "XOR Gateway_0737476b",
+    "target": "XOR Gateway_a9073cfc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_531d8882",
+    "source": "XOR Gateway_a9073cfc",
+    "target": "Activity_3f3ea15f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fdac72ce",
+    "source": "Activity_3f3ea15f",
+    "target": "Activity_7a50efdc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3678106c",
+    "source": "Activity_7a50efdc",
+    "target": "XOR Gateway_5dddc135",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d30b65e9",
+    "source": "XOR Gateway_5dddc135",
+    "target": "Activity_0c46a0e3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2dd6d4bd",
+    "source": "Activity_0c46a0e3",
+    "target": "XOR Gateway_e5a9a0d0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_46156877",
+    "source": "XOR Gateway_e5a9a0d0",
+    "target": "Activity_9593dff5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_33eaedd3",
+    "source": "Activity_9593dff5",
+    "target": "Activity_a1f5529f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2555d1cf",
+    "source": "Activity_a1f5529f",
+    "target": "Activity_13d9d984",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_10263b88",
+    "source": "Activity_13d9d984",
+    "target": "Activity_909f5d24",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ab90eabd",
+    "source": "Activity_909f5d24",
+    "target": "Activity_5f4884b5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a7a4e2f7",
+    "source": "Activity_5f4884b5",
+    "target": "Activity_3c448a2e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d12abe7c",
+    "source": "Activity_3c448a2e",
+    "target": "Activity_1a3b99a7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2db39eb2",
+    "source": "Activity_1a3b99a7",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 52,
+   "end": 64,
+   "label": "Actor",
+   "id": "Actor_3e154515",
+   "type": "Lane",
+   "name": "Any employee"
+  },
+  {
+   "start": 85,
+   "end": 92,
+   "label": "Activity",
+   "id": "Activity_ff062303",
+   "type": "task",
+   "name": "Submits an office supply request"
+  },
+  {
+   "start": 93,
+   "end": 117,
+   "label": "Activity Data",
+   "id": "Activity Data_f50ce648",
+   "type": null,
+   "name": "An office supply request"
+  },
+  {
+   "start": 125,
+   "end": 140,
+   "label": "Activity Data",
+   "id": "Activity Data_68cf2e82",
+   "type": null,
+   "name": "The requirement"
+  },
+  {
+   "start": 144,
+   "end": 154,
+   "label": "Activity",
+   "id": "Activity_6381421e",
+   "type": "task",
+   "name": "Registered the request"
+  },
+  {
+   "start": 157,
+   "end": 168,
+   "label": "Activity Data",
+   "id": "Activity Data_c0a6d54c",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 172,
+   "end": 180,
+   "label": "Activity",
+   "id": "Activity_a1623fbd",
+   "type": "task",
+   "name": "Received"
+  },
+  {
+   "start": 184,
+   "end": 224,
+   "label": "Actor",
+   "id": "Actor_76fb793d",
+   "type": "Lane",
+   "name": "The immediate supervisor of the employee"
+  },
+  {
+   "start": 258,
+   "end": 272,
+   "label": "Actor",
+   "id": "Actor_15f29d78",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 278,
+   "end": 317,
+   "label": "Activity",
+   "id": "Activity_1b89caf3",
+   "type": "task",
+   "name": "Approve or ask for a change , or reject the request"
+  },
+  {
+   "start": 318,
+   "end": 329,
+   "label": "Activity Data",
+   "id": "Activity Data_438aa991",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 332,
+   "end": 334,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_0737476b",
+   "type": "exclusiveGateway",
+   "name": "If the request is rejected"
+  },
+  {
+   "start": 335,
+   "end": 358,
+   "label": "Condition Specification",
+   "id": "Condition Specification_12cbb8a5",
+   "type": "exclusiveGateway",
+   "name": "The request is rejected"
+  },
+  {
+   "start": 382,
+   "end": 384,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a9073cfc",
+   "type": "exclusiveGateway",
+   "name": "If the request is asked to make a change"
+  },
+  {
+   "start": 385,
+   "end": 422,
+   "label": "Condition Specification",
+   "id": "Condition Specification_af6adbca",
+   "type": "exclusiveGateway",
+   "name": "The request is asked to make a change"
+  },
+  {
+   "start": 428,
+   "end": 430,
+   "label": "Activity Data",
+   "id": "Activity Data_c49c446c",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 434,
+   "end": 442,
+   "label": "Activity",
+   "id": "Activity_3f3ea15f",
+   "type": "task",
+   "name": "Returned it"
+  },
+  {
+   "start": 446,
+   "end": 471,
+   "label": "Actor",
+   "id": "Actor_a7378641",
+   "type": "Lane",
+   "name": "The petitioner / employee"
+  },
+  {
+   "start": 472,
+   "end": 475,
+   "label": "Actor",
+   "id": "Actor_c44e3a5a",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 480,
+   "end": 486,
+   "label": "Activity",
+   "id": "Activity_7a50efdc",
+   "type": "task",
+   "name": "Review the comments for the change request"
+  },
+  {
+   "start": 487,
+   "end": 522,
+   "label": "Activity Data",
+   "id": "Activity Data_cfc33f72",
+   "type": null,
+   "name": "The comments for the change request"
+  },
+  {
+   "start": 525,
+   "end": 527,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_5dddc135",
+   "type": "exclusiveGateway",
+   "name": "If the request is approved"
+  },
+  {
+   "start": 528,
+   "end": 551,
+   "label": "Condition Specification",
+   "id": "Condition Specification_f64be0a1",
+   "type": "exclusiveGateway",
+   "name": "The request is approved"
+  },
+  {
+   "start": 552,
+   "end": 554,
+   "label": "Activity Data",
+   "id": "Activity Data_64496145",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 560,
+   "end": 562,
+   "label": "Activity",
+   "id": "Activity_810094e3",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 566,
+   "end": 589,
+   "label": "Actor",
+   "id": "Actor_103bbeae",
+   "type": "Lane",
+   "name": "The purchase department"
+  },
+  {
+   "start": 616,
+   "end": 622,
+   "label": "Activity",
+   "id": "Activity_0c46a0e3",
+   "type": "task",
+   "name": "Making quotations"
+  },
+  {
+   "start": 623,
+   "end": 633,
+   "label": "Activity Data",
+   "id": "Activity Data_04b99712",
+   "type": null,
+   "name": "Quotations"
+  },
+  {
+   "start": 661,
+   "end": 667,
+   "label": "Activity",
+   "id": "Activity_a5679f50",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 668,
+   "end": 676,
+   "label": "Activity Data",
+   "id": "Activity Data_dd108443",
+   "type": null,
+   "name": "A vendor"
+  },
+  {
+   "start": 679,
+   "end": 681,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e5a9a0d0",
+   "type": "exclusiveGateway",
+   "name": "If the vendor is not valid in the system"
+  },
+  {
+   "start": 682,
+   "end": 719,
+   "label": "Condition Specification",
+   "id": "Condition Specification_39f80b56",
+   "type": "exclusiveGateway",
+   "name": "The vendor is not valid in the system"
+  },
+  {
+   "start": 720,
+   "end": 743,
+   "label": "Actor",
+   "id": "Actor_415bfd75",
+   "type": "Lane",
+   "name": "The purchase department"
+  },
+  {
+   "start": 757,
+   "end": 763,
+   "label": "Activity",
+   "id": "Activity_9593dff5",
+   "type": "task",
+   "name": "Choose a different vendor"
+  },
+  {
+   "start": 764,
+   "end": 782,
+   "label": "Activity Data",
+   "id": "Activity Data_ea3fda26",
+   "type": null,
+   "name": "A different vendor"
+  },
+  {
+   "start": 791,
+   "end": 799,
+   "label": "Activity Data",
+   "id": "Activity Data_f5a65e7f",
+   "type": null,
+   "name": "A vendor"
+  },
+  {
+   "start": 803,
+   "end": 811,
+   "label": "Activity",
+   "id": "Activity_a1f5529f",
+   "type": "task",
+   "name": "Selected a vendor"
+  },
+  {
+   "start": 816,
+   "end": 825,
+   "label": "Activity",
+   "id": "Activity_13d9d984",
+   "type": "task",
+   "name": "Confirmed"
+  },
+  {
+   "start": 828,
+   "end": 838,
+   "label": "Actor",
+   "id": "Actor_a50b10a3",
+   "type": "Lane",
+   "name": "The system"
+  },
+  {
+   "start": 844,
+   "end": 852,
+   "label": "Activity",
+   "id": "Activity_909f5d24",
+   "type": "task",
+   "name": "Generate"
+  },
+  {
+   "start": 857,
+   "end": 861,
+   "label": "Activity",
+   "id": "Activity_5f4884b5",
+   "type": "task",
+   "name": "Send a purchase order"
+  },
+  {
+   "start": 862,
+   "end": 878,
+   "label": "Activity Data",
+   "id": "Activity Data_dd5ad322",
+   "type": null,
+   "name": "A purchase order"
+  },
+  {
+   "start": 883,
+   "end": 891,
+   "label": "Activity",
+   "id": "Activity_3c448a2e",
+   "type": "task",
+   "name": "Wait for the product to be delivered"
+  },
+  {
+   "start": 892,
+   "end": 919,
+   "label": "Activity Data",
+   "id": "Activity Data_bbdc8ed9",
+   "type": null,
+   "name": "The product to be delivered"
+  },
+  {
+   "start": 924,
+   "end": 944,
+   "label": "Activity Data",
+   "id": "Activity Data_86548605",
+   "type": null,
+   "name": "The invoice received"
+  },
+  {
+   "start": 1100,
+   "end": 1110,
+   "label": "Actor",
+   "id": "Actor_ed472a44",
+   "type": "Lane",
+   "name": "The system"
+  },
+  {
+   "start": 1116,
+   "end": 1120,
+   "label": "Activity",
+   "id": "Activity_1a3b99a7",
+   "type": "task",
+   "name": "Send a notification"
+  },
+  {
+   "start": 1121,
+   "end": 1129,
+   "label": "Actor",
+   "id": "Actor_e904e06e",
+   "type": "Lane",
+   "name": "The user"
+  },
+  {
+   "start": 1130,
+   "end": 1144,
+   "label": "Activity Data",
+   "id": "Activity Data_fa0e2365",
+   "type": null,
+   "name": "A notification"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 48,
+  "skipped": 0,
+  "failures": 48,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Registered the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Received",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Received",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is asked to make a change",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "If the request is asked to make a change",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "Returned it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "If the request is asked to make a change",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Returned it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Review the comments for the change request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "Returned it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "Review the comments for the change request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "Review the comments for the change request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "Making quotations",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "Making quotations",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "If the vendor is not valid in the system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Making quotations",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "If the vendor is not valid in the system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Choose a different vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "If the vendor is not valid in the system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "Choose a different vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "Selected a vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Choose a different vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Selected a vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Confirmed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Selected a vendor",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Confirmed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Generate",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Confirmed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Generate",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Send a purchase order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Generate",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Send a purchase order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Wait for the product to be delivered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Send a purchase order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Wait for the product to be delivered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Send a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Send a purchase order",
+    "node_B": "Wait for the product to be delivered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Send a purchase order",
+    "node_B": "Send a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Wait for the product to be delivered",
+    "node_B": "Send a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Registered the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Received",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an office supply request",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Received",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Approve or ask for a change , or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is asked to make a change",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "If the request is asked to make a change",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or ask for a change , or reject the request",
+    "node_B": "Returned it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "If the request is asked to make a change",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Returned it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Review the comments for the change request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "Returned it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "Review the comments for the change request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is asked to make a change",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "Review the comments for the change request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returned it",
+    "node_B": "Making quotations",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "Making quotations",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Review the comments for the change request",
+    "node_B": "If the vendor is not valid in the system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Making quotations",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "If the vendor is not valid in the system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Choose a different vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "If the vendor is not valid in the system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "Choose a different vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Making quotations",
+    "node_B": "Selected a vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Choose a different vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Selected a vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the vendor is not valid in the system",
+    "node_B": "Confirmed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Selected a vendor",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Confirmed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Choose a different vendor",
+    "node_B": "Generate",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Confirmed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Generate",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selected a vendor",
+    "node_B": "Send a purchase order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Generate",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Send a purchase order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirmed",
+    "node_B": "Wait for the product to be delivered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Send a purchase order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Wait for the product to be delivered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Generate",
+    "node_B": "Send a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Send a purchase order",
+    "node_B": "Wait for the product to be delivered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Send a purchase order",
+    "node_B": "Send a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Wait for the product to be delivered",
+    "node_B": "Send a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

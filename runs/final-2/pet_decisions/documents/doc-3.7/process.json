@@ -1,0 +1,268 @@
+{
+ "structured_data": {
+  "participants": [
+   "A claims manager",
+   "Main Process",
+   "The claimant",
+   "The claims handler",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_490d5066",
+    "name": "Searched the Police Report",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "Within the Police Report database"
+    ]
+   },
+   {
+    "id": "Activity_4e90514a",
+    "name": "Put",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "In a file together with the Claim Documentation"
+    ]
+   },
+   {
+    "id": "Activity_19b30310",
+    "name": "Calculates an initial claim estimate",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fe027c98",
+    "name": "Creates an Action Plan",
+    "type": "task",
+    "lane": "The claims handler",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f595028f",
+    "name": "Negotiate a settlement",
+    "type": "task",
+    "lane": "A claims manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_63e85bd8",
+    "name": "Informed the outcome",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The claimant"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_490d5066",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_490d5066",
+    "target": "Activity_4e90514a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_4e90514a",
+    "target": "Activity_19b30310",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_19b30310",
+    "target": "Activity_fe027c98",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_fe027c98",
+    "target": "Activity_f595028f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_f595028f",
+    "target": "Activity_63e85bd8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_63e85bd8",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 17,
+   "label": "Activity Data",
+   "id": "Activity Data_073d2a4b",
+   "type": null,
+   "name": "The Police Report"
+  },
+  {
+   "start": 49,
+   "end": 57,
+   "label": "Activity",
+   "id": "Activity_490d5066",
+   "type": "task",
+   "name": "Searched the Police Report"
+  },
+  {
+   "start": 58,
+   "end": 91,
+   "label": "Further Specification",
+   "id": "Further Specification_7e0b27f0",
+   "type": null,
+   "name": "Within the Police Report database"
+  },
+  {
+   "start": 96,
+   "end": 99,
+   "label": "Activity",
+   "id": "Activity_4e90514a",
+   "type": "task",
+   "name": "Put"
+  },
+  {
+   "start": 100,
+   "end": 147,
+   "label": "Further Specification",
+   "id": "Further Specification_3421bb86",
+   "type": null,
+   "name": "In a file together with the Claim Documentation"
+  },
+  {
+   "start": 196,
+   "end": 199,
+   "label": "Actor",
+   "id": "Actor_4a0601fa",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 200,
+   "end": 210,
+   "label": "Activity",
+   "id": "Activity_19b30310",
+   "type": "task",
+   "name": "Calculates an initial claim estimate"
+  },
+  {
+   "start": 211,
+   "end": 236,
+   "label": "Activity Data",
+   "id": "Activity Data_629612d2",
+   "type": null,
+   "name": "An initial claim estimate"
+  },
+  {
+   "start": 246,
+   "end": 264,
+   "label": "Actor",
+   "id": "Actor_4b3f3d49",
+   "type": "Lane",
+   "name": "The claims handler"
+  },
+  {
+   "start": 265,
+   "end": 272,
+   "label": "Activity",
+   "id": "Activity_fe027c98",
+   "type": "task",
+   "name": "Creates an Action Plan"
+  },
+  {
+   "start": 273,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_afd5726c",
+   "type": null,
+   "name": "An Action Plan"
+  },
+  {
+   "start": 395,
+   "end": 411,
+   "label": "Actor",
+   "id": "Actor_262d31ca",
+   "type": "Lane",
+   "name": "A claims manager"
+  },
+  {
+   "start": 421,
+   "end": 430,
+   "label": "Activity",
+   "id": "Activity_f595028f",
+   "type": "task",
+   "name": "Negotiate a settlement"
+  },
+  {
+   "start": 431,
+   "end": 443,
+   "label": "Activity Data",
+   "id": "Activity Data_1a7b55ba",
+   "type": null,
+   "name": "A settlement"
+  },
+  {
+   "start": 468,
+   "end": 480,
+   "label": "Actor",
+   "id": "Actor_491d4243",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 484,
+   "end": 492,
+   "label": "Activity",
+   "id": "Activity_63e85bd8",
+   "type": "task",
+   "name": "Informed the outcome"
+  },
+  {
+   "start": 496,
+   "end": 507,
+   "label": "Activity Data",
+   "id": "Activity Data_83fe24df",
+   "type": null,
+   "name": "The outcome"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

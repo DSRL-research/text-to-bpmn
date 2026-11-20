@@ -1,0 +1,1344 @@
+{
+ "structured_data": {
+  "participants": [
+   "A sales representative",
+   "A sales representative or by a pre-sales employee",
+   "Main Process",
+   "Our marketing staff",
+   "The call center staff",
+   "The customer",
+   "The head of development",
+   "They",
+   "We",
+   "You"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_7ca7592d",
+    "name": "Determine contact details",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_ca94ec2e",
+    "name": "Sometimes",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_416c7b77",
+    "name": "Buy details for cold calls",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_741d47ad",
+    "name": "Sometimes",
+    "type": "exclusiveGateway",
+    "lane": "Our marketing staff",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cee1ba49",
+    "name": "Participates in exhibitions",
+    "type": "task",
+    "lane": "Our marketing staff",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_fb66c99a",
+    "name": "Sometimes",
+    "type": "exclusiveGateway",
+    "lane": "You",
+    "metadata": []
+   },
+   {
+    "id": "Activity_acf0847d",
+    "name": "Know somebody , who is interested in the product",
+    "type": "task",
+    "lane": "You",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0bc28b68",
+    "name": "Calling",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_34b30cfe",
+    "name": "Determining the contact person",
+    "type": "task",
+    "lane": "They",
+    "metadata": [
+     "The budget"
+    ]
+   },
+   {
+    "id": "Activity_c81473af",
+    "name": "Asking",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_c85c0b33",
+    "name": "If this is not the case",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_68f1a80d",
+    "name": "Leave him",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_dad36e6b",
+    "name": "If the potential project budget is huge",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0f16582e",
+    "name": "Acquire the customer",
+    "type": "task",
+    "lane": "The head of development",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_12434f12",
+    "name": "If the customer is interested in the end",
+    "type": "exclusiveGateway",
+    "lane": "The head of development",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bf0238e2",
+    "name": "Given a detailed online presentation",
+    "type": "task",
+    "lane": "A sales representative or by a pre-sales employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7d5c690f",
+    "name": "Waiting for the customer to come back to us",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_4cc52d80",
+    "name": "If we are not contacted within 2 weeks",
+    "type": "exclusiveGateway",
+    "lane": "A sales representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_354d8fb5",
+    "name": "Calling",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d05f7ae9",
+    "name": "Creation a quotation",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The customer"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_9c4f14d9",
+    "source": "StartEvent_1",
+    "target": "Activity_7ca7592d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1ea48498",
+    "source": "Activity_7ca7592d",
+    "target": "XOR Gateway_ca94ec2e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a487f1a5",
+    "source": "XOR Gateway_ca94ec2e",
+    "target": "Activity_416c7b77",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b4d38ccf",
+    "source": "Activity_416c7b77",
+    "target": "XOR Gateway_741d47ad",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_02887cab",
+    "source": "XOR Gateway_741d47ad",
+    "target": "Activity_cee1ba49",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8931707b",
+    "source": "Activity_cee1ba49",
+    "target": "XOR Gateway_fb66c99a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_38280998",
+    "source": "XOR Gateway_fb66c99a",
+    "target": "Activity_acf0847d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_550ed922",
+    "source": "Activity_acf0847d",
+    "target": "Activity_0bc28b68",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e4d4ceb2",
+    "source": "Activity_0bc28b68",
+    "target": "Activity_34b30cfe",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2d18b513",
+    "source": "Activity_34b30cfe",
+    "target": "Activity_c81473af",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_716dfe15",
+    "source": "Activity_c81473af",
+    "target": "XOR Gateway_c85c0b33",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dc521149",
+    "source": "XOR Gateway_c85c0b33",
+    "target": "Activity_68f1a80d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1b772ef3",
+    "source": "Activity_68f1a80d",
+    "target": "XOR Gateway_dad36e6b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b8b545d6",
+    "source": "XOR Gateway_dad36e6b",
+    "target": "Activity_0f16582e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ecc67899",
+    "source": "Activity_0f16582e",
+    "target": "XOR Gateway_12434f12",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6df8e821",
+    "source": "XOR Gateway_12434f12",
+    "target": "Activity_bf0238e2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d9be3a41",
+    "source": "Activity_bf0238e2",
+    "target": "Activity_7d5c690f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6bcd7a0d",
+    "source": "Activity_7d5c690f",
+    "target": "XOR Gateway_4cc52d80",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_48223ad8",
+    "source": "XOR Gateway_4cc52d80",
+    "target": "Activity_354d8fb5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ce11de8c",
+    "source": "Activity_354d8fb5",
+    "target": "Activity_d05f7ae9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_13c2771f",
+    "source": "Activity_d05f7ae9",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 21,
+   "end": 30,
+   "label": "Activity",
+   "id": "Activity_7ca7592d",
+   "type": "task",
+   "name": "Determine contact details"
+  },
+  {
+   "start": 31,
+   "end": 46,
+   "label": "Activity Data",
+   "id": "Activity Data_07941f4b",
+   "type": null,
+   "name": "Contact details"
+  },
+  {
+   "start": 111,
+   "end": 120,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_ca94ec2e",
+   "type": "exclusiveGateway",
+   "name": "Sometimes"
+  },
+  {
+   "start": 123,
+   "end": 125,
+   "label": "Actor",
+   "id": "Actor_afc65853",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 126,
+   "end": 129,
+   "label": "Activity",
+   "id": "Activity_416c7b77",
+   "type": "task",
+   "name": "Buy details for cold calls"
+  },
+  {
+   "start": 130,
+   "end": 152,
+   "label": "Activity Data",
+   "id": "Activity Data_84f7f36b",
+   "type": null,
+   "name": "Details for cold calls"
+  },
+  {
+   "start": 155,
+   "end": 164,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_741d47ad",
+   "type": "exclusiveGateway",
+   "name": "Sometimes"
+  },
+  {
+   "start": 167,
+   "end": 186,
+   "label": "Actor",
+   "id": "Actor_29e7f69d",
+   "type": "Lane",
+   "name": "Our marketing staff"
+  },
+  {
+   "start": 187,
+   "end": 199,
+   "label": "Activity",
+   "id": "Activity_cee1ba49",
+   "type": "task",
+   "name": "Participates in exhibitions"
+  },
+  {
+   "start": 200,
+   "end": 214,
+   "label": "Activity Data",
+   "id": "Activity Data_63bf93be",
+   "type": null,
+   "name": "In exhibitions"
+  },
+  {
+   "start": 219,
+   "end": 228,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_fb66c99a",
+   "type": "exclusiveGateway",
+   "name": "Sometimes"
+  },
+  {
+   "start": 231,
+   "end": 234,
+   "label": "Actor",
+   "id": "Actor_574fd296",
+   "type": "Lane",
+   "name": "You"
+  },
+  {
+   "start": 250,
+   "end": 254,
+   "label": "Activity",
+   "id": "Activity_acf0847d",
+   "type": "task",
+   "name": "Know somebody , who is interested in the product"
+  },
+  {
+   "start": 255,
+   "end": 298,
+   "label": "Activity Data",
+   "id": "Activity Data_d1a0597a",
+   "type": null,
+   "name": "Somebody , who is interested in the product"
+  },
+  {
+   "start": 315,
+   "end": 322,
+   "label": "Activity",
+   "id": "Activity_0bc28b68",
+   "type": "task",
+   "name": "Calling"
+  },
+  {
+   "start": 323,
+   "end": 335,
+   "label": "Actor",
+   "id": "Actor_4f771035",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 354,
+   "end": 375,
+   "label": "Actor",
+   "id": "Actor_7081cf0a",
+   "type": "Lane",
+   "name": "The call center staff"
+  },
+  {
+   "start": 378,
+   "end": 382,
+   "label": "Actor",
+   "id": "Actor_cc29b9ef",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 387,
+   "end": 398,
+   "label": "Activity",
+   "id": "Activity_34b30cfe",
+   "type": "task",
+   "name": "Determining the contact person"
+  },
+  {
+   "start": 399,
+   "end": 417,
+   "label": "Activity Data",
+   "id": "Activity Data_66be07df",
+   "type": null,
+   "name": "The contact person"
+  },
+  {
+   "start": 422,
+   "end": 432,
+   "label": "Activity Data",
+   "id": "Activity Data_a8ffef56",
+   "type": null,
+   "name": "The budget"
+  },
+  {
+   "start": 488,
+   "end": 494,
+   "label": "Activity",
+   "id": "Activity_c81473af",
+   "type": "task",
+   "name": "Asking"
+  },
+  {
+   "start": 495,
+   "end": 507,
+   "label": "Actor",
+   "id": "Actor_8fdb7cab",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 563,
+   "end": 565,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c85c0b33",
+   "type": "exclusiveGateway",
+   "name": "If this is not the case"
+  },
+  {
+   "start": 566,
+   "end": 586,
+   "label": "Condition Specification",
+   "id": "Condition Specification_b3619f53",
+   "type": "exclusiveGateway",
+   "name": "This is not the case"
+  },
+  {
+   "start": 589,
+   "end": 591,
+   "label": "Actor",
+   "id": "Actor_1b7cdac1",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 592,
+   "end": 597,
+   "label": "Activity",
+   "id": "Activity_68f1a80d",
+   "type": "task",
+   "name": "Leave him"
+  },
+  {
+   "start": 598,
+   "end": 601,
+   "label": "Activity Data",
+   "id": "Activity Data_69cfa7d3",
+   "type": null,
+   "name": "Him"
+  },
+  {
+   "start": 617,
+   "end": 619,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_dad36e6b",
+   "type": "exclusiveGateway",
+   "name": "If the potential project budget is huge"
+  },
+  {
+   "start": 620,
+   "end": 656,
+   "label": "Condition Specification",
+   "id": "Condition Specification_9e387115",
+   "type": "exclusiveGateway",
+   "name": "The potential project budget is huge"
+  },
+  {
+   "start": 664,
+   "end": 687,
+   "label": "Actor",
+   "id": "Actor_e624e6f6",
+   "type": "Lane",
+   "name": "The head of development"
+  },
+  {
+   "start": 708,
+   "end": 715,
+   "label": "Activity",
+   "id": "Activity_0f16582e",
+   "type": "task",
+   "name": "Acquire the customer"
+  },
+  {
+   "start": 716,
+   "end": 728,
+   "label": "Activity Data",
+   "id": "Activity Data_287f2167",
+   "type": null,
+   "name": "The customer"
+  },
+  {
+   "start": 731,
+   "end": 733,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_12434f12",
+   "type": "exclusiveGateway",
+   "name": "If the customer is interested in the end"
+  },
+  {
+   "start": 734,
+   "end": 771,
+   "label": "Condition Specification",
+   "id": "Condition Specification_9118b722",
+   "type": "exclusiveGateway",
+   "name": "The customer is interested in the end"
+  },
+  {
+   "start": 791,
+   "end": 821,
+   "label": "Activity Data",
+   "id": "Activity Data_69714e2a",
+   "type": null,
+   "name": "A detailed online presentation"
+  },
+  {
+   "start": 830,
+   "end": 835,
+   "label": "Activity",
+   "id": "Activity_bf0238e2",
+   "type": "task",
+   "name": "Given a detailed online presentation"
+  },
+  {
+   "start": 846,
+   "end": 895,
+   "label": "Actor",
+   "id": "Actor_2874c92e",
+   "type": "Lane",
+   "name": "A sales representative or by a pre-sales employee"
+  },
+  {
+   "start": 950,
+   "end": 952,
+   "label": "Actor",
+   "id": "Actor_53fb0b68",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 957,
+   "end": 968,
+   "label": "Activity",
+   "id": "Activity_7d5c690f",
+   "type": "task",
+   "name": "Waiting for the customer to come back to us"
+  },
+  {
+   "start": 969,
+   "end": 1000,
+   "label": "Activity Data",
+   "id": "Activity Data_2ea78b43",
+   "type": null,
+   "name": "The customer to come back to us"
+  },
+  {
+   "start": 1003,
+   "end": 1005,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_4cc52d80",
+   "type": "exclusiveGateway",
+   "name": "If we are not contacted within 2 weeks"
+  },
+  {
+   "start": 1006,
+   "end": 1041,
+   "label": "Condition Specification",
+   "id": "Condition Specification_45b71380",
+   "type": "exclusiveGateway",
+   "name": "We are not contacted within 2 weeks"
+  },
+  {
+   "start": 1044,
+   "end": 1066,
+   "label": "Actor",
+   "id": "Actor_503f6261",
+   "type": "Lane",
+   "name": "A sales representative"
+  },
+  {
+   "start": 1070,
+   "end": 1077,
+   "label": "Activity",
+   "id": "Activity_354d8fb5",
+   "type": "task",
+   "name": "Calling"
+  },
+  {
+   "start": 1078,
+   "end": 1090,
+   "label": "Actor",
+   "id": "Actor_13a0cd97",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 1115,
+   "end": 1123,
+   "label": "Activity",
+   "id": "Activity_d05f7ae9",
+   "type": "task",
+   "name": "Creation a quotation"
+  },
+  {
+   "start": 1127,
+   "end": 1138,
+   "label": "Activity Data",
+   "id": "Activity Data_02ccd750",
+   "type": null,
+   "name": "A quotation"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 54,
+  "skipped": 0,
+  "failures": 54,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Buy details for cold calls",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Buy details for cold calls",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Participates in exhibitions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Participates in exhibitions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Participates in exhibitions",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Know somebody , who is interested in the product",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Sometimes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Know somebody , who is interested in the product",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Know somebody , who is interested in the product",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Determining the contact person",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Determining the contact person",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Asking",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Determining the contact person",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Asking",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "If this is not the case",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "Asking",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "If this is not the case",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "Leave him",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "If this is not the case",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "Leave him",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "If the potential project budget is huge",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "Leave him",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "If the potential project budget is huge",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "Acquire the customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "If the potential project budget is huge",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "Acquire the customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "If the customer is interested in the end",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "Acquire the customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "If the customer is interested in the end",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "Given a detailed online presentation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "If the customer is interested in the end",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "Given a detailed online presentation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "Waiting for the customer to come back to us",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "Given a detailed online presentation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "Waiting for the customer to come back to us",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "If we are not contacted within 2 weeks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "Waiting for the customer to come back to us",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "If we are not contacted within 2 weeks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "If we are not contacted within 2 weeks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "Creation a quotation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If we are not contacted within 2 weeks",
+    "node_B": "Calling",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If we are not contacted within 2 weeks",
+    "node_B": "Creation a quotation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Creation a quotation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Buy details for cold calls",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determine contact details",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Buy details for cold calls",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Participates in exhibitions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Participates in exhibitions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Buy details for cold calls",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Participates in exhibitions",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Know somebody , who is interested in the product",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Sometimes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Know somebody , who is interested in the product",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Participates in exhibitions",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Know somebody , who is interested in the product",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes",
+    "node_B": "Determining the contact person",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Determining the contact person",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Know somebody , who is interested in the product",
+    "node_B": "Asking",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Determining the contact person",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Asking",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "If this is not the case",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "Asking",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "If this is not the case",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determining the contact person",
+    "node_B": "Leave him",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "If this is not the case",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "Leave him",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Asking",
+    "node_B": "If the potential project budget is huge",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "Leave him",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "If the potential project budget is huge",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If this is not the case",
+    "node_B": "Acquire the customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "If the potential project budget is huge",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "Acquire the customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Leave him",
+    "node_B": "If the customer is interested in the end",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "Acquire the customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "If the customer is interested in the end",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the potential project budget is huge",
+    "node_B": "Given a detailed online presentation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "If the customer is interested in the end",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "Given a detailed online presentation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Acquire the customer",
+    "node_B": "Waiting for the customer to come back to us",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "Given a detailed online presentation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "Waiting for the customer to come back to us",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the customer is interested in the end",
+    "node_B": "If we are not contacted within 2 weeks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "Waiting for the customer to come back to us",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "If we are not contacted within 2 weeks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Given a detailed online presentation",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "If we are not contacted within 2 weeks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting for the customer to come back to us",
+    "node_B": "Creation a quotation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If we are not contacted within 2 weeks",
+    "node_B": "Calling",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If we are not contacted within 2 weeks",
+    "node_B": "Creation a quotation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calling",
+    "node_B": "Creation a quotation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

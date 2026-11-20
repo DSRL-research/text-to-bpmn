@@ -1,0 +1,115 @@
+{
+  "table": 6,
+  "title": "The pairwise classifier on the 302 constructed pairs",
+  "draft": "s43.pdf (2026-11-13), Section 4.3",
+  "provenance": {
+    "run_at": "2026-11-20T09:01:18+00:00",
+    "code": {
+      "commit": "59c3e2b739e6235d5ce895ea959d9cefd1b192ad",
+      "describe": "revision-final-3-77-g59c3e2b",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "lxml": "5.2.1",
+      "pm4py": "2.7.19.2",
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.2",
+      "owlready2": "0.49",
+      "dspy": "3.1.2",
+      "transformers": "4.50.0"
+    }
+  },
+  "columns": [
+    "Label",
+    "Pairs",
+    "P",
+    "R",
+    "F1",
+    "COND",
+    "TRUE",
+    "FALSE",
+    "SEQ",
+    "PAR"
+  ],
+  "rows": [
+    [
+      "CONDITION DEF",
+      "48",
+      "1.000",
+      "1.000",
+      "1.000",
+      "48",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "TRUE BRANCH",
+      "73",
+      "0.785",
+      "1.000",
+      "0.880",
+      "0",
+      "73",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "FALSE BRANCH",
+      "69",
+      "1.000",
+      "0.710",
+      "0.831",
+      "0",
+      "20",
+      "49",
+      "0",
+      "0"
+    ],
+    [
+      "SEQUENCE",
+      "66",
+      "1.000",
+      "0.939",
+      "0.969",
+      "0",
+      "0",
+      "0",
+      "62",
+      "4"
+    ],
+    [
+      "PARALLEL",
+      "46",
+      "0.920",
+      "1.000",
+      "0.958",
+      "0",
+      "0",
+      "0",
+      "0",
+      "46"
+    ]
+  ],
+  "text": {
+    "accuracy": "0.921 (278/302)",
+    "macro F1": "0.927",
+    "weighted F1": "0.919",
+    "FALSE BRANCH labelled TRUE BRANCH, of them without an else-marker": "20, 20 of 23",
+    "SEQUENCE labelled PARALLEL": "4",
+    "correct under the syntactic scheme": "295 of 302 (97.7%)"
+  },
+  "checks": {
+    "the report's predictions equal the log's answers, pair for pair": true
+  },
+  "inputs": [
+    "benchmark_silver_2.jsonl",
+    "runs/final/table3_302/benchmark.md",
+    "runs/final/table3_302/log.txt"
+  ],
+  "command": "python3 -m text2bpmn.paper_tables 6",
+  "differences": []
+}

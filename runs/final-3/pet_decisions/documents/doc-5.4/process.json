@@ -1,0 +1,552 @@
+{
+ "structured_data": {
+  "participants": [
+   "A supervisor",
+   "An employee",
+   "He",
+   "Main Process",
+   "The employee",
+   "The treasurer"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_3f15d406",
+    "name": "Purchases a product or service",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e03d4198",
+    "name": "Submits an expense report",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_eccc9b15",
+    "name": "Reviews the expense report",
+    "type": "task",
+    "lane": "A supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4109aff7",
+    "name": "Approves or rejects the report",
+    "type": "task",
+    "lane": "A supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_92d1b94a",
+    "name": "If the supervisor rejects the report",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e028e66a",
+    "name": "Edit it",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1fb1b98c",
+    "name": "Goes it",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1c222ccf",
+    "name": "Checks the receipts",
+    "type": "task",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_177ab43f",
+    "name": "If all is in order",
+    "type": "exclusiveGateway",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bc0a7327",
+    "name": "Accepts the expenses",
+    "type": "task",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5fcc9a8c",
+    "name": "Sends it",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_93db48d5",
+    "name": "Confirmed the payment",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "He"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_3f15d406",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_3f15d406",
+    "target": "Activity_e03d4198",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_e03d4198",
+    "target": "Activity_eccc9b15",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_eccc9b15",
+    "target": "Activity_4109aff7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_4109aff7",
+    "target": "XOR Gateway_92d1b94a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "XOR Gateway_92d1b94a",
+    "target": "Activity_e028e66a",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_92d1b94a",
+    "target": "Activity_1fb1b98c",
+    "name": "If the supervisor approves the report",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_1fb1b98c",
+    "target": "Activity_1c222ccf",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_e028e66a",
+    "target": "XOR Gateway_177ab43f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_1c222ccf",
+    "target": "XOR Gateway_177ab43f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "XOR Gateway_177ab43f",
+    "target": "Activity_bc0a7327",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "XOR Gateway_177ab43f",
+    "target": "Activity_5fcc9a8c",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_bc0a7327",
+    "target": "Activity_93db48d5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "XOR Gateway_177ab43f",
+    "target": "Activity_93db48d5",
+    "name": "If receipts are missing or do not match the report",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "Activity_5fcc9a8c",
+    "target": "Activity_93db48d5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0016",
+    "source": "Activity_93db48d5",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 19
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 11,
+   "label": "Actor",
+   "id": "Actor_f5ad1b6f",
+   "type": "Lane",
+   "name": "An employee"
+  },
+  {
+   "start": 12,
+   "end": 21,
+   "label": "Activity",
+   "id": "Activity_3f15d406",
+   "type": "task",
+   "name": "Purchases a product or service"
+  },
+  {
+   "start": 22,
+   "end": 42,
+   "label": "Activity Data",
+   "id": "Activity Data_5e8e9d76",
+   "type": null,
+   "name": "A product or service"
+  },
+  {
+   "start": 111,
+   "end": 123,
+   "label": "Actor",
+   "id": "Actor_0e3c0213",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 124,
+   "end": 131,
+   "label": "Activity",
+   "id": "Activity_e03d4198",
+   "type": "task",
+   "name": "Submits an expense report"
+  },
+  {
+   "start": 132,
+   "end": 149,
+   "label": "Activity Data",
+   "id": "Activity Data_04739b92",
+   "type": null,
+   "name": "An expense report"
+  },
+  {
+   "start": 213,
+   "end": 225,
+   "label": "Actor",
+   "id": "Actor_c5ee2979",
+   "type": "Lane",
+   "name": "A supervisor"
+  },
+  {
+   "start": 226,
+   "end": 233,
+   "label": "Activity",
+   "id": "Activity_eccc9b15",
+   "type": "task",
+   "name": "Reviews the expense report"
+  },
+  {
+   "start": 234,
+   "end": 252,
+   "label": "Activity Data",
+   "id": "Activity Data_ce16bb4e",
+   "type": null,
+   "name": "The expense report"
+  },
+  {
+   "start": 257,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_4109aff7",
+   "type": "task",
+   "name": "Approves or rejects the report"
+  },
+  {
+   "start": 277,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_d8eba5e5",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 505,
+   "end": 507,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_92d1b94a",
+   "type": "exclusiveGateway",
+   "name": "If the supervisor rejects the report"
+  },
+  {
+   "start": 508,
+   "end": 541,
+   "label": "Condition Specification",
+   "id": "Condition Specification_95f9571d",
+   "type": "exclusiveGateway",
+   "name": "The supervisor rejects the report"
+  },
+  {
+   "start": 544,
+   "end": 556,
+   "label": "Actor",
+   "id": "Actor_f68090f0",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 599,
+   "end": 603,
+   "label": "Activity",
+   "id": "Activity_e028e66a",
+   "type": "task",
+   "name": "Edit it"
+  },
+  {
+   "start": 604,
+   "end": 606,
+   "label": "Activity Data",
+   "id": "Activity Data_6d772d18",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 671,
+   "end": 673,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_051c23b2",
+   "type": "exclusiveGateway",
+   "name": "If the supervisor approves the report"
+  },
+  {
+   "start": 674,
+   "end": 708,
+   "label": "Condition Specification",
+   "id": "Condition Specification_3a8ff622",
+   "type": "exclusiveGateway",
+   "name": "The supervisor approves the report"
+  },
+  {
+   "start": 711,
+   "end": 713,
+   "label": "Activity Data",
+   "id": "Activity Data_6f6e472c",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 714,
+   "end": 718,
+   "label": "Activity",
+   "id": "Activity_1fb1b98c",
+   "type": "task",
+   "name": "Goes it"
+  },
+  {
+   "start": 722,
+   "end": 735,
+   "label": "Actor",
+   "id": "Actor_79775833",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 738,
+   "end": 751,
+   "label": "Actor",
+   "id": "Actor_6a212093",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 752,
+   "end": 758,
+   "label": "Activity",
+   "id": "Activity_1c222ccf",
+   "type": "task",
+   "name": "Checks the receipts"
+  },
+  {
+   "start": 768,
+   "end": 780,
+   "label": "Activity Data",
+   "id": "Activity Data_dba03107",
+   "type": null,
+   "name": "The receipts"
+  },
+  {
+   "start": 835,
+   "end": 837,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_177ab43f",
+   "type": "exclusiveGateway",
+   "name": "If all is in order"
+  },
+  {
+   "start": 838,
+   "end": 853,
+   "label": "Condition Specification",
+   "id": "Condition Specification_7fd9f32e",
+   "type": "exclusiveGateway",
+   "name": "All is in order"
+  },
+  {
+   "start": 856,
+   "end": 869,
+   "label": "Actor",
+   "id": "Actor_775f7d9d",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 870,
+   "end": 877,
+   "label": "Activity",
+   "id": "Activity_bc0a7327",
+   "type": "task",
+   "name": "Accepts the expenses"
+  },
+  {
+   "start": 878,
+   "end": 890,
+   "label": "Activity Data",
+   "id": "Activity Data_909cd3ba",
+   "type": null,
+   "name": "The expenses"
+  },
+  {
+   "start": 967,
+   "end": 969,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_58c47730",
+   "type": "exclusiveGateway",
+   "name": "If receipts are missing or do not match the report"
+  },
+  {
+   "start": 970,
+   "end": 1017,
+   "label": "Condition Specification",
+   "id": "Condition Specification_871e66fd",
+   "type": "exclusiveGateway",
+   "name": "Receipts are missing or do not match the report"
+  },
+  {
+   "start": 1020,
+   "end": 1022,
+   "label": "Actor",
+   "id": "Actor_1158c677",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 1023,
+   "end": 1028,
+   "label": "Activity",
+   "id": "Activity_5fcc9a8c",
+   "type": "task",
+   "name": "Sends it"
+  },
+  {
+   "start": 1029,
+   "end": 1031,
+   "label": "Activity Data",
+   "id": "Activity Data_1bbcde03",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 1040,
+   "end": 1052,
+   "label": "Actor",
+   "id": "Actor_5414e218",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 1385,
+   "end": 1396,
+   "label": "Activity Data",
+   "id": "Activity Data_93250f29",
+   "type": null,
+   "name": "The payment"
+  },
+  {
+   "start": 1400,
+   "end": 1409,
+   "label": "Activity",
+   "id": "Activity_93db48d5",
+   "type": "task",
+   "name": "Confirmed the payment"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "Edit it | decision: If the supervisor approves the report | Goes it | Checks the receipts | decision: If all is in order | Accepts the expenses | decision: If receipts are missing or do not match the report | Sends it | Confirmed the payment",
+    "label": "yes same yes yes after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "Accepts the expenses | decision: If receipts are missing or do not match the report | Sends it | Confirmed the payment",
+    "label": "yes same no after",
+    "source": "llm"
+   }
+  ]
+ }
+}

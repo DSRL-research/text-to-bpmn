@@ -1,0 +1,475 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPO",
+   "The SP / PU / GO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_5b15ace3",
+    "name": "Request changes",
+    "type": "task",
+    "lane": "The SP / PU / GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_12108992",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4201d850",
+    "name": "Causes a change",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_96166eaa",
+    "name": "Reviews the change request",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f8f35949",
+    "name": "Rejects the change of the measuring point by the SP / PU / GO",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_2af23b21",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d832d4d0",
+    "name": "Confirmes the request of the SP / PU / GO",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6fa7ed43",
+    "name": "Performs the measuring point change",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0c561a4b",
+    "name": "Reports the implementation",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_29b18a2b",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_967f4ae0",
+    "name": "Notifies about the failure of the changes",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_5b15ace3",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_5b15ace3",
+    "target": "XOR Gateway_12108992",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "XOR Gateway_12108992",
+    "target": "Activity_4201d850",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_4201d850",
+    "target": "Activity_96166eaa",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_96166eaa",
+    "target": "Activity_f8f35949",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_f8f35949",
+    "target": "XOR Gateway_2af23b21",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_2af23b21",
+    "target": "Activity_d832d4d0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_d832d4d0",
+    "target": "Activity_6fa7ed43",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_6fa7ed43",
+    "target": "Activity_0c561a4b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_0c561a4b",
+    "target": "XOR Gateway_29b18a2b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "XOR Gateway_29b18a2b",
+    "target": "Activity_967f4ae0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_967f4ae0",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 10
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 16,
+   "label": "Actor",
+   "id": "Actor_d5ad1a99",
+   "type": "Lane",
+   "name": "The SP / PU / GO"
+  },
+  {
+   "start": 17,
+   "end": 24,
+   "label": "Activity",
+   "id": "Activity_5b15ace3",
+   "type": "task",
+   "name": "Request changes"
+  },
+  {
+   "start": 25,
+   "end": 32,
+   "label": "Activity Data",
+   "id": "Activity Data_71a0f576",
+   "type": null,
+   "name": "Changes"
+  },
+  {
+   "start": 36,
+   "end": 43,
+   "label": "Actor",
+   "id": "Actor_28da1442",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 44,
+   "end": 46,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_12108992",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 47,
+   "end": 54,
+   "label": "Actor",
+   "id": "Actor_3de7088a",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 63,
+   "end": 69,
+   "label": "Activity",
+   "id": "Activity_4201d850",
+   "type": "task",
+   "name": "Causes a change"
+  },
+  {
+   "start": 70,
+   "end": 78,
+   "label": "Activity Data",
+   "id": "Activity Data_2183fa5f",
+   "type": null,
+   "name": "A change"
+  },
+  {
+   "start": 81,
+   "end": 88,
+   "label": "Actor",
+   "id": "Actor_8f6ececa",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 89,
+   "end": 96,
+   "label": "Activity",
+   "id": "Activity_96166eaa",
+   "type": "task",
+   "name": "Reviews the change request"
+  },
+  {
+   "start": 97,
+   "end": 115,
+   "label": "Activity Data",
+   "id": "Activity Data_7ad3e6bf",
+   "type": null,
+   "name": "The change request"
+  },
+  {
+   "start": 118,
+   "end": 125,
+   "label": "Actor",
+   "id": "Actor_925980b8",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 126,
+   "end": 133,
+   "label": "Activity",
+   "id": "Activity_f8f35949",
+   "type": "task",
+   "name": "Rejects the change of the measuring point by the SP / PU / GO"
+  },
+  {
+   "start": 134,
+   "end": 187,
+   "label": "Activity Data",
+   "id": "Activity Data_b8890f7f",
+   "type": null,
+   "name": "The change of the measuring point by the SP / PU / GO"
+  },
+  {
+   "start": 188,
+   "end": 190,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2af23b21",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 191,
+   "end": 198,
+   "label": "Actor",
+   "id": "Actor_7615e560",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 199,
+   "end": 208,
+   "label": "Activity",
+   "id": "Activity_d832d4d0",
+   "type": "task",
+   "name": "Confirmes the request of the SP / PU / GO"
+  },
+  {
+   "start": 209,
+   "end": 240,
+   "label": "Activity Data",
+   "id": "Activity Data_1e6cdd7c",
+   "type": null,
+   "name": "The request of the SP / PU / GO"
+  },
+  {
+   "start": 243,
+   "end": 250,
+   "label": "Actor",
+   "id": "Actor_6a3458f7",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 251,
+   "end": 259,
+   "label": "Activity",
+   "id": "Activity_6fa7ed43",
+   "type": "task",
+   "name": "Performs the measuring point change"
+  },
+  {
+   "start": 260,
+   "end": 286,
+   "label": "Activity Data",
+   "id": "Activity Data_d7b992e3",
+   "type": null,
+   "name": "The measuring point change"
+  },
+  {
+   "start": 289,
+   "end": 296,
+   "label": "Actor",
+   "id": "Actor_df9d6a4e",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 297,
+   "end": 304,
+   "label": "Activity",
+   "id": "Activity_0c561a4b",
+   "type": "task",
+   "name": "Reports the implementation"
+  },
+  {
+   "start": 305,
+   "end": 323,
+   "label": "Activity Data",
+   "id": "Activity Data_f4b90ad9",
+   "type": null,
+   "name": "The implementation"
+  },
+  {
+   "start": 327,
+   "end": 343,
+   "label": "Actor",
+   "id": "Actor_8b7b709d",
+   "type": "Lane",
+   "name": "The SP / PU / GO"
+  },
+  {
+   "start": 344,
+   "end": 346,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_29b18a2b",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 347,
+   "end": 355,
+   "label": "Activity",
+   "id": "Activity_967f4ae0",
+   "type": "task",
+   "name": "Notifies about the failure of the changes"
+  },
+  {
+   "start": 356,
+   "end": 372,
+   "label": "Actor",
+   "id": "Actor_48f4b424",
+   "type": "Lane",
+   "name": "The SP / PU / GO"
+  },
+  {
+   "start": 373,
+   "end": 405,
+   "label": "Activity Data",
+   "id": "Activity Data_3b904eca",
+   "type": null,
+   "name": "About the failure of the changes"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 3,
+  "skipped": 0,
+  "failures": 3,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Or",
+    "node_B": "Causes a change | Reviews the change request | Rejects the change of the measuring point by the SP / PU / GO | decision: Or | Confirmes the request of the SP / PU / GO | Performs the measuring point change | Reports the implementation | decision: Or | Notifies about the failure of the changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the request of the SP / PU / GO | Performs the measuring point change | Reports the implementation | decision: Or | Notifies about the failure of the changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Notifies about the failure of the changes",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Causes a change | Reviews the change request | Rejects the change of the measuring point by the SP / PU / GO | decision: Or | Confirmes the request of the SP / PU / GO | Performs the measuring point change | Reports the implementation | decision: Or | Notifies about the failure of the changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the request of the SP / PU / GO | Performs the measuring point change | Reports the implementation | decision: Or | Notifies about the failure of the changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Notifies about the failure of the changes",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

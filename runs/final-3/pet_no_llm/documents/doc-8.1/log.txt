@@ -1,0 +1,29 @@
+
+--- Processing Input ---
+   (Debug) Injected 11 spans from PET gold spans
+   (Debug) Injected text: The process is triggered by the demand of a functional department to fill a post . The post is advertised , applicants apply , the applications are checked and the post is filled . The process finishes when the post was filled , precisely through the conclusion of a contract of employment .
+   (Debug) Raw Entities: ['demand', 'a functional department', 'to fill a post', 'The post', 'advertised', 'applicants', 'apply', 'the applications', 'checked', 'the post', 'filled']
+
+--- Split Entities ---
+[{'entity_group': 'Activity', 'word': 'demand', 'start': 32, 'end': 38, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'a functional department', 'start': 42, 'end': 65, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'to fill a post', 'start': 66, 'end': 80, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'The post', 'start': 83, 'end': 91, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'advertised', 'start': 95, 'end': 105, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'applicants', 'start': 108, 'end': 118, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'apply', 'start': 119, 'end': 124, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the applications', 'start': 127, 'end': 143, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'checked', 'start': 148, 'end': 155, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the post', 'start': 160, 'end': 168, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'filled', 'start': 172, 'end': 178, 'score': 1.0}]
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 1/1: {'node_A': 'Demand to fill a post', 'node_B': 'Advertised the post', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 2/2: {'node_A': 'Demand to fill a post', 'node_B': 'Apply the applications', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 3/3: {'node_A': 'Demand to fill a post', 'node_B': 'Checked', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 4/4: {'node_A': 'Advertised the post', 'node_B': 'Apply the applications', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 5/5: {'node_A': 'Advertised the post', 'node_B': 'Checked', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 6/6: {'node_A': 'Advertised the post', 'node_B': 'Filled the post', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 7/7: {'node_A': 'Apply the applications', 'node_B': 'Checked', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 8/8: {'node_A': 'Apply the applications', 'node_B': 'Filled the post', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 9/9: {'node_A': 'Checked', 'node_B': 'Filled the post', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+   💾 Saved Enriched Ontology to runs/final-3/pet_no_llm/documents/doc-8.1/ontology.owl: {'StartEvent': 1, 'Task': 5, 'EndEvent': 1}, relations {'SEQUENCE': 6}, 2 actors
+✅ Ontology Enrichment Complete: runs/final-3/pet_no_llm/documents/doc-8.1/ontology.owl
+   Relation parse failures: 9/9

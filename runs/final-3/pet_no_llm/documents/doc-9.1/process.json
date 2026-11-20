@@ -1,0 +1,1061 @@
+{
+ "structured_data": {
+  "participants": [
+   "A supervisor",
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_b507d6d6",
+    "name": "Backed up the database",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4935f46d",
+    "name": "Checked it",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "To see whether the Account Defaulter table has new records"
+    ]
+   },
+   {
+    "id": "XOR Gateway_4a7e43a2",
+    "name": "If no new records are found",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_936a4add",
+    "name": "Check the CRM system",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "To see whether new returns have been filed"
+    ]
+   },
+   {
+    "id": "XOR Gateway_11e9d4c2",
+    "name": "If new returns exist",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3ed3889a",
+    "name": "Register all defaulting accounts and customers",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_087f3122",
+    "name": "If the defaulting client codes have not been previously advised",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": [
+     "Completed by 2 : 30 pm"
+    ]
+   },
+   {
+    "id": "Activity_0ca21520",
+    "name": "Produce another table of defaulting accounts",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_10ca5c85",
+    "name": "Send",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_6563dade",
+    "name": "If it is not",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_85236ebf",
+    "name": "Sent an alert",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d91f7b88",
+    "name": "Check the CRM system",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "To see whether new returns have been filed"
+    ]
+   },
+   {
+    "id": "XOR Gateway_2d9a956c",
+    "name": "If new returns have been filed",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": [
+     "Completed by 4 : 0 pm"
+    ]
+   },
+   {
+    "id": "Activity_75a5717e",
+    "name": "Reconcile with the existing account defaulters table",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_700f52f8",
+    "name": "Sent a message",
+    "type": "task",
+    "lane": "A supervisor",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "A supervisor"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_05bf5a52",
+    "source": "StartEvent_1",
+    "target": "Activity_b507d6d6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bb54cd76",
+    "source": "Activity_b507d6d6",
+    "target": "Activity_4935f46d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5b55da72",
+    "source": "Activity_4935f46d",
+    "target": "XOR Gateway_4a7e43a2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_281a9841",
+    "source": "XOR Gateway_4a7e43a2",
+    "target": "Activity_936a4add",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1fac13c9",
+    "source": "Activity_936a4add",
+    "target": "XOR Gateway_11e9d4c2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3030b91f",
+    "source": "XOR Gateway_11e9d4c2",
+    "target": "Activity_3ed3889a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_df94e89c",
+    "source": "Activity_3ed3889a",
+    "target": "XOR Gateway_087f3122",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d5f1503",
+    "source": "XOR Gateway_087f3122",
+    "target": "Activity_0ca21520",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_adcbb88f",
+    "source": "Activity_0ca21520",
+    "target": "Activity_10ca5c85",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e7ea21b8",
+    "source": "Activity_10ca5c85",
+    "target": "XOR Gateway_6563dade",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3397dd9f",
+    "source": "XOR Gateway_6563dade",
+    "target": "Activity_85236ebf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ce4c4a10",
+    "source": "Activity_85236ebf",
+    "target": "Activity_d91f7b88",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_aa8f5d52",
+    "source": "Activity_d91f7b88",
+    "target": "XOR Gateway_2d9a956c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_61f9704e",
+    "source": "XOR Gateway_2d9a956c",
+    "target": "Activity_75a5717e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7f0fede4",
+    "source": "XOR Gateway_2d9a956c",
+    "target": "Activity_700f52f8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0da0bae8",
+    "source": "Activity_75a5717e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_57dfd8dc",
+    "source": "Activity_700f52f8",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 24,
+   "end": 36,
+   "label": "Activity Data",
+   "id": "Activity Data_77ac0761",
+   "type": null,
+   "name": "The database"
+  },
+  {
+   "start": 40,
+   "end": 49,
+   "label": "Activity",
+   "id": "Activity_b507d6d6",
+   "type": "task",
+   "name": "Backed up the database"
+  },
+  {
+   "start": 59,
+   "end": 61,
+   "label": "Activity Data",
+   "id": "Activity Data_4f0df0cd",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 65,
+   "end": 72,
+   "label": "Activity",
+   "id": "Activity_4935f46d",
+   "type": "task",
+   "name": "Checked it"
+  },
+  {
+   "start": 73,
+   "end": 131,
+   "label": "Further Specification",
+   "id": "Further Specification_76b77f79",
+   "type": null,
+   "name": "To see whether the Account Defaulter table has new records"
+  },
+  {
+   "start": 134,
+   "end": 136,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_4a7e43a2",
+   "type": "exclusiveGateway",
+   "name": "If no new records are found"
+  },
+  {
+   "start": 137,
+   "end": 161,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1e7bbe8b",
+   "type": "exclusiveGateway",
+   "name": "No new records are found"
+  },
+  {
+   "start": 188,
+   "end": 193,
+   "label": "Activity",
+   "id": "Activity_936a4add",
+   "type": "task",
+   "name": "Check the CRM system"
+  },
+  {
+   "start": 194,
+   "end": 208,
+   "label": "Activity Data",
+   "id": "Activity Data_f646077a",
+   "type": null,
+   "name": "The CRM system"
+  },
+  {
+   "start": 209,
+   "end": 251,
+   "label": "Further Specification",
+   "id": "Further Specification_0f519524",
+   "type": null,
+   "name": "To see whether new returns have been filed"
+  },
+  {
+   "start": 254,
+   "end": 256,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_11e9d4c2",
+   "type": "exclusiveGateway",
+   "name": "If new returns exist"
+  },
+  {
+   "start": 257,
+   "end": 274,
+   "label": "Condition Specification",
+   "id": "Condition Specification_4c47f015",
+   "type": "exclusiveGateway",
+   "name": "New returns exist"
+  },
+  {
+   "start": 282,
+   "end": 290,
+   "label": "Activity",
+   "id": "Activity_3ed3889a",
+   "type": "task",
+   "name": "Register all defaulting accounts and customers"
+  },
+  {
+   "start": 291,
+   "end": 328,
+   "label": "Activity Data",
+   "id": "Activity Data_03464d15",
+   "type": null,
+   "name": "All defaulting accounts and customers"
+  },
+  {
+   "start": 331,
+   "end": 333,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_087f3122",
+   "type": "exclusiveGateway",
+   "name": "If the defaulting client codes have not been previously advised"
+  },
+  {
+   "start": 334,
+   "end": 394,
+   "label": "Condition Specification",
+   "id": "Condition Specification_335dc41a",
+   "type": "exclusiveGateway",
+   "name": "The defaulting client codes have not been previously advised"
+  },
+  {
+   "start": 397,
+   "end": 404,
+   "label": "Activity",
+   "id": "Activity_0ca21520",
+   "type": "task",
+   "name": "Produce another table of defaulting accounts"
+  },
+  {
+   "start": 405,
+   "end": 441,
+   "label": "Activity Data",
+   "id": "Activity Data_5842b387",
+   "type": null,
+   "name": "Another table of defaulting accounts"
+  },
+  {
+   "start": 446,
+   "end": 450,
+   "label": "Activity",
+   "id": "Activity_10ca5c85",
+   "type": "task",
+   "name": "Send"
+  },
+  {
+   "start": 454,
+   "end": 472,
+   "label": "Actor",
+   "id": "Actor_1fb8f805",
+   "type": "Lane",
+   "name": "Account management"
+  },
+  {
+   "start": 495,
+   "end": 517,
+   "label": "Condition Specification",
+   "id": "Condition Specification_23166c7e",
+   "type": "exclusiveGateway",
+   "name": "Completed by 2 : 30 pm"
+  },
+  {
+   "start": 520,
+   "end": 522,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_6563dade",
+   "type": "exclusiveGateway",
+   "name": "If it is not"
+  },
+  {
+   "start": 523,
+   "end": 532,
+   "label": "Condition Specification",
+   "id": "Condition Specification_ea011f08",
+   "type": "exclusiveGateway",
+   "name": "It is not"
+  },
+  {
+   "start": 540,
+   "end": 548,
+   "label": "Activity Data",
+   "id": "Activity Data_8111173b",
+   "type": null,
+   "name": "An alert"
+  },
+  {
+   "start": 559,
+   "end": 563,
+   "label": "Activity",
+   "id": "Activity_85236ebf",
+   "type": "task",
+   "name": "Sent an alert"
+  },
+  {
+   "start": 567,
+   "end": 581,
+   "label": "Actor",
+   "id": "Actor_8651d2cd",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 644,
+   "end": 649,
+   "label": "Activity",
+   "id": "Activity_d91f7b88",
+   "type": "task",
+   "name": "Check the CRM system"
+  },
+  {
+   "start": 650,
+   "end": 664,
+   "label": "Activity Data",
+   "id": "Activity Data_7bf5917d",
+   "type": null,
+   "name": "The CRM system"
+  },
+  {
+   "start": 665,
+   "end": 707,
+   "label": "Further Specification",
+   "id": "Further Specification_c5156c7e",
+   "type": null,
+   "name": "To see whether new returns have been filed"
+  },
+  {
+   "start": 710,
+   "end": 712,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2d9a956c",
+   "type": "exclusiveGateway",
+   "name": "If new returns have been filed"
+  },
+  {
+   "start": 713,
+   "end": 740,
+   "label": "Condition Specification",
+   "id": "Condition Specification_6ed70f8d",
+   "type": "exclusiveGateway",
+   "name": "New returns have been filed"
+  },
+  {
+   "start": 743,
+   "end": 757,
+   "label": "Activity",
+   "id": "Activity_75a5717e",
+   "type": "task",
+   "name": "Reconcile with the existing account defaulters table"
+  },
+  {
+   "start": 758,
+   "end": 795,
+   "label": "Activity Data",
+   "id": "Activity Data_c54dfd9e",
+   "type": null,
+   "name": "The existing account defaulters table"
+  },
+  {
+   "start": 811,
+   "end": 832,
+   "label": "Condition Specification",
+   "id": "Condition Specification_373dcaa0",
+   "type": "exclusiveGateway",
+   "name": "Completed by 4 : 0 pm"
+  },
+  {
+   "start": 833,
+   "end": 842,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_51388e8d",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 843,
+   "end": 855,
+   "label": "Actor",
+   "id": "Actor_6891eb64",
+   "type": "Lane",
+   "name": "A supervisor"
+  },
+  {
+   "start": 866,
+   "end": 870,
+   "label": "Activity",
+   "id": "Activity_700f52f8",
+   "type": "task",
+   "name": "Sent a message"
+  },
+  {
+   "start": 871,
+   "end": 880,
+   "label": "Activity Data",
+   "id": "Activity Data_9f1f8854",
+   "type": null,
+   "name": "A message"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 42,
+  "skipped": 0,
+  "failures": 42,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Backed up the database",
+    "node_B": "Checked it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Backed up the database",
+    "node_B": "If no new records are found",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Backed up the database",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "If no new records are found",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "If new returns exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "If new returns exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "Register all defaulting accounts and customers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If new returns exist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Register all defaulting accounts and customers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "Register all defaulting accounts and customers",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "Produce another table of defaulting accounts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "Produce another table of defaulting accounts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "Send",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "Produce another table of defaulting accounts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "Send",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "If it is not",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "Send",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "If it is not",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "Sent an alert",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Send",
+    "node_B": "If it is not",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Send",
+    "node_B": "Sent an alert",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Send",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "Sent an alert",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "If new returns have been filed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "Check the CRM system",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "If new returns have been filed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If new returns have been filed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Sent a message",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reconcile with the existing account defaulters table",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reconcile with the existing account defaulters table",
+    "node_B": "Sent a message",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Sent a message",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Backed up the database",
+    "node_B": "Checked it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Backed up the database",
+    "node_B": "If no new records are found",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Backed up the database",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "If no new records are found",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked it",
+    "node_B": "If new returns exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "If new returns exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If no new records are found",
+    "node_B": "Register all defaulting accounts and customers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If new returns exist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Register all defaulting accounts and customers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "Register all defaulting accounts and customers",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns exist",
+    "node_B": "Produce another table of defaulting accounts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "If the defaulting client codes have not been previously advised",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "Produce another table of defaulting accounts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Register all defaulting accounts and customers",
+    "node_B": "Send",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "Produce another table of defaulting accounts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "Send",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the defaulting client codes have not been previously advised",
+    "node_B": "If it is not",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "Send",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "If it is not",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Produce another table of defaulting accounts",
+    "node_B": "Sent an alert",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Send",
+    "node_B": "If it is not",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Send",
+    "node_B": "Sent an alert",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Send",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "Sent an alert",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not",
+    "node_B": "If new returns have been filed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "Check the CRM system",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "If new returns have been filed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent an alert",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "If new returns have been filed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Check the CRM system",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Reconcile with the existing account defaulters table",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If new returns have been filed",
+    "node_B": "Sent a message",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reconcile with the existing account defaulters table",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reconcile with the existing account defaulters table",
+    "node_B": "Sent a message",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Sent a message",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

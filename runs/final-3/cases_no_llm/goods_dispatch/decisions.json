@@ -1,0 +1,82 @@
+{
+  "calls": 6,
+  "skipped": 0,
+  "failures": 6,
+  "rate": 1.0,
+  "records": [
+    {
+      "node_A": "If goods shall be shipped",
+      "node_B": "Clarifies shipping | Packaged the goods | decision: If have large amounts | Invites | Make offers | Selects one | decision: In case of small amounts | Used post | Written a package label | Taken a parcel insurance",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "If have large amounts",
+      "node_B": "Invites | Make offers | Selects one | decision: In case of small amounts | Used post | Written a package label | Taken a parcel insurance | decision: If necessary | decision: If everything is ready | Prepared the packaged goods",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "In case of small amounts",
+      "node_B": "Used post | Written a package label | Taken a parcel insurance | decision: If necessary | decision: If everything is ready | Prepared the packaged goods | Picked up",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "If necessary",
+      "node_B": "decision: If everything is ready | Prepared the packaged goods | Picked up",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "If everything is ready",
+      "node_B": "Prepared the packaged goods | Picked up",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "parallel: Same",
+      "node_B": "Used post | Written a package label | Taken a parcel insurance",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    }
+  ],
+  "decisions": [
+    {
+      "node_A": "If goods shall be shipped",
+      "node_B": "Clarifies shipping | Packaged the goods | decision: If have large amounts | Invites | Make offers | Selects one | decision: In case of small amounts | Used post | Written a package label | Taken a parcel insurance",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "If have large amounts",
+      "node_B": "Invites | Make offers | Selects one | decision: In case of small amounts | Used post | Written a package label | Taken a parcel insurance | decision: If necessary | decision: If everything is ready | Prepared the packaged goods",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "In case of small amounts",
+      "node_B": "Used post | Written a package label | Taken a parcel insurance | decision: If necessary | decision: If everything is ready | Prepared the packaged goods | Picked up",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "If necessary",
+      "node_B": "decision: If everything is ready | Prepared the packaged goods | Picked up",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "If everything is ready",
+      "node_B": "Prepared the packaged goods | Picked up",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "parallel: Same",
+      "node_B": "Used post | Written a package label | Taken a parcel insurance",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    }
+  ]
+}

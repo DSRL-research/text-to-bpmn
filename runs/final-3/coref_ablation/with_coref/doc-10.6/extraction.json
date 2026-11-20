@@ -1,0 +1,301 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The MSPN",
+      "The MSPO"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_8dc07717",
+        "name": "Sents a dismissal",
+        "type": "task",
+        "lane": "The MSPN",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1e3ba512",
+        "name": "Reviews the dismissal",
+        "type": "task",
+        "lane": "The MSPO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_f60d5499",
+        "name": "Rejects the dismissal of the MSPN",
+        "type": "task",
+        "lane": "The MSPO",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_49d7d9e6",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The MSPO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_56d267c1",
+        "name": "Confirms the dismissal of the MSPN",
+        "type": "task",
+        "lane": "The MSPO",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The MSPO"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_8dc07717",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_8dc07717",
+        "target": "Activity_1e3ba512",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_1e3ba512",
+        "target": "Activity_f60d5499",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_f60d5499",
+        "target": "XOR Gateway_49d7d9e6",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_49d7d9e6",
+        "target": "Activity_56d267c1",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_56d267c1",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_49d7d9e6",
+        "target": "EndEvent_1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 9
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 8,
+      "label": "Actor",
+      "id": "Actor_ebb674da",
+      "type": "Lane",
+      "name": "The MSPN"
+    },
+    {
+      "start": 9,
+      "end": 14,
+      "label": "Activity",
+      "id": "Activity_8dc07717",
+      "type": "task",
+      "name": "Sents a dismissal"
+    },
+    {
+      "start": 15,
+      "end": 26,
+      "label": "Activity Data",
+      "id": "Activity Data_b19a51cd",
+      "type": null,
+      "name": "A dismissal"
+    },
+    {
+      "start": 30,
+      "end": 38,
+      "label": "Actor",
+      "id": "Actor_d9d01b88",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 41,
+      "end": 49,
+      "label": "Actor",
+      "id": "Actor_486d74be",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 50,
+      "end": 57,
+      "label": "Activity",
+      "id": "Activity_1e3ba512",
+      "type": "task",
+      "name": "Reviews the dismissal"
+    },
+    {
+      "start": 58,
+      "end": 71,
+      "label": "Activity Data",
+      "id": "Activity Data_4232a6a7",
+      "type": null,
+      "name": "The dismissal"
+    },
+    {
+      "start": 74,
+      "end": 82,
+      "label": "Actor",
+      "id": "Actor_2ab6ff8b",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 83,
+      "end": 90,
+      "label": "Activity",
+      "id": "Activity_f60d5499",
+      "type": "task",
+      "name": "Rejects the dismissal of the MSPN"
+    },
+    {
+      "start": 91,
+      "end": 116,
+      "label": "Activity Data",
+      "id": "Activity Data_d250ef63",
+      "type": null,
+      "name": "The dismissal of the MSPN"
+    },
+    {
+      "start": 117,
+      "end": 119,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_49d7d9e6",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 120,
+      "end": 128,
+      "label": "Actor",
+      "id": "Actor_4e21a2eb",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 129,
+      "end": 137,
+      "label": "Activity",
+      "id": "Activity_56d267c1",
+      "type": "task",
+      "name": "Confirms the dismissal of the MSPN"
+    },
+    {
+      "start": 138,
+      "end": 163,
+      "label": "Activity Data",
+      "id": "Activity Data_1e23daba",
+      "type": null,
+      "name": "The dismissal of the MSPN"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Confirms the dismissal of the MSPN",
+        "label": "yes",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

@@ -1,0 +1,808 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MPON",
+   "The MPON or the MPOO",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_40afbbfa",
+    "name": "Notifies about equipment change intentions",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3bb42f97",
+    "name": "Announces self dismounting",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_38288e0a",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6589fbda",
+    "name": "Notify about no self-dismounting of the MPOO",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5be28240",
+    "name": "Perform the final reading",
+    "type": "task",
+    "lane": "The MPON or the MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ba4d89b8",
+    "name": "Dismount the old equipment",
+    "type": "task",
+    "lane": "The MPON or the MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9a283565",
+    "name": "Mounts the new device",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d39af582",
+    "name": "Reads the meter count",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0d71b831",
+    "name": "Sents the values of the final reading",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ba857de0",
+    "name": "Tells about the device changes , the master data and the meter count at installation",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_521275fd",
+    "name": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_5b2ab20b",
+    "source": "StartEvent_1",
+    "target": "Activity_40afbbfa",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c6ee64bc",
+    "source": "Activity_40afbbfa",
+    "target": "Activity_3bb42f97",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3da5f889",
+    "source": "Activity_3bb42f97",
+    "target": "XOR Gateway_38288e0a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a53225fc",
+    "source": "XOR Gateway_38288e0a",
+    "target": "Activity_6589fbda",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_49603cec",
+    "source": "Activity_6589fbda",
+    "target": "Activity_5be28240",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e8e123d5",
+    "source": "Activity_5be28240",
+    "target": "Activity_ba4d89b8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1d624389",
+    "source": "Activity_ba4d89b8",
+    "target": "Activity_9a283565",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fc68a0da",
+    "source": "Activity_9a283565",
+    "target": "Activity_d39af582",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a7fec08b",
+    "source": "Activity_d39af582",
+    "target": "Activity_0d71b831",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2a7b27e2",
+    "source": "Activity_0d71b831",
+    "target": "Activity_ba857de0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6dadbaa8",
+    "source": "Activity_ba857de0",
+    "target": "Activity_521275fd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3a58df85",
+    "source": "Activity_521275fd",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_ade88a66",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_40afbbfa",
+   "type": "task",
+   "name": "Notifies about equipment change intentions"
+  },
+  {
+   "start": 18,
+   "end": 26,
+   "label": "Actor",
+   "id": "Actor_4df3b9c2",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 27,
+   "end": 60,
+   "label": "Activity Data",
+   "id": "Activity Data_41dbb17a",
+   "type": null,
+   "name": "About equipment change intentions"
+  },
+  {
+   "start": 63,
+   "end": 71,
+   "label": "Actor",
+   "id": "Actor_c8e26d21",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 72,
+   "end": 81,
+   "label": "Activity",
+   "id": "Activity_3bb42f97",
+   "type": "task",
+   "name": "Announces self dismounting"
+  },
+  {
+   "start": 82,
+   "end": 98,
+   "label": "Activity Data",
+   "id": "Activity Data_7e383fea",
+   "type": null,
+   "name": "Self dismounting"
+  },
+  {
+   "start": 102,
+   "end": 110,
+   "label": "Actor",
+   "id": "Actor_d5453e78",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 111,
+   "end": 113,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_38288e0a",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 114,
+   "end": 122,
+   "label": "Actor",
+   "id": "Actor_f41dd433",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 129,
+   "end": 135,
+   "label": "Activity",
+   "id": "Activity_6589fbda",
+   "type": "task",
+   "name": "Notify about no self-dismounting of the MPOO"
+  },
+  {
+   "start": 136,
+   "end": 144,
+   "label": "Actor",
+   "id": "Actor_5895bcfb",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 145,
+   "end": 182,
+   "label": "Activity Data",
+   "id": "Activity Data_de22edcc",
+   "type": null,
+   "name": "About no self-dismounting of the MPOO"
+  },
+  {
+   "start": 185,
+   "end": 205,
+   "label": "Actor",
+   "id": "Actor_815038a9",
+   "type": "Lane",
+   "name": "The MPON or the MPOO"
+  },
+  {
+   "start": 206,
+   "end": 213,
+   "label": "Activity",
+   "id": "Activity_5be28240",
+   "type": "task",
+   "name": "Perform the final reading"
+  },
+  {
+   "start": 214,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_e6d07d89",
+   "type": null,
+   "name": "The final reading"
+  },
+  {
+   "start": 234,
+   "end": 254,
+   "label": "Actor",
+   "id": "Actor_3ab65f4b",
+   "type": "Lane",
+   "name": "The MPON or the MPOO"
+  },
+  {
+   "start": 255,
+   "end": 263,
+   "label": "Activity",
+   "id": "Activity_ba4d89b8",
+   "type": "task",
+   "name": "Dismount the old equipment"
+  },
+  {
+   "start": 264,
+   "end": 281,
+   "label": "Activity Data",
+   "id": "Activity Data_7d3184a9",
+   "type": null,
+   "name": "The old equipment"
+  },
+  {
+   "start": 284,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_699f3741",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 293,
+   "end": 299,
+   "label": "Activity",
+   "id": "Activity_9a283565",
+   "type": "task",
+   "name": "Mounts the new device"
+  },
+  {
+   "start": 300,
+   "end": 314,
+   "label": "Activity Data",
+   "id": "Activity Data_f47e6b0a",
+   "type": null,
+   "name": "The new device"
+  },
+  {
+   "start": 317,
+   "end": 325,
+   "label": "Actor",
+   "id": "Actor_422eea6f",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 326,
+   "end": 331,
+   "label": "Activity",
+   "id": "Activity_d39af582",
+   "type": "task",
+   "name": "Reads the meter count"
+  },
+  {
+   "start": 332,
+   "end": 347,
+   "label": "Activity Data",
+   "id": "Activity Data_80e35892",
+   "type": null,
+   "name": "The meter count"
+  },
+  {
+   "start": 375,
+   "end": 383,
+   "label": "Actor",
+   "id": "Actor_a3c56f63",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 384,
+   "end": 389,
+   "label": "Activity",
+   "id": "Activity_0d71b831",
+   "type": "task",
+   "name": "Sents the values of the final reading"
+  },
+  {
+   "start": 390,
+   "end": 421,
+   "label": "Activity Data",
+   "id": "Activity Data_b9ebaadb",
+   "type": null,
+   "name": "The values of the final reading"
+  },
+  {
+   "start": 425,
+   "end": 431,
+   "label": "Actor",
+   "id": "Actor_e0e90cb1",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 434,
+   "end": 442,
+   "label": "Actor",
+   "id": "Actor_73b8603a",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 443,
+   "end": 448,
+   "label": "Activity",
+   "id": "Activity_ba857de0",
+   "type": "task",
+   "name": "Tells about the device changes , the master data and the meter count at installation"
+  },
+  {
+   "start": 449,
+   "end": 455,
+   "label": "Actor",
+   "id": "Actor_dcc64f08",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 456,
+   "end": 534,
+   "label": "Activity Data",
+   "id": "Activity Data_0162c2b9",
+   "type": null,
+   "name": "About the device changes , the master data and the meter count at installation"
+  },
+  {
+   "start": 537,
+   "end": 543,
+   "label": "Actor",
+   "id": "Actor_d068f34c",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 550,
+   "end": 556,
+   "label": "Activity",
+   "id": "Activity_521275fd",
+   "type": "task",
+   "name": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation"
+  },
+  {
+   "start": 557,
+   "end": 564,
+   "label": "Actor",
+   "id": "Actor_5d9fc3fe",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 565,
+   "end": 678,
+   "label": "Activity Data",
+   "id": "Activity Data_48bffeef",
+   "type": null,
+   "name": "About the device changes , the master data , the meter count at dismounting , and the meter count at installation"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 27,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Announces self dismounting",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Perform the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Perform the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Dismount the old equipment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Perform the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Dismount the old equipment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Mounts the new device",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Dismount the old equipment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Mounts the new device",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Reads the meter count",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Mounts the new device",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Reads the meter count",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Sents the values of the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Reads the meter count",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Sents the values of the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Sents the values of the final reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents the values of the final reading",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents the values of the final reading",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells about the device changes , the master data and the meter count at installation",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Announces self dismounting",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notifies about equipment change intentions",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Announces self dismounting",
+    "node_B": "Perform the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Notify about no self-dismounting of the MPOO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Perform the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Dismount the old equipment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Perform the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Dismount the old equipment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Notify about no self-dismounting of the MPOO",
+    "node_B": "Mounts the new device",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Dismount the old equipment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Mounts the new device",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Perform the final reading",
+    "node_B": "Reads the meter count",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Mounts the new device",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Reads the meter count",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Dismount the old equipment",
+    "node_B": "Sents the values of the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Reads the meter count",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Sents the values of the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mounts the new device",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Sents the values of the final reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reads the meter count",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents the values of the final reading",
+    "node_B": "Tells about the device changes , the master data and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents the values of the final reading",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells about the device changes , the master data and the meter count at installation",
+    "node_B": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

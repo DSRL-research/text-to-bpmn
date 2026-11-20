@@ -1,0 +1,257 @@
+{
+  "experiment": "cases_gliner",
+  "dry_run": false,
+  "started": "2026-11-12T09:07:40+00:00",
+  "code": {
+    "commit": "808815f805259940897ef6171cc546420a688221",
+    "describe": "revision-final-3",
+    "dirty": false
+  },
+  "command": [
+    "text2bpmn/run_gliner_arm.py",
+    "--model",
+    "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "--api-base",
+    "http://localhost:11434/v1",
+    "--api-key",
+    "EMPTY",
+    "--no-thinking",
+    "--constrained-output",
+    "--max-tokens",
+    "1024"
+  ],
+  "config": {
+    "seed": 0,
+    "temperature": 0.0,
+    "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "api_base": "http://localhost:11434/v1",
+    "api_key": "EMPTY",
+    "few_shot_k": 10,
+    "prompt": "corrected",
+    "llm_timeout": 120,
+    "constrained_output": true,
+    "reasoning_max_chars": 2000,
+    "max_tokens": 1024,
+    "disable_thinking": true,
+    "two_phase": false,
+    "llm_cache": false,
+    "allow_no_llm": false,
+    "guardrail_mode": "entity_1",
+    "parallel_detection": "all",
+    "parallel_mutual": false,
+    "parallel_require_cue": false,
+    "parallel_anchor_guard": false,
+    "relation_mode": "decisions4",
+    "ontology_file": "BPMNbasedOntologyV1_2.owl",
+    "ontology_out": "",
+    "ner_model_path": ""
+  },
+  "llm": {
+    "name": "Qwen/Qwen3.5-27B-FP8",
+    "reachable": true,
+    "api": "openai",
+    "served_models": [
+      "Qwen/Qwen3.5-27B-FP8"
+    ],
+    "serving_this_model": true,
+    "digest": null
+  },
+  "pipeline_run_record": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:07:53+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  },
+  "recogniser": {
+    "model": "text2bpmn/baselines/finetuned_315/A-small-v2.1-315/best",
+    "name": "A-small-v2.1-315",
+    "threshold": 0.85,
+    "threshold_from": "text2bpmn/baselines/chosen_thresholds_315.json",
+    "read": "one sentence at a time",
+    "floor": 0.3,
+    "weights_sha256": {
+      "pytorch_model.bin": "1afa6921385ac326ef0cf3c761345a24f2272b27143b04a4614f32aa9e027dff"
+    },
+    "python": "3.12.3",
+    "versions": {
+      "gliner": "0.2.29",
+      "transformers": "5.16.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "numpy": "1.26.4"
+    },
+    "command": [
+      ".venv-gliner/bin/python",
+      "-m",
+      "text2bpmn.gliner_spans",
+      "--model",
+      "text2bpmn/baselines/finetuned_315/A-small-v2.1-315/best",
+      "--texts",
+      "runs/gliner-3/cases_gliner/resolved_texts.json",
+      "--out",
+      "runs/gliner-3/cases_gliner/gliner_spans.json"
+    ],
+    "sentences_longer_than_the_model_reads": 0
+  },
+  "scores": {
+    "loan": {
+      "tasks": {
+        "tp": 4,
+        "fp": 1,
+        "fn": 3,
+        "precision": 0.8,
+        "recall": 0.5714285714285714,
+        "f1": 0.6666666666666666
+      },
+      "gateways": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "edges": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 5,
+        "precision": 0.5,
+        "recall": 0.2857142857142857,
+        "f1": 0.36363636363636365
+      },
+      "ged": {
+        "ged": 18.73,
+        "rged": 0.694,
+        "similarity": 0.306,
+        "rged_combined": 0.416,
+        "similarity_combined": 0.584,
+        "reference_size": 27,
+        "generated_size": 18,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    },
+    "goods_dispatch": {
+      "tasks": {
+        "tp": 6,
+        "fp": 3,
+        "fn": 1,
+        "precision": 0.6666666666666666,
+        "recall": 0.8571428571428571,
+        "f1": 0.75
+      },
+      "gateways": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 3,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      },
+      "edges": {
+        "tp": 1,
+        "fp": 8,
+        "fn": 7,
+        "precision": 0.1111111111111111,
+        "recall": 0.125,
+        "f1": 0.11764705882352941
+      },
+      "ged": {
+        "ged": 39.52,
+        "rged": 1.098,
+        "similarity": 0.0,
+        "rged_combined": 0.581,
+        "similarity_combined": 0.419,
+        "reference_size": 32,
+        "generated_size": 36,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    },
+    "healthcare": {
+      "tasks": {
+        "tp": 16,
+        "fp": 12,
+        "fn": 7,
+        "precision": 0.5714285714285714,
+        "recall": 0.6956521739130435,
+        "f1": 0.6274509803921569
+      },
+      "gateways": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 6,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "edges": {
+        "tp": 5,
+        "fp": 25,
+        "fn": 23,
+        "precision": 0.16666666666666666,
+        "recall": 0.17857142857142858,
+        "f1": 0.17241379310344826
+      },
+      "ged": {
+        "ged": 94.53,
+        "rged": 1.112,
+        "similarity": 0.0,
+        "rged_combined": 0.591,
+        "similarity_combined": 0.409,
+        "reference_size": 85,
+        "generated_size": 75,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    }
+  },
+  "status": "ok",
+  "finished": "2026-11-12T09:09:50+00:00",
+  "seconds": 129.6
+}

@@ -1,0 +1,311 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The MPON",
+      "The MPOO"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_8ca0cede",
+        "name": "Requests a device takeover bid",
+        "type": "task",
+        "lane": "The MPON",
+        "metadata": []
+      },
+      {
+        "id": "Activity_17e39041",
+        "name": "Sends a tender for the equipment takeover",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_fc1207a9",
+        "name": "Places an order",
+        "type": "task",
+        "lane": "The MPON",
+        "metadata": []
+      },
+      {
+        "id": "Activity_7092c214",
+        "name": "Confirms the order of the MPON",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_612672b9",
+        "name": "Sends the master data",
+        "type": "task",
+        "lane": "The MPOO",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The MPOO"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_8ca0cede",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_8ca0cede",
+        "target": "Activity_17e39041",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_17e39041",
+        "target": "Activity_fc1207a9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_fc1207a9",
+        "target": "Activity_7092c214",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_7092c214",
+        "target": "Activity_612672b9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_612672b9",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 7
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 8,
+      "label": "Actor",
+      "id": "Actor_616c74c0",
+      "type": "Lane",
+      "name": "The MPON"
+    },
+    {
+      "start": 9,
+      "end": 17,
+      "label": "Activity",
+      "id": "Activity_8ca0cede",
+      "type": "task",
+      "name": "Requests a device takeover bid"
+    },
+    {
+      "start": 18,
+      "end": 39,
+      "label": "Activity Data",
+      "id": "Activity Data_41d7d94b",
+      "type": null,
+      "name": "A device takeover bid"
+    },
+    {
+      "start": 43,
+      "end": 51,
+      "label": "Actor",
+      "id": "Actor_38cf023a",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 54,
+      "end": 62,
+      "label": "Actor",
+      "id": "Actor_55b7ae04",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 63,
+      "end": 68,
+      "label": "Activity",
+      "id": "Activity_17e39041",
+      "type": "task",
+      "name": "Sends a tender for the equipment takeover"
+    },
+    {
+      "start": 69,
+      "end": 104,
+      "label": "Activity Data",
+      "id": "Activity Data_23ade99a",
+      "type": null,
+      "name": "A tender for the equipment takeover"
+    },
+    {
+      "start": 108,
+      "end": 116,
+      "label": "Actor",
+      "id": "Actor_99ae3218",
+      "type": "Lane",
+      "name": "The MPON"
+    },
+    {
+      "start": 119,
+      "end": 127,
+      "label": "Actor",
+      "id": "Actor_b55cbf5c",
+      "type": "Lane",
+      "name": "The MPON"
+    },
+    {
+      "start": 128,
+      "end": 134,
+      "label": "Activity",
+      "id": "Activity_fc1207a9",
+      "type": "task",
+      "name": "Places an order"
+    },
+    {
+      "start": 135,
+      "end": 143,
+      "label": "Activity Data",
+      "id": "Activity Data_42d7ef1f",
+      "type": null,
+      "name": "An order"
+    },
+    {
+      "start": 147,
+      "end": 155,
+      "label": "Actor",
+      "id": "Actor_cb00145f",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 158,
+      "end": 166,
+      "label": "Actor",
+      "id": "Actor_13a0b28d",
+      "type": "Lane",
+      "name": "The MPOO"
+    },
+    {
+      "start": 167,
+      "end": 175,
+      "label": "Activity",
+      "id": "Activity_7092c214",
+      "type": "task",
+      "name": "Confirms the order of the MPON"
+    },
+    {
+      "start": 176,
+      "end": 197,
+      "label": "Activity Data",
+      "id": "Activity Data_4e491ed9",
+      "type": null,
+      "name": "The order of the MPON"
+    },
+    {
+      "start": 202,
+      "end": 207,
+      "label": "Activity",
+      "id": "Activity_612672b9",
+      "type": "task",
+      "name": "Sends the master data"
+    },
+    {
+      "start": 208,
+      "end": 223,
+      "label": "Activity Data",
+      "id": "Activity Data_c6532b56",
+      "type": null,
+      "name": "The master data"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 0,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": []
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

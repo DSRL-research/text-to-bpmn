@@ -1,0 +1,401 @@
+{
+ "structured_data": {
+  "participants": [
+   "A claims officer",
+   "A senior claims officer",
+   "Main Process",
+   "The claims officer",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_0dfda570",
+    "name": "Registered it",
+    "type": "task",
+    "lane": "A claims officer",
+    "metadata": [
+     "A claim"
+    ]
+   },
+   {
+    "id": "Activity_ef4e3cb9",
+    "name": "Examined",
+    "type": "task",
+    "lane": "A claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_232cc2a5",
+    "name": "Writes a settlement recommendation",
+    "type": "task",
+    "lane": "The claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2e14a34c",
+    "name": "Checked this recommendation",
+    "type": "task",
+    "lane": "A senior claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3108a1ef",
+    "name": "Mark the claim",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "As OK or Not OK"
+    ]
+   },
+   {
+    "id": "XOR Gateway_1bbe2da7",
+    "name": "If the claim is marked as Not OK",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_97c7a4ba",
+    "name": "Sent back it",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_5d4bd625",
+    "name": "If the claim is OK",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_91e608c6",
+    "name": "Proceeds the claim handling process",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_0dfda570",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_0dfda570",
+    "target": "Activity_ef4e3cb9",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_ef4e3cb9",
+    "target": "Activity_232cc2a5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_232cc2a5",
+    "target": "Activity_2e14a34c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_2e14a34c",
+    "target": "Activity_3108a1ef",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_3108a1ef",
+    "target": "XOR Gateway_1bbe2da7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_1bbe2da7",
+    "target": "Activity_97c7a4ba",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_97c7a4ba",
+    "target": "XOR Gateway_5d4bd625",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "XOR Gateway_5d4bd625",
+    "target": "Activity_91e608c6",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_91e608c6",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 9
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 6,
+   "end": 13,
+   "label": "Activity Data",
+   "id": "Activity Data_0287a446",
+   "type": null,
+   "name": "A claim"
+  },
+  {
+   "start": 17,
+   "end": 27,
+   "label": "Activity",
+   "id": "Activity_0dfda570",
+   "type": "task",
+   "name": "Registered it"
+  },
+  {
+   "start": 30,
+   "end": 32,
+   "label": "Activity Data",
+   "id": "Activity Data_cd4004fa",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 36,
+   "end": 44,
+   "label": "Activity",
+   "id": "Activity_ef4e3cb9",
+   "type": "task",
+   "name": "Examined"
+  },
+  {
+   "start": 48,
+   "end": 64,
+   "label": "Actor",
+   "id": "Actor_dfb5c1de",
+   "type": "Lane",
+   "name": "A claims officer"
+  },
+  {
+   "start": 67,
+   "end": 85,
+   "label": "Actor",
+   "id": "Actor_709a4b45",
+   "type": "Lane",
+   "name": "The claims officer"
+  },
+  {
+   "start": 91,
+   "end": 97,
+   "label": "Activity",
+   "id": "Activity_232cc2a5",
+   "type": "task",
+   "name": "Writes a settlement recommendation"
+  },
+  {
+   "start": 98,
+   "end": 125,
+   "label": "Activity Data",
+   "id": "Activity Data_3ba7461c",
+   "type": null,
+   "name": "A settlement recommendation"
+  },
+  {
+   "start": 128,
+   "end": 147,
+   "label": "Activity Data",
+   "id": "Activity Data_eb65bf34",
+   "type": null,
+   "name": "This recommendation"
+  },
+  {
+   "start": 156,
+   "end": 163,
+   "label": "Activity",
+   "id": "Activity_2e14a34c",
+   "type": "task",
+   "name": "Checked this recommendation"
+  },
+  {
+   "start": 167,
+   "end": 190,
+   "label": "Actor",
+   "id": "Actor_392d17ec",
+   "type": "Lane",
+   "name": "A senior claims officer"
+  },
+  {
+   "start": 191,
+   "end": 194,
+   "label": "Actor",
+   "id": "Actor_0301b38c",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 199,
+   "end": 203,
+   "label": "Activity",
+   "id": "Activity_3108a1ef",
+   "type": "task",
+   "name": "Mark the claim"
+  },
+  {
+   "start": 204,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_e8c7dc1c",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 214,
+   "end": 229,
+   "label": "Further Specification",
+   "id": "Further Specification_48beaf70",
+   "type": null,
+   "name": "As OK or Not OK"
+  },
+  {
+   "start": 232,
+   "end": 234,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_1bbe2da7",
+   "type": "exclusiveGateway",
+   "name": "If the claim is marked as Not OK"
+  },
+  {
+   "start": 235,
+   "end": 264,
+   "label": "Condition Specification",
+   "id": "Condition Specification_c09767ad",
+   "type": "exclusiveGateway",
+   "name": "The claim is marked as Not OK"
+  },
+  {
+   "start": 267,
+   "end": 269,
+   "label": "Activity Data",
+   "id": "Activity Data_537a3c6d",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 273,
+   "end": 282,
+   "label": "Activity",
+   "id": "Activity_97c7a4ba",
+   "type": "task",
+   "name": "Sent back it"
+  },
+  {
+   "start": 286,
+   "end": 304,
+   "label": "Actor",
+   "id": "Actor_a338cb70",
+   "type": "Lane",
+   "name": "The claims officer"
+  },
+  {
+   "start": 342,
+   "end": 344,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_5d4bd625",
+   "type": "exclusiveGateway",
+   "name": "If the claim is OK"
+  },
+  {
+   "start": 345,
+   "end": 360,
+   "label": "Condition Specification",
+   "id": "Condition Specification_85101448",
+   "type": "exclusiveGateway",
+   "name": "The claim is OK"
+  },
+  {
+   "start": 363,
+   "end": 389,
+   "label": "Activity Data",
+   "id": "Activity Data_a19383c4",
+   "type": null,
+   "name": "The claim handling process"
+  },
+  {
+   "start": 390,
+   "end": 398,
+   "label": "Activity",
+   "id": "Activity_91e608c6",
+   "type": "task",
+   "name": "Proceeds the claim handling process"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 2,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Sent back it | decision: If the claim is OK | Proceeds the claim handling process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the claim is OK",
+    "node_B": "Proceeds the claim handling process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Sent back it | decision: If the claim is OK | Proceeds the claim handling process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the claim is OK",
+    "node_B": "Proceeds the claim handling process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

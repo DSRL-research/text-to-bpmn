@@ -1,0 +1,274 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_16e82874",
+    "name": "Sents the dismissal",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_caf88f72",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_492fc83b",
+    "name": "Opposes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_87b83877",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_238d310e",
+    "name": "Confirmes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPOO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_239083f1",
+    "source": "StartEvent_1",
+    "target": "Activity_16e82874",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_21bba5d7",
+    "source": "Activity_16e82874",
+    "target": "Activity_caf88f72",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_37d7c7a9",
+    "source": "Activity_caf88f72",
+    "target": "Activity_492fc83b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0f6fa012",
+    "source": "Activity_492fc83b",
+    "target": "XOR Gateway_87b83877",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_38f966b6",
+    "source": "XOR Gateway_87b83877",
+    "target": "Activity_238d310e",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_9b5311f6",
+    "source": "Activity_238d310e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_05039f30",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_16e82874",
+   "type": "task",
+   "name": "Sents the dismissal"
+  },
+  {
+   "start": 15,
+   "end": 28,
+   "label": "Activity Data",
+   "id": "Activity Data_cc7798ee",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 32,
+   "end": 40,
+   "label": "Actor",
+   "id": "Actor_3c227924",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 43,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_18950cbe",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 52,
+   "end": 59,
+   "label": "Activity",
+   "id": "Activity_caf88f72",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 60,
+   "end": 73,
+   "label": "Activity Data",
+   "id": "Activity Data_472c4586",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 76,
+   "end": 84,
+   "label": "Actor",
+   "id": "Actor_dc17de32",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 85,
+   "end": 92,
+   "label": "Activity",
+   "id": "Activity_492fc83b",
+   "type": "task",
+   "name": "Opposes the dismissal"
+  },
+  {
+   "start": 93,
+   "end": 106,
+   "label": "Activity Data",
+   "id": "Activity Data_ae187b37",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 115,
+   "end": 117,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_87b83877",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 118,
+   "end": 126,
+   "label": "Actor",
+   "id": "Actor_e586e5dd",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 127,
+   "end": 136,
+   "label": "Activity",
+   "id": "Activity_238d310e",
+   "type": "task",
+   "name": "Confirmes the dismissal"
+  },
+  {
+   "start": 137,
+   "end": 150,
+   "label": "Activity Data",
+   "id": "Activity Data_339e70de",
+   "type": null,
+   "name": "The dismissal"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Reviews the dismissal",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Opposes the dismissal",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sents the dismissal",
+    "node_B": "Or",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Opposes the dismissal",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Or",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Opposes the dismissal",
+    "node_B": "Confirmes the dismissal",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the dismissal",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

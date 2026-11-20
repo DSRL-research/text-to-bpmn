@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="text2bpmn" exporterVersion="0.1.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_1" name="doc-9.1" processRef="Process_1" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_1" name="Main Process">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_5018134e</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_cffa34cb</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_56f13eda</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_837aac14</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_a27fabe7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_d902ce09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_a845a86b</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_ed66c748</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_e885dea1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_2" name="Supervisor">
+        <bpmn:flowNodeRef>Activity_a7f722a1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_5018134e" name="Backed up the database">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_cffa34cb" name="Checked it">
+      <bpmn:documentation>To see whether the Account Defaulter table has new records</bpmn:documentation>
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_56f13eda" name="Check the CRM system">
+      <bpmn:documentation>To see whether new returns have been filed</bpmn:documentation>
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_837aac14" name="Register all defaulting accounts and customers">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_a27fabe7" name="Produce another table of defaulting accounts">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_d902ce09" name="Send">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_a845a86b" name="Sent an alert">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_ed66c748" name="Check the CRM system">
+      <bpmn:documentation>To see whether new returns have been filed</bpmn:documentation>
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_e885dea1" name="Reconcile with the existing account defaulters table">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_a7f722a1" name="Sent a message">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1" name="End">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Activity_5018134e" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Activity_5018134e" targetRef="Activity_cffa34cb" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Activity_a27fabe7" targetRef="Activity_d902ce09" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Activity_a845a86b" targetRef="Activity_ed66c748" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Activity_e885dea1" targetRef="Activity_a7f722a1" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Activity_a7f722a1" targetRef="EndEvent_1" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Activity_cffa34cb" targetRef="Activity_56f13eda" name="If no new records are found" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Activity_56f13eda" targetRef="Activity_837aac14" name="If new returns exist" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Activity_837aac14" targetRef="Activity_a27fabe7" name="If the defaulting client codes have not been previously advised" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Activity_d902ce09" targetRef="Activity_a845a86b" name="If it is not" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Activity_ed66c748" targetRef="Activity_e885dea1" name="If new returns have been filed" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="1900" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1_di" bpmnElement="Lane_1" isHorizontal="true">
+        <dc:Bounds x="30" y="0" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_2_di" bpmnElement="Lane_2" isHorizontal="true">
+        <dc:Bounds x="30" y="120" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="137" y="42" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_5018134e_di" bpmnElement="Activity_5018134e">
+        <dc:Bounds x="255" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_cffa34cb_di" bpmnElement="Activity_cffa34cb">
+        <dc:Bounds x="405" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_56f13eda_di" bpmnElement="Activity_56f13eda">
+        <dc:Bounds x="555" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_837aac14_di" bpmnElement="Activity_837aac14">
+        <dc:Bounds x="705" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_a27fabe7_di" bpmnElement="Activity_a27fabe7">
+        <dc:Bounds x="855" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_d902ce09_di" bpmnElement="Activity_d902ce09">
+        <dc:Bounds x="1005" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_a845a86b_di" bpmnElement="Activity_a845a86b">
+        <dc:Bounds x="1155" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_ed66c748_di" bpmnElement="Activity_ed66c748">
+        <dc:Bounds x="1305" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_e885dea1_di" bpmnElement="Activity_e885dea1">
+        <dc:Bounds x="1455" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_a7f722a1_di" bpmnElement="Activity_a7f722a1">
+        <dc:Bounds x="1605" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1787" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="173" y="60" />
+        <di:waypoint x="255" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="355" y="60" />
+        <di:waypoint x="405" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="955" y="60" />
+        <di:waypoint x="1005" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="1255" y="60" />
+        <di:waypoint x="1305" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="1555" y="60" />
+        <di:waypoint x="1580" y="60" />
+        <di:waypoint x="1580" y="180" />
+        <di:waypoint x="1605" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1705" y="180" />
+        <di:waypoint x="1787" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="505" y="60" />
+        <di:waypoint x="555" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="655" y="60" />
+        <di:waypoint x="705" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="805" y="60" />
+        <di:waypoint x="855" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1105" y="60" />
+        <di:waypoint x="1155" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1405" y="60" />
+        <di:waypoint x="1455" y="60" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

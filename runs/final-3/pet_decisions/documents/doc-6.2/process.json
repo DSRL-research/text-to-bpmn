@@ -1,0 +1,275 @@
+{
+ "structured_data": {
+  "participants": [
+   "Assembler AG",
+   "Main Process",
+   "The supplier"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_95f6d6bc",
+    "name": "Places an order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": [
+     "In order to request more product parts"
+    ]
+   },
+   {
+    "id": "Activity_44fab0d8",
+    "name": "Sends the order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0a2b36cc",
+    "name": "Processes the order",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4f3c0032",
+    "name": "Sends an invoice",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3853f7a4",
+    "name": "Receives the invoice",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Assembler AG"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_95f6d6bc",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_95f6d6bc",
+    "target": "Activity_44fab0d8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_44fab0d8",
+    "target": "Activity_0a2b36cc",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_0a2b36cc",
+    "target": "Activity_4f3c0032",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_4f3c0032",
+    "target": "Activity_3853f7a4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_3853f7a4",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 7
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 66,
+   "end": 78,
+   "label": "Actor",
+   "id": "Actor_2c1b2f4c",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 79,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_95f6d6bc",
+   "type": "task",
+   "name": "Places an order"
+  },
+  {
+   "start": 86,
+   "end": 94,
+   "label": "Activity Data",
+   "id": "Activity Data_b6486412",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 100,
+   "end": 112,
+   "label": "Actor",
+   "id": "Actor_7643f7e6",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 113,
+   "end": 151,
+   "label": "Further Specification",
+   "id": "Further Specification_aaec1b9c",
+   "type": null,
+   "name": "In order to request more product parts"
+  },
+  {
+   "start": 158,
+   "end": 170,
+   "label": "Actor",
+   "id": "Actor_5a5681ae",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 171,
+   "end": 176,
+   "label": "Activity",
+   "id": "Activity_44fab0d8",
+   "type": "task",
+   "name": "Sends the order"
+  },
+  {
+   "start": 177,
+   "end": 186,
+   "label": "Activity Data",
+   "id": "Activity Data_85772cf5",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 190,
+   "end": 202,
+   "label": "Actor",
+   "id": "Actor_e39ca4f4",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 209,
+   "end": 221,
+   "label": "Actor",
+   "id": "Actor_683a0b02",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 222,
+   "end": 231,
+   "label": "Activity",
+   "id": "Activity_0a2b36cc",
+   "type": "task",
+   "name": "Processes the order"
+  },
+  {
+   "start": 232,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_8f1a40c7",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 248,
+   "end": 260,
+   "label": "Actor",
+   "id": "Actor_3d810394",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 261,
+   "end": 266,
+   "label": "Activity",
+   "id": "Activity_4f3c0032",
+   "type": "task",
+   "name": "Sends an invoice"
+  },
+  {
+   "start": 267,
+   "end": 277,
+   "label": "Activity Data",
+   "id": "Activity Data_2a33a763",
+   "type": null,
+   "name": "An invoice"
+  },
+  {
+   "start": 281,
+   "end": 293,
+   "label": "Actor",
+   "id": "Actor_7a86c647",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 300,
+   "end": 312,
+   "label": "Actor",
+   "id": "Actor_ae6f02d1",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 313,
+   "end": 321,
+   "label": "Activity",
+   "id": "Activity_3853f7a4",
+   "type": "task",
+   "name": "Receives the invoice"
+  },
+  {
+   "start": 322,
+   "end": 333,
+   "label": "Activity Data",
+   "id": "Activity Data_6540f774",
+   "type": null,
+   "name": "The invoice"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

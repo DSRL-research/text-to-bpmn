@@ -1,0 +1,515 @@
+{
+ "structured_data": {
+  "participants": [
+   "I",
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_211af659",
+    "name": "Detected a number of personnel requirements",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_03979126",
+    "name": "Report the vacancy",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1bb30efb",
+    "name": "Get the job description for review",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a7d890a3",
+    "name": "Advertized it",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_fb97665c",
+    "name": "Under certain circumstances",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1497ba8c",
+    "name": "Ask corrections",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_acfb9e07",
+    "name": "Approve the job description",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "I"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_5f292a60",
+    "source": "StartEvent_1",
+    "target": "Activity_211af659",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6912cf12",
+    "source": "Activity_211af659",
+    "target": "Activity_03979126",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1d2807ce",
+    "source": "Activity_03979126",
+    "target": "Activity_1bb30efb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8746df4b",
+    "source": "Activity_1bb30efb",
+    "target": "Activity_a7d890a3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d6979b5",
+    "source": "Activity_a7d890a3",
+    "target": "XOR Gateway_fb97665c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9105da33",
+    "source": "XOR Gateway_fb97665c",
+    "target": "Activity_1497ba8c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2e0c8a0a",
+    "source": "XOR Gateway_fb97665c",
+    "target": "Activity_acfb9e07",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8fde7f0a",
+    "source": "Activity_1497ba8c",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4717ecad",
+    "source": "Activity_acfb9e07",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 50,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_dc43a607",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 57,
+   "end": 65,
+   "label": "Activity",
+   "id": "Activity_211af659",
+   "type": "task",
+   "name": "Detected a number of personnel requirements"
+  },
+  {
+   "start": 66,
+   "end": 100,
+   "label": "Activity Data",
+   "id": "Activity Data_c7ed18f1",
+   "type": null,
+   "name": "A number of personnel requirements"
+  },
+  {
+   "start": 103,
+   "end": 104,
+   "label": "Actor",
+   "id": "Actor_1e909210",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 105,
+   "end": 111,
+   "label": "Activity",
+   "id": "Activity_03979126",
+   "type": "task",
+   "name": "Report the vacancy"
+  },
+  {
+   "start": 112,
+   "end": 123,
+   "label": "Activity Data",
+   "id": "Activity Data_6a470855",
+   "type": null,
+   "name": "The vacancy"
+  },
+  {
+   "start": 127,
+   "end": 151,
+   "label": "Actor",
+   "id": "Actor_5096e959",
+   "type": "Lane",
+   "name": "The Personnel Department"
+  },
+  {
+   "start": 159,
+   "end": 160,
+   "label": "Actor",
+   "id": "Actor_9ffe19da",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 169,
+   "end": 172,
+   "label": "Activity",
+   "id": "Activity_1bb30efb",
+   "type": "task",
+   "name": "Get the job description for review"
+  },
+  {
+   "start": 173,
+   "end": 203,
+   "label": "Activity Data",
+   "id": "Activity Data_938a6707",
+   "type": null,
+   "name": "The job description for review"
+  },
+  {
+   "start": 211,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_f208ca1d",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 217,
+   "end": 227,
+   "label": "Activity",
+   "id": "Activity_a7d890a3",
+   "type": "task",
+   "name": "Advertized it"
+  },
+  {
+   "start": 230,
+   "end": 257,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_fb97665c",
+   "type": "exclusiveGateway",
+   "name": "Under certain circumstances"
+  },
+  {
+   "start": 260,
+   "end": 261,
+   "label": "Actor",
+   "id": "Actor_64ec60f5",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 267,
+   "end": 270,
+   "label": "Activity",
+   "id": "Activity_1497ba8c",
+   "type": "task",
+   "name": "Ask corrections"
+  },
+  {
+   "start": 275,
+   "end": 286,
+   "label": "Activity Data",
+   "id": "Activity Data_803fa482",
+   "type": null,
+   "name": "Corrections"
+  },
+  {
+   "start": 295,
+   "end": 304,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f310825f",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 305,
+   "end": 306,
+   "label": "Actor",
+   "id": "Actor_cb3c3531",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 307,
+   "end": 314,
+   "label": "Activity",
+   "id": "Activity_acfb9e07",
+   "type": "task",
+   "name": "Approve the job description"
+  },
+  {
+   "start": 315,
+   "end": 334,
+   "label": "Activity Data",
+   "id": "Activity Data_23aa9d74",
+   "type": null,
+   "name": "The job description"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 18,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Report the vacancy",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Get the job description for review",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Advertized it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Get the job description for review",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Advertized it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Under certain circumstances",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Advertized it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Under certain circumstances",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Ask corrections",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Under certain circumstances",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Ask corrections",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Ask corrections",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Approve the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Approve the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Approve the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Report the vacancy",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Get the job description for review",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Advertized it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Get the job description for review",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Advertized it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Under certain circumstances",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Advertized it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Under certain circumstances",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Ask corrections",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Under certain circumstances",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Ask corrections",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Ask corrections",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Approve the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Approve the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Approve the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

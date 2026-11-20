@@ -1,0 +1,800 @@
+{
+ "structured_data": {
+  "participants": [
+   "A customer",
+   "A garage",
+   "Main Process",
+   "The Handling department",
+   "The Notification department"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_2478c47c",
+    "name": "Submits a claim",
+    "type": "task",
+    "lane": "A customer",
+    "metadata": [
+     "By sending in relevant documentation"
+    ]
+   },
+   {
+    "id": "Activity_cde3b904",
+    "name": "Checks the documents",
+    "type": "task",
+    "lane": "The Notification department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7cda39b2",
+    "name": "Registers the claim",
+    "type": "task",
+    "lane": "The Notification department",
+    "metadata": [
+     "Upon completeness"
+    ]
+   },
+   {
+    "id": "Activity_d2ae0788",
+    "name": "Picks up the claim",
+    "type": "task",
+    "lane": "The Handling department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_45ccc01f",
+    "name": "Checks the insurance",
+    "type": "task",
+    "lane": "The Handling department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_677a1acf",
+    "name": "Performed an assessment",
+    "type": "task",
+    "lane": "The Handling department",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_d1d33b3a",
+    "name": "If the assessment is positive",
+    "type": "exclusiveGateway",
+    "lane": "A garage",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d4610201",
+    "name": "Phoned",
+    "type": "task",
+    "lane": "A garage",
+    "metadata": [
+     "To authorise the repairs"
+    ]
+   },
+   {
+    "id": "Activity_db385b3f",
+    "name": "Scheduled the payment",
+    "type": "task",
+    "lane": "A garage",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ce0727f0",
+    "name": "Rejected the claim",
+    "type": "task",
+    "lane": "A garage",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7116d93e",
+    "name": "Sent a letter",
+    "type": "task",
+    "lane": "A garage",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "A garage"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_aee8a631",
+    "source": "StartEvent_1",
+    "target": "Activity_2478c47c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ac888cbb",
+    "source": "Activity_2478c47c",
+    "target": "Activity_cde3b904",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_00e0d5d9",
+    "source": "Activity_cde3b904",
+    "target": "Activity_7cda39b2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ce7d26b0",
+    "source": "Activity_7cda39b2",
+    "target": "Activity_d2ae0788",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_30e125a1",
+    "source": "Activity_d2ae0788",
+    "target": "Activity_45ccc01f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4ab33431",
+    "source": "Activity_45ccc01f",
+    "target": "Activity_677a1acf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_876c9fdd",
+    "source": "Activity_677a1acf",
+    "target": "XOR Gateway_d1d33b3a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_08f98197",
+    "source": "XOR Gateway_d1d33b3a",
+    "target": "Activity_d4610201",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c9a05f62",
+    "source": "Activity_d4610201",
+    "target": "Activity_db385b3f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_901969c2",
+    "source": "XOR Gateway_d1d33b3a",
+    "target": "Activity_ce0727f0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_87841e70",
+    "source": "Activity_ce0727f0",
+    "target": "Activity_7116d93e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d23c7df1",
+    "source": "Activity_db385b3f",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8ba48246",
+    "source": "Activity_7116d93e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 24,
+   "end": 34,
+   "label": "Actor",
+   "id": "Actor_522d0a62",
+   "type": "Lane",
+   "name": "A customer"
+  },
+  {
+   "start": 35,
+   "end": 42,
+   "label": "Activity",
+   "id": "Activity_2478c47c",
+   "type": "task",
+   "name": "Submits a claim"
+  },
+  {
+   "start": 43,
+   "end": 50,
+   "label": "Activity Data",
+   "id": "Activity Data_c71d1478",
+   "type": null,
+   "name": "A claim"
+  },
+  {
+   "start": 51,
+   "end": 87,
+   "label": "Further Specification",
+   "id": "Further Specification_6e202df2",
+   "type": null,
+   "name": "By sending in relevant documentation"
+  },
+  {
+   "start": 90,
+   "end": 117,
+   "label": "Actor",
+   "id": "Actor_748716a3",
+   "type": "Lane",
+   "name": "The Notification department"
+  },
+  {
+   "start": 137,
+   "end": 143,
+   "label": "Activity",
+   "id": "Activity_cde3b904",
+   "type": "task",
+   "name": "Checks the documents"
+  },
+  {
+   "start": 144,
+   "end": 157,
+   "label": "Activity Data",
+   "id": "Activity Data_ee0a1f15",
+   "type": null,
+   "name": "The documents"
+  },
+  {
+   "start": 158,
+   "end": 175,
+   "label": "Further Specification",
+   "id": "Further Specification_ec700418",
+   "type": null,
+   "name": "Upon completeness"
+  },
+  {
+   "start": 180,
+   "end": 189,
+   "label": "Activity",
+   "id": "Activity_7cda39b2",
+   "type": "task",
+   "name": "Registers the claim"
+  },
+  {
+   "start": 190,
+   "end": 199,
+   "label": "Activity Data",
+   "id": "Activity Data_d14cede0",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 209,
+   "end": 232,
+   "label": "Actor",
+   "id": "Actor_6c4f78ae",
+   "type": "Lane",
+   "name": "The Handling department"
+  },
+  {
+   "start": 233,
+   "end": 241,
+   "label": "Activity",
+   "id": "Activity_d2ae0788",
+   "type": "task",
+   "name": "Picks up the claim"
+  },
+  {
+   "start": 242,
+   "end": 251,
+   "label": "Activity Data",
+   "id": "Activity Data_82e54bd2",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 256,
+   "end": 262,
+   "label": "Activity",
+   "id": "Activity_45ccc01f",
+   "type": "task",
+   "name": "Checks the insurance"
+  },
+  {
+   "start": 263,
+   "end": 276,
+   "label": "Activity Data",
+   "id": "Activity Data_dc63e93c",
+   "type": null,
+   "name": "The insurance"
+  },
+  {
+   "start": 286,
+   "end": 299,
+   "label": "Activity Data",
+   "id": "Activity Data_722ad752",
+   "type": null,
+   "name": "An assessment"
+  },
+  {
+   "start": 303,
+   "end": 312,
+   "label": "Activity",
+   "id": "Activity_677a1acf",
+   "type": "task",
+   "name": "Performed an assessment"
+  },
+  {
+   "start": 315,
+   "end": 317,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d1d33b3a",
+   "type": "exclusiveGateway",
+   "name": "If the assessment is positive"
+  },
+  {
+   "start": 318,
+   "end": 344,
+   "label": "Condition Specification",
+   "id": "Condition Specification_43fbd6ad",
+   "type": "exclusiveGateway",
+   "name": "The assessment is positive"
+  },
+  {
+   "start": 347,
+   "end": 355,
+   "label": "Actor",
+   "id": "Actor_105f42f8",
+   "type": "Lane",
+   "name": "A garage"
+  },
+  {
+   "start": 359,
+   "end": 365,
+   "label": "Activity",
+   "id": "Activity_d4610201",
+   "type": "task",
+   "name": "Phoned"
+  },
+  {
+   "start": 366,
+   "end": 390,
+   "label": "Further Specification",
+   "id": "Further Specification_cd3e02d9",
+   "type": null,
+   "name": "To authorise the repairs"
+  },
+  {
+   "start": 395,
+   "end": 406,
+   "label": "Activity Data",
+   "id": "Activity Data_3248883b",
+   "type": null,
+   "name": "The payment"
+  },
+  {
+   "start": 410,
+   "end": 419,
+   "label": "Activity",
+   "id": "Activity_db385b3f",
+   "type": "task",
+   "name": "Scheduled the payment"
+  },
+  {
+   "start": 440,
+   "end": 449,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_405c3d7d",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 452,
+   "end": 461,
+   "label": "Activity Data",
+   "id": "Activity Data_50e36277",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 465,
+   "end": 473,
+   "label": "Activity",
+   "id": "Activity_ce0727f0",
+   "type": "task",
+   "name": "Rejected the claim"
+  },
+  {
+   "start": 538,
+   "end": 546,
+   "label": "Activity Data",
+   "id": "Activity Data_3543b371",
+   "type": null,
+   "name": "A letter"
+  },
+  {
+   "start": 550,
+   "end": 554,
+   "label": "Activity",
+   "id": "Activity_7116d93e",
+   "type": "task",
+   "name": "Sent a letter"
+  },
+  {
+   "start": 558,
+   "end": 570,
+   "label": "Actor",
+   "id": "Actor_959fba10",
+   "type": "Lane",
+   "name": "The customer"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 30,
+  "skipped": 0,
+  "failures": 30,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Checks the documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Registers the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Picks up the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Registers the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Picks up the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Checks the insurance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Picks up the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Checks the insurance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Performed an assessment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "Checks the insurance",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "Performed an assessment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "If the assessment is positive",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "Performed an assessment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "If the assessment is positive",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "Phoned",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "If the assessment is positive",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "Phoned",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "Scheduled the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Phoned",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Scheduled the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Scheduled the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Rejected the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Rejected the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Sent a letter",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Rejected the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Sent a letter",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejected the claim",
+    "node_B": "Sent a letter",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Checks the documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Registers the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits a claim",
+    "node_B": "Picks up the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Registers the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Picks up the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the documents",
+    "node_B": "Checks the insurance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Picks up the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Checks the insurance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registers the claim",
+    "node_B": "Performed an assessment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "Checks the insurance",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "Performed an assessment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Picks up the claim",
+    "node_B": "If the assessment is positive",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "Performed an assessment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "If the assessment is positive",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the insurance",
+    "node_B": "Phoned",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "If the assessment is positive",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "Phoned",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performed an assessment",
+    "node_B": "Scheduled the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Phoned",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Scheduled the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the assessment is positive",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Scheduled the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Phoned",
+    "node_B": "Rejected the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Rejected the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Scheduled the payment",
+    "node_B": "Sent a letter",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Rejected the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Sent a letter",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejected the claim",
+    "node_B": "Sent a letter",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

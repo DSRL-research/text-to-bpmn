@@ -1,0 +1,134 @@
+{
+  "recipe": {
+    "base": "bert-base-cased",
+    "learning_rate": 2e-05,
+    "lr_scheduler_type": "linear",
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "max_epochs": 15,
+    "early_stopping_patience": 3,
+    "seed": 42,
+    "selection_metric": "seqeval entity F1 on dev"
+  },
+  "base_revision": "cd5ef92a9fb2f889e972770a36d4ed042daf221e",
+  "data": {
+    "train": "text2bpmn/baselines/train_315.json (text2bpmn/clean_split.py)",
+    "train_sentences": 315,
+    "dev": "text2bpmn/baselines/dev_split.json",
+    "dev_sentences": 60,
+    "test": "pet_test.json, not read"
+  },
+  "best_model_checkpoint": "process-visualizer/src/token_classification_alex/bert_ner_315_dev60/trainer/checkpoint-320",
+  "selected_epoch": 8,
+  "selected_step": 320,
+  "selected_dev_f1": 0.7906,
+  "epochs_trained": 11,
+  "history": [
+    {
+      "epoch": 1,
+      "step": 40,
+      "dev_f1": 0.4651,
+      "dev_precision": 0.4196,
+      "dev_recall": 0.5217,
+      "dev_loss": 1.0587
+    },
+    {
+      "epoch": 2,
+      "step": 80,
+      "dev_f1": 0.6882,
+      "dev_precision": 0.6115,
+      "dev_recall": 0.787,
+      "dev_loss": 0.6525
+    },
+    {
+      "epoch": 3,
+      "step": 120,
+      "dev_f1": 0.7436,
+      "dev_precision": 0.6762,
+      "dev_recall": 0.8261,
+      "dev_loss": 0.508
+    },
+    {
+      "epoch": 4,
+      "step": 160,
+      "dev_f1": 0.7746,
+      "dev_precision": 0.6955,
+      "dev_recall": 0.8739,
+      "dev_loss": 0.518
+    },
+    {
+      "epoch": 5,
+      "step": 200,
+      "dev_f1": 0.7701,
+      "dev_precision": 0.6754,
+      "dev_recall": 0.8957,
+      "dev_loss": 0.569
+    },
+    {
+      "epoch": 6,
+      "step": 240,
+      "dev_f1": 0.7784,
+      "dev_precision": 0.6808,
+      "dev_recall": 0.9087,
+      "dev_loss": 0.6539
+    },
+    {
+      "epoch": 7,
+      "step": 280,
+      "dev_f1": 0.7667,
+      "dev_precision": 0.6677,
+      "dev_recall": 0.9,
+      "dev_loss": 0.6563
+    },
+    {
+      "epoch": 8,
+      "step": 320,
+      "dev_f1": 0.7906,
+      "dev_precision": 0.7189,
+      "dev_recall": 0.8783,
+      "dev_loss": 0.6385
+    },
+    {
+      "epoch": 9,
+      "step": 360,
+      "dev_f1": 0.7786,
+      "dev_precision": 0.6939,
+      "dev_recall": 0.887,
+      "dev_loss": 0.6987
+    },
+    {
+      "epoch": 10,
+      "step": 400,
+      "dev_f1": 0.7834,
+      "dev_precision": 0.691,
+      "dev_recall": 0.9043,
+      "dev_loss": 0.7649
+    },
+    {
+      "epoch": 11,
+      "step": 440,
+      "dev_f1": 0.7727,
+      "dev_precision": 0.6846,
+      "dev_recall": 0.887,
+      "dev_loss": 0.7478
+    }
+  ],
+  "model_dir": "process-visualizer/src/token_classification_alex/bert_ner_315_dev60",
+  "model_sha256": "e17e92268b8fae651626b54c8dc89ac2f9add25bdfcc042e7ecddacc371745a7",
+  "versions": {
+    "python": "3.12.3",
+    "transformers": "4.50.0.dev0",
+    "tokenizers": "0.21.0",
+    "torch": "2.13.0",
+    "numpy": "1.26.4",
+    "accelerate": "1.5.2",
+    "seqeval": "1.2.2",
+    "safetensors": "0.5.3",
+    "huggingface-hub": "0.35.3"
+  },
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "device": "cpu",
+  "run_at": "2026-11-09T14:28:12+00:00",
+  "minutes": 10.0
+}

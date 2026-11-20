@@ -1,0 +1,585 @@
+{
+ "structured_data": {
+  "participants": [
+   "A guest",
+   "Main Process",
+   "Room service",
+   "She",
+   "The kitchen",
+   "The room-service manager",
+   "The sommelier",
+   "The waiter"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_86a93ce2",
+    "name": "Calls",
+    "type": "task",
+    "lane": "A guest",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0ae22ad5",
+    "name": "Takes down the order",
+    "type": "task",
+    "lane": "The room-service manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_497f977b",
+    "name": "Submits an order ticket",
+    "type": "task",
+    "lane": "She",
+    "metadata": [
+     "To begin preparing the food"
+    ]
+   },
+   {
+    "id": "Activity_08e707f1",
+    "name": "Gives an order",
+    "type": "task",
+    "lane": "She",
+    "metadata": [
+     "To fetch wine from the cellar and to prepare any other alcoholic beverages"
+    ]
+   },
+   {
+    "id": "Activity_f1de994b",
+    "name": "Assigns the order",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_21182728",
+    "name": "While",
+    "type": "parallelGateway",
+    "lane": "The kitchen",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e6568013",
+    "name": "Doing their tasks",
+    "type": "task",
+    "lane": "The sommelier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_38b8283b",
+    "name": "Readies a cart",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_91c569bd",
+    "name": "Delivers it",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_728e6e8a",
+    "name": "Returning",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": [
+     "To the room-service station"
+    ]
+   },
+   {
+    "id": "Activity_2ea2100a",
+    "name": "Debits the guest ’ s account",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5ec7bf44",
+    "name": "Wait to do the billing",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_d80b422a",
+    "name": "If he has another order to prepare or deliver",
+    "type": "exclusiveGateway",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The waiter"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_86a93ce2",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_86a93ce2",
+    "target": "Activity_0ae22ad5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_0ae22ad5",
+    "target": "Activity_497f977b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_497f977b",
+    "target": "Activity_08e707f1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_08e707f1",
+    "target": "Activity_f1de994b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_f1de994b",
+    "target": "AND Gateway_21182728",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "AND Gateway_21182728",
+    "target": "Activity_e6568013",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "AND Gateway_21182728",
+    "target": "Activity_38b8283b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_e6568013",
+    "target": "Activity_91c569bd",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_38b8283b",
+    "target": "Activity_91c569bd",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_91c569bd",
+    "target": "Activity_728e6e8a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_728e6e8a",
+    "target": "Activity_2ea2100a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_2ea2100a",
+    "target": "Activity_5ec7bf44",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_5ec7bf44",
+    "target": "XOR Gateway_d80b422a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "XOR Gateway_d80b422a",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 55,
+   "end": 62,
+   "label": "Actor",
+   "id": "Actor_1c3604cb",
+   "type": "Lane",
+   "name": "A guest"
+  },
+  {
+   "start": 63,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_86a93ce2",
+   "type": "task",
+   "name": "Calls"
+  },
+  {
+   "start": 69,
+   "end": 81,
+   "label": "Actor",
+   "id": "Actor_942fc298",
+   "type": "Lane",
+   "name": "Room service"
+  },
+  {
+   "start": 103,
+   "end": 127,
+   "label": "Actor",
+   "id": "Actor_7ab0995b",
+   "type": "Lane",
+   "name": "The room-service manager"
+  },
+  {
+   "start": 128,
+   "end": 138,
+   "label": "Activity",
+   "id": "Activity_0ae22ad5",
+   "type": "task",
+   "name": "Takes down the order"
+  },
+  {
+   "start": 139,
+   "end": 148,
+   "label": "Activity Data",
+   "id": "Activity Data_f98ad946",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 151,
+   "end": 154,
+   "label": "Actor",
+   "id": "Actor_8e537eab",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 160,
+   "end": 167,
+   "label": "Activity",
+   "id": "Activity_497f977b",
+   "type": "task",
+   "name": "Submits an order ticket"
+  },
+  {
+   "start": 168,
+   "end": 183,
+   "label": "Activity Data",
+   "id": "Activity Data_14a76709",
+   "type": null,
+   "name": "An order ticket"
+  },
+  {
+   "start": 187,
+   "end": 198,
+   "label": "Actor",
+   "id": "Actor_95f39233",
+   "type": "Lane",
+   "name": "The kitchen"
+  },
+  {
+   "start": 199,
+   "end": 226,
+   "label": "Further Specification",
+   "id": "Further Specification_eef898b8",
+   "type": null,
+   "name": "To begin preparing the food"
+  },
+  {
+   "start": 229,
+   "end": 232,
+   "label": "Actor",
+   "id": "Actor_d50d9402",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 238,
+   "end": 243,
+   "label": "Activity",
+   "id": "Activity_08e707f1",
+   "type": "task",
+   "name": "Gives an order"
+  },
+  {
+   "start": 244,
+   "end": 252,
+   "label": "Activity Data",
+   "id": "Activity Data_7ba4b369",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 256,
+   "end": 269,
+   "label": "Actor",
+   "id": "Actor_750e6e04",
+   "type": "Lane",
+   "name": "The sommelier"
+  },
+  {
+   "start": 298,
+   "end": 372,
+   "label": "Further Specification",
+   "id": "Further Specification_0f856a23",
+   "type": null,
+   "name": "To fetch wine from the cellar and to prepare any other alcoholic beverages"
+  },
+  {
+   "start": 471,
+   "end": 474,
+   "label": "Actor",
+   "id": "Actor_9b2f4e65",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 475,
+   "end": 482,
+   "label": "Activity",
+   "id": "Activity_f1de994b",
+   "type": "task",
+   "name": "Assigns the order"
+  },
+  {
+   "start": 483,
+   "end": 492,
+   "label": "Activity Data",
+   "id": "Activity Data_23bcca9f",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 496,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_a605b67d",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 509,
+   "end": 514,
+   "label": "AND Gateway",
+   "id": "AND Gateway_21182728",
+   "type": "parallelGateway",
+   "name": "While"
+  },
+  {
+   "start": 515,
+   "end": 526,
+   "label": "Actor",
+   "id": "Actor_308d6e5c",
+   "type": "Lane",
+   "name": "The kitchen"
+  },
+  {
+   "start": 531,
+   "end": 544,
+   "label": "Actor",
+   "id": "Actor_6fb7c6e7",
+   "type": "Lane",
+   "name": "The sommelier"
+  },
+  {
+   "start": 549,
+   "end": 554,
+   "label": "Activity",
+   "id": "Activity_e6568013",
+   "type": "task",
+   "name": "Doing their tasks"
+  },
+  {
+   "start": 555,
+   "end": 566,
+   "label": "Activity Data",
+   "id": "Activity Data_0c2e8599",
+   "type": null,
+   "name": "Their tasks"
+  },
+  {
+   "start": 569,
+   "end": 579,
+   "label": "Actor",
+   "id": "Actor_b6e5d3fb",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 580,
+   "end": 587,
+   "label": "Activity",
+   "id": "Activity_38b8283b",
+   "type": "task",
+   "name": "Readies a cart"
+  },
+  {
+   "start": 588,
+   "end": 594,
+   "label": "Activity Data",
+   "id": "Activity Data_00b013f3",
+   "type": null,
+   "name": "A cart"
+  },
+  {
+   "start": 763,
+   "end": 773,
+   "label": "Actor",
+   "id": "Actor_1793719f",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 774,
+   "end": 782,
+   "label": "Activity",
+   "id": "Activity_91c569bd",
+   "type": "task",
+   "name": "Delivers it"
+  },
+  {
+   "start": 783,
+   "end": 785,
+   "label": "Activity Data",
+   "id": "Activity Data_a065999d",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 789,
+   "end": 807,
+   "label": "Actor",
+   "id": "Actor_0c5472bf",
+   "type": "Lane",
+   "name": "The guest ’ s room"
+  },
+  {
+   "start": 816,
+   "end": 825,
+   "label": "Activity",
+   "id": "Activity_728e6e8a",
+   "type": "task",
+   "name": "Returning"
+  },
+  {
+   "start": 826,
+   "end": 853,
+   "label": "Further Specification",
+   "id": "Further Specification_2cebe871",
+   "type": null,
+   "name": "To the room-service station"
+  },
+  {
+   "start": 856,
+   "end": 866,
+   "label": "Actor",
+   "id": "Actor_4cd27497",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 867,
+   "end": 873,
+   "label": "Activity",
+   "id": "Activity_2ea2100a",
+   "type": "task",
+   "name": "Debits the guest ’ s account"
+  },
+  {
+   "start": 874,
+   "end": 895,
+   "label": "Activity Data",
+   "id": "Activity Data_3ee7880f",
+   "type": null,
+   "name": "The guest ’ s account"
+  },
+  {
+   "start": 898,
+   "end": 908,
+   "label": "Actor",
+   "id": "Actor_e65e201a",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 913,
+   "end": 917,
+   "label": "Activity",
+   "id": "Activity_5ec7bf44",
+   "type": "task",
+   "name": "Wait to do the billing"
+  },
+  {
+   "start": 918,
+   "end": 935,
+   "label": "Activity Data",
+   "id": "Activity Data_87a60669",
+   "type": null,
+   "name": "To do the billing"
+  },
+  {
+   "start": 936,
+   "end": 938,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d80b422a",
+   "type": "exclusiveGateway",
+   "name": "If he has another order to prepare or deliver"
+  },
+  {
+   "start": 939,
+   "end": 981,
+   "label": "Condition Specification",
+   "id": "Condition Specification_0d006f17",
+   "type": "exclusiveGateway",
+   "name": "He has another order to prepare or deliver"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "parallel: While",
+    "node_B": "Submits an order ticket | Gives an order | Assigns the order | Doing their tasks | Readies a cart | Delivers it | Returning | Debits the guest ’ s account | Wait to do the billing",
+    "label": "before before before a b after after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

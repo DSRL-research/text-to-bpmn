@@ -1,0 +1,449 @@
+{
+  "structured_data": {
+    "participants": [
+      "He",
+      "Main Process",
+      "Sales Assistant",
+      "The Manager",
+      "The Sales Assistant"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_3f63c44c",
+        "name": "Checks the open leads",
+        "type": "task",
+        "lane": "The Manager",
+        "metadata": []
+      },
+      {
+        "id": "Activity_7e665135",
+        "name": "Selects the top five ones",
+        "type": "task",
+        "lane": "He",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d0a98273",
+        "name": "Tells to call the contact person of the leads",
+        "type": "task",
+        "lane": "Sales Assistant",
+        "metadata": []
+      },
+      {
+        "id": "Activity_8e1d40a0",
+        "name": "Calls each customer",
+        "type": "task",
+        "lane": "The Sales Assistant",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_27573c37",
+        "name": "If someone is interested",
+        "type": "exclusiveGateway",
+        "lane": "He",
+        "metadata": []
+      },
+      {
+        "id": "Activity_c2896dd7",
+        "name": "Sends a note",
+        "type": "task",
+        "lane": "He",
+        "metadata": []
+      },
+      {
+        "id": "Activity_98cb51b4",
+        "name": "Processes the lead",
+        "type": "task",
+        "lane": "The Manager",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a4e2591b",
+        "name": "Calls the next customer",
+        "type": "task",
+        "lane": "He",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "He"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_3f63c44c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_3f63c44c",
+        "target": "Activity_7e665135",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_7e665135",
+        "target": "Activity_d0a98273",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_d0a98273",
+        "target": "Activity_8e1d40a0",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_8e1d40a0",
+        "target": "XOR Gateway_27573c37",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_27573c37",
+        "target": "Activity_c2896dd7",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_c2896dd7",
+        "target": "Activity_98cb51b4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "XOR Gateway_27573c37",
+        "target": "Activity_a4e2591b",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_98cb51b4",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_a4e2591b",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 12
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 8,
+      "end": 19,
+      "label": "Actor",
+      "id": "Actor_a2b62518",
+      "type": "Lane",
+      "name": "The Manager"
+    },
+    {
+      "start": 20,
+      "end": 26,
+      "label": "Activity",
+      "id": "Activity_3f63c44c",
+      "type": "task",
+      "name": "Checks the open leads"
+    },
+    {
+      "start": 27,
+      "end": 41,
+      "label": "Activity Data",
+      "id": "Activity Data_59bdb3d7",
+      "type": null,
+      "name": "The open leads"
+    },
+    {
+      "start": 57,
+      "end": 59,
+      "label": "Actor",
+      "id": "Actor_3b10cfdd",
+      "type": "Lane",
+      "name": "He"
+    },
+    {
+      "start": 60,
+      "end": 67,
+      "label": "Activity",
+      "id": "Activity_7e665135",
+      "type": "task",
+      "name": "Selects the top five ones"
+    },
+    {
+      "start": 68,
+      "end": 85,
+      "label": "Activity Data",
+      "id": "Activity Data_eec4d883",
+      "type": null,
+      "name": "The top five ones"
+    },
+    {
+      "start": 88,
+      "end": 90,
+      "label": "Actor",
+      "id": "Actor_827b0fb0",
+      "type": "Lane",
+      "name": "He"
+    },
+    {
+      "start": 96,
+      "end": 101,
+      "label": "Activity",
+      "id": "Activity_d0a98273",
+      "type": "task",
+      "name": "Tells to call the contact person of the leads"
+    },
+    {
+      "start": 102,
+      "end": 105,
+      "label": "Actor",
+      "id": "Actor_44feca5b",
+      "type": "Lane",
+      "name": "His"
+    },
+    {
+      "start": 106,
+      "end": 121,
+      "label": "Actor",
+      "id": "Actor_52406ae8",
+      "type": "Lane",
+      "name": "Sales Assistant"
+    },
+    {
+      "start": 122,
+      "end": 161,
+      "label": "Activity Data",
+      "id": "Activity Data_ab767844",
+      "type": null,
+      "name": "To call the contact person of the leads"
+    },
+    {
+      "start": 164,
+      "end": 183,
+      "label": "Actor",
+      "id": "Actor_eb52b9c8",
+      "type": "Lane",
+      "name": "The Sales Assistant"
+    },
+    {
+      "start": 184,
+      "end": 189,
+      "label": "Activity",
+      "id": "Activity_8e1d40a0",
+      "type": "task",
+      "name": "Calls each customer"
+    },
+    {
+      "start": 190,
+      "end": 203,
+      "label": "Activity Data",
+      "id": "Activity Data_68f75fd3",
+      "type": null,
+      "name": "Each customer"
+    },
+    {
+      "start": 206,
+      "end": 208,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_27573c37",
+      "type": "exclusiveGateway",
+      "name": "If someone is interested"
+    },
+    {
+      "start": 209,
+      "end": 230,
+      "label": "Condition Specification",
+      "id": "Condition Specification_e6824dba",
+      "type": "exclusiveGateway",
+      "name": "Someone is interested"
+    },
+    {
+      "start": 233,
+      "end": 235,
+      "label": "Actor",
+      "id": "Actor_c720c286",
+      "type": "Lane",
+      "name": "He"
+    },
+    {
+      "start": 236,
+      "end": 241,
+      "label": "Activity",
+      "id": "Activity_c2896dd7",
+      "type": "task",
+      "name": "Sends a note"
+    },
+    {
+      "start": 242,
+      "end": 248,
+      "label": "Activity Data",
+      "id": "Activity Data_7a0dc481",
+      "type": null,
+      "name": "A note"
+    },
+    {
+      "start": 252,
+      "end": 263,
+      "label": "Actor",
+      "id": "Actor_ae39b28f",
+      "type": "Lane",
+      "name": "The Manager"
+    },
+    {
+      "start": 266,
+      "end": 277,
+      "label": "Actor",
+      "id": "Actor_4dd47338",
+      "type": "Lane",
+      "name": "The Manager"
+    },
+    {
+      "start": 283,
+      "end": 292,
+      "label": "Activity",
+      "id": "Activity_98cb51b4",
+      "type": "task",
+      "name": "Processes the lead"
+    },
+    {
+      "start": 293,
+      "end": 301,
+      "label": "Activity Data",
+      "id": "Activity Data_6eb57c48",
+      "type": null,
+      "name": "The lead"
+    },
+    {
+      "start": 304,
+      "end": 313,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_094c9225",
+      "type": "exclusiveGateway",
+      "name": "Otherwise"
+    },
+    {
+      "start": 316,
+      "end": 318,
+      "label": "Actor",
+      "id": "Actor_604628b0",
+      "type": "Lane",
+      "name": "He"
+    },
+    {
+      "start": 319,
+      "end": 324,
+      "label": "Activity",
+      "id": "Activity_a4e2591b",
+      "type": "task",
+      "name": "Calls the next customer"
+    },
+    {
+      "start": 325,
+      "end": 342,
+      "label": "Activity Data",
+      "id": "Activity Data_ac5e4d94",
+      "type": null,
+      "name": "The next customer"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If someone is interested",
+        "node_B": "Sends a note | Processes the lead | Calls the next customer",
+        "label": "yes yes no",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

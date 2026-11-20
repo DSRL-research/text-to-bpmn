@@ -1,0 +1,693 @@
+{
+ "structured_data": {
+  "participants": [
+   "He",
+   "MPO",
+   "Main Process",
+   "The GO",
+   "The MPO",
+   "The MSP",
+   "The fault detector"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_08cf2bf7",
+    "name": "Reports a failure",
+    "type": "task",
+    "lane": "The fault detector",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_cd19e413",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The fault detector",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_7b860d4a",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The fault detector",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9fbccff2",
+    "name": "Suspicion of their own fault",
+    "type": "task",
+    "lane": "MPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_553b743a",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d420faaa",
+    "name": "Examine the failure",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_514fb0ca",
+    "name": "Rejects the failure of the fault detector",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_0ad56403",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_6af775bc",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_67ad3b62",
+    "name": "Confirms the failure of the fault detector",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_05ef2001",
+    "name": "Informes",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b190da55",
+    "name": "Fixes the fault at the measuring device",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_095f3b76",
+    "name": "Shares the results of the repairs",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": [
+     "Carried out with the fault detector"
+    ]
+   },
+   {
+    "id": "Activity_0bb6d6b9",
+    "name": "Inform about the resolution of the interference",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_15640b04",
+    "name": "Inform about the resolution of the interference",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_711ede17",
+    "source": "StartEvent_1",
+    "target": "ParallelGateway_split_cd19e413",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cffb98ce",
+    "source": "ParallelGateway_split_cd19e413",
+    "target": "Activity_08cf2bf7",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_13a2a89c",
+    "source": "Activity_08cf2bf7",
+    "target": "ParallelGateway_join_7b860d4a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_98e7da2c",
+    "source": "ParallelGateway_split_cd19e413",
+    "target": "Activity_9fbccff2",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_8013aaf8",
+    "source": "Activity_9fbccff2",
+    "target": "ParallelGateway_join_7b860d4a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_602cc17f",
+    "source": "ParallelGateway_join_7b860d4a",
+    "target": "XOR Gateway_553b743a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_62df0e3c",
+    "source": "XOR Gateway_553b743a",
+    "target": "Activity_d420faaa",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_1dbbc401",
+    "source": "XOR Gateway_553b743a",
+    "target": "ParallelGateway_split_0ad56403",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_8ede4b93",
+    "source": "ParallelGateway_split_0ad56403",
+    "target": "Activity_514fb0ca",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_bd58a60a",
+    "source": "Activity_514fb0ca",
+    "target": "ParallelGateway_join_6af775bc",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_0c8877b9",
+    "source": "ParallelGateway_split_0ad56403",
+    "target": "Activity_67ad3b62",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_91bf561e",
+    "source": "Activity_67ad3b62",
+    "target": "ParallelGateway_join_6af775bc",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_5cc5de80",
+    "source": "ParallelGateway_join_6af775bc",
+    "target": "Activity_05ef2001",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_275e4548",
+    "source": "Activity_05ef2001",
+    "target": "Activity_b190da55",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_650e6e9c",
+    "source": "Activity_b190da55",
+    "target": "Activity_095f3b76",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_17afc377",
+    "source": "Activity_095f3b76",
+    "target": "Activity_0bb6d6b9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_75cd2682",
+    "source": "Activity_0bb6d6b9",
+    "target": "Activity_15640b04",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1b236de8",
+    "source": "Activity_d420faaa",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7ffa168c",
+    "source": "Activity_15640b04",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 18,
+   "label": "Actor",
+   "id": "Actor_33bc2e85",
+   "type": "Lane",
+   "name": "The fault detector"
+  },
+  {
+   "start": 19,
+   "end": 26,
+   "label": "Activity",
+   "id": "Activity_08cf2bf7",
+   "type": "task",
+   "name": "Reports a failure"
+  },
+  {
+   "start": 27,
+   "end": 36,
+   "label": "Activity Data",
+   "id": "Activity Data_767d4bea",
+   "type": null,
+   "name": "A failure"
+  },
+  {
+   "start": 40,
+   "end": 47,
+   "label": "Actor",
+   "id": "Actor_a4d54f3d",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 48,
+   "end": 50,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_553b743a",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 51,
+   "end": 54,
+   "label": "Actor",
+   "id": "Actor_eaf064ac",
+   "type": "Lane",
+   "name": "MPO"
+  },
+  {
+   "start": 61,
+   "end": 70,
+   "label": "Activity",
+   "id": "Activity_9fbccff2",
+   "type": "task",
+   "name": "Suspicion of their own fault"
+  },
+  {
+   "start": 71,
+   "end": 89,
+   "label": "Activity Data",
+   "id": "Activity Data_84fcf005",
+   "type": null,
+   "name": "Of their own fault"
+  },
+  {
+   "start": 92,
+   "end": 99,
+   "label": "Actor",
+   "id": "Actor_5eef014d",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 106,
+   "end": 113,
+   "label": "Activity",
+   "id": "Activity_d420faaa",
+   "type": "task",
+   "name": "Examine the failure"
+  },
+  {
+   "start": 114,
+   "end": 125,
+   "label": "Activity Data",
+   "id": "Activity Data_ad0611ad",
+   "type": null,
+   "name": "The failure"
+  },
+  {
+   "start": 128,
+   "end": 135,
+   "label": "Actor",
+   "id": "Actor_ae676902",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 136,
+   "end": 143,
+   "label": "Activity",
+   "id": "Activity_514fb0ca",
+   "type": "task",
+   "name": "Rejects the failure of the fault detector"
+  },
+  {
+   "start": 144,
+   "end": 177,
+   "label": "Activity Data",
+   "id": "Activity Data_60a55807",
+   "type": null,
+   "name": "The failure of the fault detector"
+  },
+  {
+   "start": 178,
+   "end": 180,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_cfab48df",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 181,
+   "end": 188,
+   "label": "Actor",
+   "id": "Actor_16b27d61",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 189,
+   "end": 197,
+   "label": "Activity",
+   "id": "Activity_67ad3b62",
+   "type": "task",
+   "name": "Confirms the failure of the fault detector"
+  },
+  {
+   "start": 198,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_32a7010b",
+   "type": null,
+   "name": "The failure of the fault detector"
+  },
+  {
+   "start": 290,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_d987ced7",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 293,
+   "end": 301,
+   "label": "Activity",
+   "id": "Activity_05ef2001",
+   "type": "task",
+   "name": "Informes"
+  },
+  {
+   "start": 302,
+   "end": 308,
+   "label": "Actor",
+   "id": "Actor_ecb32ebf",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 313,
+   "end": 320,
+   "label": "Actor",
+   "id": "Actor_ad322d0b",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 323,
+   "end": 330,
+   "label": "Actor",
+   "id": "Actor_07bd8471",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 331,
+   "end": 336,
+   "label": "Activity",
+   "id": "Activity_b190da55",
+   "type": "task",
+   "name": "Fixes the fault at the measuring device"
+  },
+  {
+   "start": 337,
+   "end": 370,
+   "label": "Activity Data",
+   "id": "Activity Data_57f046f7",
+   "type": null,
+   "name": "The fault at the measuring device"
+  },
+  {
+   "start": 373,
+   "end": 380,
+   "label": "Actor",
+   "id": "Actor_fec5f842",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 381,
+   "end": 387,
+   "label": "Activity",
+   "id": "Activity_095f3b76",
+   "type": "task",
+   "name": "Shares the results of the repairs"
+  },
+  {
+   "start": 388,
+   "end": 414,
+   "label": "Activity Data",
+   "id": "Activity Data_aa222d78",
+   "type": null,
+   "name": "The results of the repairs"
+  },
+  {
+   "start": 415,
+   "end": 450,
+   "label": "Further Specification",
+   "id": "Further Specification_6165cc9e",
+   "type": null,
+   "name": "Carried out with the fault detector"
+  },
+  {
+   "start": 453,
+   "end": 460,
+   "label": "Actor",
+   "id": "Actor_782fc2b0",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 466,
+   "end": 472,
+   "label": "Activity",
+   "id": "Activity_0bb6d6b9",
+   "type": "task",
+   "name": "Inform about the resolution of the interference"
+  },
+  {
+   "start": 473,
+   "end": 479,
+   "label": "Actor",
+   "id": "Actor_22536582",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 480,
+   "end": 520,
+   "label": "Activity Data",
+   "id": "Activity Data_830e9719",
+   "type": null,
+   "name": "About the resolution of the interference"
+  },
+  {
+   "start": 523,
+   "end": 530,
+   "label": "Actor",
+   "id": "Actor_a420c090",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 536,
+   "end": 542,
+   "label": "Activity",
+   "id": "Activity_15640b04",
+   "type": "task",
+   "name": "Inform about the resolution of the interference"
+  },
+  {
+   "start": 543,
+   "end": 550,
+   "label": "Actor",
+   "id": "Actor_f9edb15b",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 551,
+   "end": 591,
+   "label": "Activity Data",
+   "id": "Activity Data_55c170ac",
+   "type": null,
+   "name": "About the resolution of the interference"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Reports a failure",
+    "node_B": "Or",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reports a failure",
+    "node_B": "Suspicion of their own fault",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reports a failure",
+    "node_B": "Examine the failure",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Examine the failure",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Rejects the failure of the fault detector",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Or",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Examine the failure",
+    "node_B": "Rejects the failure of the fault detector",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Examine the failure",
+    "node_B": "Confirms the failure of the fault detector",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Examine the failure",
+    "node_B": "Informes",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the failure of the fault detector",
+    "node_B": "Confirms the failure of the fault detector",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the failure of the fault detector",
+    "node_B": "Informes",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the failure of the fault detector",
+    "node_B": "Fixes the fault at the measuring device",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informes",
+    "node_B": "Fixes the fault at the measuring device",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informes",
+    "node_B": "Shares the results of the repairs",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informes",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Fixes the fault at the measuring device",
+    "node_B": "Shares the results of the repairs",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Fixes the fault at the measuring device",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Fixes the fault at the measuring device",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Shares the results of the repairs",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Shares the results of the repairs",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Inform about the resolution of the interference",
+    "node_B": "Inform about the resolution of the interference",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

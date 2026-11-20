@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="text2bpmn" exporterVersion="0.1.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_1" name="doc-3.6" processRef="Process_1" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_1" name="Main Process">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_db506f8f</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_6eb25a21</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_2" name="Claimant">
+        <bpmn:flowNodeRef>XOR_Gateway_91caf871</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_63ecb703</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1c7048e9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ParallelGateway_split_575ea0a1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ParallelGateway_join_2309574a</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_20819958</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_fcda8f77</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_5b960564</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>XOR_Gateway_46696459</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_2ca51b3f</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1b0c616e</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_split_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_join_2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_join_3</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_db506f8f" name="Received it">
+      <bpmn:documentation>A claim</bpmn:documentation>
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_6eb25a21" name="Checked">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="XOR_Gateway_91caf871" name="If not" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_63ecb703" name="Informed the claim must be rejected">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_19</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1c7048e9" name="Evaluated the severity of the claim">
+      <bpmn:incoming>Flow_20</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="ParallelGateway_split_575ea0a1" name="+" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="ParallelGateway_join_2309574a" name="+" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_16</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Activity_20819958" name="Sent relevant forms">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_fcda8f77" name="Returned they">
+      <bpmn:documentation>The forms</bpmn:documentation>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_5b960564" name="Checked">
+      <bpmn:documentation>For completeness</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="XOR_Gateway_46696459" name="If the forms provide all relevant details" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_2ca51b3f" name="Registered the claim">
+      <bpmn:documentation>In the Claims Management system</bpmn:documentation>
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_17</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1b0c616e" name="Informed">
+      <bpmn:documentation>To update the forms</bpmn:documentation>
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+      <bpmn:outgoing>Flow_18</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1" name="End">
+      <bpmn:incoming>Flow_21</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:parallelGateway id="Gateway_split_1" name="" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_19</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:exclusiveGateway id="Gateway_join_2" name="" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_20</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="Gateway_join_3" name="" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_16</bpmn:incoming>
+      <bpmn:incoming>Flow_17</bpmn:incoming>
+      <bpmn:incoming>Flow_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_21</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Activity_db506f8f" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Activity_db506f8f" targetRef="Activity_6eb25a21" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Activity_6eb25a21" targetRef="XOR_Gateway_91caf871" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="XOR_Gateway_91caf871" targetRef="ParallelGateway_split_575ea0a1" name="No" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Gateway_split_1" targetRef="Gateway_join_2" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="ParallelGateway_split_575ea0a1" targetRef="Activity_63ecb703" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Gateway_split_1" targetRef="ParallelGateway_join_2309574a" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="ParallelGateway_split_575ea0a1" targetRef="Activity_20819958" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Activity_20819958" targetRef="ParallelGateway_join_2309574a" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="XOR_Gateway_91caf871" targetRef="Gateway_join_2" name="No" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Activity_1c7048e9" targetRef="Activity_fcda8f77" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Activity_fcda8f77" targetRef="Activity_5b960564" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Activity_5b960564" targetRef="XOR_Gateway_46696459" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="XOR_Gateway_46696459" targetRef="Activity_2ca51b3f" name="Yes" />
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="XOR_Gateway_46696459" targetRef="Activity_1b0c616e" name="No" />
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="ParallelGateway_join_2309574a" targetRef="Gateway_join_3" />
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="Activity_2ca51b3f" targetRef="Gateway_join_3" />
+    <bpmn:sequenceFlow id="Flow_18" sourceRef="Activity_1b0c616e" targetRef="Gateway_join_3" />
+    <bpmn:sequenceFlow id="Flow_19" sourceRef="Activity_63ecb703" targetRef="Gateway_split_1" />
+    <bpmn:sequenceFlow id="Flow_20" sourceRef="Gateway_join_2" targetRef="Activity_1c7048e9" />
+    <bpmn:sequenceFlow id="Flow_21" sourceRef="Gateway_join_3" targetRef="EndEvent_1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="2350" height="360" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1_di" bpmnElement="Lane_1" isHorizontal="true">
+        <dc:Bounds x="30" y="0" width="2320" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_2_di" bpmnElement="Lane_2" isHorizontal="true">
+        <dc:Bounds x="30" y="120" width="2320" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="137" y="42" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_db506f8f_di" bpmnElement="Activity_db506f8f">
+        <dc:Bounds x="255" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_6eb25a21_di" bpmnElement="Activity_6eb25a21">
+        <dc:Bounds x="405" y="20" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="XOR_Gateway_91caf871_di" bpmnElement="XOR_Gateway_91caf871" isMarkerVisible="true">
+        <dc:Bounds x="580" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_63ecb703_di" bpmnElement="Activity_63ecb703">
+        <dc:Bounds x="855" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1c7048e9_di" bpmnElement="Activity_1c7048e9">
+        <dc:Bounds x="1305" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ParallelGateway_split_575ea0a1_di" bpmnElement="ParallelGateway_split_575ea0a1">
+        <dc:Bounds x="730" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ParallelGateway_join_2309574a_di" bpmnElement="ParallelGateway_join_2309574a">
+        <dc:Bounds x="1180" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_20819958_di" bpmnElement="Activity_20819958">
+        <dc:Bounds x="855" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_fcda8f77_di" bpmnElement="Activity_fcda8f77">
+        <dc:Bounds x="1455" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_5b960564_di" bpmnElement="Activity_5b960564">
+        <dc:Bounds x="1605" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="XOR_Gateway_46696459_di" bpmnElement="XOR_Gateway_46696459" isMarkerVisible="true">
+        <dc:Bounds x="1780" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_2ca51b3f_di" bpmnElement="Activity_2ca51b3f">
+        <dc:Bounds x="1905" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1b0c616e_di" bpmnElement="Activity_1b0c616e">
+        <dc:Bounds x="1905" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="2237" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_split_1_di" bpmnElement="Gateway_split_1">
+        <dc:Bounds x="1030" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_join_2_di" bpmnElement="Gateway_join_2" isMarkerVisible="true">
+        <dc:Bounds x="1180" y="275" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_join_3_di" bpmnElement="Gateway_join_3">
+        <dc:Bounds x="2080" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="173" y="60" />
+        <di:waypoint x="255" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="355" y="60" />
+        <di:waypoint x="405" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="505" y="60" />
+        <di:waypoint x="542.5" y="60" />
+        <di:waypoint x="542.5" y="180" />
+        <di:waypoint x="580" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="630" y="180" />
+        <di:waypoint x="730" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="1080" y="180" />
+        <di:waypoint x="1130" y="180" />
+        <di:waypoint x="1130" y="300" />
+        <di:waypoint x="1180" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="780" y="180" />
+        <di:waypoint x="855" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1080" y="180" />
+        <di:waypoint x="1180" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="780" y="180" />
+        <di:waypoint x="817.5" y="180" />
+        <di:waypoint x="817.5" y="300" />
+        <di:waypoint x="855" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="955" y="300" />
+        <di:waypoint x="1067.5" y="300" />
+        <di:waypoint x="1067.5" y="180" />
+        <di:waypoint x="1180" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="630" y="180" />
+        <di:waypoint x="905" y="180" />
+        <di:waypoint x="905" y="300" />
+        <di:waypoint x="1180" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1405" y="180" />
+        <di:waypoint x="1455" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1555" y="180" />
+        <di:waypoint x="1605" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1705" y="180" />
+        <di:waypoint x="1780" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
+        <di:waypoint x="1830" y="180" />
+        <di:waypoint x="1905" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15">
+        <di:waypoint x="1830" y="180" />
+        <di:waypoint x="1867.5" y="180" />
+        <di:waypoint x="1867.5" y="300" />
+        <di:waypoint x="1905" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16_di" bpmnElement="Flow_16">
+        <di:waypoint x="1230" y="180" />
+        <di:waypoint x="2080" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17_di" bpmnElement="Flow_17">
+        <di:waypoint x="2005" y="180" />
+        <di:waypoint x="2080" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18_di" bpmnElement="Flow_18">
+        <di:waypoint x="2005" y="300" />
+        <di:waypoint x="2042.5" y="300" />
+        <di:waypoint x="2042.5" y="180" />
+        <di:waypoint x="2080" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19_di" bpmnElement="Flow_19">
+        <di:waypoint x="955" y="180" />
+        <di:waypoint x="1030" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_20_di" bpmnElement="Flow_20">
+        <di:waypoint x="1230" y="300" />
+        <di:waypoint x="1267.5" y="300" />
+        <di:waypoint x="1267.5" y="180" />
+        <di:waypoint x="1305" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_21_di" bpmnElement="Flow_21">
+        <di:waypoint x="2130" y="180" />
+        <di:waypoint x="2237" y="180" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

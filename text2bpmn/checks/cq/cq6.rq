@@ -1,0 +1,15 @@
+# CQ6 Which tasks are executed only when a condition does not hold?
+# Tasks reachable from a decision's false outcome and from none of its other outcomes.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?decision ?task WHERE {
+  ?no b:has_sourceRef ?g ; b:has_targetRef ?x .
+  { ?no t:extracted_relation ?rel . FILTER(STR(?rel) = "FALSE_BRANCH") }
+  UNION { ?no t:branch_condition ?cond . FILTER(STR(?cond) = "No") }
+  ?x b:has_nextFlowNode* ?task_node . ?task_node a b:Task ; rdfs:label ?task .
+  FILTER NOT EXISTS {
+    ?other b:has_sourceRef ?g ; b:has_targetRef ?y . FILTER(?other != ?no)
+    ?y b:has_nextFlowNode* ?task_node }
+  OPTIONAL { ?g rdfs:label ?decision }
+} ORDER BY ?decision ?task

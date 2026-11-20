@@ -1,0 +1,450 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The assessor or approver",
+   "The customer",
+   "The risk assessment Web service"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_bbdfd8dd",
+    "name": "Receiving a customer request for a loan amount",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f34981f3",
+    "name": "Assess the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_c0a95e6d",
+    "name": "If the loan is small and the customer is low risk",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_591901c3",
+    "name": "Approved the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f06c7e8b",
+    "name": "Denied the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a81df549",
+    "name": "If the customer is high risk",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c06f2487",
+    "name": "Sent the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_c1570805",
+    "name": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dba5a22b",
+    "name": "Receives feedback",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The assessor or approver"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_d35a03ca",
+    "source": "StartEvent_1",
+    "target": "Activity_bbdfd8dd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_94afb8e3",
+    "source": "Activity_bbdfd8dd",
+    "target": "Activity_f34981f3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_46cba262",
+    "source": "Activity_f34981f3",
+    "target": "XOR Gateway_c0a95e6d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bd6e2da5",
+    "source": "XOR Gateway_c0a95e6d",
+    "target": "Activity_591901c3",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_c15e6fb8",
+    "source": "XOR Gateway_c0a95e6d",
+    "target": "Activity_f06c7e8b",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_f22e921b",
+    "source": "XOR Gateway_c0a95e6d",
+    "target": "XOR Gateway_a81df549",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6863f5c9",
+    "source": "XOR Gateway_a81df549",
+    "target": "Activity_f06c7e8b",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_4fb450ba",
+    "source": "XOR Gateway_a81df549",
+    "target": "Activity_c06f2487",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_eeb784b8",
+    "source": "XOR Gateway_a81df549",
+    "target": "XOR Gateway_c1570805",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_523dd3a7",
+    "source": "XOR Gateway_c1570805",
+    "target": "Activity_c06f2487",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_9cf4e477",
+    "source": "Activity_c06f2487",
+    "target": "Activity_dba5a22b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c003f530",
+    "source": "Activity_591901c3",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2ce81e8b",
+    "source": "Activity_f06c7e8b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_01e261f4",
+    "source": "Activity_dba5a22b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 36,
+   "end": 45,
+   "label": "Activity",
+   "id": "Activity_bbdfd8dd",
+   "type": "task",
+   "name": "Receiving a customer request for a loan amount"
+  },
+  {
+   "start": 46,
+   "end": 82,
+   "label": "Activity Data",
+   "id": "Activity Data_dbf0301d",
+   "type": null,
+   "name": "A customer request for a loan amount"
+  },
+  {
+   "start": 85,
+   "end": 116,
+   "label": "Actor",
+   "id": "Actor_893f7aa1",
+   "type": "Lane",
+   "name": "The risk assessment Web service"
+  },
+  {
+   "start": 131,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_f34981f3",
+   "type": "task",
+   "name": "Assess the request"
+  },
+  {
+   "start": 138,
+   "end": 149,
+   "label": "Activity Data",
+   "id": "Activity Data_f62b4aa1",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 152,
+   "end": 154,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c0a95e6d",
+   "type": "exclusiveGateway",
+   "name": "If the loan is small and the customer is low risk"
+  },
+  {
+   "start": 155,
+   "end": 201,
+   "label": "Condition Specification",
+   "id": "Condition Specification_48ec1c91",
+   "type": "exclusiveGateway",
+   "name": "The loan is small and the customer is low risk"
+  },
+  {
+   "start": 204,
+   "end": 212,
+   "label": "Activity Data",
+   "id": "Activity Data_fcdd85e8",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 216,
+   "end": 224,
+   "label": "Activity",
+   "id": "Activity_591901c3",
+   "type": "task",
+   "name": "Approved the loan"
+  },
+  {
+   "start": 227,
+   "end": 229,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a81df549",
+   "type": "exclusiveGateway",
+   "name": "If the customer is high risk"
+  },
+  {
+   "start": 230,
+   "end": 255,
+   "label": "Condition Specification",
+   "id": "Condition Specification_e4a779b9",
+   "type": "exclusiveGateway",
+   "name": "The customer is high risk"
+  },
+  {
+   "start": 258,
+   "end": 266,
+   "label": "Activity Data",
+   "id": "Activity Data_76e343e0",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 270,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_f06c7e8b",
+   "type": "task",
+   "name": "Denied the loan"
+  },
+  {
+   "start": 279,
+   "end": 281,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c1570805",
+   "type": "exclusiveGateway",
+   "name": "If the customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 282,
+   "end": 357,
+   "label": "Condition Specification",
+   "id": "Condition Specification_88282046",
+   "type": "exclusiveGateway",
+   "name": "The customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 360,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_437061d9",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 375,
+   "end": 379,
+   "label": "Activity",
+   "id": "Activity_c06f2487",
+   "type": "task",
+   "name": "Sent the request"
+  },
+  {
+   "start": 383,
+   "end": 407,
+   "label": "Actor",
+   "id": "Actor_a8346833",
+   "type": "Lane",
+   "name": "The approver Web service"
+  },
+  {
+   "start": 410,
+   "end": 422,
+   "label": "Actor",
+   "id": "Actor_c7308731",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 423,
+   "end": 431,
+   "label": "Activity",
+   "id": "Activity_dba5a22b",
+   "type": "task",
+   "name": "Receives feedback"
+  },
+  {
+   "start": 432,
+   "end": 440,
+   "label": "Activity Data",
+   "id": "Activity Data_06bb2006",
+   "type": null,
+   "name": "Feedback"
+  },
+  {
+   "start": 446,
+   "end": 470,
+   "label": "Actor",
+   "id": "Actor_3caaccd2",
+   "type": "Lane",
+   "name": "The assessor or approver"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 14,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Assess the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "If the loan is small and the customer is low risk",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receiving a customer request for a loan amount",
+    "node_B": "Approved the loan",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the loan is small and the customer is low risk",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "Approved the loan",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assess the request",
+    "node_B": "If the customer is high risk",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Approved the loan",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "If the customer is high risk",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Denied the loan",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Denied the loan",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer is high risk",
+    "node_B": "Sent the request",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Sent the request",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "node_B": "Receives feedback",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

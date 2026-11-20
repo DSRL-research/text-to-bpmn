@@ -1,0 +1,491 @@
+{
+ "structured_data": {
+  "participants": [
+   "He",
+   "Main Process",
+   "Sales Assistant",
+   "The Manager",
+   "The Sales Assistant"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_0c1e7a1a",
+    "name": "Checks the open leads",
+    "type": "task",
+    "lane": "The Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0eccb61b",
+    "name": "Selects the top five ones",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d5d0de35",
+    "name": "Tells to call the contact person of the leads",
+    "type": "task",
+    "lane": "Sales Assistant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a89d8e60",
+    "name": "Calls each customer",
+    "type": "task",
+    "lane": "The Sales Assistant",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_597f356e",
+    "name": "If someone is interested",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4ef930c4",
+    "name": "Sends a note",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_748e94d4",
+    "name": "Processes the lead",
+    "type": "task",
+    "lane": "The Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_506a3259",
+    "name": "Calls the next customer",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "He"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_95e5017e",
+    "source": "StartEvent_1",
+    "target": "Activity_0c1e7a1a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f2961cc9",
+    "source": "Activity_0c1e7a1a",
+    "target": "Activity_0eccb61b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f87f8d7a",
+    "source": "Activity_0eccb61b",
+    "target": "Activity_d5d0de35",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4bb795ac",
+    "source": "Activity_d5d0de35",
+    "target": "Activity_a89d8e60",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_62b2a054",
+    "source": "Activity_a89d8e60",
+    "target": "XOR Gateway_597f356e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c0b897fb",
+    "source": "XOR Gateway_597f356e",
+    "target": "Activity_4ef930c4",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_50e396cf",
+    "source": "Activity_4ef930c4",
+    "target": "Activity_748e94d4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cae969f2",
+    "source": "XOR Gateway_597f356e",
+    "target": "Activity_506a3259",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_8692004c",
+    "source": "Activity_748e94d4",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fe2b3778",
+    "source": "Activity_506a3259",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 8,
+   "end": 19,
+   "label": "Actor",
+   "id": "Actor_fd627c27",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 20,
+   "end": 26,
+   "label": "Activity",
+   "id": "Activity_0c1e7a1a",
+   "type": "task",
+   "name": "Checks the open leads"
+  },
+  {
+   "start": 27,
+   "end": 41,
+   "label": "Activity Data",
+   "id": "Activity Data_79511c3c",
+   "type": null,
+   "name": "The open leads"
+  },
+  {
+   "start": 57,
+   "end": 59,
+   "label": "Actor",
+   "id": "Actor_e14f0753",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 60,
+   "end": 67,
+   "label": "Activity",
+   "id": "Activity_0eccb61b",
+   "type": "task",
+   "name": "Selects the top five ones"
+  },
+  {
+   "start": 68,
+   "end": 85,
+   "label": "Activity Data",
+   "id": "Activity Data_15df0ba2",
+   "type": null,
+   "name": "The top five ones"
+  },
+  {
+   "start": 88,
+   "end": 90,
+   "label": "Actor",
+   "id": "Actor_e871b030",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 96,
+   "end": 101,
+   "label": "Activity",
+   "id": "Activity_d5d0de35",
+   "type": "task",
+   "name": "Tells to call the contact person of the leads"
+  },
+  {
+   "start": 106,
+   "end": 121,
+   "label": "Actor",
+   "id": "Actor_2c32c4d1",
+   "type": "Lane",
+   "name": "Sales Assistant"
+  },
+  {
+   "start": 122,
+   "end": 161,
+   "label": "Activity Data",
+   "id": "Activity Data_0e71a879",
+   "type": null,
+   "name": "To call the contact person of the leads"
+  },
+  {
+   "start": 164,
+   "end": 183,
+   "label": "Actor",
+   "id": "Actor_3e77bb82",
+   "type": "Lane",
+   "name": "The Sales Assistant"
+  },
+  {
+   "start": 184,
+   "end": 189,
+   "label": "Activity",
+   "id": "Activity_a89d8e60",
+   "type": "task",
+   "name": "Calls each customer"
+  },
+  {
+   "start": 190,
+   "end": 203,
+   "label": "Activity Data",
+   "id": "Activity Data_312251e6",
+   "type": null,
+   "name": "Each customer"
+  },
+  {
+   "start": 206,
+   "end": 208,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_597f356e",
+   "type": "exclusiveGateway",
+   "name": "If someone is interested"
+  },
+  {
+   "start": 209,
+   "end": 230,
+   "label": "Condition Specification",
+   "id": "Condition Specification_b36f6807",
+   "type": "exclusiveGateway",
+   "name": "Someone is interested"
+  },
+  {
+   "start": 233,
+   "end": 235,
+   "label": "Actor",
+   "id": "Actor_eff1df4e",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 236,
+   "end": 241,
+   "label": "Activity",
+   "id": "Activity_4ef930c4",
+   "type": "task",
+   "name": "Sends a note"
+  },
+  {
+   "start": 242,
+   "end": 248,
+   "label": "Activity Data",
+   "id": "Activity Data_4defcb01",
+   "type": null,
+   "name": "A note"
+  },
+  {
+   "start": 252,
+   "end": 263,
+   "label": "Actor",
+   "id": "Actor_3b81e525",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 266,
+   "end": 277,
+   "label": "Actor",
+   "id": "Actor_6643b9eb",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 283,
+   "end": 292,
+   "label": "Activity",
+   "id": "Activity_748e94d4",
+   "type": "task",
+   "name": "Processes the lead"
+  },
+  {
+   "start": 293,
+   "end": 301,
+   "label": "Activity Data",
+   "id": "Activity Data_727cffe3",
+   "type": null,
+   "name": "The lead"
+  },
+  {
+   "start": 304,
+   "end": 313,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_cc16ddbc",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 316,
+   "end": 318,
+   "label": "Actor",
+   "id": "Actor_2054d59e",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 319,
+   "end": 324,
+   "label": "Activity",
+   "id": "Activity_506a3259",
+   "type": "task",
+   "name": "Calls the next customer"
+  },
+  {
+   "start": 325,
+   "end": 342,
+   "label": "Activity Data",
+   "id": "Activity Data_1a2f9c77",
+   "type": null,
+   "name": "The next customer"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Selects the top five ones",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Tells to call the contact person of the leads",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Calls each customer",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Tells to call the contact person of the leads",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Calls each customer",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "If someone is interested",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Calls each customer",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "If someone is interested",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Sends a note",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "If someone is interested",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Sends a note",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Processes the lead",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Sends a note",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Processes the lead",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Processes the lead",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Calls the next customer",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Calls the next customer",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Calls the next customer",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

@@ -1,0 +1,426 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_604f9057",
+    "name": "Deregisters",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c2e7e475",
+    "name": "Verifies the deregistration",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dc6ed560",
+    "name": "Rejects the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_632a7536",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3853faa5",
+    "name": "Confirms the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "Preliminarily"
+    ]
+   },
+   {
+    "id": "Activity_4ea1a471",
+    "name": "Assigns himself",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "As MSP"
+    ]
+   },
+   {
+    "id": "Activity_e9b22862",
+    "name": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_37e85617",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_96879ff3",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_604f9057",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_604f9057",
+    "target": "Activity_c2e7e475",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_c2e7e475",
+    "target": "Activity_dc6ed560",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_dc6ed560",
+    "target": "XOR Gateway_632a7536",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_632a7536",
+    "target": "Activity_3853faa5",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_3853faa5",
+    "target": "Activity_4ea1a471",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_632a7536",
+    "target": "Activity_4ea1a471",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_4ea1a471",
+    "target": "Activity_e9b22862",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_e9b22862",
+    "target": "Activity_37e85617",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_37e85617",
+    "target": "Activity_96879ff3",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_96879ff3",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_9839f1fb",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 9,
+   "end": 20,
+   "label": "Activity",
+   "id": "Activity_604f9057",
+   "type": "task",
+   "name": "Deregisters"
+  },
+  {
+   "start": 24,
+   "end": 30,
+   "label": "Actor",
+   "id": "Actor_5c03036a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 33,
+   "end": 39,
+   "label": "Actor",
+   "id": "Actor_70ef6d33",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 40,
+   "end": 48,
+   "label": "Activity",
+   "id": "Activity_c2e7e475",
+   "type": "task",
+   "name": "Verifies the deregistration"
+  },
+  {
+   "start": 49,
+   "end": 67,
+   "label": "Activity Data",
+   "id": "Activity Data_339829eb",
+   "type": null,
+   "name": "The deregistration"
+  },
+  {
+   "start": 70,
+   "end": 76,
+   "label": "Actor",
+   "id": "Actor_3651c627",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 77,
+   "end": 84,
+   "label": "Activity",
+   "id": "Activity_dc6ed560",
+   "type": "task",
+   "name": "Rejects the deregistration of the MSPO"
+  },
+  {
+   "start": 85,
+   "end": 115,
+   "label": "Activity Data",
+   "id": "Activity Data_d0fa6054",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 116,
+   "end": 118,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_632a7536",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 119,
+   "end": 125,
+   "label": "Actor",
+   "id": "Actor_3dd04360",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 126,
+   "end": 139,
+   "label": "Further Specification",
+   "id": "Further Specification_c70ef4c5",
+   "type": null,
+   "name": "Preliminarily"
+  },
+  {
+   "start": 140,
+   "end": 148,
+   "label": "Activity",
+   "id": "Activity_3853faa5",
+   "type": "task",
+   "name": "Confirms the deregistration of the MSPO"
+  },
+  {
+   "start": 149,
+   "end": 179,
+   "label": "Activity Data",
+   "id": "Activity Data_a22f7e43",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 182,
+   "end": 188,
+   "label": "Actor",
+   "id": "Actor_46b630e5",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 189,
+   "end": 196,
+   "label": "Activity",
+   "id": "Activity_4ea1a471",
+   "type": "task",
+   "name": "Assigns himself"
+  },
+  {
+   "start": 197,
+   "end": 204,
+   "label": "Activity Data",
+   "id": "Activity Data_0ee7e1e9",
+   "type": null,
+   "name": "Himself"
+  },
+  {
+   "start": 205,
+   "end": 211,
+   "label": "Further Specification",
+   "id": "Further Specification_1a338306",
+   "type": null,
+   "name": "As MSP"
+  },
+  {
+   "start": 214,
+   "end": 220,
+   "label": "Actor",
+   "id": "Actor_157135ef",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 221,
+   "end": 228,
+   "label": "Activity",
+   "id": "Activity_e9b22862",
+   "type": "task",
+   "name": "Informs about the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 229,
+   "end": 237,
+   "label": "Actor",
+   "id": "Actor_5c9e8c3d",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 238,
+   "end": 315,
+   "label": "Activity Data",
+   "id": "Activity Data_4725d242",
+   "type": null,
+   "name": "About the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 318,
+   "end": 324,
+   "label": "Actor",
+   "id": "Actor_15199c5a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 325,
+   "end": 332,
+   "label": "Activity",
+   "id": "Activity_37e85617",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 333,
+   "end": 340,
+   "label": "Actor",
+   "id": "Actor_8d2d2286",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 341,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_695180aa",
+   "type": null,
+   "name": "About the assignment of the GO"
+  },
+  {
+   "start": 374,
+   "end": 380,
+   "label": "Actor",
+   "id": "Actor_2299bbd4",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 381,
+   "end": 388,
+   "label": "Activity",
+   "id": "Activity_96879ff3",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 389,
+   "end": 395,
+   "label": "Actor",
+   "id": "Actor_57306998",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 396,
+   "end": 426,
+   "label": "Activity Data",
+   "id": "Activity Data_36df17bb",
+   "type": null,
+   "name": "About the assignment of the GO"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the deregistration of the MSPO | Assigns himself | Informs about the end of the assignment and the beginning of the assignment of the GO | Informs about the assignment of the GO | Informs about the assignment of the GO",
+    "label": "yes after after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

@@ -1,0 +1,12 @@
+# CQ4 What are the direct successors of a given task?
+# Answered for every task; bind ?t (e.g. VALUES ?t { b:Activity_... }) for one.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?task ?successor ?successor_type WHERE {
+  ?t a b:Task ; rdfs:label ?task ; b:has_nextFlowNode ?s .
+  ?s a ?type .
+  FILTER(?type IN (b:Task, b:ExclusiveGateway, b:ParallelGateway, b:StartEvent, b:EndEvent))
+  OPTIONAL { ?s rdfs:label ?successor }
+  BIND(STRAFTER(STR(?type), "#") AS ?successor_type)
+} ORDER BY ?task ?successor

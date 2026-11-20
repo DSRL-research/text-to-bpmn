@@ -1,0 +1,15 @@
+
+--- Processing Input ---
+   (Debug) Injected 19 spans from PET gold spans
+   (Debug) Raw Entities: ['the files which have yet to be processed', 'checked', 'If', 'some files are missing', 'a search', 'initiated', 'otherwise', 'the files', 'tracked', 'to the intended location', 'these', 'handed', 'the Associate', 'meantime', 'the Judgeis Lawlist', 'distributed', 'the relevant people', 'the directions hearings', 'conducted']
+
+--- Split Entities ---
+[{'entity_group': 'Activity Data', 'word': 'the files which have yet to be processed', 'start': 15, 'end': 55, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'checked', 'start': 67, 'end': 74, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'If', 'start': 141, 'end': 143, 'score': 1.0}, {'entity_group': 'Condition Specification', 'word': 'some files are missing', 'start': 144, 'end': 166, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a search', 'start': 169, 'end': 177, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'initiated', 'start': 181, 'end': 190, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'otherwise', 'start': 193, 'end': 202, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the files', 'start': 203, 'end': 212, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'tracked', 'start': 231, 'end': 238, 'score': 1.0}, {'entity_group': 'Further Specification', 'word': 'to the intended location', 'start': 239, 'end': 263, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'these', 'start': 297, 'end': 302, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'handed', 'start': 307, 'end': 313, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the Associate', 'start': 317, 'end': 330, 'score': 1.0}, {'entity_group': 'AND Gateway', 'word': 'meantime', 'start': 337, 'end': 345, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the Judgeis Lawlist', 'start': 346, 'end': 365, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'distributed', 'start': 369, 'end': 380, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the relevant people', 'start': 384, 'end': 403, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the directions hearings', 'start': 419, 'end': 442, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'conducted', 'start': 447, 'end': 456, 'score': 1.0}]
+   🔁 XOR gateway 'If some files are missing' detected.
+   🛡️ Guardrail: Forcing FALSE_BRANCH for 'otherwise' -> 'handed' due to keyword.
+   🔁 XOR gateway 'Otherwise' detected.
+   🔀 PARALLEL gateway 'Meantime' (split) detected.
+      - Branch: 'Distributed the Judgeis Lawlist'
+   💾 Saved Enriched Ontology to runs/final/pet_classifier/documents/doc-3.2/ontology.owl: {'StartEvent': 1, 'Task': 6, 'ExclusiveGateway': 2, 'EndEvent': 1}, relations {'SEQUENCE': 7, 'TRUE_BRANCH': 1, 'FALSE_BRANCH': 1, 'PARALLEL': 1}, 1 actors
+✅ Ontology Enrichment Complete: runs/final/pet_classifier/documents/doc-3.2/ontology.owl
+   Relation parse failures: 0/11

@@ -1,0 +1,473 @@
+{
+ "structured_data": {
+  "participants": [
+   "A customer",
+   "Main Process",
+   "She",
+   "The CRS"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_4b9389a0",
+    "name": "Brings in",
+    "type": "task",
+    "lane": "A customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3b1eb848",
+    "name": "Checks the defect",
+    "type": "task",
+    "lane": "The CRS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c0c6e783",
+    "name": "Hands out a repair cost calculation",
+    "type": "task",
+    "lane": "The CRS",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_2d4e9f0f",
+    "name": "If the customer decides that the costs are acceptable",
+    "type": "exclusiveGateway",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_65df3a3d",
+    "name": "Check",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_320ca220",
+    "name": "Repair the hardware",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_16a0ef14",
+    "name": "Checks",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b0c51f1f",
+    "name": "Configures the software",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_affec88c",
+    "name": "Tested the proper system functionality",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b4bbe2cd",
+    "name": "Takes her computer",
+    "type": "task",
+    "lane": "She",
+    "metadata": [
+     "Home unrepaired"
+    ]
+   },
+   {
+    "id": "XOR Gateway_d6a123a7",
+    "name": "If an error is detected",
+    "type": "exclusiveGateway",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_be4b8921",
+    "name": "Executed another arbitrary repair activity",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "She"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_4b9389a0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_4b9389a0",
+    "target": "Activity_3b1eb848",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_3b1eb848",
+    "target": "Activity_c0c6e783",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_c0c6e783",
+    "target": "XOR Gateway_2d4e9f0f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_2d4e9f0f",
+    "target": "Activity_65df3a3d",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_65df3a3d",
+    "target": "Activity_320ca220",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_320ca220",
+    "target": "Activity_16a0ef14",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_16a0ef14",
+    "target": "Activity_b0c51f1f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_b0c51f1f",
+    "target": "Activity_affec88c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "XOR Gateway_2d4e9f0f",
+    "target": "Activity_b4bbe2cd",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_affec88c",
+    "target": "XOR Gateway_d6a123a7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_b4bbe2cd",
+    "target": "XOR Gateway_d6a123a7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "XOR Gateway_d6a123a7",
+    "target": "Activity_be4b8921",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_be4b8921",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "XOR Gateway_d6a123a7",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 18
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 10,
+   "label": "Actor",
+   "id": "Actor_ca87c619",
+   "type": "Lane",
+   "name": "A customer"
+  },
+  {
+   "start": 11,
+   "end": 20,
+   "label": "Activity",
+   "id": "Activity_4b9389a0",
+   "type": "task",
+   "name": "Brings in"
+  },
+  {
+   "start": 46,
+   "end": 53,
+   "label": "Actor",
+   "id": "Actor_8ce7205e",
+   "type": "Lane",
+   "name": "The CRS"
+  },
+  {
+   "start": 54,
+   "end": 60,
+   "label": "Activity",
+   "id": "Activity_3b1eb848",
+   "type": "task",
+   "name": "Checks the defect"
+  },
+  {
+   "start": 61,
+   "end": 71,
+   "label": "Activity Data",
+   "id": "Activity Data_1cfa462b",
+   "type": null,
+   "name": "The defect"
+  },
+  {
+   "start": 76,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_c0c6e783",
+   "type": "task",
+   "name": "Hands out a repair cost calculation"
+  },
+  {
+   "start": 86,
+   "end": 111,
+   "label": "Activity Data",
+   "id": "Activity Data_96bb756d",
+   "type": null,
+   "name": "A repair cost calculation"
+  },
+  {
+   "start": 119,
+   "end": 121,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2d4e9f0f",
+   "type": "exclusiveGateway",
+   "name": "If the customer decides that the costs are acceptable"
+  },
+  {
+   "start": 122,
+   "end": 172,
+   "label": "Condition Specification",
+   "id": "Condition Specification_708e146c",
+   "type": "exclusiveGateway",
+   "name": "The customer decides that the costs are acceptable"
+  },
+  {
+   "start": 199,
+   "end": 208,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_6c82c294",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 209,
+   "end": 212,
+   "label": "Actor",
+   "id": "Actor_67ce68c6",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 213,
+   "end": 218,
+   "label": "Activity",
+   "id": "Activity_b4bbe2cd",
+   "type": "task",
+   "name": "Takes her computer"
+  },
+  {
+   "start": 219,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_9771d5e5",
+   "type": null,
+   "name": "Her computer"
+  },
+  {
+   "start": 232,
+   "end": 247,
+   "label": "Further Specification",
+   "id": "Further Specification_0dbac3f0",
+   "type": null,
+   "name": "Home unrepaired"
+  },
+  {
+   "start": 368,
+   "end": 373,
+   "label": "Activity",
+   "id": "Activity_65df3a3d",
+   "type": "task",
+   "name": "Check"
+  },
+  {
+   "start": 378,
+   "end": 384,
+   "label": "Activity",
+   "id": "Activity_320ca220",
+   "type": "task",
+   "name": "Repair the hardware"
+  },
+  {
+   "start": 385,
+   "end": 397,
+   "label": "Activity Data",
+   "id": "Activity Data_f34fe81e",
+   "type": null,
+   "name": "The hardware"
+  },
+  {
+   "start": 400,
+   "end": 407,
+   "label": "AND Gateway",
+   "id": "AND Gateway_3dd5c2f9",
+   "type": "parallelGateway",
+   "name": "Whereas"
+  },
+  {
+   "start": 428,
+   "end": 434,
+   "label": "Activity",
+   "id": "Activity_16a0ef14",
+   "type": "task",
+   "name": "Checks"
+  },
+  {
+   "start": 439,
+   "end": 449,
+   "label": "Activity",
+   "id": "Activity_b0c51f1f",
+   "type": "task",
+   "name": "Configures the software"
+  },
+  {
+   "start": 450,
+   "end": 462,
+   "label": "Activity Data",
+   "id": "Activity Data_a7a3ab63",
+   "type": null,
+   "name": "The software"
+  },
+  {
+   "start": 498,
+   "end": 529,
+   "label": "Activity Data",
+   "id": "Activity Data_d110650e",
+   "type": null,
+   "name": "The proper system functionality"
+  },
+  {
+   "start": 533,
+   "end": 539,
+   "label": "Activity",
+   "id": "Activity_affec88c",
+   "type": "task",
+   "name": "Tested the proper system functionality"
+  },
+  {
+   "start": 542,
+   "end": 544,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d6a123a7",
+   "type": "exclusiveGateway",
+   "name": "If an error is detected"
+  },
+  {
+   "start": 545,
+   "end": 565,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1e92be6b",
+   "type": "exclusiveGateway",
+   "name": "An error is detected"
+  },
+  {
+   "start": 566,
+   "end": 599,
+   "label": "Activity Data",
+   "id": "Activity Data_936cd413",
+   "type": null,
+   "name": "Another arbitrary repair activity"
+  },
+  {
+   "start": 603,
+   "end": 611,
+   "label": "Activity",
+   "id": "Activity_be4b8921",
+   "type": "task",
+   "name": "Executed another arbitrary repair activity"
+  },
+  {
+   "start": 614,
+   "end": 623,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_44757b27",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If the customer decides that the costs are acceptable",
+    "node_B": "Takes her computer | Check | Repair the hardware | Checks | Configures the software | Tested the proper system functionality | decision: If an error is detected | Executed another arbitrary repair activity",
+    "label": "no yes yes yes yes yes after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If an error is detected",
+    "node_B": "Executed another arbitrary repair activity",
+    "label": "yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

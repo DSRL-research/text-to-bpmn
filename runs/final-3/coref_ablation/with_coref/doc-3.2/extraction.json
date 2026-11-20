@@ -1,0 +1,398 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_864b0ca8",
+        "name": "Checked the files",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_07616c58",
+        "name": "If some files are missing",
+        "type": "exclusiveGateway",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a467a08d",
+        "name": "Initiated a search",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "The files"
+        ]
+      },
+      {
+        "id": "Activity_8168319d",
+        "name": "Tracked",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "To the intended location"
+        ]
+      },
+      {
+        "id": "AND Gateway_06a918ac",
+        "name": "Meantime",
+        "type": "parallelGateway",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_babab5cf",
+        "name": "Handed the files",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_de5f619c",
+        "name": "Distributed the Judgeis Lawlist",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_36c88083",
+        "name": "Conducted the directions hearings",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "Main Process"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_864b0ca8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_864b0ca8",
+        "target": "XOR Gateway_07616c58",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "XOR Gateway_07616c58",
+        "target": "Activity_a467a08d",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "XOR Gateway_07616c58",
+        "target": "Activity_8168319d",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_a467a08d",
+        "target": "AND Gateway_06a918ac",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_8168319d",
+        "target": "AND Gateway_06a918ac",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "AND Gateway_06a918ac",
+        "target": "Activity_babab5cf",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "AND Gateway_06a918ac",
+        "target": "Activity_de5f619c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_babab5cf",
+        "target": "Activity_36c88083",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_de5f619c",
+        "target": "Activity_36c88083",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_36c88083",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 14
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 15,
+      "end": 24,
+      "label": "Activity Data",
+      "id": "Activity Data_cff236db",
+      "type": null,
+      "name": "The files"
+    },
+    {
+      "start": 67,
+      "end": 74,
+      "label": "Activity",
+      "id": "Activity_864b0ca8",
+      "type": "task",
+      "name": "Checked the files"
+    },
+    {
+      "start": 177,
+      "end": 179,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_07616c58",
+      "type": "exclusiveGateway",
+      "name": "If some files are missing"
+    },
+    {
+      "start": 180,
+      "end": 202,
+      "label": "Condition Specification",
+      "id": "Condition Specification_076f257f",
+      "type": "exclusiveGateway",
+      "name": "Some files are missing"
+    },
+    {
+      "start": 205,
+      "end": 213,
+      "label": "Activity Data",
+      "id": "Activity Data_8a55f9db",
+      "type": null,
+      "name": "A search"
+    },
+    {
+      "start": 217,
+      "end": 226,
+      "label": "Activity",
+      "id": "Activity_a467a08d",
+      "type": "task",
+      "name": "Initiated a search"
+    },
+    {
+      "start": 229,
+      "end": 238,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_4dbb6e6c",
+      "type": "exclusiveGateway",
+      "name": "Otherwise"
+    },
+    {
+      "start": 239,
+      "end": 248,
+      "label": "Activity Data",
+      "id": "Activity Data_38bd10a1",
+      "type": null,
+      "name": "The files"
+    },
+    {
+      "start": 267,
+      "end": 274,
+      "label": "Activity",
+      "id": "Activity_8168319d",
+      "type": "task",
+      "name": "Tracked"
+    },
+    {
+      "start": 275,
+      "end": 299,
+      "label": "Further Specification",
+      "id": "Further Specification_b36438d0",
+      "type": null,
+      "name": "To the intended location"
+    },
+    {
+      "start": 333,
+      "end": 342,
+      "label": "Activity Data",
+      "id": "Activity Data_2d06fe6b",
+      "type": null,
+      "name": "The files"
+    },
+    {
+      "start": 378,
+      "end": 384,
+      "label": "Activity",
+      "id": "Activity_babab5cf",
+      "type": "task",
+      "name": "Handed the files"
+    },
+    {
+      "start": 388,
+      "end": 401,
+      "label": "Actor",
+      "id": "Actor_d56c664c",
+      "type": "Lane",
+      "name": "The Associate"
+    },
+    {
+      "start": 408,
+      "end": 416,
+      "label": "AND Gateway",
+      "id": "AND Gateway_06a918ac",
+      "type": "parallelGateway",
+      "name": "Meantime"
+    },
+    {
+      "start": 417,
+      "end": 436,
+      "label": "Activity Data",
+      "id": "Activity Data_b92a3fc8",
+      "type": null,
+      "name": "The Judgeis Lawlist"
+    },
+    {
+      "start": 440,
+      "end": 451,
+      "label": "Activity",
+      "id": "Activity_de5f619c",
+      "type": "task",
+      "name": "Distributed the Judgeis Lawlist"
+    },
+    {
+      "start": 455,
+      "end": 474,
+      "label": "Actor",
+      "id": "Actor_50861dcf",
+      "type": "Lane",
+      "name": "The relevant people"
+    },
+    {
+      "start": 490,
+      "end": 513,
+      "label": "Activity Data",
+      "id": "Activity Data_e25b34d4",
+      "type": null,
+      "name": "The directions hearings"
+    },
+    {
+      "start": 518,
+      "end": 527,
+      "label": "Activity",
+      "id": "Activity_36c88083",
+      "type": "task",
+      "name": "Conducted the directions hearings"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 2,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If some files are missing",
+        "node_B": "Initiated a search | Tracked | Handed the files | Distributed the Judgeis Lawlist | Conducted the directions hearings",
+        "label": "yes no after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "parallel: Meantime",
+        "node_B": "Handed the files | Distributed the Judgeis Lawlist | Conducted the directions hearings",
+        "label": "a b after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

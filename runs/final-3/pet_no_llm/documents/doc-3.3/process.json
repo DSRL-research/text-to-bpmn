@@ -1,0 +1,610 @@
+{
+ "structured_data": {
+  "participants": [
+   "A claims officer",
+   "A senior claims officer",
+   "Main Process",
+   "The claims officer",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_ee0a3f63",
+    "name": "Registered it",
+    "type": "task",
+    "lane": "A claims officer",
+    "metadata": [
+     "A claim"
+    ]
+   },
+   {
+    "id": "Activity_ed0584f0",
+    "name": "Examined",
+    "type": "task",
+    "lane": "A claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b802d3d3",
+    "name": "Writes a settlement recommendation",
+    "type": "task",
+    "lane": "The claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ee5cb4d0",
+    "name": "Checked this recommendation",
+    "type": "task",
+    "lane": "A senior claims officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6aa6b7d1",
+    "name": "Mark the claim",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "As OK or Not OK"
+    ]
+   },
+   {
+    "id": "XOR Gateway_2b0af5cd",
+    "name": "If the claim is marked as Not OK",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_779409f7",
+    "name": "Sent back it",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a1d163a1",
+    "name": "If the claim is OK",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fa5d4757",
+    "name": "Proceeds the claim handling process",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_35e0e071",
+    "source": "StartEvent_1",
+    "target": "Activity_ee0a3f63",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_174bf1f8",
+    "source": "Activity_ee0a3f63",
+    "target": "Activity_ed0584f0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0cc9e9b2",
+    "source": "Activity_ed0584f0",
+    "target": "Activity_b802d3d3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c13c3a62",
+    "source": "Activity_b802d3d3",
+    "target": "Activity_ee5cb4d0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5716360b",
+    "source": "Activity_ee5cb4d0",
+    "target": "Activity_6aa6b7d1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_05bcaeee",
+    "source": "Activity_6aa6b7d1",
+    "target": "XOR Gateway_2b0af5cd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c1cb5e3d",
+    "source": "XOR Gateway_2b0af5cd",
+    "target": "Activity_779409f7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ad11f725",
+    "source": "Activity_779409f7",
+    "target": "XOR Gateway_a1d163a1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cd2cebf7",
+    "source": "XOR Gateway_a1d163a1",
+    "target": "Activity_fa5d4757",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c463756c",
+    "source": "Activity_fa5d4757",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 6,
+   "end": 13,
+   "label": "Activity Data",
+   "id": "Activity Data_b01b07d8",
+   "type": null,
+   "name": "A claim"
+  },
+  {
+   "start": 17,
+   "end": 27,
+   "label": "Activity",
+   "id": "Activity_ee0a3f63",
+   "type": "task",
+   "name": "Registered it"
+  },
+  {
+   "start": 30,
+   "end": 32,
+   "label": "Activity Data",
+   "id": "Activity Data_a5764fd6",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 36,
+   "end": 44,
+   "label": "Activity",
+   "id": "Activity_ed0584f0",
+   "type": "task",
+   "name": "Examined"
+  },
+  {
+   "start": 48,
+   "end": 64,
+   "label": "Actor",
+   "id": "Actor_41fa4152",
+   "type": "Lane",
+   "name": "A claims officer"
+  },
+  {
+   "start": 67,
+   "end": 85,
+   "label": "Actor",
+   "id": "Actor_bd1c998d",
+   "type": "Lane",
+   "name": "The claims officer"
+  },
+  {
+   "start": 91,
+   "end": 97,
+   "label": "Activity",
+   "id": "Activity_b802d3d3",
+   "type": "task",
+   "name": "Writes a settlement recommendation"
+  },
+  {
+   "start": 98,
+   "end": 125,
+   "label": "Activity Data",
+   "id": "Activity Data_e93609cd",
+   "type": null,
+   "name": "A settlement recommendation"
+  },
+  {
+   "start": 128,
+   "end": 147,
+   "label": "Activity Data",
+   "id": "Activity Data_6d5b5916",
+   "type": null,
+   "name": "This recommendation"
+  },
+  {
+   "start": 156,
+   "end": 163,
+   "label": "Activity",
+   "id": "Activity_ee5cb4d0",
+   "type": "task",
+   "name": "Checked this recommendation"
+  },
+  {
+   "start": 167,
+   "end": 190,
+   "label": "Actor",
+   "id": "Actor_7f8fda0e",
+   "type": "Lane",
+   "name": "A senior claims officer"
+  },
+  {
+   "start": 191,
+   "end": 194,
+   "label": "Actor",
+   "id": "Actor_a3d06f76",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 199,
+   "end": 203,
+   "label": "Activity",
+   "id": "Activity_6aa6b7d1",
+   "type": "task",
+   "name": "Mark the claim"
+  },
+  {
+   "start": 204,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_90447daa",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 214,
+   "end": 229,
+   "label": "Further Specification",
+   "id": "Further Specification_8da22379",
+   "type": null,
+   "name": "As OK or Not OK"
+  },
+  {
+   "start": 232,
+   "end": 234,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2b0af5cd",
+   "type": "exclusiveGateway",
+   "name": "If the claim is marked as Not OK"
+  },
+  {
+   "start": 235,
+   "end": 264,
+   "label": "Condition Specification",
+   "id": "Condition Specification_4244066e",
+   "type": "exclusiveGateway",
+   "name": "The claim is marked as Not OK"
+  },
+  {
+   "start": 267,
+   "end": 269,
+   "label": "Activity Data",
+   "id": "Activity Data_6b4757c4",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 273,
+   "end": 282,
+   "label": "Activity",
+   "id": "Activity_779409f7",
+   "type": "task",
+   "name": "Sent back it"
+  },
+  {
+   "start": 286,
+   "end": 304,
+   "label": "Actor",
+   "id": "Actor_b39e13f5",
+   "type": "Lane",
+   "name": "The claims officer"
+  },
+  {
+   "start": 342,
+   "end": 344,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a1d163a1",
+   "type": "exclusiveGateway",
+   "name": "If the claim is OK"
+  },
+  {
+   "start": 345,
+   "end": 360,
+   "label": "Condition Specification",
+   "id": "Condition Specification_142fb849",
+   "type": "exclusiveGateway",
+   "name": "The claim is OK"
+  },
+  {
+   "start": 363,
+   "end": 389,
+   "label": "Activity Data",
+   "id": "Activity Data_a06721fd",
+   "type": null,
+   "name": "The claim handling process"
+  },
+  {
+   "start": 390,
+   "end": 398,
+   "label": "Activity",
+   "id": "Activity_fa5d4757",
+   "type": "task",
+   "name": "Proceeds the claim handling process"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Registered it",
+    "node_B": "Examined",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered it",
+    "node_B": "Writes a settlement recommendation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered it",
+    "node_B": "Checked this recommendation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Writes a settlement recommendation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Checked this recommendation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Mark the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "Checked this recommendation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "Mark the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "If the claim is marked as Not OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "Mark the claim",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "If the claim is marked as Not OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "Sent back it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "If the claim is marked as Not OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "Sent back it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "If the claim is OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Sent back it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "If the claim is OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Proceeds the claim handling process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back it",
+    "node_B": "If the claim is OK",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back it",
+    "node_B": "Proceeds the claim handling process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the claim is OK",
+    "node_B": "Proceeds the claim handling process",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Registered it",
+    "node_B": "Examined",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered it",
+    "node_B": "Writes a settlement recommendation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered it",
+    "node_B": "Checked this recommendation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Writes a settlement recommendation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Checked this recommendation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Examined",
+    "node_B": "Mark the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "Checked this recommendation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "Mark the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Writes a settlement recommendation",
+    "node_B": "If the claim is marked as Not OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "Mark the claim",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "If the claim is marked as Not OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked this recommendation",
+    "node_B": "Sent back it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "If the claim is marked as Not OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "Sent back it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Mark the claim",
+    "node_B": "If the claim is OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Sent back it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "If the claim is OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the claim is marked as Not OK",
+    "node_B": "Proceeds the claim handling process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back it",
+    "node_B": "If the claim is OK",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back it",
+    "node_B": "Proceeds the claim handling process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the claim is OK",
+    "node_B": "Proceeds the claim handling process",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

@@ -1,0 +1,2200 @@
+{
+ "run": {
+  "model": "fastino/gliner2.5-base-v1",
+  "revision": "ca906247640776a07753514055be9726f9080ead",
+  "api": "gliner2",
+  "phrasing": "scheme",
+  "prompts": {
+   "Activity": "action verb",
+   "Activity Data": "object of an action",
+   "Actor": "participant",
+   "Condition Specification": "the logic rule of a branch",
+   "Further Specification": "further specification of an action",
+   "XOR Gateway": "conditional branching logic marker"
+  },
+  "score_floor": 0.3,
+  "threshold": "not applied; filter the saved scores",
+  "data": "text2bpmn/baselines/dev_split.json",
+  "sentences": 60,
+  "spans_at_floor": 258,
+  "seed": 0,
+  "run_at": "2026-10-02T08:03:46+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+  "interpreter": "/tmp/gliner2-env/bin/python",
+  "packages": {
+   "library": "gliner2",
+   "gliner2": "2.0.0",
+   "transformers": "4.50.0.dev0",
+   "torch": "2.13.0"
+  },
+  "code": "fcf1c717c41b7a6e2e7b2772ef6debb6b5976c9e"
+ },
+ "documents": [
+  {
+   "id": "doc-10.14#0",
+   "text": "The GO or the MPON confirms the invoice with payment advice to the MPOO or the MSPO , or the GO or the MPON rejects the invoice of the MPOO or the MSPO .",
+   "spans": [
+    {
+     "start": 93,
+     "end": 95,
+     "label": "Activity",
+     "score": 0.9377,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Activity",
+     "score": 0.937,
+     "prompt": "action verb"
+    },
+    {
+     "start": 103,
+     "end": 107,
+     "label": "Activity",
+     "score": 0.6383,
+     "prompt": "action verb"
+    },
+    {
+     "start": 14,
+     "end": 18,
+     "label": "Activity",
+     "score": 0.5608,
+     "prompt": "action verb"
+    },
+    {
+     "start": 120,
+     "end": 127,
+     "label": "Activity Data",
+     "score": 0.9758,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 32,
+     "end": 39,
+     "label": "Activity Data",
+     "score": 0.968,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 135,
+     "end": 139,
+     "label": "Actor",
+     "score": 0.9641,
+     "prompt": "participant"
+    },
+    {
+     "start": 67,
+     "end": 71,
+     "label": "Actor",
+     "score": 0.9558,
+     "prompt": "participant"
+    },
+    {
+     "start": 147,
+     "end": 151,
+     "label": "Actor",
+     "score": 0.9517,
+     "prompt": "participant"
+    },
+    {
+     "start": 79,
+     "end": 83,
+     "label": "Actor",
+     "score": 0.9386,
+     "prompt": "participant"
+    },
+    {
+     "start": 103,
+     "end": 107,
+     "label": "Actor",
+     "score": 0.8932,
+     "prompt": "participant"
+    },
+    {
+     "start": 14,
+     "end": 18,
+     "label": "Actor",
+     "score": 0.8469,
+     "prompt": "participant"
+    },
+    {
+     "start": 93,
+     "end": 95,
+     "label": "Actor",
+     "score": 0.3392,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.6#1",
+   "text": "The MSPO reviews the dismissal .",
+   "spans": [
+    {
+     "start": 21,
+     "end": 30,
+     "label": "Activity",
+     "score": 0.9289,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 8,
+     "label": "Actor",
+     "score": 0.8994,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.2#2",
+   "text": "Each morning , the files which have yet to be processed need to be checked , to make sure they are in order for the court hearing that day .",
+   "spans": [
+    {
+     "start": 67,
+     "end": 74,
+     "label": "Activity",
+     "score": 0.9251,
+     "prompt": "action verb"
+    },
+    {
+     "start": 19,
+     "end": 24,
+     "label": "Activity Data",
+     "score": 0.9943,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.13#3",
+   "text": "The INQ transmits the transaction data request to the IP .",
+   "spans": [
+    {
+     "start": 22,
+     "end": 46,
+     "label": "Activity",
+     "score": 0.3395,
+     "prompt": "action verb"
+    },
+    {
+     "start": 54,
+     "end": 56,
+     "label": "Activity Data",
+     "score": 0.9775,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Actor",
+     "score": 0.9162,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#4",
+   "text": "The registration form as well as the print from the information system are stored in the patient file .",
+   "spans": [
+    {
+     "start": 37,
+     "end": 42,
+     "label": "Activity",
+     "score": 0.9572,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 21,
+     "label": "Activity",
+     "score": 0.338,
+     "prompt": "action verb"
+    },
+    {
+     "start": 89,
+     "end": 101,
+     "label": "Activity Data",
+     "score": 0.9832,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 52,
+     "end": 70,
+     "label": "Activity Data",
+     "score": 0.6222,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 21,
+     "label": "Activity Data",
+     "score": 0.6221,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#5",
+   "text": "The new patient is added on the list of new notices .",
+   "spans": [
+    {
+     "start": 19,
+     "end": 24,
+     "label": "Activity",
+     "score": 0.3106,
+     "prompt": "action verb"
+    },
+    {
+     "start": 32,
+     "end": 36,
+     "label": "Activity Data",
+     "score": 0.6979,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 44,
+     "end": 51,
+     "label": "Activity Data",
+     "score": 0.6515,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 8,
+     "end": 15,
+     "label": "Actor",
+     "score": 0.9183,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#6",
+   "text": "One of the physicians will act as the second intaker .",
+   "spans": [
+    {
+     "start": 38,
+     "end": 52,
+     "label": "Activity",
+     "score": 0.8122,
+     "prompt": "action verb"
+    },
+    {
+     "start": 11,
+     "end": 21,
+     "label": "Actor",
+     "score": 0.9687,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#7",
+   "text": "As soon as this copy is received , the secretarial office will inform the second intaker and add the copy to the patient file .",
+   "spans": [
+    {
+     "start": 63,
+     "end": 69,
+     "label": "Activity",
+     "score": 0.5405,
+     "prompt": "action verb"
+    },
+    {
+     "start": 93,
+     "end": 96,
+     "label": "Activity",
+     "score": 0.4655,
+     "prompt": "action verb"
+    },
+    {
+     "start": 113,
+     "end": 125,
+     "label": "Activity Data",
+     "score": 0.9858,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 16,
+     "end": 20,
+     "label": "Activity Data",
+     "score": 0.916,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 101,
+     "end": 105,
+     "label": "Activity Data",
+     "score": 0.8475,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 74,
+     "end": 88,
+     "label": "Actor",
+     "score": 0.973,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#8",
+   "text": "During the first meeting , the patient is examined using a standard checklist which is filled out .",
+   "spans": [
+    {
+     "start": 42,
+     "end": 50,
+     "label": "Activity",
+     "score": 0.8833,
+     "prompt": "action verb"
+    },
+    {
+     "start": 87,
+     "end": 97,
+     "label": "Activity",
+     "score": 0.3903,
+     "prompt": "action verb"
+    },
+    {
+     "start": 68,
+     "end": 77,
+     "label": "Activity Data",
+     "score": 0.9066,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 31,
+     "end": 38,
+     "label": "Actor",
+     "score": 0.9915,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-4.1#9",
+   "text": "As soon as the meetings of the first and second intaker with the patient have taken place , the secretarial office puts the patient on the list of patients that reach this status .",
+   "spans": [
+    {
+     "start": 15,
+     "end": 23,
+     "label": "Activity",
+     "score": 0.4414,
+     "prompt": "action verb"
+    },
+    {
+     "start": 96,
+     "end": 114,
+     "label": "Activity Data",
+     "score": 0.5826,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 139,
+     "end": 155,
+     "label": "Activity Data",
+     "score": 0.4721,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 65,
+     "end": 72,
+     "label": "Actor",
+     "score": 0.9699,
+     "prompt": "participant"
+    },
+    {
+     "start": 124,
+     "end": 131,
+     "label": "Actor",
+     "score": 0.964,
+     "prompt": "participant"
+    },
+    {
+     "start": 48,
+     "end": 55,
+     "label": "Actor",
+     "score": 0.7062,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.1#10",
+   "text": "She then checks the invoice items and notes the corresponding cost center at the ACME AG and the related cost center managers for each position on a separate form ( `` docket `` ) .",
+   "spans": [
+    {
+     "start": 9,
+     "end": 15,
+     "label": "Activity",
+     "score": 0.7973,
+     "prompt": "action verb"
+    },
+    {
+     "start": 20,
+     "end": 33,
+     "label": "Activity Data",
+     "score": 0.7857,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 62,
+     "end": 73,
+     "label": "Activity Data",
+     "score": 0.6875,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 168,
+     "end": 174,
+     "label": "Activity Data",
+     "score": 0.6743,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 81,
+     "end": 88,
+     "label": "Activity Data",
+     "score": 0.6033,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 105,
+     "end": 116,
+     "label": "Activity Data",
+     "score": 0.5527,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 158,
+     "end": 162,
+     "label": "Activity Data",
+     "score": 0.317,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 0,
+     "end": 3,
+     "label": "Actor",
+     "score": 0.6233,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.1#11",
+   "text": "The docket and the copy of the invoice go to the internal mail together and are sent to the first cost center manager to the list .",
+   "spans": [
+    {
+     "start": 80,
+     "end": 84,
+     "label": "Activity",
+     "score": 0.7884,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 10,
+     "label": "Activity Data",
+     "score": 0.9823,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 125,
+     "end": 129,
+     "label": "Activity Data",
+     "score": 0.9741,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 31,
+     "end": 38,
+     "label": "Activity Data",
+     "score": 0.9454,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 49,
+     "end": 62,
+     "label": "Activity Data",
+     "score": 0.6381,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 19,
+     "end": 23,
+     "label": "Activity Data",
+     "score": 0.4141,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 98,
+     "end": 117,
+     "label": "Actor",
+     "score": 0.9189,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.1#12",
+   "text": "He makes the commercial audit and issues the approval for payment .",
+   "spans": [
+    {
+     "start": 45,
+     "end": 53,
+     "label": "Activity",
+     "score": 0.5683,
+     "prompt": "action verb"
+    },
+    {
+     "start": 13,
+     "end": 29,
+     "label": "Activity",
+     "score": 0.5658,
+     "prompt": "action verb"
+    },
+    {
+     "start": 58,
+     "end": 65,
+     "label": "Activity Data",
+     "score": 0.9031,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 13,
+     "end": 29,
+     "label": "Activity Data",
+     "score": 0.3294,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 0,
+     "end": 2,
+     "label": "Actor",
+     "score": 0.9395,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.2#13",
+   "text": "The GO informs the MPOO about the registration confirmation of the MPON .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Activity",
+     "score": 0.9559,
+     "prompt": "action verb"
+    },
+    {
+     "start": 67,
+     "end": 71,
+     "label": "Activity Data",
+     "score": 0.9375,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 19,
+     "end": 23,
+     "label": "Actor",
+     "score": 0.8068,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.2#14",
+   "text": "The GO informs the MPON about the failure of the overall transaction by deadline if after a maximum time limit no message of the MPON is present at the GO .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Activity",
+     "score": 0.9492,
+     "prompt": "action verb"
+    },
+    {
+     "start": 152,
+     "end": 154,
+     "label": "Activity",
+     "score": 0.9289,
+     "prompt": "action verb"
+    },
+    {
+     "start": 114,
+     "end": 121,
+     "label": "Activity Data",
+     "score": 0.7665,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 49,
+     "end": 68,
+     "label": "Activity Data",
+     "score": 0.5026,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 19,
+     "end": 23,
+     "label": "Actor",
+     "score": 0.97,
+     "prompt": "participant"
+    },
+    {
+     "start": 129,
+     "end": 133,
+     "label": "Actor",
+     "score": 0.9648,
+     "prompt": "participant"
+    },
+    {
+     "start": 72,
+     "end": 80,
+     "label": "Condition Specification",
+     "score": 0.4736,
+     "prompt": "the logic rule of a branch"
+    },
+    {
+     "start": 92,
+     "end": 110,
+     "label": "XOR Gateway",
+     "score": 0.4917,
+     "prompt": "conditional branching logic marker"
+    },
+    {
+     "start": 72,
+     "end": 80,
+     "label": "XOR Gateway",
+     "score": 0.3513,
+     "prompt": "conditional branching logic marker"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.4#15",
+   "text": "The first step is to determine contact details of potential customers .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 14,
+     "label": "Activity",
+     "score": 0.5942,
+     "prompt": "action verb"
+    },
+    {
+     "start": 21,
+     "end": 30,
+     "label": "Activity",
+     "score": 0.3115,
+     "prompt": "action verb"
+    },
+    {
+     "start": 31,
+     "end": 46,
+     "label": "Activity Data",
+     "score": 0.7942,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 50,
+     "end": 69,
+     "label": "Activity Data",
+     "score": 0.3305,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 31,
+     "end": 46,
+     "label": "Further Specification",
+     "score": 0.3674,
+     "prompt": "further specification of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.4#16",
+   "text": "Then we start calling the customer .",
+   "spans": [
+    {
+     "start": 14,
+     "end": 21,
+     "label": "Activity",
+     "score": 0.5033,
+     "prompt": "action verb"
+    },
+    {
+     "start": 26,
+     "end": 34,
+     "label": "Activity Data",
+     "score": 0.8053,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 26,
+     "end": 34,
+     "label": "Actor",
+     "score": 0.8531,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.4#17",
+   "text": "It is given either by a sales representative or by a pre-sales employee in case of a more technical presentation .",
+   "spans": [
+    {
+     "start": 100,
+     "end": 112,
+     "label": "Activity Data",
+     "score": 0.6756,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 24,
+     "end": 44,
+     "label": "Actor",
+     "score": 0.9882,
+     "prompt": "participant"
+    },
+    {
+     "start": 53,
+     "end": 71,
+     "label": "Actor",
+     "score": 0.9815,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-1.4#18",
+   "text": "Usually they play a triple role : First they provide the company with procedural and financial advice , then they buy the issue , and finally they resell it to the public .",
+   "spans": [
+    {
+     "start": 114,
+     "end": 117,
+     "label": "Activity",
+     "score": 0.704,
+     "prompt": "action verb"
+    },
+    {
+     "start": 147,
+     "end": 153,
+     "label": "Activity",
+     "score": 0.6384,
+     "prompt": "action verb"
+    },
+    {
+     "start": 122,
+     "end": 127,
+     "label": "Activity Data",
+     "score": 0.9546,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 164,
+     "end": 170,
+     "label": "Actor",
+     "score": 0.8351,
+     "prompt": "participant"
+    },
+    {
+     "start": 57,
+     "end": 64,
+     "label": "Actor",
+     "score": 0.8228,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-1.1#19",
+   "text": "A member of the sales department can then reject or accept the order for a customized bike .",
+   "spans": [
+    {
+     "start": 42,
+     "end": 48,
+     "label": "Activity",
+     "score": 0.9276,
+     "prompt": "action verb"
+    },
+    {
+     "start": 52,
+     "end": 58,
+     "label": "Activity",
+     "score": 0.9121,
+     "prompt": "action verb"
+    },
+    {
+     "start": 75,
+     "end": 90,
+     "label": "Activity Data",
+     "score": 0.9442,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 16,
+     "end": 32,
+     "label": "Actor",
+     "score": 0.9392,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-1.1#20",
+   "text": "The storehouse immediately processes the part list of the order and checks the required quantity of each part .",
+   "spans": [
+    {
+     "start": 27,
+     "end": 36,
+     "label": "Activity",
+     "score": 0.7248,
+     "prompt": "action verb"
+    },
+    {
+     "start": 68,
+     "end": 74,
+     "label": "Activity",
+     "score": 0.5765,
+     "prompt": "action verb"
+    },
+    {
+     "start": 41,
+     "end": 50,
+     "label": "Activity Data",
+     "score": 0.9153,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 58,
+     "end": 63,
+     "label": "Activity Data",
+     "score": 0.6637,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 14,
+     "label": "Actor",
+     "score": 0.7874,
+     "prompt": "participant"
+    },
+    {
+     "start": 79,
+     "end": 96,
+     "label": "Further Specification",
+     "score": 0.6825,
+     "prompt": "further specification of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-1.1#21",
+   "text": "This procedure is repeated for each item on the part list .",
+   "spans": [
+    {
+     "start": 5,
+     "end": 14,
+     "label": "Activity",
+     "score": 0.9257,
+     "prompt": "action verb"
+    },
+    {
+     "start": 36,
+     "end": 40,
+     "label": "Activity Data",
+     "score": 0.9392,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 48,
+     "end": 57,
+     "label": "Activity Data",
+     "score": 0.5582,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.2#22",
+   "text": "The customer data is received by customer service and based on this data a customer data object is entered into the CRM system .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 17,
+     "label": "Activity Data",
+     "score": 0.9744,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 75,
+     "end": 95,
+     "label": "Activity Data",
+     "score": 0.8942,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 33,
+     "end": 49,
+     "label": "Actor",
+     "score": 0.9861,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.2#23",
+   "text": "If there are not any objections by the grid operator ( i.e . no supplier concurrence ) , customer service creates a CIS contract .",
+   "spans": [
+    {
+     "start": 116,
+     "end": 128,
+     "label": "Activity Data",
+     "score": 0.8864,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 39,
+     "end": 52,
+     "label": "Actor",
+     "score": 0.9532,
+     "prompt": "participant"
+    },
+    {
+     "start": 89,
+     "end": 105,
+     "label": "Actor",
+     "score": 0.7602,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.2#24",
+   "text": "The confirmation message by the customer is therefore not absolutely necessary ( as it will count as accepted after 7 days in any way ) but it can speed up the switch process .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 24,
+     "label": "Activity",
+     "score": 0.9335,
+     "prompt": "action verb"
+    },
+    {
+     "start": 32,
+     "end": 40,
+     "label": "Actor",
+     "score": 0.9858,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.2#25",
+   "text": "The process of winning a new customer ends here .",
+   "spans": [
+    {
+     "start": 15,
+     "end": 22,
+     "label": "Activity",
+     "score": 0.5693,
+     "prompt": "action verb"
+    },
+    {
+     "start": 25,
+     "end": 37,
+     "label": "Activity Data",
+     "score": 0.5634,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 29,
+     "end": 37,
+     "label": "Actor",
+     "score": 0.4289,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#26",
+   "text": "An electronic service then determines the significance of the customer based on information that has been collected during the history of the contractual relationship .",
+   "spans": [
+    {
+     "start": 142,
+     "end": 166,
+     "label": "Activity Data",
+     "score": 0.9268,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 80,
+     "end": 91,
+     "label": "Activity Data",
+     "score": 0.6588,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 62,
+     "end": 70,
+     "label": "Actor",
+     "score": 0.9731,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#27",
+   "text": "In case the customer is of certain significance which would affect the counter measures previously decided upon , the process goes back to re-prioritize these measures otherwise the process continues .",
+   "spans": [
+    {
+     "start": 190,
+     "end": 199,
+     "label": "Activity",
+     "score": 0.3614,
+     "prompt": "action verb"
+    },
+    {
+     "start": 71,
+     "end": 87,
+     "label": "Activity Data",
+     "score": 0.5569,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 12,
+     "end": 20,
+     "label": "Actor",
+     "score": 0.9824,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#28",
+   "text": "If a problem is detected this will be analyzed by Resource Provisioning and a trouble report is created .",
+   "spans": [
+    {
+     "start": 50,
+     "end": 71,
+     "label": "Activity",
+     "score": 0.8418,
+     "prompt": "action verb"
+    },
+    {
+     "start": 38,
+     "end": 46,
+     "label": "Activity",
+     "score": 0.4046,
+     "prompt": "action verb"
+    },
+    {
+     "start": 96,
+     "end": 103,
+     "label": "Activity",
+     "score": 0.3415,
+     "prompt": "action verb"
+    },
+    {
+     "start": 5,
+     "end": 12,
+     "label": "Activity Data",
+     "score": 0.9743,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 78,
+     "end": 92,
+     "label": "Activity Data",
+     "score": 0.7402,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#29",
+   "text": "Three alternative process paths may be taken .",
+   "spans": []
+  },
+  {
+   "id": "doc-2.1#30",
+   "text": "Subsequently , the problem resolution report is created and then sent out to Customer Service .",
+   "spans": [
+    {
+     "start": 65,
+     "end": 73,
+     "label": "Activity",
+     "score": 0.6672,
+     "prompt": "action verb"
+    },
+    {
+     "start": 48,
+     "end": 55,
+     "label": "Activity",
+     "score": 0.6073,
+     "prompt": "action verb"
+    },
+    {
+     "start": 19,
+     "end": 44,
+     "label": "Activity Data",
+     "score": 0.8541,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 77,
+     "end": 93,
+     "label": "Actor",
+     "score": 0.9837,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#31",
+   "text": "Resource Provisioning has been on-hold and waiting for a restoration request but this must happen within 2 days after the status report was sent out , otherwise Resource Provisioning terminates the process .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 21,
+     "label": "Activity",
+     "score": 0.8914,
+     "prompt": "action verb"
+    },
+    {
+     "start": 161,
+     "end": 182,
+     "label": "Activity",
+     "score": 0.8499,
+     "prompt": "action verb"
+    },
+    {
+     "start": 57,
+     "end": 76,
+     "label": "Activity",
+     "score": 0.8229,
+     "prompt": "action verb"
+    },
+    {
+     "start": 122,
+     "end": 135,
+     "label": "Activity Data",
+     "score": 0.9409,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#32",
+   "text": "Then a trouble-shooting report is created .",
+   "spans": [
+    {
+     "start": 34,
+     "end": 41,
+     "label": "Activity",
+     "score": 0.5747,
+     "prompt": "action verb"
+    },
+    {
+     "start": 7,
+     "end": 30,
+     "label": "Activity Data",
+     "score": 0.6405,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-2.1#33",
+   "text": "Then , two concurrent activities are triggered , i.e . i ) a report is created for the customer which details the current service performance and the resolution of the problem , and ii ) an SLA violation rebate is reported to Billing & Collections who will adjust the billing .",
+   "spans": [
+    {
+     "start": 71,
+     "end": 78,
+     "label": "Activity",
+     "score": 0.4936,
+     "prompt": "action verb"
+    },
+    {
+     "start": 214,
+     "end": 222,
+     "label": "Activity",
+     "score": 0.4668,
+     "prompt": "action verb"
+    },
+    {
+     "start": 190,
+     "end": 210,
+     "label": "Activity Data",
+     "score": 0.7601,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 122,
+     "end": 141,
+     "label": "Activity Data",
+     "score": 0.6686,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 61,
+     "end": 67,
+     "label": "Activity Data",
+     "score": 0.6271,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 168,
+     "end": 175,
+     "label": "Activity Data",
+     "score": 0.6053,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 268,
+     "end": 275,
+     "label": "Activity Data",
+     "score": 0.5965,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 87,
+     "end": 95,
+     "label": "Actor",
+     "score": 0.9751,
+     "prompt": "participant"
+    },
+    {
+     "start": 226,
+     "end": 247,
+     "label": "Actor",
+     "score": 0.8129,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.8#34",
+   "text": "The GO verifies the deregistration .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Activity",
+     "score": 0.7428,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Condition Specification",
+     "score": 0.8139,
+     "prompt": "the logic rule of a branch"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.3#35",
+   "text": "The claims officer then writes a settlement recommendation .",
+   "spans": [
+    {
+     "start": 24,
+     "end": 30,
+     "label": "Activity",
+     "score": 0.4484,
+     "prompt": "action verb"
+    },
+    {
+     "start": 33,
+     "end": 58,
+     "label": "Activity",
+     "score": 0.3239,
+     "prompt": "action verb"
+    },
+    {
+     "start": 33,
+     "end": 58,
+     "label": "Activity Data",
+     "score": 0.6331,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 18,
+     "label": "Actor",
+     "score": 0.9864,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.3#36",
+   "text": "If the claim is marked as Not OK , it is sent back to the claims officer and the recommendation is repeated .",
+   "spans": [
+    {
+     "start": 41,
+     "end": 50,
+     "label": "Activity",
+     "score": 0.6339,
+     "prompt": "action verb"
+    },
+    {
+     "start": 99,
+     "end": 107,
+     "label": "Activity",
+     "score": 0.461,
+     "prompt": "action verb"
+    },
+    {
+     "start": 7,
+     "end": 12,
+     "label": "Activity Data",
+     "score": 0.9916,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 58,
+     "end": 72,
+     "label": "Actor",
+     "score": 0.9901,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.6#37",
+   "text": "Based on the outcome ( simple or complex claims ) , relevant forms are sent to the claimant .",
+   "spans": [
+    {
+     "start": 71,
+     "end": 75,
+     "label": "Activity",
+     "score": 0.8149,
+     "prompt": "action verb"
+    },
+    {
+     "start": 61,
+     "end": 66,
+     "label": "Activity Data",
+     "score": 0.7743,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 13,
+     "end": 20,
+     "label": "Activity Data",
+     "score": 0.499,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 83,
+     "end": 91,
+     "label": "Actor",
+     "score": 0.9746,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.6#38",
+   "text": "If the forms provide all relevant details , the claim is registered in the Claims Management system , which ends the Claims Notification process .",
+   "spans": [
+    {
+     "start": 117,
+     "end": 144,
+     "label": "Activity",
+     "score": 0.7925,
+     "prompt": "action verb"
+    },
+    {
+     "start": 57,
+     "end": 67,
+     "label": "Activity",
+     "score": 0.3609,
+     "prompt": "action verb"
+    },
+    {
+     "start": 75,
+     "end": 99,
+     "label": "Activity Data",
+     "score": 0.9582,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 48,
+     "end": 53,
+     "label": "Activity Data",
+     "score": 0.91,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 7,
+     "end": 12,
+     "label": "Activity Data",
+     "score": 0.7758,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 25,
+     "end": 41,
+     "label": "Further Specification",
+     "score": 0.7737,
+     "prompt": "further specification of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.3#39",
+   "text": "The process of an Office Supply Request starts when any employee of the organization submits an office supply request .",
+   "spans": [
+    {
+     "start": 18,
+     "end": 39,
+     "label": "Activity",
+     "score": 0.8482,
+     "prompt": "action verb"
+    },
+    {
+     "start": 96,
+     "end": 117,
+     "label": "Activity",
+     "score": 0.829,
+     "prompt": "action verb"
+    },
+    {
+     "start": 72,
+     "end": 84,
+     "label": "Activity Data",
+     "score": 0.8637,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 96,
+     "end": 117,
+     "label": "Activity Data",
+     "score": 0.4661,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 18,
+     "end": 39,
+     "label": "Activity Data",
+     "score": 0.453,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 56,
+     "end": 64,
+     "label": "Actor",
+     "score": 0.9496,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.3#40",
+   "text": "If the request is asked to make a change then it is returned to the petitioner / employee who can review the comments for the change request .",
+   "spans": [
+    {
+     "start": 34,
+     "end": 40,
+     "label": "Activity",
+     "score": 0.8942,
+     "prompt": "action verb"
+    },
+    {
+     "start": 126,
+     "end": 132,
+     "label": "Activity",
+     "score": 0.8608,
+     "prompt": "action verb"
+    },
+    {
+     "start": 98,
+     "end": 104,
+     "label": "Activity",
+     "score": 0.4238,
+     "prompt": "action verb"
+    },
+    {
+     "start": 109,
+     "end": 117,
+     "label": "Activity Data",
+     "score": 0.9495,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity Data",
+     "score": 0.9387,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 133,
+     "end": 140,
+     "label": "Activity Data",
+     "score": 0.7045,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 68,
+     "end": 78,
+     "label": "Actor",
+     "score": 0.7683,
+     "prompt": "participant"
+    },
+    {
+     "start": 81,
+     "end": 89,
+     "label": "Actor",
+     "score": 0.6014,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.3#41",
+   "text": "In any case the system will send a notification to let the user know what the result was .",
+   "spans": [
+    {
+     "start": 35,
+     "end": 47,
+     "label": "Activity",
+     "score": 0.8904,
+     "prompt": "action verb"
+    },
+    {
+     "start": 78,
+     "end": 84,
+     "label": "Activity Data",
+     "score": 0.8363,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 16,
+     "end": 22,
+     "label": "Activity Data",
+     "score": 0.4593,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 59,
+     "end": 63,
+     "label": "Actor",
+     "score": 0.9651,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.3#42",
+   "text": "By the way , that is the second step .",
+   "spans": [
+    {
+     "start": 25,
+     "end": 36,
+     "label": "Activity",
+     "score": 0.7936,
+     "prompt": "action verb"
+    }
+   ]
+  },
+  {
+   "id": "doc-6.3#43",
+   "text": "Once production is scheduled to start , we receive a notice from the system and an employee takes care of the implementation .",
+   "spans": [
+    {
+     "start": 110,
+     "end": 124,
+     "label": "Activity",
+     "score": 0.9385,
+     "prompt": "action verb"
+    },
+    {
+     "start": 5,
+     "end": 15,
+     "label": "Activity",
+     "score": 0.7933,
+     "prompt": "action verb"
+    },
+    {
+     "start": 69,
+     "end": 75,
+     "label": "Activity Data",
+     "score": 0.9845,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 83,
+     "end": 91,
+     "label": "Actor",
+     "score": 0.9801,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.3#44",
+   "text": "The GO performs the equipment acquisition and / or equipment changes .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 6,
+     "label": "Activity",
+     "score": 0.932,
+     "prompt": "action verb"
+    },
+    {
+     "start": 20,
+     "end": 29,
+     "label": "Activity Data",
+     "score": 0.9361,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 51,
+     "end": 60,
+     "label": "Activity Data",
+     "score": 0.9013,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-7.1#45",
+   "text": "If someone is interested , he sends a note to the Manager .",
+   "spans": [
+    {
+     "start": 30,
+     "end": 42,
+     "label": "Activity",
+     "score": 0.8008,
+     "prompt": "action verb"
+    },
+    {
+     "start": 50,
+     "end": 57,
+     "label": "Activity Data",
+     "score": 0.9643,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 3,
+     "end": 10,
+     "label": "Actor",
+     "score": 0.95,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.4#46",
+   "text": "An employee purchases a product or service he requires .",
+   "spans": [
+    {
+     "start": 12,
+     "end": 21,
+     "label": "Activity",
+     "score": 0.9586,
+     "prompt": "action verb"
+    },
+    {
+     "start": 24,
+     "end": 31,
+     "label": "Activity Data",
+     "score": 0.8246,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 35,
+     "end": 42,
+     "label": "Activity Data",
+     "score": 0.813,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 3,
+     "end": 11,
+     "label": "Actor",
+     "score": 0.9838,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.4#47",
+   "text": "The treasurer checks that all the receipts have been submitted and match the items on the list .",
+   "spans": [
+    {
+     "start": 14,
+     "end": 20,
+     "label": "Activity",
+     "score": 0.7522,
+     "prompt": "action verb"
+    },
+    {
+     "start": 53,
+     "end": 62,
+     "label": "Activity",
+     "score": 0.7327,
+     "prompt": "action verb"
+    },
+    {
+     "start": 34,
+     "end": 42,
+     "label": "Activity Data",
+     "score": 0.9718,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 90,
+     "end": 94,
+     "label": "Activity Data",
+     "score": 0.9716,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 77,
+     "end": 82,
+     "label": "Activity Data",
+     "score": 0.9135,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 13,
+     "label": "Actor",
+     "score": 0.9715,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-5.4#48",
+   "text": "If receipts are missing or do not match the report , he sends it back to the employee .",
+   "spans": [
+    {
+     "start": 56,
+     "end": 69,
+     "label": "Activity",
+     "score": 0.7191,
+     "prompt": "action verb"
+    },
+    {
+     "start": 44,
+     "end": 50,
+     "label": "Activity Data",
+     "score": 0.9933,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 3,
+     "end": 11,
+     "label": "Activity Data",
+     "score": 0.9913,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 77,
+     "end": 85,
+     "label": "Actor",
+     "score": 0.9814,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.5#49",
+   "text": "Within this unit , the Mail Clerk sorts the unopened mail into the various business areas .",
+   "spans": [
+    {
+     "start": 44,
+     "end": 57,
+     "label": "Activity Data",
+     "score": 0.8893,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 75,
+     "end": 89,
+     "label": "Activity Data",
+     "score": 0.4383,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 23,
+     "end": 33,
+     "label": "Actor",
+     "score": 0.9835,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.5#50",
+   "text": "Otherwise , the matter details ( types of action ) are captured and provided to the Cashier , who takes the applicable fees attached to the mail .",
+   "spans": [
+    {
+     "start": 140,
+     "end": 144,
+     "label": "Activity Data",
+     "score": 0.9914,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 84,
+     "end": 91,
+     "label": "Actor",
+     "score": 0.9922,
+     "prompt": "participant"
+    },
+    {
+     "start": 16,
+     "end": 30,
+     "label": "Further Specification",
+     "score": 0.8008,
+     "prompt": "further specification of an action"
+    },
+    {
+     "start": 108,
+     "end": 123,
+     "label": "Further Specification",
+     "score": 0.4028,
+     "prompt": "further specification of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.5#51",
+   "text": "The MPOO sends a tender for the equipment takeover to the MPON .",
+   "spans": [
+    {
+     "start": 17,
+     "end": 23,
+     "label": "Activity",
+     "score": 0.8609,
+     "prompt": "action verb"
+    },
+    {
+     "start": 32,
+     "end": 41,
+     "label": "Activity Data",
+     "score": 0.8486,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 4,
+     "end": 8,
+     "label": "Actor",
+     "score": 0.9704,
+     "prompt": "participant"
+    },
+    {
+     "start": 58,
+     "end": 62,
+     "label": "Actor",
+     "score": 0.8528,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.11#52",
+   "text": "The MSP denies the request of the GO or the MSP performs the measurement .",
+   "spans": [
+    {
+     "start": 61,
+     "end": 72,
+     "label": "Activity",
+     "score": 0.63,
+     "prompt": "action verb"
+    },
+    {
+     "start": 34,
+     "end": 36,
+     "label": "Activity",
+     "score": 0.5863,
+     "prompt": "action verb"
+    },
+    {
+     "start": 34,
+     "end": 36,
+     "label": "Activity Data",
+     "score": 0.3544,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 44,
+     "end": 47,
+     "label": "Actor",
+     "score": 0.8837,
+     "prompt": "participant"
+    },
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Actor",
+     "score": 0.858,
+     "prompt": "participant"
+    },
+    {
+     "start": 44,
+     "end": 47,
+     "label": "Condition Specification",
+     "score": 0.4643,
+     "prompt": "the logic rule of a branch"
+    },
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Condition Specification",
+     "score": 0.405,
+     "prompt": "the logic rule of a branch"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.10#53",
+   "text": "The MPO rejects the failure of the fault detector or the MPO confirms the failure of the fault detector .",
+   "spans": [
+    {
+     "start": 61,
+     "end": 69,
+     "label": "Activity",
+     "score": 0.47,
+     "prompt": "action verb"
+    },
+    {
+     "start": 35,
+     "end": 49,
+     "label": "Activity Data",
+     "score": 0.992,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 89,
+     "end": 103,
+     "label": "Activity Data",
+     "score": 0.9916,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 57,
+     "end": 60,
+     "label": "Actor",
+     "score": 0.9628,
+     "prompt": "participant"
+    },
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Actor",
+     "score": 0.9613,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.10#54",
+   "text": "The MPO fixes the fault at the measuring device .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Activity",
+     "score": 0.8114,
+     "prompt": "action verb"
+    },
+    {
+     "start": 31,
+     "end": 47,
+     "label": "Activity Data",
+     "score": 0.9961,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.10#55",
+   "text": "The MPO will inform the MSP about the resolution of the interference .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Activity",
+     "score": 0.6541,
+     "prompt": "action verb"
+    },
+    {
+     "start": 56,
+     "end": 68,
+     "label": "Activity Data",
+     "score": 0.937,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 24,
+     "end": 27,
+     "label": "Actor",
+     "score": 0.9653,
+     "prompt": "participant"
+    },
+    {
+     "start": 4,
+     "end": 7,
+     "label": "Actor",
+     "score": 0.7094,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.8#56",
+   "text": "The process starts when a customer submits a claim by sending in relevant documentation .",
+   "spans": [
+    {
+     "start": 54,
+     "end": 64,
+     "label": "Activity",
+     "score": 0.4193,
+     "prompt": "action verb"
+    },
+    {
+     "start": 35,
+     "end": 50,
+     "label": "Activity",
+     "score": 0.4025,
+     "prompt": "action verb"
+    },
+    {
+     "start": 74,
+     "end": 87,
+     "label": "Activity Data",
+     "score": 0.9235,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 45,
+     "end": 50,
+     "label": "Activity Data",
+     "score": 0.8177,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 26,
+     "end": 34,
+     "label": "Actor",
+     "score": 0.9901,
+     "prompt": "participant"
+    },
+    {
+     "start": 65,
+     "end": 87,
+     "label": "Further Specification",
+     "score": 0.343,
+     "prompt": "further specification of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.8#57",
+   "text": "If the assessment is positive , a garage is phoned to authorise the repairs and the payment is scheduled ( in this order ) .",
+   "spans": [
+    {
+     "start": 44,
+     "end": 50,
+     "label": "Activity",
+     "score": 0.6468,
+     "prompt": "action verb"
+    },
+    {
+     "start": 95,
+     "end": 104,
+     "label": "Activity",
+     "score": 0.6424,
+     "prompt": "action verb"
+    },
+    {
+     "start": 54,
+     "end": 63,
+     "label": "Activity",
+     "score": 0.3774,
+     "prompt": "action verb"
+    },
+    {
+     "start": 34,
+     "end": 40,
+     "label": "Activity Data",
+     "score": 0.977,
+     "prompt": "object of an action"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.8#58",
+   "text": "In any case ( whether the outcome is positive or negative ) , a letter is sent to the customer and the process is considered to be complete .",
+   "spans": [
+    {
+     "start": 74,
+     "end": 78,
+     "label": "Activity",
+     "score": 0.8996,
+     "prompt": "action verb"
+    },
+    {
+     "start": 64,
+     "end": 70,
+     "label": "Activity Data",
+     "score": 0.9716,
+     "prompt": "object of an action"
+    },
+    {
+     "start": 86,
+     "end": 94,
+     "label": "Actor",
+     "score": 0.9913,
+     "prompt": "participant"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.4#59",
+   "text": "The MPON or the MPOO perform the final reading .",
+   "spans": [
+    {
+     "start": 4,
+     "end": 8,
+     "label": "Activity",
+     "score": 0.5973,
+     "prompt": "action verb"
+    },
+    {
+     "start": 16,
+     "end": 20,
+     "label": "Activity",
+     "score": 0.4317,
+     "prompt": "action verb"
+    },
+    {
+     "start": 4,
+     "end": 8,
+     "label": "Actor",
+     "score": 0.7652,
+     "prompt": "participant"
+    },
+    {
+     "start": 16,
+     "end": 20,
+     "label": "Actor",
+     "score": 0.6993,
+     "prompt": "participant"
+    }
+   ]
+  }
+ ]
+}

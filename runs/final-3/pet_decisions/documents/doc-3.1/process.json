@@ -1,0 +1,444 @@
+{
+ "structured_data": {
+  "participants": [
+   "Back Office",
+   "Main Process",
+   "Some other MC internal staff",
+   "The Back Office",
+   "The Client Service Back Office",
+   "The party"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_1dfcb250",
+    "name": "Sends a warrant possession request",
+    "type": "task",
+    "lane": "The party",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1f917d15",
+    "name": "Receives the request",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_627583c5",
+    "name": "Retrieves the SCT file",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d685da4f",
+    "name": "Forwarded the SCT Warrant Possession",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e08c71ec",
+    "name": "Stored the SCT physical file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6e8068bf",
+    "name": "Awaiting a report",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "To be sent by the Police"
+    ]
+   },
+   {
+    "id": "Activity_bc0d3cc5",
+    "name": "Received the respective SCT file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "The report"
+    ]
+   },
+   {
+    "id": "Activity_69905e34",
+    "name": "Retrieved",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_30804cc4",
+    "name": "Attaches the new SCT document",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_633c5c56",
+    "name": "Stores the expanded SCT physical file",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ab6101a2",
+    "name": "Receives the physical SCT file",
+    "type": "task",
+    "lane": "Some other MC internal staff",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Some other MC internal staff"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_1dfcb250",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_1dfcb250",
+    "target": "Activity_1f917d15",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_1f917d15",
+    "target": "Activity_627583c5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_627583c5",
+    "target": "Activity_d685da4f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_d685da4f",
+    "target": "Activity_e08c71ec",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_e08c71ec",
+    "target": "Activity_6e8068bf",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_6e8068bf",
+    "target": "Activity_bc0d3cc5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_bc0d3cc5",
+    "target": "Activity_69905e34",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_69905e34",
+    "target": "Activity_30804cc4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_30804cc4",
+    "target": "Activity_633c5c56",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_633c5c56",
+    "target": "Activity_ab6101a2",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_ab6101a2",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 13
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 9,
+   "label": "Actor",
+   "id": "Actor_299ff7cb",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 10,
+   "end": 15,
+   "label": "Activity",
+   "id": "Activity_1dfcb250",
+   "type": "task",
+   "name": "Sends a warrant possession request"
+  },
+  {
+   "start": 16,
+   "end": 44,
+   "label": "Activity Data",
+   "id": "Activity Data_87162696",
+   "type": null,
+   "name": "A warrant possession request"
+  },
+  {
+   "start": 79,
+   "end": 109,
+   "label": "Actor",
+   "id": "Actor_fbb732ec",
+   "type": "Lane",
+   "name": "The Client Service Back Office"
+  },
+  {
+   "start": 158,
+   "end": 166,
+   "label": "Activity",
+   "id": "Activity_1f917d15",
+   "type": "task",
+   "name": "Receives the request"
+  },
+  {
+   "start": 167,
+   "end": 178,
+   "label": "Activity Data",
+   "id": "Activity Data_d2e770b2",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 183,
+   "end": 192,
+   "label": "Activity",
+   "id": "Activity_627583c5",
+   "type": "task",
+   "name": "Retrieves the SCT file"
+  },
+  {
+   "start": 193,
+   "end": 205,
+   "label": "Activity Data",
+   "id": "Activity Data_861a5b09",
+   "type": null,
+   "name": "The SCT file"
+  },
+  {
+   "start": 215,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_9fdf5c86",
+   "type": null,
+   "name": "The SCT Warrant Possession"
+  },
+  {
+   "start": 245,
+   "end": 254,
+   "label": "Activity",
+   "id": "Activity_d685da4f",
+   "type": "task",
+   "name": "Forwarded the SCT Warrant Possession"
+  },
+  {
+   "start": 258,
+   "end": 275,
+   "label": "Actor",
+   "id": "Actor_d105f744",
+   "type": "Lane",
+   "name": "Queensland Police"
+  },
+  {
+   "start": 278,
+   "end": 299,
+   "label": "Activity Data",
+   "id": "Activity Data_ed9ece37",
+   "type": null,
+   "name": "The SCT physical file"
+  },
+  {
+   "start": 303,
+   "end": 309,
+   "label": "Activity",
+   "id": "Activity_e08c71ec",
+   "type": "task",
+   "name": "Stored the SCT physical file"
+  },
+  {
+   "start": 313,
+   "end": 328,
+   "label": "Actor",
+   "id": "Actor_f3b84367",
+   "type": "Lane",
+   "name": "The Back Office"
+  },
+  {
+   "start": 329,
+   "end": 337,
+   "label": "Activity",
+   "id": "Activity_6e8068bf",
+   "type": "task",
+   "name": "Awaiting a report"
+  },
+  {
+   "start": 338,
+   "end": 346,
+   "label": "Activity Data",
+   "id": "Activity Data_12946732",
+   "type": null,
+   "name": "A report"
+  },
+  {
+   "start": 347,
+   "end": 371,
+   "label": "Further Specification",
+   "id": "Further Specification_91304678",
+   "type": null,
+   "name": "To be sent by the Police"
+  },
+  {
+   "start": 379,
+   "end": 389,
+   "label": "Activity Data",
+   "id": "Activity Data_d2c9b41f",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 393,
+   "end": 401,
+   "label": "Activity",
+   "id": "Activity_bc0d3cc5",
+   "type": "task",
+   "name": "Received the respective SCT file"
+  },
+  {
+   "start": 404,
+   "end": 427,
+   "label": "Activity Data",
+   "id": "Activity Data_28174c70",
+   "type": null,
+   "name": "The respective SCT file"
+  },
+  {
+   "start": 431,
+   "end": 440,
+   "label": "Activity",
+   "id": "Activity_69905e34",
+   "type": "task",
+   "name": "Retrieved"
+  },
+  {
+   "start": 450,
+   "end": 461,
+   "label": "Actor",
+   "id": "Actor_7c6e6130",
+   "type": "Lane",
+   "name": "Back Office"
+  },
+  {
+   "start": 462,
+   "end": 470,
+   "label": "Activity",
+   "id": "Activity_30804cc4",
+   "type": "task",
+   "name": "Attaches the new SCT document"
+  },
+  {
+   "start": 471,
+   "end": 491,
+   "label": "Activity Data",
+   "id": "Activity Data_01152de9",
+   "type": null,
+   "name": "The new SCT document"
+  },
+  {
+   "start": 498,
+   "end": 504,
+   "label": "Activity",
+   "id": "Activity_633c5c56",
+   "type": "task",
+   "name": "Stores the expanded SCT physical file"
+  },
+  {
+   "start": 505,
+   "end": 535,
+   "label": "Activity Data",
+   "id": "Activity Data_5b35f345",
+   "type": null,
+   "name": "The expanded SCT physical file"
+  },
+  {
+   "start": 551,
+   "end": 579,
+   "label": "Actor",
+   "id": "Actor_e3e0154e",
+   "type": "Lane",
+   "name": "Some other MC internal staff"
+  },
+  {
+   "start": 580,
+   "end": 588,
+   "label": "Activity",
+   "id": "Activity_ab6101a2",
+   "type": "task",
+   "name": "Receives the physical SCT file"
+  },
+  {
+   "start": 589,
+   "end": 610,
+   "label": "Activity Data",
+   "id": "Activity Data_52773607",
+   "type": null,
+   "name": "The physical SCT file"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

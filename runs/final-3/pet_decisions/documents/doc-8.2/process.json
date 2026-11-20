@@ -1,0 +1,487 @@
+{
+ "structured_data": {
+  "participants": [
+   "I",
+   "Main Process",
+   "The Department"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_9357a9d8",
+    "name": "Reported a vacancy",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e3a07ffd",
+    "name": "Create a job description from the information",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_804aa6c4",
+    "name": "Sometimes there is still confusion in the message",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6a6f87f3",
+    "name": "Ask",
+    "type": "task",
+    "lane": "The Department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7fa12900",
+    "name": "Submitting the job description",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ae4dc99a",
+    "name": "Waiting the approval",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_196e0375",
+    "name": "It can also happen that the department does not approve it",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_333c7425",
+    "name": "Requests a correction",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7a3a0e91",
+    "name": "Submit it",
+    "type": "task",
+    "lane": "I",
+    "metadata": [
+     "The description"
+    ]
+   },
+   {
+    "id": "XOR Gateway_23855610",
+    "name": "If the description is finally approved",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_66b502b5",
+    "name": "Post the job",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "I"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_9357a9d8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_9357a9d8",
+    "target": "Activity_e3a07ffd",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_e3a07ffd",
+    "target": "XOR Gateway_804aa6c4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_804aa6c4",
+    "target": "Activity_6a6f87f3",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_804aa6c4",
+    "target": "Activity_7fa12900",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_7fa12900",
+    "target": "Activity_ae4dc99a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_6a6f87f3",
+    "target": "XOR Gateway_196e0375",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_ae4dc99a",
+    "target": "XOR Gateway_196e0375",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "XOR Gateway_196e0375",
+    "target": "Activity_333c7425",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_333c7425",
+    "target": "Activity_7a3a0e91",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_7a3a0e91",
+    "target": "XOR Gateway_23855610",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "XOR Gateway_196e0375",
+    "target": "XOR Gateway_23855610",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "XOR Gateway_23855610",
+    "target": "Activity_66b502b5",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_66b502b5",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "XOR Gateway_23855610",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 19
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 25,
+   "end": 34,
+   "label": "Activity Data",
+   "id": "Activity Data_41abaada",
+   "type": null,
+   "name": "A vacancy"
+  },
+  {
+   "start": 38,
+   "end": 46,
+   "label": "Activity",
+   "id": "Activity_9357a9d8",
+   "type": "task",
+   "name": "Reported a vacancy"
+  },
+  {
+   "start": 50,
+   "end": 52,
+   "label": "Actor",
+   "id": "Actor_58d2378b",
+   "type": "Lane",
+   "name": "Me"
+  },
+  {
+   "start": 55,
+   "end": 56,
+   "label": "Actor",
+   "id": "Actor_5268e119",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 57,
+   "end": 63,
+   "label": "Activity",
+   "id": "Activity_e3a07ffd",
+   "type": "task",
+   "name": "Create a job description from the information"
+  },
+  {
+   "start": 64,
+   "end": 102,
+   "label": "Activity Data",
+   "id": "Activity Data_35b0d607",
+   "type": null,
+   "name": "A job description from the information"
+  },
+  {
+   "start": 105,
+   "end": 114,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_804aa6c4",
+   "type": "exclusiveGateway",
+   "name": "Sometimes there is still confusion in the message"
+  },
+  {
+   "start": 115,
+   "end": 154,
+   "label": "Condition Specification",
+   "id": "Condition Specification_ca63b521",
+   "type": "exclusiveGateway",
+   "name": "There is still confusion in the message"
+  },
+  {
+   "start": 162,
+   "end": 163,
+   "label": "Actor",
+   "id": "Actor_b42ce213",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 169,
+   "end": 172,
+   "label": "Activity",
+   "id": "Activity_6a6f87f3",
+   "type": "task",
+   "name": "Ask"
+  },
+  {
+   "start": 173,
+   "end": 187,
+   "label": "Actor",
+   "id": "Actor_1182411c",
+   "type": "Lane",
+   "name": "The Department"
+  },
+  {
+   "start": 196,
+   "end": 197,
+   "label": "Actor",
+   "id": "Actor_9bd3ed92",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 201,
+   "end": 211,
+   "label": "Activity",
+   "id": "Activity_7fa12900",
+   "type": "task",
+   "name": "Submitting the job description"
+  },
+  {
+   "start": 212,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_9a2b5361",
+   "type": null,
+   "name": "The job description"
+  },
+  {
+   "start": 254,
+   "end": 261,
+   "label": "Activity",
+   "id": "Activity_ae4dc99a",
+   "type": "task",
+   "name": "Waiting the approval"
+  },
+  {
+   "start": 266,
+   "end": 278,
+   "label": "Activity Data",
+   "id": "Activity Data_5ea60bee",
+   "type": null,
+   "name": "The approval"
+  },
+  {
+   "start": 287,
+   "end": 310,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_196e0375",
+   "type": "exclusiveGateway",
+   "name": "It can also happen that the department does not approve it"
+  },
+  {
+   "start": 311,
+   "end": 345,
+   "label": "Condition Specification",
+   "id": "Condition Specification_c7d2da70",
+   "type": "exclusiveGateway",
+   "name": "The department does not approve it"
+  },
+  {
+   "start": 369,
+   "end": 377,
+   "label": "Activity",
+   "id": "Activity_333c7425",
+   "type": "task",
+   "name": "Requests a correction"
+  },
+  {
+   "start": 378,
+   "end": 390,
+   "label": "Activity Data",
+   "id": "Activity Data_26dfb19b",
+   "type": null,
+   "name": "A correction"
+  },
+  {
+   "start": 398,
+   "end": 399,
+   "label": "Actor",
+   "id": "Actor_3733fa2f",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 400,
+   "end": 407,
+   "label": "Activity",
+   "id": "Activity_78863fe5",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 408,
+   "end": 423,
+   "label": "Activity Data",
+   "id": "Activity Data_ae06f18d",
+   "type": null,
+   "name": "The description"
+  },
+  {
+   "start": 428,
+   "end": 434,
+   "label": "Activity",
+   "id": "Activity_7a3a0e91",
+   "type": "task",
+   "name": "Submit it"
+  },
+  {
+   "start": 435,
+   "end": 437,
+   "label": "Activity Data",
+   "id": "Activity Data_9eeced39",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 464,
+   "end": 466,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_23855610",
+   "type": "exclusiveGateway",
+   "name": "If the description is finally approved"
+  },
+  {
+   "start": 467,
+   "end": 502,
+   "label": "Condition Specification",
+   "id": "Condition Specification_799c2acb",
+   "type": "exclusiveGateway",
+   "name": "The description is finally approved"
+  },
+  {
+   "start": 505,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_953692a9",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 507,
+   "end": 511,
+   "label": "Activity",
+   "id": "Activity_66b502b5",
+   "type": "task",
+   "name": "Post the job"
+  },
+  {
+   "start": 512,
+   "end": 519,
+   "label": "Activity Data",
+   "id": "Activity Data_d5aa79ab",
+   "type": null,
+   "name": "The job"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 3,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Ask | Submitting the job description | Waiting the approval | decision: It can also happen that the department does not approve it | Requests a correction | Submit it | decision: If the description is finally approved | Post the job",
+    "label": "yes no no after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "Requests a correction | Submit it | decision: If the description is finally approved | Post the job",
+    "label": "yes yes after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the description is finally approved",
+    "node_B": "Post the job",
+    "label": "yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

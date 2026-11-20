@@ -1,0 +1,423 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSPN"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_f6c5c53e",
+    "name": "Registers the measurement",
+    "type": "task",
+    "lane": "The MSPN",
+    "metadata": []
+   },
+   {
+    "id": "Activity_60ab5460",
+    "name": "Examines the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a4b3af3c",
+    "name": "Rejects the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_65ae2e46",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_674051b5",
+    "name": "Confirmes the application of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bf82a09c",
+    "name": "Assigns the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_facb8397",
+    "name": "Informs about the assignment of MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a12b7132",
+    "name": "Informs about the assignment of the MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fe9b719d",
+    "name": "Informs about the assignment of MSPN",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_f6c5c53e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_f6c5c53e",
+    "target": "Activity_60ab5460",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_60ab5460",
+    "target": "Activity_a4b3af3c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_a4b3af3c",
+    "target": "XOR Gateway_65ae2e46",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_65ae2e46",
+    "target": "Activity_674051b5",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_674051b5",
+    "target": "Activity_bf82a09c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_bf82a09c",
+    "target": "Activity_facb8397",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_facb8397",
+    "target": "Activity_a12b7132",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_a12b7132",
+    "target": "Activity_fe9b719d",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_fe9b719d",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "XOR Gateway_65ae2e46",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 13
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_68e8d9da",
+   "type": "Lane",
+   "name": "The MSPN"
+  },
+  {
+   "start": 9,
+   "end": 18,
+   "label": "Activity",
+   "id": "Activity_f6c5c53e",
+   "type": "task",
+   "name": "Registers the measurement"
+  },
+  {
+   "start": 19,
+   "end": 34,
+   "label": "Activity Data",
+   "id": "Activity Data_a8bb9099",
+   "type": null,
+   "name": "The measurement"
+  },
+  {
+   "start": 38,
+   "end": 44,
+   "label": "Actor",
+   "id": "Actor_e1981476",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 47,
+   "end": 53,
+   "label": "Actor",
+   "id": "Actor_ccbcecfb",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 54,
+   "end": 62,
+   "label": "Activity",
+   "id": "Activity_60ab5460",
+   "type": "task",
+   "name": "Examines the application of the MSPN"
+  },
+  {
+   "start": 63,
+   "end": 90,
+   "label": "Activity Data",
+   "id": "Activity Data_a4d230c3",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 93,
+   "end": 99,
+   "label": "Actor",
+   "id": "Actor_bd7f1c2a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 100,
+   "end": 107,
+   "label": "Activity",
+   "id": "Activity_a4b3af3c",
+   "type": "task",
+   "name": "Rejects the application of the MSPN"
+  },
+  {
+   "start": 108,
+   "end": 135,
+   "label": "Activity Data",
+   "id": "Activity Data_458def4c",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 136,
+   "end": 138,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_65ae2e46",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 139,
+   "end": 145,
+   "label": "Actor",
+   "id": "Actor_bffdf9ae",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 146,
+   "end": 155,
+   "label": "Activity",
+   "id": "Activity_674051b5",
+   "type": "task",
+   "name": "Confirmes the application of the MSPN"
+  },
+  {
+   "start": 156,
+   "end": 183,
+   "label": "Activity Data",
+   "id": "Activity Data_ec99dd2f",
+   "type": null,
+   "name": "The application of the MSPN"
+  },
+  {
+   "start": 186,
+   "end": 192,
+   "label": "Actor",
+   "id": "Actor_a14fe929",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 193,
+   "end": 200,
+   "label": "Activity",
+   "id": "Activity_bf82a09c",
+   "type": "task",
+   "name": "Assigns the MSPN"
+  },
+  {
+   "start": 201,
+   "end": 209,
+   "label": "Activity Data",
+   "id": "Activity Data_1765f433",
+   "type": null,
+   "name": "The MSPN"
+  },
+  {
+   "start": 212,
+   "end": 218,
+   "label": "Actor",
+   "id": "Actor_1d3291ac",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 219,
+   "end": 226,
+   "label": "Activity",
+   "id": "Activity_facb8397",
+   "type": "task",
+   "name": "Informs about the assignment of MSPN"
+  },
+  {
+   "start": 227,
+   "end": 235,
+   "label": "Actor",
+   "id": "Actor_006dc6a5",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 236,
+   "end": 264,
+   "label": "Activity Data",
+   "id": "Activity Data_ced6d4a7",
+   "type": null,
+   "name": "About the assignment of MSPN"
+  },
+  {
+   "start": 267,
+   "end": 273,
+   "label": "Actor",
+   "id": "Actor_be4fd502",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 274,
+   "end": 281,
+   "label": "Activity",
+   "id": "Activity_a12b7132",
+   "type": "task",
+   "name": "Informs about the assignment of the MSPN"
+  },
+  {
+   "start": 282,
+   "end": 289,
+   "label": "Actor",
+   "id": "Actor_751c2dd8",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 290,
+   "end": 322,
+   "label": "Activity Data",
+   "id": "Activity Data_ef4f4812",
+   "type": null,
+   "name": "About the assignment of the MSPN"
+  },
+  {
+   "start": 325,
+   "end": 331,
+   "label": "Actor",
+   "id": "Actor_d4581519",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 332,
+   "end": 339,
+   "label": "Activity",
+   "id": "Activity_fe9b719d",
+   "type": "task",
+   "name": "Informs about the assignment of MSPN"
+  },
+  {
+   "start": 340,
+   "end": 346,
+   "label": "Actor",
+   "id": "Actor_b4189cf3",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 347,
+   "end": 375,
+   "label": "Activity Data",
+   "id": "Activity Data_ada9654d",
+   "type": null,
+   "name": "About the assignment of MSPN"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the application of the MSPN | Assigns the MSPN | Informs about the assignment of MSPN | Informs about the assignment of the MSPN | Informs about the assignment of MSPN",
+    "label": "yes yes yes yes yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

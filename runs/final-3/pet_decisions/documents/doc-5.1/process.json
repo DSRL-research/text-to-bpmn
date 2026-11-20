@@ -1,0 +1,347 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The assessor or approver",
+   "The customer",
+   "The risk assessment Web service"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_e5bc4c18",
+    "name": "Receiving a customer request for a loan amount",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dda7810e",
+    "name": "Assess the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_dbe8512c",
+    "name": "If the loan is small and the customer is low risk",
+    "type": "exclusiveGateway",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_869c052f",
+    "name": "Approved the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b6b0b1bd",
+    "name": "Denied the loan",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_59e782f8",
+    "name": "Sent the request",
+    "type": "task",
+    "lane": "The risk assessment Web service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b66a269e",
+    "name": "Receives feedback",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The customer"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_e5bc4c18",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_e5bc4c18",
+    "target": "Activity_dda7810e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_dda7810e",
+    "target": "XOR Gateway_dbe8512c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_dbe8512c",
+    "target": "Activity_869c052f",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_dbe8512c",
+    "target": "Activity_b6b0b1bd",
+    "name": "If the customer is high risk",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "XOR Gateway_dbe8512c",
+    "target": "Activity_59e782f8",
+    "name": "If the customer needs further review or the loan amount is for $10,000 or more",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_869c052f",
+    "target": "Activity_b66a269e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_b6b0b1bd",
+    "target": "Activity_b66a269e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_59e782f8",
+    "target": "Activity_b66a269e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_b66a269e",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 12
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 36,
+   "end": 45,
+   "label": "Activity",
+   "id": "Activity_e5bc4c18",
+   "type": "task",
+   "name": "Receiving a customer request for a loan amount"
+  },
+  {
+   "start": 46,
+   "end": 82,
+   "label": "Activity Data",
+   "id": "Activity Data_0ed31453",
+   "type": null,
+   "name": "A customer request for a loan amount"
+  },
+  {
+   "start": 85,
+   "end": 116,
+   "label": "Actor",
+   "id": "Actor_83d54118",
+   "type": "Lane",
+   "name": "The risk assessment Web service"
+  },
+  {
+   "start": 131,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_dda7810e",
+   "type": "task",
+   "name": "Assess the request"
+  },
+  {
+   "start": 138,
+   "end": 149,
+   "label": "Activity Data",
+   "id": "Activity Data_21cdcc06",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 152,
+   "end": 154,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_dbe8512c",
+   "type": "exclusiveGateway",
+   "name": "If the loan is small and the customer is low risk"
+  },
+  {
+   "start": 155,
+   "end": 201,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1c0b7b47",
+   "type": "exclusiveGateway",
+   "name": "The loan is small and the customer is low risk"
+  },
+  {
+   "start": 204,
+   "end": 212,
+   "label": "Activity Data",
+   "id": "Activity Data_4c2f1835",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 216,
+   "end": 224,
+   "label": "Activity",
+   "id": "Activity_869c052f",
+   "type": "task",
+   "name": "Approved the loan"
+  },
+  {
+   "start": 227,
+   "end": 229,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f1748522",
+   "type": "exclusiveGateway",
+   "name": "If the customer is high risk"
+  },
+  {
+   "start": 230,
+   "end": 255,
+   "label": "Condition Specification",
+   "id": "Condition Specification_536ec08a",
+   "type": "exclusiveGateway",
+   "name": "The customer is high risk"
+  },
+  {
+   "start": 258,
+   "end": 266,
+   "label": "Activity Data",
+   "id": "Activity Data_d57d0ffb",
+   "type": null,
+   "name": "The loan"
+  },
+  {
+   "start": 270,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_b6b0b1bd",
+   "type": "task",
+   "name": "Denied the loan"
+  },
+  {
+   "start": 279,
+   "end": 281,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_1c546c65",
+   "type": "exclusiveGateway",
+   "name": "If the customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 282,
+   "end": 357,
+   "label": "Condition Specification",
+   "id": "Condition Specification_b8f60662",
+   "type": "exclusiveGateway",
+   "name": "The customer needs further review or the loan amount is for $10,000 or more"
+  },
+  {
+   "start": 360,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_ca653637",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 375,
+   "end": 379,
+   "label": "Activity",
+   "id": "Activity_59e782f8",
+   "type": "task",
+   "name": "Sent the request"
+  },
+  {
+   "start": 383,
+   "end": 407,
+   "label": "Actor",
+   "id": "Actor_a3541b47",
+   "type": "Lane",
+   "name": "The approver Web service"
+  },
+  {
+   "start": 410,
+   "end": 422,
+   "label": "Actor",
+   "id": "Actor_6c30e803",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 423,
+   "end": 431,
+   "label": "Activity",
+   "id": "Activity_b66a269e",
+   "type": "task",
+   "name": "Receives feedback"
+  },
+  {
+   "start": 432,
+   "end": 440,
+   "label": "Activity Data",
+   "id": "Activity Data_c8c601cc",
+   "type": null,
+   "name": "Feedback"
+  },
+  {
+   "start": 446,
+   "end": 470,
+   "label": "Actor",
+   "id": "Actor_58e2c7ce",
+   "type": "Lane",
+   "name": "The assessor or approver"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If the loan is small and the customer is low risk",
+    "node_B": "Approved the loan | decision: If the customer is high risk | Denied the loan | decision: If the customer needs further review or the loan amount is for $10,000 or more | Sent the request | Receives feedback",
+    "label": "yes same yes same yes after",
+    "source": "llm"
+   }
+  ]
+ }
+}

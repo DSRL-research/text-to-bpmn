@@ -1,0 +1,578 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The Customer Service Representative"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_e4eb115a",
+        "name": "Sends a Mortgage offer",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d0c59af5",
+        "name": "Waits for a reply",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_f97ce2be",
+        "name": "If the customer calls or writes back declining the mortgage",
+        "type": "exclusiveGateway",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_c87a18fd",
+        "name": "Updated the case details",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": [
+          "The work"
+        ]
+      },
+      {
+        "id": "Activity_97341829",
+        "name": "Archived",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_47de879d",
+        "name": "Cancellation",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_21a52f22",
+        "name": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+        "type": "exclusiveGateway",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5613048a",
+        "name": "Moved the case",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_badd150e",
+        "name": "Generated a message",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": [
+          "Requesting"
+        ]
+      },
+      {
+        "id": "XOR Gateway_f344dff4",
+        "name": "If no answer is received after 2 weeks",
+        "type": "exclusiveGateway",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_38750db0",
+        "name": "Updated the case details",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_86e4c0b6",
+        "name": "Archive",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3ec244e9",
+        "name": "Cancellation",
+        "type": "task",
+        "lane": "The Customer Service Representative",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The Customer Service Representative"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_e4eb115a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_e4eb115a",
+        "target": "Activity_d0c59af5",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_d0c59af5",
+        "target": "XOR Gateway_f97ce2be",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "XOR Gateway_f97ce2be",
+        "target": "Activity_c87a18fd",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_c87a18fd",
+        "target": "Activity_97341829",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_97341829",
+        "target": "Activity_47de879d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_47de879d",
+        "target": "XOR Gateway_21a52f22",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "XOR Gateway_f97ce2be",
+        "target": "XOR Gateway_21a52f22",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "XOR Gateway_21a52f22",
+        "target": "Activity_5613048a",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "XOR Gateway_21a52f22",
+        "target": "Activity_badd150e",
+        "name": "If all pre-requisite documents are not provided",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_5613048a",
+        "target": "XOR Gateway_f344dff4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_badd150e",
+        "target": "XOR Gateway_f344dff4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "XOR Gateway_f344dff4",
+        "target": "Activity_38750db0",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "Activity_38750db0",
+        "target": "Activity_86e4c0b6",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_86e4c0b6",
+        "target": "Activity_3ec244e9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "Activity_3ec244e9",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "XOR Gateway_f344dff4",
+        "target": "EndEvent_1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 21
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 35,
+      "label": "Actor",
+      "id": "Actor_ba92f9c4",
+      "type": "Lane",
+      "name": "The Customer Service Representative"
+    },
+    {
+      "start": 36,
+      "end": 41,
+      "label": "Activity",
+      "id": "Activity_e4eb115a",
+      "type": "task",
+      "name": "Sends a Mortgage offer"
+    },
+    {
+      "start": 42,
+      "end": 58,
+      "label": "Activity Data",
+      "id": "Activity Data_af33f588",
+      "type": null,
+      "name": "A Mortgage offer"
+    },
+    {
+      "start": 62,
+      "end": 74,
+      "label": "Actor",
+      "id": "Actor_0a0a239c",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 79,
+      "end": 88,
+      "label": "Activity",
+      "id": "Activity_d0c59af5",
+      "type": "task",
+      "name": "Waits for a reply"
+    },
+    {
+      "start": 89,
+      "end": 96,
+      "label": "Activity Data",
+      "id": "Activity Data_cba92ce5",
+      "type": null,
+      "name": "A reply"
+    },
+    {
+      "start": 99,
+      "end": 101,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_f97ce2be",
+      "type": "exclusiveGateway",
+      "name": "If the customer calls or writes back declining the mortgage"
+    },
+    {
+      "start": 102,
+      "end": 158,
+      "label": "Condition Specification",
+      "id": "Condition Specification_23a4446a",
+      "type": "exclusiveGateway",
+      "name": "The customer calls or writes back declining the mortgage"
+    },
+    {
+      "start": 161,
+      "end": 177,
+      "label": "Activity Data",
+      "id": "Activity Data_d200aad9",
+      "type": null,
+      "name": "The case details"
+    },
+    {
+      "start": 182,
+      "end": 189,
+      "label": "Activity",
+      "id": "Activity_c87a18fd",
+      "type": "task",
+      "name": "Updated the case details"
+    },
+    {
+      "start": 194,
+      "end": 202,
+      "label": "Activity Data",
+      "id": "Activity Data_801eebce",
+      "type": null,
+      "name": "The work"
+    },
+    {
+      "start": 211,
+      "end": 219,
+      "label": "Activity",
+      "id": "Activity_97341829",
+      "type": "task",
+      "name": "Archived"
+    },
+    {
+      "start": 229,
+      "end": 241,
+      "label": "Activity",
+      "id": "Activity_47de879d",
+      "type": "task",
+      "name": "Cancellation"
+    },
+    {
+      "start": 244,
+      "end": 246,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_21a52f22",
+      "type": "exclusiveGateway",
+      "name": "If the customer sends back the completed offer documents and attaches all prerequisite documents"
+    },
+    {
+      "start": 247,
+      "end": 340,
+      "label": "Condition Specification",
+      "id": "Condition Specification_41ac64dd",
+      "type": "exclusiveGateway",
+      "name": "The customer sends back the completed offer documents and attaches all prerequisite documents"
+    },
+    {
+      "start": 346,
+      "end": 354,
+      "label": "Activity Data",
+      "id": "Activity Data_b47cbccb",
+      "type": null,
+      "name": "The case"
+    },
+    {
+      "start": 358,
+      "end": 363,
+      "label": "Activity",
+      "id": "Activity_5613048a",
+      "type": "task",
+      "name": "Moved the case"
+    },
+    {
+      "start": 367,
+      "end": 381,
+      "label": "Actor",
+      "id": "Actor_e4d56307",
+      "type": "Lane",
+      "name": "Administration"
+    },
+    {
+      "start": 399,
+      "end": 401,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_6f0ee522",
+      "type": "exclusiveGateway",
+      "name": "If all pre-requisite documents are not provided"
+    },
+    {
+      "start": 402,
+      "end": 446,
+      "label": "Condition Specification",
+      "id": "Condition Specification_fcfdb17a",
+      "type": "exclusiveGateway",
+      "name": "All pre-requisite documents are not provided"
+    },
+    {
+      "start": 447,
+      "end": 456,
+      "label": "Activity Data",
+      "id": "Activity Data_d2e72685",
+      "type": null,
+      "name": "A message"
+    },
+    {
+      "start": 460,
+      "end": 469,
+      "label": "Activity",
+      "id": "Activity_badd150e",
+      "type": "task",
+      "name": "Generated a message"
+    },
+    {
+      "start": 473,
+      "end": 485,
+      "label": "Actor",
+      "id": "Actor_032515fb",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 486,
+      "end": 496,
+      "label": "Further Specification",
+      "id": "Further Specification_184292d7",
+      "type": null,
+      "name": "Requesting"
+    },
+    {
+      "start": 497,
+      "end": 518,
+      "label": "Condition Specification",
+      "id": "Condition Specification_1c9ad8b3",
+      "type": "exclusiveGateway",
+      "name": "Outstanding documents"
+    },
+    {
+      "start": 521,
+      "end": 523,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_f344dff4",
+      "type": "exclusiveGateway",
+      "name": "If no answer is received after 2 weeks"
+    },
+    {
+      "start": 524,
+      "end": 559,
+      "label": "Condition Specification",
+      "id": "Condition Specification_96b56706",
+      "type": "exclusiveGateway",
+      "name": "No answer is received after 2 weeks"
+    },
+    {
+      "start": 562,
+      "end": 578,
+      "label": "Activity Data",
+      "id": "Activity Data_7848a3bf",
+      "type": null,
+      "name": "The case details"
+    },
+    {
+      "start": 583,
+      "end": 590,
+      "label": "Activity",
+      "id": "Activity_38750db0",
+      "type": "task",
+      "name": "Updated the case details"
+    },
+    {
+      "start": 600,
+      "end": 607,
+      "label": "Activity",
+      "id": "Activity_86e4c0b6",
+      "type": "task",
+      "name": "Archive"
+    },
+    {
+      "start": 612,
+      "end": 624,
+      "label": "Activity",
+      "id": "Activity_3ec244e9",
+      "type": "task",
+      "name": "Cancellation"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 3,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the customer calls or writes back declining the mortgage",
+        "node_B": "Updated the case details | Archived | Cancellation | decision: If the customer sends back the completed offer documents and attaches all prerequisite documents | Moved the case | decision: If all pre-requisite documents are not provided | Generated a message | decision: If no answer is received after 2 weeks | Updated the case details | Archive",
+        "label": "yes yes yes after after after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+        "node_B": "Moved the case | decision: If all pre-requisite documents are not provided | Generated a message | decision: If no answer is received after 2 weeks | Updated the case details | Archive | Cancellation",
+        "label": "yes same yes after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If no answer is received after 2 weeks",
+        "node_B": "Updated the case details | Archive | Cancellation",
+        "label": "yes yes yes",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

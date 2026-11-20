@@ -1,0 +1,2708 @@
+{
+  "provenance": {
+    "run_at": "2026-11-18T22:23:24+00:00",
+    "code": {
+      "commit": "df78db423d1e2941f2b7ad8aa10f54abc05e7d62",
+      "describe": "revision-final-3-62-gdf78db4",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "lxml": "5.2.1",
+      "pm4py": "2.7.19.2",
+      "rdflib": "7.5.0",
+      "pyshacl": null,
+      "owlready2": "0.49",
+      "dspy": "3.1.2",
+      "transformers": "4.50.0.dev0"
+    },
+    "ontology": "BPMNbasedOntologyV1_2.owl",
+    "ontology_sha256": "91509c7ebb04bcda6628b140b86237365ddc8055799612f9f92a55a875b3de39",
+    "references": {
+      "authored": "text2bpmn/cases/loan/reference_authored.bpmn",
+      "textbook": "text2bpmn/cases/loan/reference.bpmn"
+    },
+    "configurations": {
+      "BERT, LLM": "runs/final-3/cases/loan",
+      "BERT, no LLM": "runs/final-3/cases_no_llm/loan",
+      "GLiNER, LLM": "runs/gliner-3/cases_gliner/loan",
+      "GLiNER, no LLM": "runs/gliner-3/cases_gliner_no_llm/loan"
+    }
+  },
+  "references": {
+    "authored": {
+      "path": "text2bpmn/cases/loan/reference_authored.bpmn",
+      "populated": {
+        "out": "runs/checks/final-3/loan_reference/cq/references/reference_authored/ontology.owl",
+        "ontology_iri": "http://text2bpmn.local/process/dfc22535",
+        "imports": "http://BPMNbasedOntology",
+        "classes": {
+          "StartEvent": 1,
+          "Task": 7,
+          "ParallelGateway": 2,
+          "ExclusiveGateway": 2,
+          "EndEvent": 1
+        },
+        "relations": {
+          "SEQUENCE": 10,
+          "PARALLEL": 2,
+          "FALSE_BRANCH": 1,
+          "TRUE_BRANCH": 1
+        },
+        "lanes": {
+          "Financial Officer": 1,
+          "Loan Officer": 10,
+          "Property Appraiser": 1,
+          "System": 1
+        },
+        "inverse_triples_added": {
+          "has_container": 27,
+          "has_outgoing": 14,
+          "has_incoming": 14,
+          "has_previousFlowNode": 14
+        }
+      },
+      "participants": [
+        "Financial Officer",
+        "Loan Officer",
+        "Property Appraiser",
+        "System"
+      ],
+      "answers": {
+        "cq1": {
+          "rows": [
+            {
+              "participant": "Financial Officer",
+              "task": "Check credit history"
+            },
+            {
+              "participant": "Loan Officer",
+              "task": "Assess eligibility"
+            },
+            {
+              "participant": "Loan Officer",
+              "task": "Notify application status"
+            },
+            {
+              "participant": "Loan Officer",
+              "task": "Prepare acceptance pack"
+            },
+            {
+              "participant": "Loan Officer",
+              "task": "Reject application"
+            },
+            {
+              "participant": "Property Appraiser",
+              "task": "Appraise property"
+            },
+            {
+              "participant": "System",
+              "task": "Assess loan risk"
+            }
+          ],
+          "count": 7,
+          "seconds": 0.137
+        },
+        "cq2": {
+          "rows": [
+            {
+              "decision": "Applicant eligible?",
+              "gateway": "xor_split",
+              "flow_id": "Flow_9_abb1",
+              "outcome": "eligible",
+              "relation": "TRUE_BRANCH",
+              "next_task": "Prepare acceptance pack"
+            },
+            {
+              "decision": "Applicant eligible?",
+              "gateway": "xor_split",
+              "flow_id": "Flow_8_f53f",
+              "outcome": "not eligible",
+              "relation": "FALSE_BRANCH",
+              "next_task": "Reject application"
+            }
+          ],
+          "count": 2,
+          "seconds": 0.066
+        },
+        "cq3": {
+          "rows": [
+            {
+              "split": "and_split",
+              "task_a": "Appraise property",
+              "task_b": "Assess loan risk"
+            },
+            {
+              "split": "and_split",
+              "task_a": "Appraise property",
+              "task_b": "Check credit history"
+            }
+          ],
+          "count": 2,
+          "seconds": 0.642
+        },
+        "cq4": {
+          "rows": [
+            {
+              "task": "Appraise property",
+              "successor": "",
+              "successor_type": "ParallelGateway"
+            },
+            {
+              "task": "Assess eligibility",
+              "successor": "Applicant eligible?",
+              "successor_type": "ExclusiveGateway"
+            },
+            {
+              "task": "Assess loan risk",
+              "successor": "",
+              "successor_type": "ParallelGateway"
+            },
+            {
+              "task": "Check credit history",
+              "successor": "Assess loan risk",
+              "successor_type": "Task"
+            },
+            {
+              "task": "Notify application status",
+              "successor": "Applicant notified",
+              "successor_type": "EndEvent"
+            },
+            {
+              "task": "Prepare acceptance pack",
+              "successor": "",
+              "successor_type": "ExclusiveGateway"
+            },
+            {
+              "task": "Reject application",
+              "successor": "",
+              "successor_type": "ExclusiveGateway"
+            }
+          ],
+          "count": 7,
+          "seconds": 0.019
+        },
+        "cq5": {
+          "rows": [
+            {
+              "from_lane": "Financial Officer",
+              "from_task": "Check credit history",
+              "to_lane": "System",
+              "to_task": "Assess loan risk"
+            },
+            {
+              "from_lane": "Property Appraiser",
+              "from_task": "Appraise property",
+              "to_lane": "Loan Officer",
+              "to_task": "Assess eligibility"
+            },
+            {
+              "from_lane": "System",
+              "from_task": "Assess loan risk",
+              "to_lane": "Loan Officer",
+              "to_task": "Assess eligibility"
+            }
+          ],
+          "count": 3,
+          "seconds": 0.026
+        },
+        "cq6": {
+          "rows": [
+            {
+              "decision": "Applicant eligible?",
+              "task": "Reject application"
+            }
+          ],
+          "count": 1,
+          "seconds": 0.023
+        },
+        "cq7": {
+          "rows": [
+            {
+              "task": "Appraise property"
+            },
+            {
+              "task": "Assess eligibility"
+            },
+            {
+              "task": "Assess loan risk"
+            },
+            {
+              "task": "Check credit history"
+            }
+          ],
+          "count": 4,
+          "seconds": 0.021
+        },
+        "cq8": {
+          "rows": [
+            {
+              "tasks": "7",
+              "decisions": "1",
+              "parallel_blocks": "1",
+              "participants": "4"
+            }
+          ],
+          "count": 1,
+          "seconds": 0.022
+        }
+      },
+      "alternatives": [
+        {
+          "gateway": "xor_split",
+          "flow_id": "Flow_8_f53f",
+          "task": "Reject application"
+        },
+        {
+          "gateway": "xor_split",
+          "flow_id": "Flow_9_abb1",
+          "task": "Prepare acceptance pack"
+        }
+      ],
+      "keys": {
+        "cq1": [
+          "(financial officer, check credit history)",
+          "(loan officer, assess eligibility)",
+          "(loan officer, notify application status)",
+          "(loan officer, prepare acceptance pack)",
+          "(loan officer, reject application)",
+          "(property appraiser, appraise property)",
+          "(system, assess loan risk)"
+        ],
+        "cq2": [
+          "{prepare acceptance pack, reject application}"
+        ],
+        "cq3": [
+          "{appraise property, assess loan risk}",
+          "{appraise property, check credit history}"
+        ],
+        "cq4": [
+          "(appraise property, ParallelGateway)",
+          "(assess eligibility, ExclusiveGateway)",
+          "(assess loan risk, ParallelGateway)",
+          "(check credit history, Task, assess loan risk)",
+          "(notify application status, EndEvent)",
+          "(prepare acceptance pack, ExclusiveGateway)",
+          "(reject application, ExclusiveGateway)"
+        ],
+        "cq5": [
+          "(appraise property, assess eligibility)",
+          "(assess loan risk, assess eligibility)",
+          "(check credit history, assess loan risk)"
+        ],
+        "cq6": [
+          "{prepare acceptance pack, reject application}"
+        ],
+        "cq7": [
+          "appraise property",
+          "assess eligibility",
+          "assess loan risk",
+          "check credit history"
+        ],
+        "cq8": {
+          "tasks": "7",
+          "decisions": "1",
+          "parallel_blocks": "1",
+          "participants": "4"
+        }
+      }
+    },
+    "textbook": {
+      "path": "text2bpmn/cases/loan/reference.bpmn",
+      "populated": {
+        "out": "runs/checks/final-3/loan_reference/cq/references/reference/ontology.owl",
+        "ontology_iri": "http://text2bpmn.local/process/8818a69a",
+        "imports": "http://BPMNbasedOntology",
+        "classes": {
+          "StartEvent": 1,
+          "ParallelGateway": 2,
+          "Task": 7,
+          "ExclusiveGateway": 1,
+          "EndEvent": 2
+        },
+        "relations": {
+          "SEQUENCE": 9,
+          "PARALLEL": 2,
+          "FALSE_BRANCH": 1,
+          "TRUE_BRANCH": 1
+        },
+        "lanes": {},
+        "inverse_triples_added": {
+          "has_container": 26,
+          "has_outgoing": 13,
+          "has_incoming": 13,
+          "has_previousFlowNode": 13
+        }
+      },
+      "participants": [],
+      "answers": {
+        "cq1": {
+          "rows": [],
+          "count": 0,
+          "seconds": 0.006,
+          "empty_because": "the model has a task and the graph holds what the query reads, but no row satisfies the question"
+        },
+        "cq2": {
+          "rows": [
+            {
+              "decision": "",
+              "gateway": "xor_split",
+              "flow_id": "Flow_10_1b28",
+              "outcome": "applicant eligible",
+              "relation": "TRUE_BRANCH",
+              "next_task": "Prepare acceptance pack"
+            },
+            {
+              "decision": "",
+              "gateway": "xor_split",
+              "flow_id": "Flow_8_a0a0",
+              "outcome": "applicant not eligible",
+              "relation": "FALSE_BRANCH",
+              "next_task": "Reject application"
+            }
+          ],
+          "count": 2,
+          "seconds": 0.098
+        },
+        "cq3": {
+          "rows": [
+            {
+              "split": "and_split",
+              "task_a": "Appraise property",
+              "task_b": "Assess loan risk"
+            },
+            {
+              "split": "and_split",
+              "task_a": "Appraise property",
+              "task_b": "Check credit history"
+            }
+          ],
+          "count": 2,
+          "seconds": 0.565
+        },
+        "cq4": {
+          "rows": [
+            {
+              "task": "Appraise property",
+              "successor": "",
+              "successor_type": "ParallelGateway"
+            },
+            {
+              "task": "Assess eligibility",
+              "successor": "",
+              "successor_type": "ExclusiveGateway"
+            },
+            {
+              "task": "Assess loan risk",
+              "successor": "",
+              "successor_type": "ParallelGateway"
+            },
+            {
+              "task": "Check credit history",
+              "successor": "Assess loan risk",
+              "successor_type": "Task"
+            },
+            {
+              "task": "Prepare acceptance pack",
+              "successor": "Send acceptance pack",
+              "successor_type": "Task"
+            },
+            {
+              "task": "Reject application",
+              "successor": "Loan application rejected",
+              "successor_type": "EndEvent"
+            },
+            {
+              "task": "Send acceptance pack",
+              "successor": "Acceptance pack sent",
+              "successor_type": "EndEvent"
+            }
+          ],
+          "count": 7,
+          "seconds": 0.017
+        },
+        "cq5": {
+          "rows": [],
+          "count": 0,
+          "seconds": 0.012,
+          "empty_because": "no such construct in the model (no pair of tasks in different lanes)"
+        },
+        "cq6": {
+          "rows": [
+            {
+              "decision": "",
+              "task": "Reject application"
+            }
+          ],
+          "count": 1,
+          "seconds": 0.028
+        },
+        "cq7": {
+          "rows": [
+            {
+              "task": "Appraise property"
+            },
+            {
+              "task": "Assess eligibility"
+            },
+            {
+              "task": "Assess loan risk"
+            },
+            {
+              "task": "Check credit history"
+            }
+          ],
+          "count": 4,
+          "seconds": 0.019
+        },
+        "cq8": {
+          "rows": [
+            {
+              "tasks": "7",
+              "decisions": "1",
+              "parallel_blocks": "1",
+              "participants": "0"
+            }
+          ],
+          "count": 1,
+          "seconds": 0.022
+        }
+      },
+      "alternatives": [
+        {
+          "gateway": "xor_split",
+          "flow_id": "Flow_10_1b28",
+          "task": "Prepare acceptance pack"
+        },
+        {
+          "gateway": "xor_split",
+          "flow_id": "Flow_10_1b28",
+          "task": "Send acceptance pack"
+        },
+        {
+          "gateway": "xor_split",
+          "flow_id": "Flow_8_a0a0",
+          "task": "Reject application"
+        }
+      ],
+      "keys": {
+        "cq1": [],
+        "cq2": [
+          "{prepare acceptance pack, reject application}"
+        ],
+        "cq3": [
+          "{appraise property, assess loan risk}",
+          "{appraise property, check credit history}"
+        ],
+        "cq4": [
+          "(appraise property, ParallelGateway)",
+          "(assess eligibility, ExclusiveGateway)",
+          "(assess loan risk, ParallelGateway)",
+          "(check credit history, Task, assess loan risk)",
+          "(prepare acceptance pack, Task, send acceptance pack)",
+          "(reject application, EndEvent)",
+          "(send acceptance pack, EndEvent)"
+        ],
+        "cq5": [],
+        "cq6": [
+          "{prepare acceptance pack, reject application}",
+          "{reject application, send acceptance pack}"
+        ],
+        "cq7": [
+          "appraise property",
+          "assess eligibility",
+          "assess loan risk",
+          "check credit history"
+        ],
+        "cq8": {
+          "tasks": "7",
+          "decisions": "1",
+          "parallel_blocks": "1",
+          "participants": "0"
+        }
+      }
+    }
+  },
+  "configurations": {
+    "BERT, LLM": {
+      "folder": "runs/final-3/cases/loan",
+      "authored": {
+        "task_matches": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Financial officer",
+                "task": "Check history"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.006
+          },
+          "cq2": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_14e074ad",
+                "flow_id": "Flow_4_9764",
+                "outcome": "No",
+                "relation": "FALSE_BRANCH",
+                "next_task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_14e074ad",
+                "flow_id": "Flow_3_a825",
+                "outcome": "Yes",
+                "relation": "TRUE_BRANCH",
+                "next_task": "Rejected the application"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.053
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.024,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Check history",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s",
+                "successor": "If the applicant is not eligible",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Check history",
+                "successor": "Assess the applicant’s",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Sent",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.033
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Financial officer",
+                "from_task": "Check history",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s"
+              },
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Financial officer",
+                "to_task": "Check history"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.03
+          },
+          "cq6": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Sent"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.023
+          },
+          "cq7": {
+            "rows": [
+              {
+                "task": "Approved a loan application"
+              },
+              {
+                "task": "Assess the applicant’s"
+              },
+              {
+                "task": "Check history"
+              }
+            ],
+            "count": 3,
+            "seconds": 0.021
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "6",
+                "decisions": "1",
+                "parallel_blocks": "0",
+                "participants": "3"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.022
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "reference": 7,
+            "generated": 6,
+            "both": 3,
+            "precision": 0.5,
+            "recall": 0.429,
+            "reference_only": [
+              "(loan officer, assess eligibility)",
+              "(loan officer, notify application status)",
+              "(property appraiser, appraise property)",
+              "(system, assess loan risk)"
+            ],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess loan risk)",
+              "(property appraiser, notify application status)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 1,
+            "both": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 6,
+            "both": 2,
+            "precision": 0.333,
+            "recall": 0.286,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(notify application status, EndEvent)",
+              "(prepare acceptance pack, ExclusiveGateway)"
+            ],
+            "generated_only": [
+              "((unmatched) sent, ExclusiveGateway)",
+              "(assess loan risk, ExclusiveGateway)",
+              "(notify application status, Task, check credit history)",
+              "(prepare acceptance pack, Task, (unmatched) sent)"
+            ]
+          },
+          "cq5": {
+            "reference": 3,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.333,
+            "reference_only": [
+              "(appraise property, assess eligibility)",
+              "(assess loan risk, assess eligibility)"
+            ],
+            "generated_only": [
+              "(notify application status, check credit history)"
+            ]
+          },
+          "cq6": {
+            "reference": 1,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": [
+              "{(unmatched) sent, reject application}"
+            ]
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 3,
+            "both": 2,
+            "precision": 0.667,
+            "recall": 0.5,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility"
+            ],
+            "generated_only": [
+              "notify application status"
+            ]
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 6
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 1
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 4,
+                "generated": 3
+              }
+            }
+          }
+        }
+      },
+      "textbook": {
+        "task_matches": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Financial officer",
+                "task": "Check history"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.008
+          },
+          "cq2": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_14e074ad",
+                "flow_id": "Flow_4_9764",
+                "outcome": "No",
+                "relation": "FALSE_BRANCH",
+                "next_task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_14e074ad",
+                "flow_id": "Flow_3_a825",
+                "outcome": "Yes",
+                "relation": "TRUE_BRANCH",
+                "next_task": "Rejected the application"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.083
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.025,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Check history",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s",
+                "successor": "If the applicant is not eligible",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Check history",
+                "successor": "Assess the applicant’s",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Sent",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.018
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Financial officer",
+                "from_task": "Check history",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s"
+              },
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Financial officer",
+                "to_task": "Check history"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.023
+          },
+          "cq6": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Sent"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.025
+          },
+          "cq7": {
+            "rows": [
+              {
+                "task": "Approved a loan application"
+              },
+              {
+                "task": "Assess the applicant’s"
+              },
+              {
+                "task": "Check history"
+              }
+            ],
+            "count": 3,
+            "seconds": 0.021
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "6",
+                "decisions": "1",
+                "parallel_blocks": "0",
+                "participants": "3"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.024
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 6,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "(financial officer, check credit history)",
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess loan risk)",
+              "(loan officer, prepare acceptance pack)",
+              "(loan officer, reject application)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 1,
+            "both": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 6,
+            "both": 1,
+            "precision": 0.167,
+            "recall": 0.143,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(prepare acceptance pack, Task, send acceptance pack)",
+              "(reject application, EndEvent)"
+            ],
+            "generated_only": [
+              "((unmatched) approved loan application, Task, check credit history)",
+              "((unmatched) sent, ExclusiveGateway)",
+              "(assess loan risk, ExclusiveGateway)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, ExclusiveGateway)"
+            ]
+          },
+          "cq5": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 2,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "((unmatched) approved loan application, check credit history)",
+              "(check credit history, assess loan risk)"
+            ]
+          },
+          "cq6": {
+            "reference": 2,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "reference_only": [
+              "{reject application, send acceptance pack}"
+            ],
+            "generated_only": [
+              "{(unmatched) sent, reject application}"
+            ]
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 3,
+            "both": 2,
+            "precision": 0.667,
+            "recall": 0.5,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility"
+            ],
+            "generated_only": [
+              "(unmatched) approved loan application"
+            ]
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 6
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 1
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 0,
+                "generated": 3
+              }
+            }
+          }
+        }
+      }
+    },
+    "BERT, no LLM": {
+      "folder": "runs/final-3/cases_no_llm/loan",
+      "authored": {
+        "task_matches": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Financial officer",
+                "task": "Check history"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.007
+          },
+          "cq2": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.044,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.025,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Check history",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s",
+                "successor": "Rejected the application",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Check history",
+                "successor": "Assess the applicant’s",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "Prepared the acceptance pack",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Sent",
+                "successor": "End",
+                "successor_type": "EndEvent"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.019
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Financial officer",
+                "from_task": "Check history",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s"
+              },
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Financial officer",
+                "to_task": "Check history"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.022
+          },
+          "cq6": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.022,
+            "empty_because": "no such construct in the model (no false outcome of a decision)"
+          },
+          "cq7": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.022,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "6",
+                "decisions": "0",
+                "parallel_blocks": "0",
+                "participants": "3"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.046
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "reference": 7,
+            "generated": 6,
+            "both": 3,
+            "precision": 0.5,
+            "recall": 0.429,
+            "reference_only": [
+              "(loan officer, assess eligibility)",
+              "(loan officer, notify application status)",
+              "(property appraiser, appraise property)",
+              "(system, assess loan risk)"
+            ],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess loan risk)",
+              "(property appraiser, notify application status)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 6,
+            "both": 1,
+            "precision": 0.167,
+            "recall": 0.143,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(notify application status, EndEvent)",
+              "(prepare acceptance pack, ExclusiveGateway)"
+            ],
+            "generated_only": [
+              "((unmatched) sent, EndEvent)",
+              "(assess loan risk, Task, reject application)",
+              "(notify application status, Task, check credit history)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, Task, prepare acceptance pack)"
+            ]
+          },
+          "cq5": {
+            "reference": 3,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.333,
+            "reference_only": [
+              "(appraise property, assess eligibility)",
+              "(assess loan risk, assess eligibility)"
+            ],
+            "generated_only": [
+              "(notify application status, check credit history)"
+            ]
+          },
+          "cq6": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": []
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 6
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 0
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 4,
+                "generated": 3
+              }
+            }
+          }
+        }
+      },
+      "textbook": {
+        "task_matches": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Financial officer",
+                "task": "Check history"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.007
+          },
+          "cq2": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.076,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.024,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Check history",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s",
+                "successor": "Rejected the application",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Check history",
+                "successor": "Assess the applicant’s",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "Prepared the acceptance pack",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Sent",
+                "successor": "End",
+                "successor_type": "EndEvent"
+              }
+            ],
+            "count": 6,
+            "seconds": 0.018
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Financial officer",
+                "from_task": "Check history",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s"
+              },
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Financial officer",
+                "to_task": "Check history"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.021
+          },
+          "cq6": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.02,
+            "empty_because": "no such construct in the model (no false outcome of a decision)"
+          },
+          "cq7": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.02,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "6",
+                "decisions": "0",
+                "parallel_blocks": "0",
+                "participants": "3"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.022
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 6,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "(financial officer, check credit history)",
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess loan risk)",
+              "(loan officer, prepare acceptance pack)",
+              "(loan officer, reject application)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 6,
+            "both": 1,
+            "precision": 0.167,
+            "recall": 0.143,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(prepare acceptance pack, Task, send acceptance pack)",
+              "(reject application, EndEvent)"
+            ],
+            "generated_only": [
+              "((unmatched) approved loan application, Task, check credit history)",
+              "((unmatched) sent, EndEvent)",
+              "(assess loan risk, Task, reject application)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, Task, prepare acceptance pack)"
+            ]
+          },
+          "cq5": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 2,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "((unmatched) approved loan application, check credit history)",
+              "(check credit history, assess loan risk)"
+            ]
+          },
+          "cq6": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}",
+              "{reject application, send acceptance pack}"
+            ],
+            "generated_only": []
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": []
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 6
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 0
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 0,
+                "generated": 3
+              }
+            }
+          }
+        }
+      }
+    },
+    "GLiNER, LLM": {
+      "folder": "runs/gliner-3/cases_gliner/loan",
+      "authored": {
+        "task_matches": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s eligibility"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.007
+          },
+          "cq2": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_228c21f8",
+                "flow_id": "Flow_3_71ad",
+                "outcome": "No",
+                "relation": "FALSE_BRANCH",
+                "next_task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_228c21f8",
+                "flow_id": "Flow_2_6f07",
+                "outcome": "Yes",
+                "relation": "TRUE_BRANCH",
+                "next_task": "Rejected the application"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.047
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.024,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Assess the applicant’s eligibility",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s eligibility",
+                "successor": "If the applicant is not eligible",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Sent",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.018
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.018
+          },
+          "cq6": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Sent"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.022
+          },
+          "cq7": {
+            "rows": [
+              {
+                "task": "Approved a loan application"
+              },
+              {
+                "task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.02
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "5",
+                "decisions": "1",
+                "parallel_blocks": "0",
+                "participants": "2"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.021
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "reference": 7,
+            "generated": 5,
+            "both": 3,
+            "precision": 0.6,
+            "recall": 0.429,
+            "reference_only": [
+              "(financial officer, check credit history)",
+              "(loan officer, notify application status)",
+              "(property appraiser, appraise property)",
+              "(system, assess loan risk)"
+            ],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(property appraiser, notify application status)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 1,
+            "both": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 5,
+            "both": 2,
+            "precision": 0.4,
+            "recall": 0.286,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(check credit history, Task, assess loan risk)",
+              "(notify application status, EndEvent)",
+              "(prepare acceptance pack, ExclusiveGateway)"
+            ],
+            "generated_only": [
+              "((unmatched) sent, ExclusiveGateway)",
+              "(notify application status, Task, assess eligibility)",
+              "(prepare acceptance pack, Task, (unmatched) sent)"
+            ]
+          },
+          "cq5": {
+            "reference": 3,
+            "generated": 1,
+            "both": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "reference_only": [
+              "(appraise property, assess eligibility)",
+              "(assess loan risk, assess eligibility)",
+              "(check credit history, assess loan risk)"
+            ],
+            "generated_only": [
+              "(notify application status, assess eligibility)"
+            ]
+          },
+          "cq6": {
+            "reference": 1,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": [
+              "{(unmatched) sent, reject application}"
+            ]
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.25,
+            "reference_only": [
+              "appraise property",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": [
+              "notify application status"
+            ]
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 5
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 1
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 4,
+                "generated": 2
+              }
+            }
+          }
+        }
+      },
+      "textbook": {
+        "task_matches": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s eligibility"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.042
+          },
+          "cq2": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_228c21f8",
+                "flow_id": "Flow_3_71ad",
+                "outcome": "No",
+                "relation": "FALSE_BRANCH",
+                "next_task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "gateway": "XOR_Gateway_228c21f8",
+                "flow_id": "Flow_2_6f07",
+                "outcome": "Yes",
+                "relation": "TRUE_BRANCH",
+                "next_task": "Rejected the application"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.047
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.024,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Assess the applicant’s eligibility",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s eligibility",
+                "successor": "If the applicant is not eligible",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              },
+              {
+                "task": "Sent",
+                "successor": "",
+                "successor_type": "ExclusiveGateway"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.018
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.016
+          },
+          "cq6": {
+            "rows": [
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "decision": "If the applicant is not eligible",
+                "task": "Sent"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.022
+          },
+          "cq7": {
+            "rows": [
+              {
+                "task": "Approved a loan application"
+              },
+              {
+                "task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 2,
+            "seconds": 0.018
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "5",
+                "decisions": "1",
+                "parallel_blocks": "0",
+                "participants": "2"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.02
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 5,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess eligibility)",
+              "(loan officer, prepare acceptance pack)",
+              "(loan officer, reject application)",
+              "(property appraiser, (unmatched) approved loan application)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 1,
+            "both": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "reference_only": [],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 5,
+            "both": 1,
+            "precision": 0.2,
+            "recall": 0.143,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(check credit history, Task, assess loan risk)",
+              "(prepare acceptance pack, Task, send acceptance pack)",
+              "(reject application, EndEvent)"
+            ],
+            "generated_only": [
+              "((unmatched) approved loan application, Task, assess eligibility)",
+              "((unmatched) sent, ExclusiveGateway)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, ExclusiveGateway)"
+            ]
+          },
+          "cq5": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 1,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "((unmatched) approved loan application, assess eligibility)"
+            ]
+          },
+          "cq6": {
+            "reference": 2,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "reference_only": [
+              "{reject application, send acceptance pack}"
+            ],
+            "generated_only": [
+              "{(unmatched) sent, reject application}"
+            ]
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 2,
+            "both": 1,
+            "precision": 0.5,
+            "recall": 0.25,
+            "reference_only": [
+              "appraise property",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": [
+              "(unmatched) approved loan application"
+            ]
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 5
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 1
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 0,
+                "generated": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "GLiNER, no LLM": {
+      "folder": "runs/gliner-3/cases_gliner_no_llm/loan",
+      "authored": {
+        "task_matches": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s eligibility"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.006
+          },
+          "cq2": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.035,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.023,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Assess the applicant’s eligibility",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s eligibility",
+                "successor": "Rejected the application",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "Prepared the acceptance pack",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Sent",
+                "successor": "End",
+                "successor_type": "EndEvent"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.016
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.016
+          },
+          "cq6": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.017,
+            "empty_because": "no such construct in the model (no false outcome of a decision)"
+          },
+          "cq7": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.018,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "5",
+                "decisions": "0",
+                "parallel_blocks": "0",
+                "participants": "2"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.021
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "reference": 7,
+            "generated": 5,
+            "both": 3,
+            "precision": 0.6,
+            "recall": 0.429,
+            "reference_only": [
+              "(financial officer, check credit history)",
+              "(loan officer, notify application status)",
+              "(property appraiser, appraise property)",
+              "(system, assess loan risk)"
+            ],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(property appraiser, notify application status)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 5,
+            "both": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(check credit history, Task, assess loan risk)",
+              "(notify application status, EndEvent)"
+            ],
+            "generated_only": [
+              "((unmatched) sent, EndEvent)",
+              "(assess eligibility, Task, reject application)",
+              "(notify application status, Task, assess eligibility)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, Task, prepare acceptance pack)"
+            ]
+          },
+          "cq5": {
+            "reference": 3,
+            "generated": 1,
+            "both": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "reference_only": [
+              "(appraise property, assess eligibility)",
+              "(assess loan risk, assess eligibility)",
+              "(check credit history, assess loan risk)"
+            ],
+            "generated_only": [
+              "(notify application status, assess eligibility)"
+            ]
+          },
+          "cq6": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": []
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 5
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 0
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 4,
+                "generated": 2
+              }
+            }
+          }
+        }
+      },
+      "textbook": {
+        "task_matches": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ]
+        ],
+        "answers": {
+          "cq1": {
+            "rows": [
+              {
+                "participant": "Loan officer",
+                "task": "Assess the applicant’s eligibility"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Prepared the acceptance pack"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Rejected the application"
+              },
+              {
+                "participant": "Loan officer",
+                "task": "Sent"
+              },
+              {
+                "participant": "Property appraiser",
+                "task": "Approved a loan application"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.007
+          },
+          "cq2": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.039,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq3": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.023,
+            "empty_because": "no such construct in the model (no parallel split)"
+          },
+          "cq4": {
+            "rows": [
+              {
+                "task": "Approved a loan application",
+                "successor": "Assess the applicant’s eligibility",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Assess the applicant’s eligibility",
+                "successor": "Rejected the application",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Prepared the acceptance pack",
+                "successor": "Sent",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Rejected the application",
+                "successor": "Prepared the acceptance pack",
+                "successor_type": "Task"
+              },
+              {
+                "task": "Sent",
+                "successor": "End",
+                "successor_type": "EndEvent"
+              }
+            ],
+            "count": 5,
+            "seconds": 0.02
+          },
+          "cq5": {
+            "rows": [
+              {
+                "from_lane": "Property appraiser",
+                "from_task": "Approved a loan application",
+                "to_lane": "Loan officer",
+                "to_task": "Assess the applicant’s eligibility"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.032
+          },
+          "cq6": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.033,
+            "empty_because": "no such construct in the model (no false outcome of a decision)"
+          },
+          "cq7": {
+            "rows": [],
+            "count": 0,
+            "seconds": 0.024,
+            "empty_because": "no such construct in the model (no decision (exclusive split))"
+          },
+          "cq8": {
+            "rows": [
+              {
+                "tasks": "5",
+                "decisions": "0",
+                "parallel_blocks": "0",
+                "participants": "2"
+              }
+            ],
+            "count": 1,
+            "seconds": 0.023
+          }
+        },
+        "comparison": {
+          "cq1": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 5,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "(loan officer, (unmatched) sent)",
+              "(loan officer, assess eligibility)",
+              "(loan officer, prepare acceptance pack)",
+              "(loan officer, reject application)",
+              "(property appraiser, (unmatched) approved loan application)"
+            ]
+          },
+          "cq2": {
+            "reference": 1,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}"
+            ],
+            "generated_only": []
+          },
+          "cq3": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{appraise property, assess loan risk}",
+              "{appraise property, check credit history}"
+            ],
+            "generated_only": []
+          },
+          "cq4": {
+            "reference": 7,
+            "generated": 5,
+            "both": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "reference_only": [
+              "(appraise property, ParallelGateway)",
+              "(assess eligibility, ExclusiveGateway)",
+              "(assess loan risk, ParallelGateway)",
+              "(check credit history, Task, assess loan risk)",
+              "(prepare acceptance pack, Task, send acceptance pack)"
+            ],
+            "generated_only": [
+              "((unmatched) approved loan application, Task, assess eligibility)",
+              "((unmatched) sent, EndEvent)",
+              "(assess eligibility, Task, reject application)",
+              "(prepare acceptance pack, Task, (unmatched) sent)",
+              "(reject application, Task, prepare acceptance pack)"
+            ]
+          },
+          "cq5": {
+            "not_applicable": "no participants in the reference",
+            "reference": 0,
+            "generated": 1,
+            "both": 0,
+            "precision": null,
+            "recall": null,
+            "reference_only": [],
+            "generated_only": [
+              "((unmatched) approved loan application, assess eligibility)"
+            ]
+          },
+          "cq6": {
+            "reference": 2,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "{prepare acceptance pack, reject application}",
+              "{reject application, send acceptance pack}"
+            ],
+            "generated_only": []
+          },
+          "cq7": {
+            "reference": 4,
+            "generated": 0,
+            "both": 0,
+            "precision": null,
+            "recall": 0.0,
+            "reference_only": [
+              "appraise property",
+              "assess eligibility",
+              "assess loan risk",
+              "check credit history"
+            ],
+            "generated_only": []
+          },
+          "cq8": {
+            "counts": {
+              "tasks": {
+                "reference": 7,
+                "generated": 5
+              },
+              "decisions": {
+                "reference": 1,
+                "generated": 0
+              },
+              "parallel_blocks": {
+                "reference": 1,
+                "generated": 0
+              },
+              "participants": {
+                "reference": 0,
+                "generated": 2
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

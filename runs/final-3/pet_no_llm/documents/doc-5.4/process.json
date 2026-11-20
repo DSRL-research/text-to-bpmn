@@ -1,0 +1,956 @@
+{
+ "structured_data": {
+  "participants": [
+   "A supervisor",
+   "An employee",
+   "He",
+   "Main Process",
+   "The employee",
+   "The treasurer"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_ae035191",
+    "name": "Purchases a product or service",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2de6f7b3",
+    "name": "Submits an expense report",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e764a8bd",
+    "name": "Reviews the expense report",
+    "type": "task",
+    "lane": "A supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6ca7f712",
+    "name": "Approves or rejects the report",
+    "type": "task",
+    "lane": "A supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_9fe48a71",
+    "name": "If the supervisor rejects the report",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_353fa24a",
+    "name": "Edit it",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_6ec3ce96",
+    "name": "If the supervisor approves the report",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8a52f046",
+    "name": "Goes it",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_50a6432b",
+    "name": "Checks the receipts",
+    "type": "task",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_29dc9649",
+    "name": "If all is in order",
+    "type": "exclusiveGateway",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e920585e",
+    "name": "Accepts the expenses",
+    "type": "task",
+    "lane": "The treasurer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_fbcdd5d5",
+    "name": "If receipts are missing or do not match the report",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ec875490",
+    "name": "Sends it",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0fbdcd6b",
+    "name": "Confirmed the payment",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "He"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_9a631849",
+    "source": "StartEvent_1",
+    "target": "Activity_ae035191",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_943d47f8",
+    "source": "Activity_ae035191",
+    "target": "Activity_2de6f7b3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_da2f7dd9",
+    "source": "Activity_2de6f7b3",
+    "target": "Activity_e764a8bd",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9393aa6e",
+    "source": "Activity_e764a8bd",
+    "target": "Activity_6ca7f712",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_759e56f5",
+    "source": "Activity_6ca7f712",
+    "target": "XOR Gateway_9fe48a71",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3a33694a",
+    "source": "XOR Gateway_9fe48a71",
+    "target": "Activity_353fa24a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_24474db9",
+    "source": "Activity_353fa24a",
+    "target": "XOR Gateway_6ec3ce96",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d1947acd",
+    "source": "XOR Gateway_6ec3ce96",
+    "target": "Activity_8a52f046",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_059fc223",
+    "source": "Activity_8a52f046",
+    "target": "Activity_50a6432b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fe0be399",
+    "source": "Activity_50a6432b",
+    "target": "XOR Gateway_29dc9649",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6fa0b7f2",
+    "source": "XOR Gateway_29dc9649",
+    "target": "Activity_e920585e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fb1bbfc6",
+    "source": "Activity_e920585e",
+    "target": "XOR Gateway_fbcdd5d5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b4b41854",
+    "source": "XOR Gateway_fbcdd5d5",
+    "target": "Activity_ec875490",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5952d899",
+    "source": "Activity_ec875490",
+    "target": "Activity_0fbdcd6b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0bef4b2d",
+    "source": "Activity_0fbdcd6b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 11,
+   "label": "Actor",
+   "id": "Actor_dd4ea336",
+   "type": "Lane",
+   "name": "An employee"
+  },
+  {
+   "start": 12,
+   "end": 21,
+   "label": "Activity",
+   "id": "Activity_ae035191",
+   "type": "task",
+   "name": "Purchases a product or service"
+  },
+  {
+   "start": 22,
+   "end": 42,
+   "label": "Activity Data",
+   "id": "Activity Data_9b606061",
+   "type": null,
+   "name": "A product or service"
+  },
+  {
+   "start": 111,
+   "end": 123,
+   "label": "Actor",
+   "id": "Actor_45a8685c",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 124,
+   "end": 131,
+   "label": "Activity",
+   "id": "Activity_2de6f7b3",
+   "type": "task",
+   "name": "Submits an expense report"
+  },
+  {
+   "start": 132,
+   "end": 149,
+   "label": "Activity Data",
+   "id": "Activity Data_2373bb50",
+   "type": null,
+   "name": "An expense report"
+  },
+  {
+   "start": 213,
+   "end": 225,
+   "label": "Actor",
+   "id": "Actor_4e147e3b",
+   "type": "Lane",
+   "name": "A supervisor"
+  },
+  {
+   "start": 226,
+   "end": 233,
+   "label": "Activity",
+   "id": "Activity_e764a8bd",
+   "type": "task",
+   "name": "Reviews the expense report"
+  },
+  {
+   "start": 234,
+   "end": 252,
+   "label": "Activity Data",
+   "id": "Activity Data_76bb6add",
+   "type": null,
+   "name": "The expense report"
+  },
+  {
+   "start": 257,
+   "end": 276,
+   "label": "Activity",
+   "id": "Activity_6ca7f712",
+   "type": "task",
+   "name": "Approves or rejects the report"
+  },
+  {
+   "start": 277,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_dd752a02",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 505,
+   "end": 507,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9fe48a71",
+   "type": "exclusiveGateway",
+   "name": "If the supervisor rejects the report"
+  },
+  {
+   "start": 508,
+   "end": 541,
+   "label": "Condition Specification",
+   "id": "Condition Specification_ae56b908",
+   "type": "exclusiveGateway",
+   "name": "The supervisor rejects the report"
+  },
+  {
+   "start": 544,
+   "end": 556,
+   "label": "Actor",
+   "id": "Actor_dfe951c3",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 599,
+   "end": 603,
+   "label": "Activity",
+   "id": "Activity_353fa24a",
+   "type": "task",
+   "name": "Edit it"
+  },
+  {
+   "start": 604,
+   "end": 606,
+   "label": "Activity Data",
+   "id": "Activity Data_39c74714",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 671,
+   "end": 673,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_6ec3ce96",
+   "type": "exclusiveGateway",
+   "name": "If the supervisor approves the report"
+  },
+  {
+   "start": 674,
+   "end": 708,
+   "label": "Condition Specification",
+   "id": "Condition Specification_580c3faf",
+   "type": "exclusiveGateway",
+   "name": "The supervisor approves the report"
+  },
+  {
+   "start": 711,
+   "end": 713,
+   "label": "Activity Data",
+   "id": "Activity Data_3ae07245",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 714,
+   "end": 718,
+   "label": "Activity",
+   "id": "Activity_8a52f046",
+   "type": "task",
+   "name": "Goes it"
+  },
+  {
+   "start": 722,
+   "end": 735,
+   "label": "Actor",
+   "id": "Actor_4fd9aa6a",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 738,
+   "end": 751,
+   "label": "Actor",
+   "id": "Actor_58452897",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 752,
+   "end": 758,
+   "label": "Activity",
+   "id": "Activity_50a6432b",
+   "type": "task",
+   "name": "Checks the receipts"
+  },
+  {
+   "start": 768,
+   "end": 780,
+   "label": "Activity Data",
+   "id": "Activity Data_1c9a164f",
+   "type": null,
+   "name": "The receipts"
+  },
+  {
+   "start": 835,
+   "end": 837,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_29dc9649",
+   "type": "exclusiveGateway",
+   "name": "If all is in order"
+  },
+  {
+   "start": 838,
+   "end": 853,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a7430414",
+   "type": "exclusiveGateway",
+   "name": "All is in order"
+  },
+  {
+   "start": 856,
+   "end": 869,
+   "label": "Actor",
+   "id": "Actor_360bb290",
+   "type": "Lane",
+   "name": "The treasurer"
+  },
+  {
+   "start": 870,
+   "end": 877,
+   "label": "Activity",
+   "id": "Activity_e920585e",
+   "type": "task",
+   "name": "Accepts the expenses"
+  },
+  {
+   "start": 878,
+   "end": 890,
+   "label": "Activity Data",
+   "id": "Activity Data_0aa1b650",
+   "type": null,
+   "name": "The expenses"
+  },
+  {
+   "start": 967,
+   "end": 969,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_fbcdd5d5",
+   "type": "exclusiveGateway",
+   "name": "If receipts are missing or do not match the report"
+  },
+  {
+   "start": 970,
+   "end": 1017,
+   "label": "Condition Specification",
+   "id": "Condition Specification_2d26c89a",
+   "type": "exclusiveGateway",
+   "name": "Receipts are missing or do not match the report"
+  },
+  {
+   "start": 1020,
+   "end": 1022,
+   "label": "Actor",
+   "id": "Actor_c98e5b49",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 1023,
+   "end": 1028,
+   "label": "Activity",
+   "id": "Activity_ec875490",
+   "type": "task",
+   "name": "Sends it"
+  },
+  {
+   "start": 1029,
+   "end": 1031,
+   "label": "Activity Data",
+   "id": "Activity Data_088547dc",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 1040,
+   "end": 1052,
+   "label": "Actor",
+   "id": "Actor_12134591",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 1385,
+   "end": 1396,
+   "label": "Activity Data",
+   "id": "Activity Data_02541eb5",
+   "type": null,
+   "name": "The payment"
+  },
+  {
+   "start": 1400,
+   "end": 1409,
+   "label": "Activity",
+   "id": "Activity_0fbdcd6b",
+   "type": "task",
+   "name": "Confirmed the payment"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 36,
+  "skipped": 0,
+  "failures": 36,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Submits an expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Reviews the expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Approves or rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "Reviews the expense report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "Approves or rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "If the supervisor rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "Approves or rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "If the supervisor rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "Edit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "If the supervisor rejects the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "Edit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "If the supervisor approves the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "Edit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "If the supervisor approves the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "Goes it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "If the supervisor approves the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "Goes it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "Checks the receipts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "Goes it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "Checks the receipts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "If all is in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "Checks the receipts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "If all is in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "Accepts the expenses",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "If all is in order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "Accepts the expenses",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "If receipts are missing or do not match the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "Accepts the expenses",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "If receipts are missing or do not match the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "If receipts are missing or do not match the report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "Confirmed the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If receipts are missing or do not match the report",
+    "node_B": "Sends it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If receipts are missing or do not match the report",
+    "node_B": "Confirmed the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Confirmed the payment",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Submits an expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Reviews the expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Purchases a product or service",
+    "node_B": "Approves or rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "Reviews the expense report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "Approves or rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an expense report",
+    "node_B": "If the supervisor rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "Approves or rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "If the supervisor rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the expense report",
+    "node_B": "Edit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "If the supervisor rejects the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "Edit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approves or rejects the report",
+    "node_B": "If the supervisor approves the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "Edit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "If the supervisor approves the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor rejects the report",
+    "node_B": "Goes it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "If the supervisor approves the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "Goes it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Edit it",
+    "node_B": "Checks the receipts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "Goes it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "Checks the receipts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the supervisor approves the report",
+    "node_B": "If all is in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "Checks the receipts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "If all is in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Goes it",
+    "node_B": "Accepts the expenses",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "If all is in order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "Accepts the expenses",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the receipts",
+    "node_B": "If receipts are missing or do not match the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "Accepts the expenses",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "If receipts are missing or do not match the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If all is in order",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "If receipts are missing or do not match the report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accepts the expenses",
+    "node_B": "Confirmed the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If receipts are missing or do not match the report",
+    "node_B": "Sends it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If receipts are missing or do not match the report",
+    "node_B": "Confirmed the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends it",
+    "node_B": "Confirmed the payment",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

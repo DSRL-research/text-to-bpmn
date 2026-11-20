@@ -1,0 +1,408 @@
+{
+ "structured_data": {
+  "participants": [
+   "I",
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_8ef91423",
+    "name": "Detected a number of personnel requirements",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a329f548",
+    "name": "Report the vacancy",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9716f879",
+    "name": "Get the job description for review",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2be98d5f",
+    "name": "Advertized it",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_90d93823",
+    "name": "Under certain circumstances",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e0f84408",
+    "name": "Ask corrections",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b4402c8b",
+    "name": "Approve the job description",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "I"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_97326dc9",
+    "source": "StartEvent_1",
+    "target": "Activity_8ef91423",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_14434e44",
+    "source": "Activity_8ef91423",
+    "target": "Activity_a329f548",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_788108ed",
+    "source": "Activity_a329f548",
+    "target": "Activity_9716f879",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_53868b03",
+    "source": "Activity_9716f879",
+    "target": "Activity_2be98d5f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c4ee285f",
+    "source": "Activity_2be98d5f",
+    "target": "XOR Gateway_90d93823",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_19c02d31",
+    "source": "XOR Gateway_90d93823",
+    "target": "Activity_e0f84408",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_ba8ca9e8",
+    "source": "XOR Gateway_90d93823",
+    "target": "Activity_b4402c8b",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_e15a3c45",
+    "source": "Activity_e0f84408",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f94fa5c6",
+    "source": "Activity_b4402c8b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 50,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_26259ab3",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 57,
+   "end": 65,
+   "label": "Activity",
+   "id": "Activity_8ef91423",
+   "type": "task",
+   "name": "Detected a number of personnel requirements"
+  },
+  {
+   "start": 66,
+   "end": 100,
+   "label": "Activity Data",
+   "id": "Activity Data_00dce4c9",
+   "type": null,
+   "name": "A number of personnel requirements"
+  },
+  {
+   "start": 103,
+   "end": 104,
+   "label": "Actor",
+   "id": "Actor_539ea253",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 105,
+   "end": 111,
+   "label": "Activity",
+   "id": "Activity_a329f548",
+   "type": "task",
+   "name": "Report the vacancy"
+  },
+  {
+   "start": 112,
+   "end": 123,
+   "label": "Activity Data",
+   "id": "Activity Data_cfa6d788",
+   "type": null,
+   "name": "The vacancy"
+  },
+  {
+   "start": 127,
+   "end": 151,
+   "label": "Actor",
+   "id": "Actor_39e2a7b3",
+   "type": "Lane",
+   "name": "The Personnel Department"
+  },
+  {
+   "start": 159,
+   "end": 160,
+   "label": "Actor",
+   "id": "Actor_e60240c1",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 169,
+   "end": 172,
+   "label": "Activity",
+   "id": "Activity_9716f879",
+   "type": "task",
+   "name": "Get the job description for review"
+  },
+  {
+   "start": 173,
+   "end": 203,
+   "label": "Activity Data",
+   "id": "Activity Data_ddf84ac6",
+   "type": null,
+   "name": "The job description for review"
+  },
+  {
+   "start": 211,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_6a18dd8b",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 217,
+   "end": 227,
+   "label": "Activity",
+   "id": "Activity_2be98d5f",
+   "type": "task",
+   "name": "Advertized it"
+  },
+  {
+   "start": 230,
+   "end": 257,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_90d93823",
+   "type": "exclusiveGateway",
+   "name": "Under certain circumstances"
+  },
+  {
+   "start": 260,
+   "end": 261,
+   "label": "Actor",
+   "id": "Actor_aed41d0d",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 267,
+   "end": 270,
+   "label": "Activity",
+   "id": "Activity_e0f84408",
+   "type": "task",
+   "name": "Ask corrections"
+  },
+  {
+   "start": 275,
+   "end": 286,
+   "label": "Activity Data",
+   "id": "Activity Data_f8d171aa",
+   "type": null,
+   "name": "Corrections"
+  },
+  {
+   "start": 295,
+   "end": 304,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_cee2b880",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 305,
+   "end": 306,
+   "label": "Actor",
+   "id": "Actor_2e3d3e8e",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 307,
+   "end": 314,
+   "label": "Activity",
+   "id": "Activity_b4402c8b",
+   "type": "task",
+   "name": "Approve the job description"
+  },
+  {
+   "start": 315,
+   "end": 334,
+   "label": "Activity Data",
+   "id": "Activity Data_26ce60fc",
+   "type": null,
+   "name": "The job description"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Report the vacancy",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Get the job description for review",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Detected a number of personnel requirements",
+    "node_B": "Advertized it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Get the job description for review",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Advertized it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Report the vacancy",
+    "node_B": "Under certain circumstances",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Advertized it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Under certain circumstances",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Get the job description for review",
+    "node_B": "Ask corrections",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Under certain circumstances",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Ask corrections",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Advertized it",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Ask corrections",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Under certain circumstances",
+    "node_B": "Approve the job description",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Ask corrections",
+    "node_B": "Approve the job description",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Approve the job description",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

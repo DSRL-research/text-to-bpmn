@@ -1,0 +1,481 @@
+{
+ "structured_data": {
+  "participants": [
+   "A company",
+   "Main Process",
+   "They",
+   "Underwriters"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_caf15b9e",
+    "name": "Makes the decision to go public",
+    "type": "task",
+    "lane": "A company",
+    "metadata": [
+     "The underwriters"
+    ]
+   },
+   {
+    "id": "Activity_31271235",
+    "name": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f6fab367",
+    "name": "Check",
+    "type": "task",
+    "lane": "They",
+    "metadata": [
+     "That the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state"
+    ]
+   },
+   {
+    "id": "AND Gateway_a7209a89",
+    "name": "While",
+    "type": "parallelGateway",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_244ecd19",
+    "name": "Awaiting approval",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4baf0f24",
+    "name": "Firm up the issue price",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dcabd0ad",
+    "name": "Arrange a road show",
+    "type": "task",
+    "lane": "They",
+    "metadata": [
+     "To talk to potential investors"
+    ]
+   },
+   {
+    "id": "Activity_4a73deec",
+    "name": "Receive clearance",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ba269a05",
+    "name": "Fix the issue price",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_024a2f49",
+    "name": "Enter into a firm commitment to buy the stock",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0ea22dcb",
+    "name": "Offer it",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "They"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_caf15b9e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_caf15b9e",
+    "target": "Activity_31271235",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_31271235",
+    "target": "Activity_f6fab367",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_f6fab367",
+    "target": "AND Gateway_a7209a89",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "AND Gateway_a7209a89",
+    "target": "Activity_244ecd19",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "AND Gateway_a7209a89",
+    "target": "Activity_4baf0f24",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_4baf0f24",
+    "target": "Activity_dcabd0ad",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_244ecd19",
+    "target": "Activity_4a73deec",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_dcabd0ad",
+    "target": "Activity_4a73deec",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_4a73deec",
+    "target": "Activity_ba269a05",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_ba269a05",
+    "target": "Activity_024a2f49",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_024a2f49",
+    "target": "Activity_0ea22dcb",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_0ea22dcb",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 9,
+   "end": 18,
+   "label": "Actor",
+   "id": "Actor_6b33b41b",
+   "type": "Lane",
+   "name": "A company"
+  },
+  {
+   "start": 19,
+   "end": 24,
+   "label": "Activity",
+   "id": "Activity_caf15b9e",
+   "type": "task",
+   "name": "Makes the decision to go public"
+  },
+  {
+   "start": 25,
+   "end": 50,
+   "label": "Activity Data",
+   "id": "Activity Data_f0bb4559",
+   "type": null,
+   "name": "The decision to go public"
+  },
+  {
+   "start": 74,
+   "end": 80,
+   "label": "Activity",
+   "id": "Activity_c705a9f5",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 81,
+   "end": 97,
+   "label": "Activity Data",
+   "id": "Activity Data_0eaff72f",
+   "type": null,
+   "name": "The underwriters"
+  },
+  {
+   "start": 605,
+   "end": 609,
+   "label": "Actor",
+   "id": "Actor_bdbe4ef0",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 610,
+   "end": 617,
+   "label": "Activity",
+   "id": "Activity_31271235",
+   "type": "task",
+   "name": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )"
+  },
+  {
+   "start": 618,
+   "end": 709,
+   "label": "Activity Data",
+   "id": "Activity Data_3b3a9434",
+   "type": null,
+   "name": "A registration statement for the approval of the Securities and Exchange Commission ( SEC )"
+  },
+  {
+   "start": 764,
+   "end": 768,
+   "label": "Actor",
+   "id": "Actor_88121f47",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 777,
+   "end": 782,
+   "label": "Activity",
+   "id": "Activity_f6fab367",
+   "type": "task",
+   "name": "Check"
+  },
+  {
+   "start": 783,
+   "end": 904,
+   "label": "Further Specification",
+   "id": "Further Specification_972db1b4",
+   "type": null,
+   "name": "That the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state"
+  },
+  {
+   "start": 907,
+   "end": 912,
+   "label": "AND Gateway",
+   "id": "AND Gateway_a7209a89",
+   "type": "parallelGateway",
+   "name": "While"
+  },
+  {
+   "start": 943,
+   "end": 951,
+   "label": "Activity",
+   "id": "Activity_244ecd19",
+   "type": "task",
+   "name": "Awaiting approval"
+  },
+  {
+   "start": 952,
+   "end": 960,
+   "label": "Activity Data",
+   "id": "Activity Data_10679b9e",
+   "type": null,
+   "name": "Approval"
+  },
+  {
+   "start": 963,
+   "end": 975,
+   "label": "Actor",
+   "id": "Actor_beaf2241",
+   "type": "Lane",
+   "name": "Underwriters"
+  },
+  {
+   "start": 985,
+   "end": 992,
+   "label": "Activity",
+   "id": "Activity_4baf0f24",
+   "type": "task",
+   "name": "Firm up the issue price"
+  },
+  {
+   "start": 993,
+   "end": 1008,
+   "label": "Activity Data",
+   "id": "Activity Data_58900415",
+   "type": null,
+   "name": "The issue price"
+  },
+  {
+   "start": 1011,
+   "end": 1015,
+   "label": "Actor",
+   "id": "Actor_d71ead86",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1016,
+   "end": 1023,
+   "label": "Activity",
+   "id": "Activity_dcabd0ad",
+   "type": "task",
+   "name": "Arrange a road show"
+  },
+  {
+   "start": 1024,
+   "end": 1035,
+   "label": "Activity Data",
+   "id": "Activity Data_0e8a78cd",
+   "type": null,
+   "name": "A road show"
+  },
+  {
+   "start": 1036,
+   "end": 1066,
+   "label": "Further Specification",
+   "id": "Further Specification_6e1ad2d1",
+   "type": null,
+   "name": "To talk to potential investors"
+  },
+  {
+   "start": 1087,
+   "end": 1091,
+   "label": "Actor",
+   "id": "Actor_a38d20bb",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1092,
+   "end": 1099,
+   "label": "Activity",
+   "id": "Activity_4a73deec",
+   "type": "task",
+   "name": "Receive clearance"
+  },
+  {
+   "start": 1100,
+   "end": 1109,
+   "label": "Activity Data",
+   "id": "Activity Data_370bb55d",
+   "type": null,
+   "name": "Clearance"
+  },
+  {
+   "start": 1125,
+   "end": 1137,
+   "label": "Actor",
+   "id": "Actor_e61989c7",
+   "type": "Lane",
+   "name": "Underwriters"
+  },
+  {
+   "start": 1138,
+   "end": 1141,
+   "label": "Activity",
+   "id": "Activity_ba269a05",
+   "type": "task",
+   "name": "Fix the issue price"
+  },
+  {
+   "start": 1142,
+   "end": 1157,
+   "label": "Activity Data",
+   "id": "Activity Data_306f0adc",
+   "type": null,
+   "name": "The issue price"
+  },
+  {
+   "start": 1171,
+   "end": 1175,
+   "label": "Actor",
+   "id": "Actor_a4cc776c",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1176,
+   "end": 1181,
+   "label": "Activity",
+   "id": "Activity_024a2f49",
+   "type": "task",
+   "name": "Enter into a firm commitment to buy the stock"
+  },
+  {
+   "start": 1182,
+   "end": 1221,
+   "label": "Activity Data",
+   "id": "Activity Data_b151853a",
+   "type": null,
+   "name": "Into a firm commitment to buy the stock"
+  },
+  {
+   "start": 1231,
+   "end": 1236,
+   "label": "Activity",
+   "id": "Activity_0ea22dcb",
+   "type": "task",
+   "name": "Offer it"
+  },
+  {
+   "start": 1237,
+   "end": 1239,
+   "label": "Activity Data",
+   "id": "Activity Data_b6beb6d1",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 1243,
+   "end": 1253,
+   "label": "Actor",
+   "id": "Actor_0698481f",
+   "type": "Lane",
+   "name": "The public"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "parallel: While",
+    "node_B": "Makes the decision to go public | Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC ) | Check | Awaiting approval | Firm up the issue price | Arrange a road show | Receive clearance | Fix the issue price | Enter into a firm commitment to buy the stock",
+    "label": "before before before a b b after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

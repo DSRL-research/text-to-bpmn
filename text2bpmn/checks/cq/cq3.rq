@@ -1,0 +1,22 @@
+# CQ3 Which tasks can be executed in parallel?
+# Two tasks on different branches of one parallel split, before the branches meet:
+# each task is reached from its own branch and not from the other one, so a task at
+# or after the block's join (reached from both branches) is not counted, whatever the
+# join's type. Neither task is reachable from the other.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?split ?task_a ?task_b WHERE {
+  ?p a b:ParallelGateway .
+  ?f1 b:has_sourceRef ?p ; b:has_targetRef ?x1 .
+  ?f2 b:has_sourceRef ?p ; b:has_targetRef ?x2 .
+  FILTER(?x1 != ?x2)
+  ?x1 b:has_nextFlowNode* ?a . ?a a b:Task ; rdfs:label ?task_a .
+  ?x2 b:has_nextFlowNode* ?c . ?c a b:Task ; rdfs:label ?task_b .
+  FILTER(STR(?a) < STR(?c))
+  FILTER NOT EXISTS { ?x2 b:has_nextFlowNode* ?a }
+  FILTER NOT EXISTS { ?x1 b:has_nextFlowNode* ?c }
+  FILTER NOT EXISTS { ?a b:has_nextFlowNode+ ?c }
+  FILTER NOT EXISTS { ?c b:has_nextFlowNode+ ?a }
+  BIND(STRAFTER(STR(?p), "#") AS ?split)
+} ORDER BY ?split ?task_a ?task_b

@@ -1,0 +1,238 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_984f12d3",
+    "name": "Sents the dismissal",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_14243013",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6b1e6c28",
+    "name": "Opposes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_3948c455",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cbbb95c3",
+    "name": "Confirmes the dismissal",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPOO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_984f12d3",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_984f12d3",
+    "target": "Activity_14243013",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_14243013",
+    "target": "Activity_6b1e6c28",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_6b1e6c28",
+    "target": "XOR Gateway_3948c455",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_3948c455",
+    "target": "Activity_cbbb95c3",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_cbbb95c3",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_3948c455",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_d8bd2d8a",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_984f12d3",
+   "type": "task",
+   "name": "Sents the dismissal"
+  },
+  {
+   "start": 15,
+   "end": 28,
+   "label": "Activity Data",
+   "id": "Activity Data_44e4ef5a",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 32,
+   "end": 40,
+   "label": "Actor",
+   "id": "Actor_3ed97a68",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 43,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_c52e90e9",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 52,
+   "end": 59,
+   "label": "Activity",
+   "id": "Activity_14243013",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 60,
+   "end": 73,
+   "label": "Activity Data",
+   "id": "Activity Data_528f3989",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 76,
+   "end": 84,
+   "label": "Actor",
+   "id": "Actor_666a3cdb",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 85,
+   "end": 92,
+   "label": "Activity",
+   "id": "Activity_6b1e6c28",
+   "type": "task",
+   "name": "Opposes the dismissal"
+  },
+  {
+   "start": 93,
+   "end": 106,
+   "label": "Activity Data",
+   "id": "Activity Data_8e39930f",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 115,
+   "end": 117,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_3948c455",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 118,
+   "end": 126,
+   "label": "Actor",
+   "id": "Actor_234cd8b5",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 127,
+   "end": 136,
+   "label": "Activity",
+   "id": "Activity_cbbb95c3",
+   "type": "task",
+   "name": "Confirmes the dismissal"
+  },
+  {
+   "start": 137,
+   "end": 150,
+   "label": "Activity Data",
+   "id": "Activity Data_2bbdd66c",
+   "type": null,
+   "name": "The dismissal"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Confirmes the dismissal",
+    "label": "yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

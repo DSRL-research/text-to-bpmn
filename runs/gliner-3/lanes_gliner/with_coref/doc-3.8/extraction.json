@@ -1,0 +1,507 @@
+{
+  "structured_data": {
+    "participants": [
+      "A customer",
+      "A garage",
+      "Main Process",
+      "The Handling department",
+      "The Notification department"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_b9dc1e92",
+        "name": "Submits a claim",
+        "type": "task",
+        "lane": "A customer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2e4c683b",
+        "name": "Checks the documents",
+        "type": "task",
+        "lane": "The Notification department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_9bb536ba",
+        "name": "Registers the claim",
+        "type": "task",
+        "lane": "The Notification department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_b88e2ba4",
+        "name": "Picks up the claim",
+        "type": "task",
+        "lane": "The Handling department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ff4f1693",
+        "name": "Checks the insurance",
+        "type": "task",
+        "lane": "The Handling department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a4bc8d2d",
+        "name": "Performed an assessment",
+        "type": "task",
+        "lane": "The Handling department",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_ca908c89",
+        "name": "If the assessment is positive",
+        "type": "exclusiveGateway",
+        "lane": "A garage",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3aa1dd9a",
+        "name": "Phoned the repairs",
+        "type": "task",
+        "lane": "A garage",
+        "metadata": []
+      },
+      {
+        "id": "Activity_8ae471bd",
+        "name": "Scheduled the payment",
+        "type": "task",
+        "lane": "A garage",
+        "metadata": []
+      },
+      {
+        "id": "Activity_23b077ef",
+        "name": "Rejected the claim",
+        "type": "task",
+        "lane": "A garage",
+        "metadata": []
+      },
+      {
+        "id": "Activity_376fb1a8",
+        "name": "Sent a letter",
+        "type": "task",
+        "lane": "A garage",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "A garage"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_b9dc1e92",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_b9dc1e92",
+        "target": "Activity_2e4c683b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_2e4c683b",
+        "target": "Activity_9bb536ba",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_9bb536ba",
+        "target": "Activity_b88e2ba4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_b88e2ba4",
+        "target": "Activity_ff4f1693",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_ff4f1693",
+        "target": "Activity_a4bc8d2d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_a4bc8d2d",
+        "target": "XOR Gateway_ca908c89",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "XOR Gateway_ca908c89",
+        "target": "Activity_3aa1dd9a",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_3aa1dd9a",
+        "target": "Activity_8ae471bd",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "XOR Gateway_ca908c89",
+        "target": "Activity_23b077ef",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_8ae471bd",
+        "target": "Activity_376fb1a8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_23b077ef",
+        "target": "Activity_376fb1a8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_376fb1a8",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 15
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 24,
+      "end": 34,
+      "label": "Actor",
+      "id": "Actor_cbdc4090",
+      "type": "Lane",
+      "name": "A customer"
+    },
+    {
+      "start": 35,
+      "end": 42,
+      "label": "Activity",
+      "id": "Activity_b9dc1e92",
+      "type": "task",
+      "name": "Submits a claim"
+    },
+    {
+      "start": 43,
+      "end": 50,
+      "label": "Activity Data",
+      "id": "Activity Data_65e41843",
+      "type": null,
+      "name": "A claim"
+    },
+    {
+      "start": 90,
+      "end": 117,
+      "label": "Actor",
+      "id": "Actor_25aba55d",
+      "type": "Lane",
+      "name": "The Notification department"
+    },
+    {
+      "start": 137,
+      "end": 143,
+      "label": "Activity",
+      "id": "Activity_2e4c683b",
+      "type": "task",
+      "name": "Checks the documents"
+    },
+    {
+      "start": 144,
+      "end": 157,
+      "label": "Activity Data",
+      "id": "Activity Data_e2f40360",
+      "type": null,
+      "name": "The documents"
+    },
+    {
+      "start": 180,
+      "end": 189,
+      "label": "Activity",
+      "id": "Activity_9bb536ba",
+      "type": "task",
+      "name": "Registers the claim"
+    },
+    {
+      "start": 190,
+      "end": 199,
+      "label": "Activity Data",
+      "id": "Activity Data_2aacd781",
+      "type": null,
+      "name": "The claim"
+    },
+    {
+      "start": 209,
+      "end": 232,
+      "label": "Actor",
+      "id": "Actor_321babf8",
+      "type": "Lane",
+      "name": "The Handling department"
+    },
+    {
+      "start": 233,
+      "end": 241,
+      "label": "Activity",
+      "id": "Activity_b88e2ba4",
+      "type": "task",
+      "name": "Picks up the claim"
+    },
+    {
+      "start": 242,
+      "end": 251,
+      "label": "Activity Data",
+      "id": "Activity Data_2b431855",
+      "type": null,
+      "name": "The claim"
+    },
+    {
+      "start": 256,
+      "end": 262,
+      "label": "Activity",
+      "id": "Activity_ff4f1693",
+      "type": "task",
+      "name": "Checks the insurance"
+    },
+    {
+      "start": 263,
+      "end": 276,
+      "label": "Activity Data",
+      "id": "Activity Data_3acbbf2a",
+      "type": null,
+      "name": "The insurance"
+    },
+    {
+      "start": 286,
+      "end": 299,
+      "label": "Activity Data",
+      "id": "Activity Data_bdb360c4",
+      "type": null,
+      "name": "An assessment"
+    },
+    {
+      "start": 303,
+      "end": 312,
+      "label": "Activity",
+      "id": "Activity_a4bc8d2d",
+      "type": "task",
+      "name": "Performed an assessment"
+    },
+    {
+      "start": 315,
+      "end": 317,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_ca908c89",
+      "type": "exclusiveGateway",
+      "name": "If the assessment is positive"
+    },
+    {
+      "start": 318,
+      "end": 344,
+      "label": "Condition Specification",
+      "id": "Condition Specification_8b3330b0",
+      "type": "exclusiveGateway",
+      "name": "The assessment is positive"
+    },
+    {
+      "start": 347,
+      "end": 355,
+      "label": "Actor",
+      "id": "Actor_d7016582",
+      "type": "Lane",
+      "name": "A garage"
+    },
+    {
+      "start": 359,
+      "end": 365,
+      "label": "Activity",
+      "id": "Activity_3aa1dd9a",
+      "type": "task",
+      "name": "Phoned the repairs"
+    },
+    {
+      "start": 369,
+      "end": 378,
+      "label": "Activity",
+      "id": "Activity_a403e878",
+      "type": null,
+      "name": null
+    },
+    {
+      "start": 379,
+      "end": 390,
+      "label": "Activity Data",
+      "id": "Activity Data_2e6ba093",
+      "type": null,
+      "name": "The repairs"
+    },
+    {
+      "start": 395,
+      "end": 406,
+      "label": "Activity Data",
+      "id": "Activity Data_a07ea09a",
+      "type": null,
+      "name": "The payment"
+    },
+    {
+      "start": 410,
+      "end": 419,
+      "label": "Activity",
+      "id": "Activity_8ae471bd",
+      "type": "task",
+      "name": "Scheduled the payment"
+    },
+    {
+      "start": 440,
+      "end": 449,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_8cf93289",
+      "type": "exclusiveGateway",
+      "name": "Otherwise"
+    },
+    {
+      "start": 452,
+      "end": 461,
+      "label": "Activity Data",
+      "id": "Activity Data_8c3bbc46",
+      "type": null,
+      "name": "The claim"
+    },
+    {
+      "start": 465,
+      "end": 473,
+      "label": "Activity",
+      "id": "Activity_23b077ef",
+      "type": "task",
+      "name": "Rejected the claim"
+    },
+    {
+      "start": 538,
+      "end": 546,
+      "label": "Activity Data",
+      "id": "Activity Data_c7a1956a",
+      "type": null,
+      "name": "A letter"
+    },
+    {
+      "start": 550,
+      "end": 554,
+      "label": "Activity",
+      "id": "Activity_376fb1a8",
+      "type": "task",
+      "name": "Sent a letter"
+    },
+    {
+      "start": 558,
+      "end": 570,
+      "label": "Actor",
+      "id": "Actor_2dd2a758",
+      "type": "Lane",
+      "name": "The customer"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the assessment is positive",
+        "node_B": "Phoned the repairs | Scheduled the payment | Rejected the claim | Sent a letter",
+        "label": "yes yes no after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

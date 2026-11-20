@@ -1,0 +1,615 @@
+{
+ "structured_data": {
+  "participants": [
+   "He",
+   "Main Process",
+   "Sales Assistant",
+   "The Manager",
+   "The Sales Assistant"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_dafa9cd7",
+    "name": "Checks the open leads",
+    "type": "task",
+    "lane": "The Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_be13a873",
+    "name": "Selects the top five ones",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d5f407b2",
+    "name": "Tells to call the contact person of the leads",
+    "type": "task",
+    "lane": "Sales Assistant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b58b073e",
+    "name": "Calls each customer",
+    "type": "task",
+    "lane": "The Sales Assistant",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b4eadc49",
+    "name": "If someone is interested",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d57fa271",
+    "name": "Sends a note",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_42d8fefe",
+    "name": "Processes the lead",
+    "type": "task",
+    "lane": "The Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a5bdf37e",
+    "name": "Calls the next customer",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "He"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_ca6bbff6",
+    "source": "StartEvent_1",
+    "target": "Activity_dafa9cd7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f13f9b34",
+    "source": "Activity_dafa9cd7",
+    "target": "Activity_be13a873",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dc4151a1",
+    "source": "Activity_be13a873",
+    "target": "Activity_d5f407b2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d65d1a08",
+    "source": "Activity_d5f407b2",
+    "target": "Activity_b58b073e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6991e0a5",
+    "source": "Activity_b58b073e",
+    "target": "XOR Gateway_b4eadc49",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d2bd4e04",
+    "source": "XOR Gateway_b4eadc49",
+    "target": "Activity_d57fa271",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_54396404",
+    "source": "Activity_d57fa271",
+    "target": "Activity_42d8fefe",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_63bf81f2",
+    "source": "XOR Gateway_b4eadc49",
+    "target": "Activity_a5bdf37e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_20df28ad",
+    "source": "Activity_42d8fefe",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a55771af",
+    "source": "Activity_a5bdf37e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 8,
+   "end": 19,
+   "label": "Actor",
+   "id": "Actor_e8e322d5",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 20,
+   "end": 26,
+   "label": "Activity",
+   "id": "Activity_dafa9cd7",
+   "type": "task",
+   "name": "Checks the open leads"
+  },
+  {
+   "start": 27,
+   "end": 41,
+   "label": "Activity Data",
+   "id": "Activity Data_5ec31bf2",
+   "type": null,
+   "name": "The open leads"
+  },
+  {
+   "start": 57,
+   "end": 59,
+   "label": "Actor",
+   "id": "Actor_a4094b92",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 60,
+   "end": 67,
+   "label": "Activity",
+   "id": "Activity_be13a873",
+   "type": "task",
+   "name": "Selects the top five ones"
+  },
+  {
+   "start": 68,
+   "end": 85,
+   "label": "Activity Data",
+   "id": "Activity Data_bea057b5",
+   "type": null,
+   "name": "The top five ones"
+  },
+  {
+   "start": 88,
+   "end": 90,
+   "label": "Actor",
+   "id": "Actor_f43c843e",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 96,
+   "end": 101,
+   "label": "Activity",
+   "id": "Activity_d5f407b2",
+   "type": "task",
+   "name": "Tells to call the contact person of the leads"
+  },
+  {
+   "start": 106,
+   "end": 121,
+   "label": "Actor",
+   "id": "Actor_ca7d781b",
+   "type": "Lane",
+   "name": "Sales Assistant"
+  },
+  {
+   "start": 122,
+   "end": 161,
+   "label": "Activity Data",
+   "id": "Activity Data_1c58314f",
+   "type": null,
+   "name": "To call the contact person of the leads"
+  },
+  {
+   "start": 164,
+   "end": 183,
+   "label": "Actor",
+   "id": "Actor_b5b6d482",
+   "type": "Lane",
+   "name": "The Sales Assistant"
+  },
+  {
+   "start": 184,
+   "end": 189,
+   "label": "Activity",
+   "id": "Activity_b58b073e",
+   "type": "task",
+   "name": "Calls each customer"
+  },
+  {
+   "start": 190,
+   "end": 203,
+   "label": "Activity Data",
+   "id": "Activity Data_fcae2c19",
+   "type": null,
+   "name": "Each customer"
+  },
+  {
+   "start": 206,
+   "end": 208,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b4eadc49",
+   "type": "exclusiveGateway",
+   "name": "If someone is interested"
+  },
+  {
+   "start": 209,
+   "end": 230,
+   "label": "Condition Specification",
+   "id": "Condition Specification_dfa589e5",
+   "type": "exclusiveGateway",
+   "name": "Someone is interested"
+  },
+  {
+   "start": 233,
+   "end": 235,
+   "label": "Actor",
+   "id": "Actor_5a241d81",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 236,
+   "end": 241,
+   "label": "Activity",
+   "id": "Activity_d57fa271",
+   "type": "task",
+   "name": "Sends a note"
+  },
+  {
+   "start": 242,
+   "end": 248,
+   "label": "Activity Data",
+   "id": "Activity Data_6ee283b4",
+   "type": null,
+   "name": "A note"
+  },
+  {
+   "start": 252,
+   "end": 263,
+   "label": "Actor",
+   "id": "Actor_96ca4e7d",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 266,
+   "end": 277,
+   "label": "Actor",
+   "id": "Actor_750ac2be",
+   "type": "Lane",
+   "name": "The Manager"
+  },
+  {
+   "start": 283,
+   "end": 292,
+   "label": "Activity",
+   "id": "Activity_42d8fefe",
+   "type": "task",
+   "name": "Processes the lead"
+  },
+  {
+   "start": 293,
+   "end": 301,
+   "label": "Activity Data",
+   "id": "Activity Data_1bd8fd4a",
+   "type": null,
+   "name": "The lead"
+  },
+  {
+   "start": 304,
+   "end": 313,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f208bcc2",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 316,
+   "end": 318,
+   "label": "Actor",
+   "id": "Actor_50bd99e1",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 319,
+   "end": 324,
+   "label": "Activity",
+   "id": "Activity_a5bdf37e",
+   "type": "task",
+   "name": "Calls the next customer"
+  },
+  {
+   "start": 325,
+   "end": 342,
+   "label": "Activity Data",
+   "id": "Activity Data_7a861b6b",
+   "type": null,
+   "name": "The next customer"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Selects the top five ones",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Tells to call the contact person of the leads",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Calls each customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Tells to call the contact person of the leads",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Calls each customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "If someone is interested",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Calls each customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "If someone is interested",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Sends a note",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "If someone is interested",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Sends a note",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Processes the lead",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Sends a note",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Processes the lead",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Processes the lead",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Calls the next customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Calls the next customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Calls the next customer",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Selects the top five ones",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Tells to call the contact person of the leads",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the open leads",
+    "node_B": "Calls each customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Tells to call the contact person of the leads",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "Calls each customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Selects the top five ones",
+    "node_B": "If someone is interested",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Calls each customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "If someone is interested",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tells to call the contact person of the leads",
+    "node_B": "Sends a note",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "If someone is interested",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Sends a note",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calls each customer",
+    "node_B": "Processes the lead",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Sends a note",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Processes the lead",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If someone is interested",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Processes the lead",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a note",
+    "node_B": "Calls the next customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the lead",
+    "node_B": "Calls the next customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Calls the next customer",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

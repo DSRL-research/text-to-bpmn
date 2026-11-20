@@ -1,0 +1,286 @@
+{
+  "dry_run": false,
+  "code": {
+    "commit": "808815f805259940897ef6171cc546420a688221",
+    "describe": "revision-final-3",
+    "dirty": false
+  },
+  "command": [
+    "text2bpmn/run_gliner_arm.py",
+    "--model",
+    "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "--api-base",
+    "http://localhost:11434/v1",
+    "--api-key",
+    "EMPTY",
+    "--no-thinking",
+    "--constrained-output",
+    "--max-tokens",
+    "1024"
+  ],
+  "started": "2026-11-12T09:07:40+00:00",
+  "experiments": {
+    "cases_gliner": {
+      "status": "ok",
+      "error": null,
+      "seconds": 129.6,
+      "overall": null,
+      "scores": {
+        "loan": {
+          "tasks": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.8,
+            "recall": 0.5714285714285714,
+            "f1": 0.6666666666666666
+          },
+          "gateways": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.5,
+            "recall": 0.2857142857142857,
+            "f1": 0.36363636363636365
+          },
+          "ged": {
+            "ged": 18.73,
+            "rged": 0.694,
+            "similarity": 0.306,
+            "rged_combined": 0.416,
+            "similarity_combined": 0.584,
+            "reference_size": 27,
+            "generated_size": 18,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "goods_dispatch": {
+          "tasks": {
+            "tp": 6,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.6666666666666666,
+            "recall": 0.8571428571428571,
+            "f1": 0.75
+          },
+          "gateways": {
+            "tp": 3,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 8,
+            "fn": 7,
+            "precision": 0.1111111111111111,
+            "recall": 0.125,
+            "f1": 0.11764705882352941
+          },
+          "ged": {
+            "ged": 39.52,
+            "rged": 1.098,
+            "similarity": 0.0,
+            "rged_combined": 0.581,
+            "similarity_combined": 0.419,
+            "reference_size": 32,
+            "generated_size": 36,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "healthcare": {
+          "tasks": {
+            "tp": 16,
+            "fp": 12,
+            "fn": 7,
+            "precision": 0.5714285714285714,
+            "recall": 0.6956521739130435,
+            "f1": 0.6274509803921569
+          },
+          "gateways": {
+            "tp": 6,
+            "fp": 0,
+            "fn": 6,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 5,
+            "fp": 25,
+            "fn": 23,
+            "precision": 0.16666666666666666,
+            "recall": 0.17857142857142858,
+            "f1": 0.17241379310344826
+          },
+          "ged": {
+            "ged": 94.53,
+            "rged": 1.112,
+            "similarity": 0.0,
+            "rged_combined": 0.591,
+            "similarity_combined": 0.409,
+            "reference_size": 85,
+            "generated_size": 75,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        }
+      },
+      "totals": null
+    },
+    "cases_gliner_no_llm": {
+      "status": "ok",
+      "error": null,
+      "seconds": 24.4,
+      "overall": null,
+      "scores": {
+        "loan": {
+          "tasks": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.8,
+            "recall": 0.5714285714285714,
+            "f1": 0.6666666666666666
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 3,
+            "fn": 6,
+            "precision": 0.25,
+            "recall": 0.14285714285714285,
+            "f1": 0.18181818181818182
+          },
+          "ged": {
+            "ged": 25.73,
+            "rged": 0.953,
+            "similarity": 0.047,
+            "rged_combined": 0.643,
+            "similarity_combined": 0.357,
+            "reference_size": 27,
+            "generated_size": 13,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "goods_dispatch": {
+          "tasks": {
+            "tp": 6,
+            "fp": 3,
+            "fn": 1,
+            "precision": 0.6666666666666666,
+            "recall": 0.8571428571428571,
+            "f1": 0.75
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 6,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 7,
+            "fn": 7,
+            "precision": 0.125,
+            "recall": 0.125,
+            "f1": 0.125
+          },
+          "ged": {
+            "ged": 33.52,
+            "rged": 1.047,
+            "similarity": 0.0,
+            "rged_combined": 0.632,
+            "similarity_combined": 0.368,
+            "reference_size": 32,
+            "generated_size": 21,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "healthcare": {
+          "tasks": {
+            "tp": 16,
+            "fp": 12,
+            "fn": 7,
+            "precision": 0.5714285714285714,
+            "recall": 0.6956521739130435,
+            "f1": 0.6274509803921569
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 5,
+            "fp": 22,
+            "fn": 23,
+            "precision": 0.18518518518518517,
+            "recall": 0.17857142857142858,
+            "f1": 0.18181818181818182
+          },
+          "ged": {
+            "ged": 95.53,
+            "rged": 1.124,
+            "similarity": 0.0,
+            "rged_combined": 0.663,
+            "similarity_combined": 0.337,
+            "reference_size": 85,
+            "generated_size": 59,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        }
+      },
+      "totals": null
+    },
+    "lanes_gliner": {
+      "status": "ok",
+      "error": null,
+      "seconds": 679.7,
+      "overall": null,
+      "scores": null,
+      "totals": {
+        "with_coref": {
+          "documents": 45,
+          "tasks": 518,
+          "lanes": 159,
+          "flows": 779,
+          "relation_calls": 81,
+          "lanes_scored": {
+            "activities_with_a_gold_performer": 396,
+            "recognised": 371,
+            "in_performer_lane": 0.8248,
+            "in_main_process_lane": 0.0027,
+            "performer_is_a_pronoun": 56,
+            "in_performer_lane_when_pronoun": 0.4107,
+            "tasks": 518,
+            "tasks_in_main_process_lane": 0.0425,
+            "documents_without_log": []
+          }
+        }
+      }
+    }
+  },
+  "finished": "2026-11-12T09:21:34+00:00"
+}

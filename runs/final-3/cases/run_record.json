@@ -1,0 +1,226 @@
+{
+  "experiment": "cases",
+  "dry_run": false,
+  "started": "2026-11-12T08:46:36+00:00",
+  "code": {
+    "commit": "808815f805259940897ef6171cc546420a688221",
+    "describe": "revision-final-3",
+    "dirty": false
+  },
+  "command": [
+    "text2bpmn/run_final.py",
+    "--model",
+    "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "--api-base",
+    "http://localhost:11434/v1",
+    "--api-key",
+    "EMPTY",
+    "--no-thinking",
+    "--constrained-output",
+    "--max-tokens",
+    "1024"
+  ],
+  "config": {
+    "seed": 0,
+    "temperature": 0.0,
+    "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "api_base": "http://localhost:11434/v1",
+    "api_key": "EMPTY",
+    "few_shot_k": 10,
+    "prompt": "corrected",
+    "llm_timeout": 120,
+    "constrained_output": true,
+    "reasoning_max_chars": 2000,
+    "max_tokens": 1024,
+    "disable_thinking": true,
+    "two_phase": false,
+    "llm_cache": false,
+    "allow_no_llm": false,
+    "guardrail_mode": "entity_1",
+    "parallel_detection": "all",
+    "parallel_mutual": false,
+    "parallel_require_cue": false,
+    "parallel_anchor_guard": false,
+    "relation_mode": "decisions4",
+    "ontology_file": "BPMNbasedOntologyV1_2.owl",
+    "ontology_out": "",
+    "ner_model_path": ""
+  },
+  "llm": {
+    "name": "Qwen/Qwen3.5-27B-FP8",
+    "reachable": true,
+    "api": "openai",
+    "served_models": [
+      "Qwen/Qwen3.5-27B-FP8"
+    ],
+    "serving_this_model": true,
+    "digest": null
+  },
+  "pipeline_run_record": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:46:47+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  },
+  "scores": {
+    "loan": {
+      "tasks": {
+        "tp": 5,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.8333333333333334,
+        "recall": 0.7142857142857143,
+        "f1": 0.7692307692307692
+      },
+      "gateways": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "edges": {
+        "tp": 1,
+        "fp": 4,
+        "fn": 6,
+        "precision": 0.2,
+        "recall": 0.14285714285714285,
+        "f1": 0.16666666666666666
+      },
+      "ged": {
+        "ged": 19.97,
+        "rged": 0.74,
+        "similarity": 0.26,
+        "rged_combined": 0.425,
+        "similarity_combined": 0.575,
+        "reference_size": 27,
+        "generated_size": 20,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    },
+    "goods_dispatch": {
+      "tasks": {
+        "tp": 5,
+        "fp": 5,
+        "fn": 2,
+        "precision": 0.5,
+        "recall": 0.7142857142857143,
+        "f1": 0.588235294117647
+      },
+      "gateways": {
+        "tp": 4,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666
+      },
+      "edges": {
+        "tp": 2,
+        "fp": 10,
+        "fn": 6,
+        "precision": 0.16666666666666666,
+        "recall": 0.25,
+        "f1": 0.2
+      },
+      "ged": {
+        "ged": 40.91,
+        "rged": 1.077,
+        "similarity": 0.0,
+        "rged_combined": 0.584,
+        "similarity_combined": 0.416,
+        "reference_size": 32,
+        "generated_size": 38,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    },
+    "healthcare": {
+      "tasks": {
+        "tp": 17,
+        "fp": 15,
+        "fn": 6,
+        "precision": 0.53125,
+        "recall": 0.7391304347826086,
+        "f1": 0.6181818181818182
+      },
+      "gateways": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 6,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "edges": {
+        "tp": 1,
+        "fp": 34,
+        "fn": 27,
+        "precision": 0.02857142857142857,
+        "recall": 0.03571428571428571,
+        "f1": 0.031746031746031744
+      },
+      "ged": {
+        "ged": 114.12,
+        "rged": 1.343,
+        "similarity": 0.0,
+        "rged_combined": 0.683,
+        "similarity_combined": 0.317,
+        "reference_size": 85,
+        "generated_size": 82,
+        "note": "upper bound: cost of an optimal-assignment edit path"
+      }
+    }
+  },
+  "status": "ok",
+  "finished": "2026-11-12T08:48:10+00:00",
+  "seconds": 94.2
+}

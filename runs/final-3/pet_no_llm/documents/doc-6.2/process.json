@@ -1,0 +1,370 @@
+{
+ "structured_data": {
+  "participants": [
+   "Assembler AG",
+   "Main Process",
+   "The supplier"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_2b525252",
+    "name": "Places an order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": [
+     "In order to request more product parts"
+    ]
+   },
+   {
+    "id": "Activity_de1bdd58",
+    "name": "Sends the order",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "Activity_820e7aad",
+    "name": "Processes the order",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e808241b",
+    "name": "Sends an invoice",
+    "type": "task",
+    "lane": "The supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_08a72c26",
+    "name": "Receives the invoice",
+    "type": "task",
+    "lane": "Assembler AG",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Assembler AG"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_4a855bed",
+    "source": "StartEvent_1",
+    "target": "Activity_2b525252",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dd325696",
+    "source": "Activity_2b525252",
+    "target": "Activity_de1bdd58",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_15fd8da2",
+    "source": "Activity_de1bdd58",
+    "target": "Activity_820e7aad",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_54aff195",
+    "source": "Activity_820e7aad",
+    "target": "Activity_e808241b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_00f15f0c",
+    "source": "Activity_e808241b",
+    "target": "Activity_08a72c26",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1a9170ae",
+    "source": "Activity_08a72c26",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 66,
+   "end": 78,
+   "label": "Actor",
+   "id": "Actor_aeadadea",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 79,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_2b525252",
+   "type": "task",
+   "name": "Places an order"
+  },
+  {
+   "start": 86,
+   "end": 94,
+   "label": "Activity Data",
+   "id": "Activity Data_0acfc2cf",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 100,
+   "end": 112,
+   "label": "Actor",
+   "id": "Actor_947dbc38",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 113,
+   "end": 151,
+   "label": "Further Specification",
+   "id": "Further Specification_500524d9",
+   "type": null,
+   "name": "In order to request more product parts"
+  },
+  {
+   "start": 158,
+   "end": 170,
+   "label": "Actor",
+   "id": "Actor_70099a40",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 171,
+   "end": 176,
+   "label": "Activity",
+   "id": "Activity_de1bdd58",
+   "type": "task",
+   "name": "Sends the order"
+  },
+  {
+   "start": 177,
+   "end": 186,
+   "label": "Activity Data",
+   "id": "Activity Data_c69344b7",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 190,
+   "end": 202,
+   "label": "Actor",
+   "id": "Actor_b2372e38",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 209,
+   "end": 221,
+   "label": "Actor",
+   "id": "Actor_fc930c83",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 222,
+   "end": 231,
+   "label": "Activity",
+   "id": "Activity_820e7aad",
+   "type": "task",
+   "name": "Processes the order"
+  },
+  {
+   "start": 232,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_33af549b",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 248,
+   "end": 260,
+   "label": "Actor",
+   "id": "Actor_eb4e5bfc",
+   "type": "Lane",
+   "name": "The supplier"
+  },
+  {
+   "start": 261,
+   "end": 266,
+   "label": "Activity",
+   "id": "Activity_e808241b",
+   "type": "task",
+   "name": "Sends an invoice"
+  },
+  {
+   "start": 267,
+   "end": 277,
+   "label": "Activity Data",
+   "id": "Activity Data_c98b644e",
+   "type": null,
+   "name": "An invoice"
+  },
+  {
+   "start": 281,
+   "end": 293,
+   "label": "Actor",
+   "id": "Actor_be78af5e",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 300,
+   "end": 312,
+   "label": "Actor",
+   "id": "Actor_382f8473",
+   "type": "Lane",
+   "name": "Assembler AG"
+  },
+  {
+   "start": 313,
+   "end": 321,
+   "label": "Activity",
+   "id": "Activity_08a72c26",
+   "type": "task",
+   "name": "Receives the invoice"
+  },
+  {
+   "start": 322,
+   "end": 333,
+   "label": "Activity Data",
+   "id": "Activity Data_075c1230",
+   "type": null,
+   "name": "The invoice"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 9,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Processes the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends an invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Processes the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Sends an invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Receives the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Sends an invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Receives the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends an invoice",
+    "node_B": "Receives the invoice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Processes the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Places an order",
+    "node_B": "Sends an invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Processes the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Sends an invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the order",
+    "node_B": "Receives the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Sends an invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the order",
+    "node_B": "Receives the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends an invoice",
+    "node_B": "Receives the invoice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

@@ -1,0 +1,329 @@
+{
+  "structured_data": {
+    "participants": [
+      "A claims manager",
+      "Main Process",
+      "The claimant",
+      "The claims handler",
+      "Who"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_c1e4eab4",
+        "name": "Searched the Police Report",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_89be9b33",
+        "name": "Put",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_68217eca",
+        "name": "Calculates an initial claim estimate",
+        "type": "task",
+        "lane": "Who",
+        "metadata": [
+          "This file"
+        ]
+      },
+      {
+        "id": "Activity_625becf6",
+        "name": "Creates an Action Plan",
+        "type": "task",
+        "lane": "The claims handler",
+        "metadata": []
+      },
+      {
+        "id": "Activity_0d3a7857",
+        "name": "Negotiate a settlement",
+        "type": "task",
+        "lane": "A claims manager",
+        "metadata": []
+      },
+      {
+        "id": "Activity_cd98b45e",
+        "name": "Informed the outcome",
+        "type": "task",
+        "lane": "The claimant",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The claimant"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_c1e4eab4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_c1e4eab4",
+        "target": "Activity_89be9b33",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_89be9b33",
+        "target": "Activity_68217eca",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_68217eca",
+        "target": "Activity_625becf6",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_625becf6",
+        "target": "Activity_0d3a7857",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_0d3a7857",
+        "target": "Activity_cd98b45e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_cd98b45e",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 8
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 17,
+      "label": "Activity Data",
+      "id": "Activity Data_d3b927cc",
+      "type": null,
+      "name": "The Police Report"
+    },
+    {
+      "start": 49,
+      "end": 57,
+      "label": "Activity",
+      "id": "Activity_c1e4eab4",
+      "type": "task",
+      "name": "Searched the Police Report"
+    },
+    {
+      "start": 96,
+      "end": 99,
+      "label": "Activity",
+      "id": "Activity_89be9b33",
+      "type": "task",
+      "name": "Put"
+    },
+    {
+      "start": 150,
+      "end": 159,
+      "label": "Activity Data",
+      "id": "Activity Data_5d8a7035",
+      "type": null,
+      "name": "This file"
+    },
+    {
+      "start": 179,
+      "end": 195,
+      "label": "Actor",
+      "id": "Actor_b6463302",
+      "type": "Lane",
+      "name": "A claims handler"
+    },
+    {
+      "start": 196,
+      "end": 199,
+      "label": "Actor",
+      "id": "Actor_25a2a8fe",
+      "type": "Lane",
+      "name": "Who"
+    },
+    {
+      "start": 200,
+      "end": 210,
+      "label": "Activity",
+      "id": "Activity_68217eca",
+      "type": "task",
+      "name": "Calculates an initial claim estimate"
+    },
+    {
+      "start": 211,
+      "end": 236,
+      "label": "Activity Data",
+      "id": "Activity Data_b5fd764c",
+      "type": null,
+      "name": "An initial claim estimate"
+    },
+    {
+      "start": 246,
+      "end": 264,
+      "label": "Actor",
+      "id": "Actor_983402cf",
+      "type": "Lane",
+      "name": "The claims handler"
+    },
+    {
+      "start": 265,
+      "end": 272,
+      "label": "Activity",
+      "id": "Activity_625becf6",
+      "type": "task",
+      "name": "Creates an Action Plan"
+    },
+    {
+      "start": 273,
+      "end": 287,
+      "label": "Activity Data",
+      "id": "Activity Data_b97eb0b9",
+      "type": null,
+      "name": "An Action Plan"
+    },
+    {
+      "start": 395,
+      "end": 411,
+      "label": "Actor",
+      "id": "Actor_b86d84de",
+      "type": "Lane",
+      "name": "A claims manager"
+    },
+    {
+      "start": 421,
+      "end": 430,
+      "label": "Activity",
+      "id": "Activity_0d3a7857",
+      "type": "task",
+      "name": "Negotiate a settlement"
+    },
+    {
+      "start": 431,
+      "end": 443,
+      "label": "Activity Data",
+      "id": "Activity Data_7d4c95d2",
+      "type": null,
+      "name": "A settlement"
+    },
+    {
+      "start": 468,
+      "end": 480,
+      "label": "Actor",
+      "id": "Actor_fb012e7e",
+      "type": "Lane",
+      "name": "The claimant"
+    },
+    {
+      "start": 484,
+      "end": 492,
+      "label": "Activity",
+      "id": "Activity_cd98b45e",
+      "type": "task",
+      "name": "Informed the outcome"
+    },
+    {
+      "start": 496,
+      "end": 507,
+      "label": "Activity Data",
+      "id": "Activity Data_633497b5",
+      "type": null,
+      "name": "The outcome"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 0,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": []
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

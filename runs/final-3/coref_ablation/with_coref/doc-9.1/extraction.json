@@ -1,0 +1,690 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "Supervisor"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_5f6c9779",
+        "name": "Backed the database",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_308a1cc6",
+        "name": "Checked the database",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Condition Specification_d3e01f41",
+        "name": "Account Defaulter table has new records",
+        "type": "exclusiveGateway",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_83a618a8",
+        "name": "Check the",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "CRM system"
+        ]
+      },
+      {
+        "id": "Activity_0a8936b0",
+        "name": "Register all",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "Defaulting accounts and customers"
+        ]
+      },
+      {
+        "id": "Activity_26681e7d",
+        "name": "Produce another table of",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_9c8aabd3",
+        "name": "Send accounts",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "Defaulting"
+        ]
+      },
+      {
+        "id": "XOR Gateway_15c0273e",
+        "name": "If is not",
+        "type": "exclusiveGateway",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_4b4bfe2c",
+        "name": "Sent an alert",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ebe458b1",
+        "name": "Check the",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": [
+          "CRM"
+        ]
+      },
+      {
+        "id": "Activity_71fadcc4",
+        "name": "See system",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_8533f3b3",
+        "name": "If new returns have been filed",
+        "type": "exclusiveGateway",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1e586950",
+        "name": "Reconcile",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_21903357",
+        "name": "Sent a message",
+        "type": "task",
+        "lane": "Supervisor",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "Supervisor"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_5f6c9779",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_5f6c9779",
+        "target": "Activity_308a1cc6",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_308a1cc6",
+        "target": "Condition Specification_d3e01f41",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Condition Specification_d3e01f41",
+        "target": "Activity_83a618a8",
+        "name": "If no new records are found",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Condition Specification_d3e01f41",
+        "target": "Activity_0a8936b0",
+        "name": "If new returns exist",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Condition Specification_d3e01f41",
+        "target": "Activity_26681e7d",
+        "name": "If the defaulting client codes have not been previously advised",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_26681e7d",
+        "target": "Activity_9c8aabd3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Condition Specification_d3e01f41",
+        "target": "XOR Gateway_15c0273e",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_83a618a8",
+        "target": "XOR Gateway_15c0273e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_0a8936b0",
+        "target": "XOR Gateway_15c0273e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_9c8aabd3",
+        "target": "XOR Gateway_15c0273e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "XOR Gateway_15c0273e",
+        "target": "Activity_4b4bfe2c",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_4b4bfe2c",
+        "target": "Activity_ebe458b1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "XOR Gateway_15c0273e",
+        "target": "Activity_ebe458b1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_ebe458b1",
+        "target": "Activity_71fadcc4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "Activity_71fadcc4",
+        "target": "XOR Gateway_8533f3b3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "XOR Gateway_8533f3b3",
+        "target": "Activity_1e586950",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0018",
+        "source": "Activity_1e586950",
+        "target": "Activity_21903357",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0019",
+        "source": "XOR Gateway_8533f3b3",
+        "target": "Activity_21903357",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0020",
+        "source": "Activity_21903357",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 24
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 24,
+      "end": 36,
+      "label": "Activity Data",
+      "id": "Activity Data_a61a21ca",
+      "type": null,
+      "name": "The database"
+    },
+    {
+      "start": 40,
+      "end": 46,
+      "label": "Activity",
+      "id": "Activity_5f6c9779",
+      "type": "task",
+      "name": "Backed the database"
+    },
+    {
+      "start": 59,
+      "end": 71,
+      "label": "Activity Data",
+      "id": "Activity Data_d8e4517c",
+      "type": null,
+      "name": "The database"
+    },
+    {
+      "start": 75,
+      "end": 82,
+      "label": "Activity",
+      "id": "Activity_308a1cc6",
+      "type": "task",
+      "name": "Checked the database"
+    },
+    {
+      "start": 102,
+      "end": 141,
+      "label": "Condition Specification",
+      "id": "Condition Specification_d3e01f41",
+      "type": "exclusiveGateway",
+      "name": "Account Defaulter table has new records"
+    },
+    {
+      "start": 144,
+      "end": 146,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_35504c78",
+      "type": "exclusiveGateway",
+      "name": "If no new records are found"
+    },
+    {
+      "start": 147,
+      "end": 171,
+      "label": "Condition Specification",
+      "id": "Condition Specification_0a493e9e",
+      "type": "exclusiveGateway",
+      "name": "No new records are found"
+    },
+    {
+      "start": 198,
+      "end": 203,
+      "label": "Activity",
+      "id": "Activity_83a618a8",
+      "type": "task",
+      "name": "Check the"
+    },
+    {
+      "start": 204,
+      "end": 207,
+      "label": "Activity Data",
+      "id": "Activity Data_27ba64fd",
+      "type": null,
+      "name": "The"
+    },
+    {
+      "start": 208,
+      "end": 218,
+      "label": "Further Specification",
+      "id": "Further Specification_072eb774",
+      "type": null,
+      "name": "CRM system"
+    },
+    {
+      "start": 234,
+      "end": 237,
+      "label": "Condition Specification",
+      "id": "Condition Specification_f9f8245b",
+      "type": "exclusiveGateway",
+      "name": "New"
+    },
+    {
+      "start": 256,
+      "end": 261,
+      "label": "Condition Specification",
+      "id": "Condition Specification_bb113d13",
+      "type": "exclusiveGateway",
+      "name": "Filed"
+    },
+    {
+      "start": 264,
+      "end": 266,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_731cebfa",
+      "type": "exclusiveGateway",
+      "name": "If new returns exist"
+    },
+    {
+      "start": 267,
+      "end": 284,
+      "label": "Condition Specification",
+      "id": "Condition Specification_57bb31dd",
+      "type": "exclusiveGateway",
+      "name": "New returns exist"
+    },
+    {
+      "start": 292,
+      "end": 300,
+      "label": "Activity",
+      "id": "Activity_0a8936b0",
+      "type": "task",
+      "name": "Register all"
+    },
+    {
+      "start": 301,
+      "end": 304,
+      "label": "Activity Data",
+      "id": "Activity Data_b212adee",
+      "type": null,
+      "name": "All"
+    },
+    {
+      "start": 305,
+      "end": 338,
+      "label": "Further Specification",
+      "id": "Further Specification_103ad1b4",
+      "type": null,
+      "name": "Defaulting accounts and customers"
+    },
+    {
+      "start": 341,
+      "end": 343,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_b1165c83",
+      "type": "exclusiveGateway",
+      "name": "If the defaulting client codes have not been previously advised"
+    },
+    {
+      "start": 344,
+      "end": 404,
+      "label": "Condition Specification",
+      "id": "Condition Specification_f1d141f6",
+      "type": "exclusiveGateway",
+      "name": "The defaulting client codes have not been previously advised"
+    },
+    {
+      "start": 407,
+      "end": 414,
+      "label": "Activity",
+      "id": "Activity_26681e7d",
+      "type": "task",
+      "name": "Produce another table of"
+    },
+    {
+      "start": 415,
+      "end": 431,
+      "label": "Activity Data",
+      "id": "Activity Data_732153c8",
+      "type": null,
+      "name": "Another table of"
+    },
+    {
+      "start": 432,
+      "end": 442,
+      "label": "Further Specification",
+      "id": "Further Specification_872cfa1f",
+      "type": null,
+      "name": "Defaulting"
+    },
+    {
+      "start": 443,
+      "end": 451,
+      "label": "Activity Data",
+      "id": "Activity Data_6194a339",
+      "type": null,
+      "name": "Accounts"
+    },
+    {
+      "start": 456,
+      "end": 460,
+      "label": "Activity",
+      "id": "Activity_9c8aabd3",
+      "type": "task",
+      "name": "Send accounts"
+    },
+    {
+      "start": 464,
+      "end": 482,
+      "label": "Actor",
+      "id": "Actor_11a89276",
+      "type": "Lane",
+      "name": "Account management"
+    },
+    {
+      "start": 530,
+      "end": 532,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_15c0273e",
+      "type": "exclusiveGateway",
+      "name": "If is not"
+    },
+    {
+      "start": 545,
+      "end": 551,
+      "label": "Condition Specification",
+      "id": "Condition Specification_de43d4f2",
+      "type": "exclusiveGateway",
+      "name": "Is not"
+    },
+    {
+      "start": 559,
+      "end": 567,
+      "label": "Activity Data",
+      "id": "Activity Data_36720249",
+      "type": null,
+      "name": "An alert"
+    },
+    {
+      "start": 578,
+      "end": 582,
+      "label": "Activity",
+      "id": "Activity_4b4bfe2c",
+      "type": "task",
+      "name": "Sent an alert"
+    },
+    {
+      "start": 586,
+      "end": 600,
+      "label": "Actor",
+      "id": "Actor_5cd09465",
+      "type": "Lane",
+      "name": "The supervisor"
+    },
+    {
+      "start": 663,
+      "end": 668,
+      "label": "Activity",
+      "id": "Activity_ebe458b1",
+      "type": "task",
+      "name": "Check the"
+    },
+    {
+      "start": 669,
+      "end": 672,
+      "label": "Activity Data",
+      "id": "Activity Data_a17d0387",
+      "type": null,
+      "name": "The"
+    },
+    {
+      "start": 673,
+      "end": 676,
+      "label": "Further Specification",
+      "id": "Further Specification_30e26f79",
+      "type": null,
+      "name": "CRM"
+    },
+    {
+      "start": 677,
+      "end": 683,
+      "label": "Activity Data",
+      "id": "Activity Data_22b8d638",
+      "type": null,
+      "name": "System"
+    },
+    {
+      "start": 687,
+      "end": 690,
+      "label": "Activity",
+      "id": "Activity_71fadcc4",
+      "type": "task",
+      "name": "See system"
+    },
+    {
+      "start": 729,
+      "end": 731,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_8533f3b3",
+      "type": "exclusiveGateway",
+      "name": "If new returns have been filed"
+    },
+    {
+      "start": 732,
+      "end": 759,
+      "label": "Condition Specification",
+      "id": "Condition Specification_5079ab75",
+      "type": "exclusiveGateway",
+      "name": "New returns have been filed"
+    },
+    {
+      "start": 762,
+      "end": 771,
+      "label": "Activity",
+      "id": "Activity_1e586950",
+      "type": "task",
+      "name": "Reconcile"
+    },
+    {
+      "start": 869,
+      "end": 879,
+      "label": "Actor",
+      "id": "Actor_63857e8f",
+      "type": "Lane",
+      "name": "Supervisor"
+    },
+    {
+      "start": 890,
+      "end": 894,
+      "label": "Activity",
+      "id": "Activity_21903357",
+      "type": "task",
+      "name": "Sent a message"
+    },
+    {
+      "start": 895,
+      "end": 904,
+      "label": "Activity Data",
+      "id": "Activity Data_7e19795b",
+      "type": null,
+      "name": "A message"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 3,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Account Defaulter table has new records",
+        "node_B": "decision: If no new records are found | Check the | decision: If new returns exist | Register all | decision: If the defaulting client codes have not been previously advised | Produce another table of | Send accounts | decision: If is not | Sent an alert | Check the",
+        "label": "same yes same yes same yes yes after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If is not",
+        "node_B": "Sent an alert | Check the | See system | decision: If new returns have been filed | Reconcile | Sent a message",
+        "label": "yes after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If new returns have been filed",
+        "node_B": "Reconcile | Sent a message",
+        "label": "yes after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

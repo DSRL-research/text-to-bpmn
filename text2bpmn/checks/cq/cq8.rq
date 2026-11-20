@@ -1,0 +1,14 @@
+# CQ8 How many tasks, decisions, parallel blocks and participants does the process have?
+# A parallel block is counted by its split: a parallel gateway with two or more outgoing flows.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT
+  (COUNT(DISTINCT ?t) AS ?tasks) (COUNT(DISTINCT ?d) AS ?decisions)
+  (COUNT(DISTINCT ?p) AS ?parallel_blocks) (COUNT(DISTINCT ?r) AS ?participants)
+WHERE {
+  { ?t a b:Task }
+  UNION { SELECT ?d WHERE { ?d a b:ExclusiveGateway . ?f b:has_sourceRef ?d } GROUP BY ?d HAVING (COUNT(?f) >= 2) }
+  UNION { SELECT ?p WHERE { ?p a b:ParallelGateway . ?f b:has_sourceRef ?p } GROUP BY ?p HAVING (COUNT(?f) >= 2) }
+  UNION { ?r a b:HumanResource }
+}

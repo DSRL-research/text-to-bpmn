@@ -1,0 +1,1322 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The Assistant Registry Manager",
+   "The Cashier",
+   "The Mail Clerk",
+   "The Mail Processing Unit",
+   "The Registry",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_b90c64c8",
+    "name": "Collected mail from the party",
+    "type": "task",
+    "lane": "The Mail Processing Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_24918c3b",
+    "name": "Sorts the unopened mail",
+    "type": "task",
+    "lane": "The Mail Clerk",
+    "metadata": [
+     "Into the various business areas"
+    ]
+   },
+   {
+    "id": "Activity_b205ed21",
+    "name": "Distributed the mail",
+    "type": "task",
+    "lane": "The Mail Clerk",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fbca6983",
+    "name": "Received the mail",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7b8c80c5",
+    "name": "Opened it",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7a35dabe",
+    "name": "Sorted",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dc9b93d9",
+    "name": "Registered",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": [
+     "In a manual incoming Mail Register"
+    ]
+   },
+   {
+    "id": "Activity_57101f67",
+    "name": "Performs a quality check",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_9a95ea67",
+    "name": "If the mail is not compliant",
+    "type": "exclusiveGateway",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8851290f",
+    "name": "Compiled a list of requisition",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b3e4c082",
+    "name": "Sent back",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_18f9c5d7",
+    "name": "Captured the matter details",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_73ad4137",
+    "name": "Provided",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_de2e8dc9",
+    "name": "Takes the applicable fees",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_59f4eb00",
+    "name": "Puts the receipt and copied documents",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_197cb27d",
+    "name": "Posts it",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": [
+     "Into an envelope"
+    ]
+   },
+   {
+    "id": "AND Gateway_7b78d02d",
+    "name": "Meantime",
+    "type": "parallelGateway",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d732bc96",
+    "name": "Captures the Party Details",
+    "type": "task",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_765f1060",
+    "name": "Prints the Physical Court File",
+    "type": "task",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The Cashier"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_2a131602",
+    "source": "StartEvent_1",
+    "target": "Activity_b90c64c8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dbdbafd6",
+    "source": "Activity_b90c64c8",
+    "target": "Activity_24918c3b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1078cac5",
+    "source": "Activity_24918c3b",
+    "target": "Activity_b205ed21",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e33b9134",
+    "source": "Activity_b205ed21",
+    "target": "Activity_fbca6983",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f417266b",
+    "source": "Activity_fbca6983",
+    "target": "Activity_7b8c80c5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e9b8418e",
+    "source": "Activity_7b8c80c5",
+    "target": "Activity_7a35dabe",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d86e9e6b",
+    "source": "Activity_7a35dabe",
+    "target": "Activity_dc9b93d9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c295241d",
+    "source": "Activity_dc9b93d9",
+    "target": "Activity_57101f67",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f11f4768",
+    "source": "Activity_57101f67",
+    "target": "XOR Gateway_9a95ea67",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6df94278",
+    "source": "XOR Gateway_9a95ea67",
+    "target": "Activity_8851290f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_15b7a753",
+    "source": "Activity_8851290f",
+    "target": "Activity_b3e4c082",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_02ebb717",
+    "source": "XOR Gateway_9a95ea67",
+    "target": "Activity_18f9c5d7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4725eaf1",
+    "source": "Activity_18f9c5d7",
+    "target": "Activity_73ad4137",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3eb7b902",
+    "source": "Activity_73ad4137",
+    "target": "Activity_de2e8dc9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a35a5b67",
+    "source": "Activity_de2e8dc9",
+    "target": "Activity_59f4eb00",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5f9b54c5",
+    "source": "Activity_59f4eb00",
+    "target": "Activity_197cb27d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_521b0cbc",
+    "source": "Activity_197cb27d",
+    "target": "AND Gateway_7b78d02d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d0928e82",
+    "source": "AND Gateway_7b78d02d",
+    "target": "Activity_d732bc96",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d5d606a4",
+    "source": "Activity_d732bc96",
+    "target": "Activity_765f1060",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2630b374",
+    "source": "Activity_b3e4c082",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_59e2d069",
+    "source": "Activity_765f1060",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 19,
+   "label": "Activity Data",
+   "id": "Activity Data_f90bf448",
+   "type": null,
+   "name": "Mail from the party"
+  },
+  {
+   "start": 23,
+   "end": 32,
+   "label": "Activity",
+   "id": "Activity_b90c64c8",
+   "type": "task",
+   "name": "Collected mail from the party"
+  },
+  {
+   "start": 53,
+   "end": 77,
+   "label": "Actor",
+   "id": "Actor_08cdf0b3",
+   "type": "Lane",
+   "name": "The Mail Processing Unit"
+  },
+  {
+   "start": 99,
+   "end": 113,
+   "label": "Actor",
+   "id": "Actor_8df1d59c",
+   "type": "Lane",
+   "name": "The Mail Clerk"
+  },
+  {
+   "start": 114,
+   "end": 119,
+   "label": "Activity",
+   "id": "Activity_24918c3b",
+   "type": "task",
+   "name": "Sorts the unopened mail"
+  },
+  {
+   "start": 120,
+   "end": 137,
+   "label": "Activity Data",
+   "id": "Activity Data_197950aa",
+   "type": null,
+   "name": "The unopened mail"
+  },
+  {
+   "start": 138,
+   "end": 169,
+   "label": "Further Specification",
+   "id": "Further Specification_d564cb84",
+   "type": null,
+   "name": "Into the various business areas"
+  },
+  {
+   "start": 172,
+   "end": 180,
+   "label": "Activity Data",
+   "id": "Activity Data_3e4e0faf",
+   "type": null,
+   "name": "The mail"
+  },
+  {
+   "start": 189,
+   "end": 200,
+   "label": "Activity",
+   "id": "Activity_b205ed21",
+   "type": "task",
+   "name": "Distributed the mail"
+  },
+  {
+   "start": 208,
+   "end": 216,
+   "label": "Activity Data",
+   "id": "Activity Data_2bcb6837",
+   "type": null,
+   "name": "The mail"
+  },
+  {
+   "start": 220,
+   "end": 228,
+   "label": "Activity",
+   "id": "Activity_fbca6983",
+   "type": "task",
+   "name": "Received the mail"
+  },
+  {
+   "start": 232,
+   "end": 244,
+   "label": "Actor",
+   "id": "Actor_769cb165",
+   "type": "Lane",
+   "name": "The Registry"
+  },
+  {
+   "start": 247,
+   "end": 249,
+   "label": "Activity Data",
+   "id": "Activity Data_fdec8ec2",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 253,
+   "end": 259,
+   "label": "Activity",
+   "id": "Activity_7b8c80c5",
+   "type": "task",
+   "name": "Opened it"
+  },
+  {
+   "start": 264,
+   "end": 270,
+   "label": "Activity",
+   "id": "Activity_7a35dabe",
+   "type": "task",
+   "name": "Sorted"
+  },
+  {
+   "start": 311,
+   "end": 321,
+   "label": "Activity",
+   "id": "Activity_dc9b93d9",
+   "type": "task",
+   "name": "Registered"
+  },
+  {
+   "start": 322,
+   "end": 356,
+   "label": "Further Specification",
+   "id": "Further Specification_9a938a94",
+   "type": null,
+   "name": "In a manual incoming Mail Register"
+  },
+  {
+   "start": 372,
+   "end": 402,
+   "label": "Actor",
+   "id": "Actor_4ef7bd62",
+   "type": "Lane",
+   "name": "The Assistant Registry Manager"
+  },
+  {
+   "start": 423,
+   "end": 447,
+   "label": "Activity",
+   "id": "Activity_57101f67",
+   "type": "task",
+   "name": "Performs a quality check"
+  },
+  {
+   "start": 450,
+   "end": 452,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9a95ea67",
+   "type": "exclusiveGateway",
+   "name": "If the mail is not compliant"
+  },
+  {
+   "start": 453,
+   "end": 478,
+   "label": "Condition Specification",
+   "id": "Condition Specification_eb8788ac",
+   "type": "exclusiveGateway",
+   "name": "The mail is not compliant"
+  },
+  {
+   "start": 481,
+   "end": 502,
+   "label": "Activity Data",
+   "id": "Activity Data_38cf9b06",
+   "type": null,
+   "name": "A list of requisition"
+  },
+  {
+   "start": 542,
+   "end": 550,
+   "label": "Activity",
+   "id": "Activity_8851290f",
+   "type": "task",
+   "name": "Compiled a list of requisition"
+  },
+  {
+   "start": 555,
+   "end": 564,
+   "label": "Activity",
+   "id": "Activity_b3e4c082",
+   "type": "task",
+   "name": "Sent back"
+  },
+  {
+   "start": 568,
+   "end": 577,
+   "label": "Actor",
+   "id": "Actor_16be6de8",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 580,
+   "end": 589,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_7ff54a1e",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 592,
+   "end": 610,
+   "label": "Activity Data",
+   "id": "Activity Data_187fe93d",
+   "type": null,
+   "name": "The matter details"
+  },
+  {
+   "start": 635,
+   "end": 643,
+   "label": "Activity",
+   "id": "Activity_18f9c5d7",
+   "type": "task",
+   "name": "Captured the matter details"
+  },
+  {
+   "start": 648,
+   "end": 656,
+   "label": "Activity",
+   "id": "Activity_73ad4137",
+   "type": "task",
+   "name": "Provided"
+  },
+  {
+   "start": 660,
+   "end": 671,
+   "label": "Actor",
+   "id": "Actor_b09e1313",
+   "type": "Lane",
+   "name": "The Cashier"
+  },
+  {
+   "start": 674,
+   "end": 677,
+   "label": "Actor",
+   "id": "Actor_d2b652c2",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 678,
+   "end": 683,
+   "label": "Activity",
+   "id": "Activity_de2e8dc9",
+   "type": "task",
+   "name": "Takes the applicable fees"
+  },
+  {
+   "start": 684,
+   "end": 703,
+   "label": "Activity Data",
+   "id": "Activity Data_80a6b342",
+   "type": null,
+   "name": "The applicable fees"
+  },
+  {
+   "start": 743,
+   "end": 773,
+   "label": "Actor",
+   "id": "Actor_52342d77",
+   "type": "Lane",
+   "name": "The Assistant Registry Manager"
+  },
+  {
+   "start": 774,
+   "end": 778,
+   "label": "Activity",
+   "id": "Activity_59f4eb00",
+   "type": "task",
+   "name": "Puts the receipt and copied documents"
+  },
+  {
+   "start": 779,
+   "end": 811,
+   "label": "Activity Data",
+   "id": "Activity Data_9b6ebbcf",
+   "type": null,
+   "name": "The receipt and copied documents"
+  },
+  {
+   "start": 812,
+   "end": 828,
+   "label": "Further Specification",
+   "id": "Further Specification_c2c57b46",
+   "type": null,
+   "name": "Into an envelope"
+  },
+  {
+   "start": 833,
+   "end": 838,
+   "label": "Activity",
+   "id": "Activity_197cb27d",
+   "type": "task",
+   "name": "Posts it"
+  },
+  {
+   "start": 839,
+   "end": 841,
+   "label": "Activity Data",
+   "id": "Activity Data_d9b7760e",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 845,
+   "end": 854,
+   "label": "Actor",
+   "id": "Actor_3d95ef7e",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 857,
+   "end": 865,
+   "label": "AND Gateway",
+   "id": "AND Gateway_7b78d02d",
+   "type": "parallelGateway",
+   "name": "Meantime"
+  },
+  {
+   "start": 868,
+   "end": 879,
+   "label": "Actor",
+   "id": "Actor_4e9f20c2",
+   "type": "Lane",
+   "name": "The Cashier"
+  },
+  {
+   "start": 880,
+   "end": 888,
+   "label": "Activity",
+   "id": "Activity_d732bc96",
+   "type": "task",
+   "name": "Captures the Party Details"
+  },
+  {
+   "start": 889,
+   "end": 906,
+   "label": "Activity Data",
+   "id": "Activity Data_5d850c8e",
+   "type": null,
+   "name": "The Party Details"
+  },
+  {
+   "start": 911,
+   "end": 917,
+   "label": "Activity",
+   "id": "Activity_765f1060",
+   "type": "task",
+   "name": "Prints the Physical Court File"
+  },
+  {
+   "start": 918,
+   "end": 941,
+   "label": "Activity Data",
+   "id": "Activity Data_7cf23504",
+   "type": null,
+   "name": "The Physical Court File"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 54,
+  "skipped": 0,
+  "failures": 54,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Sorts the unopened mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Distributed the mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Received the mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Distributed the mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Received the mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Opened it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Received the mail",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Opened it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Sorted",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Opened it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Sorted",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Registered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Sorted",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Registered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Performs a quality check",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "Registered",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "Performs a quality check",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "If the mail is not compliant",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "Performs a quality check",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "If the mail is not compliant",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "Compiled a list of requisition",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "If the mail is not compliant",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "Compiled a list of requisition",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Compiled a list of requisition",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Sent back",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Captured the matter details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Captured the matter details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Provided",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Captured the matter details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Provided",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Takes the applicable fees",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Provided",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Takes the applicable fees",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Puts the receipt and copied documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Takes the applicable fees",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Puts the receipt and copied documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Posts it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Puts the receipt and copied documents",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Posts it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Posts it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Captures the Party Details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Captures the Party Details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Prints the Physical Court File",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Captures the Party Details",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Prints the Physical Court File",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Captures the Party Details",
+    "node_B": "Prints the Physical Court File",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Sorts the unopened mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Distributed the mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Collected mail from the party",
+    "node_B": "Received the mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Distributed the mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Received the mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorts the unopened mail",
+    "node_B": "Opened it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Received the mail",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Opened it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Distributed the mail",
+    "node_B": "Sorted",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Opened it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Sorted",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the mail",
+    "node_B": "Registered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Sorted",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Registered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Opened it",
+    "node_B": "Performs a quality check",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "Registered",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "Performs a quality check",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sorted",
+    "node_B": "If the mail is not compliant",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "Performs a quality check",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "If the mail is not compliant",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered",
+    "node_B": "Compiled a list of requisition",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "If the mail is not compliant",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "Compiled a list of requisition",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs a quality check",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Compiled a list of requisition",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Sent back",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Compiled a list of requisition",
+    "node_B": "Captured the matter details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Captured the matter details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sent back",
+    "node_B": "Provided",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Captured the matter details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Provided",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Takes the applicable fees",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Provided",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Takes the applicable fees",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Captured the matter details",
+    "node_B": "Puts the receipt and copied documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Takes the applicable fees",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Puts the receipt and copied documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Provided",
+    "node_B": "Posts it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Puts the receipt and copied documents",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Posts it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes the applicable fees",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Posts it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Puts the receipt and copied documents",
+    "node_B": "Captures the Party Details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Captures the Party Details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Posts it",
+    "node_B": "Prints the Physical Court File",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Captures the Party Details",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Prints the Physical Court File",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Captures the Party Details",
+    "node_B": "Prints the Physical Court File",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

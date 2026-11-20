@@ -1,0 +1,10 @@
+# Figures for Section 4.6. Renderer: text2bpmn/render.py, drawing code unchanged since commit 310aa63; rendered with no manual edits. Run from the repository root: sh figures/section_4_6/commands.txt
+python3 -m text2bpmn.render runs/final-3/cases/healthcare/model.bpmn -o figures/section_4_6/healthcare_generated.svg --png figures/section_4_6/healthcare_generated.png --dpi 300
+python3 -m text2bpmn.render runs/final-3/cases/goods_dispatch/model.bpmn -o figures/section_4_6/goods_dispatch_generated.svg --png figures/section_4_6/goods_dispatch_generated.png --dpi 300
+python3 -m text2bpmn.render runs/final-3/cases/loan/model.bpmn -o figures/section_4_6/loan_generated.svg --png figures/section_4_6/loan_generated.png --dpi 300
+python3 -m text2bpmn.render text2bpmn/cases/healthcare/reference.bpmn -o figures/section_4_6/healthcare_reference.svg --png figures/section_4_6/healthcare_reference.png --dpi 300
+python3 -m text2bpmn.render text2bpmn/cases/goods_dispatch/reference.bpmn -o figures/section_4_6/goods_dispatch_reference.svg --png figures/section_4_6/goods_dispatch_reference.png --dpi 300
+#      note: label positions stored in the file (BPMNLabel) are not used; names are placed by the renderer
+#      note: sequenceFlow SequenceFlow_1dlbln9: name set at 9 px to find a free place
+python3 -m text2bpmn.render text2bpmn/cases/loan/reference.bpmn -o figures/section_4_6/loan_reference.svg --png figures/section_4_6/loan_reference.png --dpi 300
+python3 -m text2bpmn.render_check figures/section_4_6/*.svg --json figures/section_4_6/check.json

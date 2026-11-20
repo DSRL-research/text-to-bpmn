@@ -1,0 +1,21 @@
+# CQ2 Which decisions does the process contain, and which task follows each outcome?
+# A decision is an exclusive gateway with two or more outgoing flows. The task
+# that follows an outcome is the first task on that flow's path.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?decision ?gateway ?flow_id ?outcome ?relation ?next_task WHERE {
+  { SELECT ?g WHERE { ?g a b:ExclusiveGateway . ?f b:has_sourceRef ?g } GROUP BY ?g HAVING (COUNT(?f) >= 2) }
+  OPTIONAL { ?g rdfs:label ?decision }
+  BIND(STRAFTER(STR(?g), "#") AS ?gateway)
+  ?flow b:has_sourceRef ?g ; b:has_targetRef ?target .
+  BIND(STRAFTER(STR(?flow), "#") AS ?flow_id)
+  OPTIONAL { ?flow t:branch_condition ?outcome }
+  OPTIONAL { ?flow t:extracted_relation ?relation }
+  { ?target a b:Task . BIND(?target AS ?n) }
+  UNION
+  { FILTER NOT EXISTS { ?target a b:Task }
+    ?target b:has_nextFlowNode+ ?n . ?n a b:Task .
+    FILTER NOT EXISTS { ?target b:has_nextFlowNode+ ?m . ?m b:has_nextFlowNode+ ?n . ?m a b:Task } }
+  ?n rdfs:label ?next_task .
+} ORDER BY ?gateway ?outcome ?next_task

@@ -1,0 +1,287 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The EC",
+   "The INQ",
+   "The IP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_994edca2",
+    "name": "Tells about the change of his master data",
+    "type": "task",
+    "lane": "The EC",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ff819859",
+    "name": "Notifies the change",
+    "type": "task",
+    "lane": "The INQ",
+    "metadata": []
+   },
+   {
+    "id": "Activity_245f9ada",
+    "name": "Checks",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": [
+     "Whether the master data can be changed at the desired time"
+    ]
+   },
+   {
+    "id": "Activity_54155f37",
+    "name": "Confirmes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_5abe5c62",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d576625d",
+    "name": "Rejectes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The IP"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_994edca2",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_994edca2",
+    "target": "Activity_ff819859",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_ff819859",
+    "target": "Activity_245f9ada",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_245f9ada",
+    "target": "Activity_54155f37",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_54155f37",
+    "target": "XOR Gateway_5abe5c62",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "XOR Gateway_5abe5c62",
+    "target": "Activity_d576625d",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_5abe5c62",
+    "target": "EndEvent_1",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_d576625d",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 6,
+   "label": "Actor",
+   "id": "Actor_752e11be",
+   "type": "Lane",
+   "name": "The EC"
+  },
+  {
+   "start": 7,
+   "end": 12,
+   "label": "Activity",
+   "id": "Activity_994edca2",
+   "type": "task",
+   "name": "Tells about the change of his master data"
+  },
+  {
+   "start": 13,
+   "end": 20,
+   "label": "Actor",
+   "id": "Actor_1c17303a",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 21,
+   "end": 56,
+   "label": "Activity Data",
+   "id": "Activity Data_e0e2fd15",
+   "type": null,
+   "name": "About the change of his master data"
+  },
+  {
+   "start": 59,
+   "end": 66,
+   "label": "Actor",
+   "id": "Actor_ce2473ce",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 67,
+   "end": 75,
+   "label": "Activity",
+   "id": "Activity_ff819859",
+   "type": "task",
+   "name": "Notifies the change"
+  },
+  {
+   "start": 76,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_c33eff6e",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 86,
+   "end": 96,
+   "label": "Activity Data",
+   "id": "Activity Data_298695ac",
+   "type": null,
+   "name": "The change"
+  },
+  {
+   "start": 99,
+   "end": 105,
+   "label": "Actor",
+   "id": "Actor_819fbd02",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 106,
+   "end": 112,
+   "label": "Activity",
+   "id": "Activity_245f9ada",
+   "type": "task",
+   "name": "Checks"
+  },
+  {
+   "start": 113,
+   "end": 171,
+   "label": "Further Specification",
+   "id": "Further Specification_5877740e",
+   "type": null,
+   "name": "Whether the master data can be changed at the desired time"
+  },
+  {
+   "start": 174,
+   "end": 180,
+   "label": "Actor",
+   "id": "Actor_400d7249",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "label": "Activity",
+   "id": "Activity_54155f37",
+   "type": "task",
+   "name": "Confirmes the changes of the INQ"
+  },
+  {
+   "start": 191,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_3c9883e7",
+   "type": null,
+   "name": "The changes of the INQ"
+  },
+  {
+   "start": 214,
+   "end": 216,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_5abe5c62",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 217,
+   "end": 223,
+   "label": "Actor",
+   "id": "Actor_02d91513",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 224,
+   "end": 232,
+   "label": "Activity",
+   "id": "Activity_d576625d",
+   "type": "task",
+   "name": "Rejectes the changes of the INQ"
+  },
+  {
+   "start": 233,
+   "end": 255,
+   "label": "Activity Data",
+   "id": "Activity Data_4851a3b5",
+   "type": null,
+   "name": "The changes of the INQ"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "no",
+    "source": "llm"
+   }
+  ]
+ }
+}

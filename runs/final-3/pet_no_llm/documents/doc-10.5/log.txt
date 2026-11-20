@@ -1,0 +1,29 @@
+
+--- Processing Input ---
+   (Debug) Injected 17 spans from PET gold spans
+   (Debug) Injected text: The MPON requests a device takeover bid of the MPOO . The MPOO sends a tender for the equipment takeover to the MPON . The MPON places an order at the MPOO . The MPOO confirms the order of the MPON and sends the master data .
+   (Debug) Raw Entities: ['The MPON', 'requests', 'a device takeover bid', 'the MPOO', 'The MPOO', 'sends', 'a tender for the equipment takeover', 'the MPON', 'The MPON', 'places', 'an order', 'the MPOO', 'The MPOO', 'confirms', 'the order of the MPON', 'sends', 'the master data']
+
+--- Split Entities ---
+[{'entity_group': 'Actor', 'word': 'The MPON', 'start': 0, 'end': 8, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'requests', 'start': 9, 'end': 17, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a device takeover bid', 'start': 18, 'end': 39, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MPOO', 'start': 43, 'end': 51, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MPOO', 'start': 54, 'end': 62, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'sends', 'start': 63, 'end': 68, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a tender for the equipment takeover', 'start': 69, 'end': 104, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MPON', 'start': 108, 'end': 116, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MPON', 'start': 119, 'end': 127, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'places', 'start': 128, 'end': 134, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'an order', 'start': 135, 'end': 143, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MPOO', 'start': 147, 'end': 155, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MPOO', 'start': 158, 'end': 166, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'confirms', 'start': 167, 'end': 175, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the order of the MPON', 'start': 176, 'end': 197, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'sends', 'start': 202, 'end': 207, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the master data', 'start': 208, 'end': 223, 'score': 1.0}]
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 1/1: {'node_A': 'Requests a device takeover bid', 'node_B': 'Sends a tender for the equipment takeover', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 2/2: {'node_A': 'Requests a device takeover bid', 'node_B': 'Places an order', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 3/3: {'node_A': 'Requests a device takeover bid', 'node_B': 'Confirms the order of the MPON', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 4/4: {'node_A': 'Sends a tender for the equipment takeover', 'node_B': 'Places an order', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 5/5: {'node_A': 'Sends a tender for the equipment takeover', 'node_B': 'Confirms the order of the MPON', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 6/6: {'node_A': 'Sends a tender for the equipment takeover', 'node_B': 'Sends the master data', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 7/7: {'node_A': 'Places an order', 'node_B': 'Confirms the order of the MPON', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 8/8: {'node_A': 'Places an order', 'node_B': 'Sends the master data', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 9/9: {'node_A': 'Confirms the order of the MPON', 'node_B': 'Sends the master data', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+   💾 Saved Enriched Ontology to runs/final-3/pet_no_llm/documents/doc-10.5/ontology.owl: {'StartEvent': 1, 'Task': 5, 'EndEvent': 1}, relations {'SEQUENCE': 6}, 2 actors
+✅ Ontology Enrichment Complete: runs/final-3/pet_no_llm/documents/doc-10.5/ontology.owl
+   Relation parse failures: 9/9

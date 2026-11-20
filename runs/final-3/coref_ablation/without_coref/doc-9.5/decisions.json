@@ -1,0 +1,39 @@
+{
+  "calls": 5,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+    {
+      "node_A": "If the employee does not already have one",
+      "node_B": "Reviewed the report | decision: Amounts amounts under $200 | Approved | decision: Whereas amounts equal to or over $200 | Require approval | decision: In case of rejection | Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email",
+      "label": "after after after after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "Amounts amounts under $200",
+      "node_B": "Approved | decision: Whereas amounts equal to or over $200 | Require approval | decision: In case of rejection | Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice",
+      "label": "yes same no after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "In case of rejection",
+      "node_B": "Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice | Re-submit the expense report | Re-submit",
+      "label": "yes no after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If the request is not completed in 7 days",
+      "node_B": "Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice | Re-submit the expense report | Re-submit",
+      "label": "yes after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If the request is not finished within 30 days",
+      "node_B": "Receives an email cancellation notice | Re-submit the expense report | Re-submit",
+      "label": "yes yes yes",
+      "source": "llm"
+    }
+  ]
+}

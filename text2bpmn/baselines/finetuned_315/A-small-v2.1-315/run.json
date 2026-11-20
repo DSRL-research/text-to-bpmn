@@ -1,0 +1,110 @@
+{
+  "name": "A-small-v2.1-315",
+  "base_model": "urchade/gliner_small-v2.1",
+  "parameters_millions": 152.6,
+  "labels": [
+    "Activity",
+    "Activity Data",
+    "Actor",
+    "AND Gateway",
+    "Condition Specification",
+    "Further Specification",
+    "XOR Gateway"
+  ],
+  "focal_loss": null,
+  "hard_negatives": null,
+  "seed": 0,
+  "epochs_requested": 12,
+  "epochs_scored": 11,
+  "best_epoch": 8,
+  "best_dev_strict_micro_f1": 0.825,
+  "inference_threshold": 0.5,
+  "training_arguments": {
+    "learning_rate": 1e-05,
+    "others_lr": 5e-05,
+    "per_device_train_batch_size": 8,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.01,
+    "others_weight_decay": 0.01
+  },
+  "train_data": "text2bpmn/baselines/train_315.json",
+  "train_sentences": 315,
+  "dev_data": "text2bpmn/baselines/dev_split.json",
+  "dev_sentences": 60,
+  "history": [
+    {
+      "epoch": 1,
+      "dev_strict_micro_f1": 0.575,
+      "dev_relaxed_micro_f1": 0.575,
+      "minutes": 1.5
+    },
+    {
+      "epoch": 2,
+      "dev_strict_micro_f1": 0.741,
+      "dev_relaxed_micro_f1": 0.758,
+      "minutes": 3.0
+    },
+    {
+      "epoch": 3,
+      "dev_strict_micro_f1": 0.74,
+      "dev_relaxed_micro_f1": 0.755,
+      "minutes": 4.4
+    },
+    {
+      "epoch": 4,
+      "dev_strict_micro_f1": 0.77,
+      "dev_relaxed_micro_f1": 0.782,
+      "minutes": 5.9
+    },
+    {
+      "epoch": 5,
+      "dev_strict_micro_f1": 0.799,
+      "dev_relaxed_micro_f1": 0.807,
+      "minutes": 7.3
+    },
+    {
+      "epoch": 6,
+      "dev_strict_micro_f1": 0.802,
+      "dev_relaxed_micro_f1": 0.802,
+      "minutes": 8.8
+    },
+    {
+      "epoch": 7,
+      "dev_strict_micro_f1": 0.817,
+      "dev_relaxed_micro_f1": 0.825,
+      "minutes": 10.2
+    },
+    {
+      "epoch": 8,
+      "dev_strict_micro_f1": 0.825,
+      "dev_relaxed_micro_f1": 0.833,
+      "minutes": 11.6
+    },
+    {
+      "epoch": 9,
+      "dev_strict_micro_f1": 0.819,
+      "dev_relaxed_micro_f1": 0.831,
+      "minutes": 13.1
+    },
+    {
+      "epoch": 10,
+      "dev_strict_micro_f1": 0.824,
+      "dev_relaxed_micro_f1": 0.836,
+      "minutes": 14.5
+    },
+    {
+      "epoch": 11,
+      "dev_strict_micro_f1": 0.819,
+      "dev_relaxed_micro_f1": 0.831,
+      "minutes": 15.9
+    }
+  ],
+  "minutes": 15.9,
+  "run_at": "2026-11-09T14:44:21+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "torch": "2.13.0+cu130",
+  "cuda": false,
+  "best_model_dir": "text2bpmn/baselines/finetuned_315/A-small-v2.1-315/best"
+}

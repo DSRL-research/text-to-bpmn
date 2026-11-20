@@ -1,0 +1,30 @@
+# Table 4: Entity recognition configurations on the 42 test sentences
+
+Run 2026-11-20T09:01:18+00:00 at revision-final-3-77-g59c3e2b (59c3e2b, dirty: False); lxml 5.2.1, pm4py 2.7.19.2, rdflib 7.6.0, pyshacl 0.40.2, owlready2 0.49, dspy 3.1.2, transformers 4.50.0.
+
+Rebuilt by `python3 -m text2bpmn.paper_tables 4` (text2bpmn/paper_tables.py) from `text2bpmn/baselines/comparison_spec_315.json and the spans it lists`, `runs/checks/final-3/tables/parameter_counts.json`. Draft: bpmn_springer_format_2_reviewing_1.pdf (2026-11-12; its .docx, 2026-11-12, has the same tables).
+
+| Configuration | Setting | Params | Strict F1 | Relaxed F1 (IoU >= 0.5) |
+|---|---|---|---|---|
+| BERT | fine-tuned, 315 sentences | 107.7M | 0.715 [0.640, 0.792] | 0.787 [0.714, 0.856] |
+| GLiNER, small v2.1 | fine-tuned, 315 sentences | 152.6M | 0.849 [0.786, 0.906] | 0.870 [0.816, 0.920] |
+| GLiNER, medium v2.1 | fine-tuned, 315 sentences | 195.2M | 0.843 [0.787, 0.894] | 0.880 [0.833, 0.923] |
+| GLiNER, focal loss | fine-tuned, 315 sentences | 152.6M | 0.861 [0.802, 0.913] | 0.877 [0.830, 0.922] |
+| GLiNER, hard negatives | fine-tuned, 315 sentences | 152.6M | 0.802 [0.745, 0.856] | 0.833 [0.780, 0.881] |
+| GLiNER medium v2.1, zero-shot | zero-shot | 195.2M | 0.110 [0.059, 0.161] | 0.186 |
+| GLiNER 2.5 base v1, zero-shot | zero-shot | 193.6M | 0.194 [0.137, 0.253] | 0.417 |
+
+With it, in the section's text:
+
+| value | rebuilt | draft |
+|---|---|---|
+| GLiNER small v2.1 - BERT, strict | +0.134 [+0.085, +0.184] | +0.134 [0.085, 0.184] (changes_after_final_runs.pdf) |
+| GLiNER small v2.1 - BERT, relaxed | +0.083 [+0.038, +0.127] | +0.083 [0.038, 0.127] (changes_after_final_runs.pdf) |
+
+## Against the draft
+
+All 30 values compared (cells and text values) are the draft's.
+
+## Checks
+
+- parameter counts: the record's weights, each with its SHA-256: {'BERT, fine-tuned': 'e17e92268b8fae65', 'GLiNER small v2.1, fine-tuned': '1afa6921385ac326', 'GLiNER medium v2.1, fine-tuned': 'b56fdfacc0d9d914', 'GLiNER, focal loss': '7664a614e12cc418', 'GLiNER, hard negatives': '1459dabdf24ef220', 'GLiNER medium v2.1, zero-shot': '922214c0c60f7835', 'GLiNER2.5 base v1, zero-shot': '7274094de2e0c2a3'}

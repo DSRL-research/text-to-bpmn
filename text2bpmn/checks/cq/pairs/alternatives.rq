@@ -1,0 +1,15 @@
+# For scoring CQ6 without polarity: for each decision, the tasks each outgoing
+# flow reaches and no other outgoing flow of that decision does.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?gateway ?flow_id ?task WHERE {
+  { SELECT ?g WHERE { ?g a b:ExclusiveGateway . ?f b:has_sourceRef ?g } GROUP BY ?g HAVING (COUNT(?f) >= 2) }
+  ?flow b:has_sourceRef ?g ; b:has_targetRef ?x .
+  ?x b:has_nextFlowNode* ?node . ?node a b:Task ; rdfs:label ?task .
+  FILTER NOT EXISTS {
+    ?other b:has_sourceRef ?g ; b:has_targetRef ?y . FILTER(?other != ?flow)
+    ?y b:has_nextFlowNode* ?node }
+  BIND(STRAFTER(STR(?g), "#") AS ?gateway)
+  BIND(STRAFTER(STR(?flow), "#") AS ?flow_id)
+} ORDER BY ?gateway ?flow_id ?task

@@ -1,0 +1,73 @@
+{
+ "run": "2026-11-09, 17:50-19:14 (+02:00), CPU only (13th Gen Intel(R) Core(TM) i7-1355U), no GPU",
+ "code": {
+  "base_commit": "b2238e8",
+  "note": "run on b2238e8 with the uncommitted --warmup-ratio/--seed-model options of text2bpmn/cross_validate.py, committed with these results",
+  "script": "text2bpmn/cross_validate.py"
+ },
+ "data": {
+  "records": "pet_train.json",
+  "folds": "text2bpmn/baselines/cv_folds.json",
+  "sentences_in_folds": 315,
+  "note": "375 training sentences minus the 60 development sentences"
+ },
+ "why_these_settings": {
+  "bert-base": "the recipe of text2bpmn/train_ner.py (the pipeline's recogniser bert_ner_315_dev60): no warmup, seed 42 set before the model is created; 8 epochs, its epoch selected on dev",
+  "gliner-small": "GLiNER A of text2bpmn/baselines/train_all_315.sh: best epoch 8 on dev, threshold 0.85 chosen on dev (chosen_thresholds_315.json)"
+ },
+ "bert-base": {
+  "environment": {
+   "python": "3.12.3",
+   "executable": "/usr/bin/python3",
+   "packages": {
+    "transformers": "4.50.0.dev0",
+    "tokenizers": "0.21.0",
+    "torch": "2.13.0",
+    "numpy": "1.26.4",
+    "scipy": "1.16.2",
+    "scikit-learn": "1.4.2",
+    "accelerate": "1.5.2",
+    "datasets": "3.4.1",
+    "huggingface-hub": "0.35.3",
+    "safetensors": "0.5.3",
+    "evaluate": "0.4.6",
+    "seqeval": "1.2.2"
+   }
+  },
+  "base_model": "bert-base-cased",
+  "base_revision": "cd5ef92a9fb2f889e972770a36d4ed042daf221e",
+  "epochs": 8,
+  "seed": 42,
+  "warmup_ratio": 0.0,
+  "seed_before_model": true,
+  "command": "USE_TF=0 TRANSFORMERS_NO_TF=1 CUDA_VISIBLE_DEVICES= python3 -m text2bpmn.cross_validate --model bert --base bert-base-cased --name bert-base --epochs 8 --warmup-ratio 0 --seed 42 --seed-model --out <dir>"
+ },
+ "gliner-small": {
+  "environment": {
+   "python": "3.12.3",
+   "executable": ".venvs/gliner-env/bin/python",
+   "packages": {
+    "gliner": "0.2.29",
+    "transformers": "5.16.1",
+    "tokenizers": "0.23.2",
+    "torch": "2.13.0",
+    "numpy": "1.26.4",
+    "scipy": "1.16.2",
+    "scikit-learn": "1.4.2",
+    "accelerate": "1.5.2",
+    "datasets": "3.4.1",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0",
+    "evaluate": "0.4.6",
+    "seqeval": "1.2.2"
+   }
+  },
+  "base_model": "urchade/gliner_small-v2.1",
+  "base_revision": "4e091416cf7c3481db542c2a3d26156916f3a47f",
+  "epochs": 8,
+  "seed": 0,
+  "threshold": 0.85,
+  "command": "CUDA_VISIBLE_DEVICES= .venvs/gliner-env/bin/python -m text2bpmn.cross_validate --model gliner --base urchade/gliner_small-v2.1 --name gliner-small --epochs 8 --threshold 0.85 --out <dir>"
+ },
+ "previous_runs": "text2bpmn/baselines/cv/rerun_315_2026-11-09/ (October recipes: BERT 9 epochs, warmup 0.1, seed 0; GLiNER 10 epochs, threshold 0.9) and text2bpmn/baselines/cv/{bert-base,gliner-small}/ (2026-10-02, no predictions saved)"
+}

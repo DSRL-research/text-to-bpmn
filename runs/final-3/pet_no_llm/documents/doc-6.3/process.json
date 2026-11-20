@@ -1,0 +1,742 @@
+{
+ "structured_data": {
+  "participants": [
+   "An employee",
+   "It",
+   "Main Process",
+   "One of my masters",
+   "The sales department",
+   "The system",
+   "We"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_faae1837",
+    "name": "Get a new order",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_76f786e4",
+    "name": "Determines the necessary parts and quantities as well as the delivery date",
+    "type": "task",
+    "lane": "One of my masters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a11f9114",
+    "name": "Entered it",
+    "type": "task",
+    "lane": "One of my masters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b2f683c6",
+    "name": "Creates a list of parts",
+    "type": "task",
+    "lane": "It",
+    "metadata": []
+   },
+   {
+    "id": "Activity_73424275",
+    "name": "Transferred the data",
+    "type": "task",
+    "lane": "It",
+    "metadata": [
+     "Manually"
+    ]
+   },
+   {
+    "id": "Condition Specification_cf7d50b6",
+    "name": "Any parts are missing",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4fbda6bf",
+    "name": "Procured",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_3c85b62d",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7a4b2d7c",
+    "name": "Receive a notice",
+    "type": "task",
+    "lane": "We",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a306b6a0",
+    "name": "Takes care the implementation",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e69ac37b",
+    "name": "Checked the order",
+    "type": "task",
+    "lane": "An employee",
+    "metadata": [
+     "For its quality"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "An employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_77f067c8",
+    "source": "StartEvent_1",
+    "target": "Activity_faae1837",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c32199de",
+    "source": "Activity_faae1837",
+    "target": "Activity_76f786e4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2b5fe0fb",
+    "source": "Activity_76f786e4",
+    "target": "Activity_a11f9114",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_54aecfdb",
+    "source": "Activity_a11f9114",
+    "target": "Activity_b2f683c6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dc127fbc",
+    "source": "Activity_b2f683c6",
+    "target": "Activity_73424275",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_49e90407",
+    "source": "Activity_73424275",
+    "target": "Condition Specification_cf7d50b6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fb94e6b6",
+    "source": "Condition Specification_cf7d50b6",
+    "target": "Activity_4fbda6bf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b100c439",
+    "source": "Activity_4fbda6bf",
+    "target": "XOR Gateway_3c85b62d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0e1ff098",
+    "source": "XOR Gateway_3c85b62d",
+    "target": "Activity_7a4b2d7c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a81eefcb",
+    "source": "Activity_7a4b2d7c",
+    "target": "Activity_a306b6a0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3027ef7f",
+    "source": "Activity_a306b6a0",
+    "target": "Activity_e69ac37b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_871e9d58",
+    "source": "Activity_e69ac37b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 14,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_faae1837",
+   "type": "task",
+   "name": "Get a new order"
+  },
+  {
+   "start": 18,
+   "end": 29,
+   "label": "Activity Data",
+   "id": "Activity Data_7292e4c7",
+   "type": null,
+   "name": "A new order"
+  },
+  {
+   "start": 35,
+   "end": 55,
+   "label": "Actor",
+   "id": "Actor_6e52871a",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 66,
+   "end": 83,
+   "label": "Actor",
+   "id": "Actor_9dfc0f11",
+   "type": "Lane",
+   "name": "One of my masters"
+  },
+  {
+   "start": 84,
+   "end": 94,
+   "label": "Activity",
+   "id": "Activity_76f786e4",
+   "type": "task",
+   "name": "Determines the necessary parts and quantities as well as the delivery date"
+  },
+  {
+   "start": 95,
+   "end": 158,
+   "label": "Activity Data",
+   "id": "Activity Data_e8f4f1eb",
+   "type": null,
+   "name": "The necessary parts and quantities as well as the delivery date"
+  },
+  {
+   "start": 196,
+   "end": 198,
+   "label": "Activity Data",
+   "id": "Activity Data_32ba77b1",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 209,
+   "end": 216,
+   "label": "Activity",
+   "id": "Activity_a11f9114",
+   "type": "task",
+   "name": "Entered it"
+  },
+  {
+   "start": 394,
+   "end": 396,
+   "label": "Actor",
+   "id": "Actor_92e980f5",
+   "type": "Lane",
+   "name": "It"
+  },
+  {
+   "start": 397,
+   "end": 404,
+   "label": "Activity",
+   "id": "Activity_b2f683c6",
+   "type": "task",
+   "name": "Creates a list of parts"
+  },
+  {
+   "start": 405,
+   "end": 420,
+   "label": "Activity Data",
+   "id": "Activity Data_209eef50",
+   "type": null,
+   "name": "A list of parts"
+  },
+  {
+   "start": 536,
+   "end": 544,
+   "label": "Activity Data",
+   "id": "Activity Data_8bc1bdfc",
+   "type": null,
+   "name": "The data"
+  },
+  {
+   "start": 553,
+   "end": 564,
+   "label": "Activity",
+   "id": "Activity_73424275",
+   "type": "task",
+   "name": "Transferred the data"
+  },
+  {
+   "start": 565,
+   "end": 573,
+   "label": "Further Specification",
+   "id": "Further Specification_c8f49cab",
+   "type": null,
+   "name": "Manually"
+  },
+  {
+   "start": 646,
+   "end": 648,
+   "label": "Actor",
+   "id": "Actor_8e937b48",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 672,
+   "end": 693,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cf7d50b6",
+   "type": "exclusiveGateway",
+   "name": "Any parts are missing"
+  },
+  {
+   "start": 706,
+   "end": 714,
+   "label": "Activity",
+   "id": "Activity_4fbda6bf",
+   "type": "task",
+   "name": "Procured"
+  },
+  {
+   "start": 715,
+   "end": 717,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_3c85b62d",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 785,
+   "end": 787,
+   "label": "Actor",
+   "id": "Actor_865a0635",
+   "type": "Lane",
+   "name": "We"
+  },
+  {
+   "start": 788,
+   "end": 795,
+   "label": "Activity",
+   "id": "Activity_7a4b2d7c",
+   "type": "task",
+   "name": "Receive a notice"
+  },
+  {
+   "start": 796,
+   "end": 804,
+   "label": "Activity Data",
+   "id": "Activity Data_1d7e4cd6",
+   "type": null,
+   "name": "A notice"
+  },
+  {
+   "start": 810,
+   "end": 820,
+   "label": "Actor",
+   "id": "Actor_006eae44",
+   "type": "Lane",
+   "name": "The system"
+  },
+  {
+   "start": 825,
+   "end": 836,
+   "label": "Actor",
+   "id": "Actor_10019349",
+   "type": "Lane",
+   "name": "An employee"
+  },
+  {
+   "start": 837,
+   "end": 847,
+   "label": "Activity",
+   "id": "Activity_a306b6a0",
+   "type": "task",
+   "name": "Takes care the implementation"
+  },
+  {
+   "start": 851,
+   "end": 869,
+   "label": "Activity Data",
+   "id": "Activity Data_370e9fe2",
+   "type": null,
+   "name": "The implementation"
+  },
+  {
+   "start": 882,
+   "end": 891,
+   "label": "Activity Data",
+   "id": "Activity Data_ec3fa71a",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 900,
+   "end": 907,
+   "label": "Activity",
+   "id": "Activity_e69ac37b",
+   "type": "task",
+   "name": "Checked the order"
+  },
+  {
+   "start": 914,
+   "end": 929,
+   "label": "Further Specification",
+   "id": "Further Specification_1937526b",
+   "type": null,
+   "name": "For its quality"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 27,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Get a new order",
+    "node_B": "Determines the necessary parts and quantities as well as the delivery date",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Get a new order",
+    "node_B": "Entered it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Get a new order",
+    "node_B": "Creates a list of parts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Entered it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Creates a list of parts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Transferred the data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Creates a list of parts",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Transferred the data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Any parts are missing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Transferred the data",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Any parts are missing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Procured",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Any parts are missing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Procured",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Procured",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Receive a notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Receive a notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Takes care the implementation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Receive a notice",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Takes care the implementation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Checked the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive a notice",
+    "node_B": "Takes care the implementation",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receive a notice",
+    "node_B": "Checked the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes care the implementation",
+    "node_B": "Checked the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Get a new order",
+    "node_B": "Determines the necessary parts and quantities as well as the delivery date",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Get a new order",
+    "node_B": "Entered it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Get a new order",
+    "node_B": "Creates a list of parts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Entered it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Creates a list of parts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Determines the necessary parts and quantities as well as the delivery date",
+    "node_B": "Transferred the data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Creates a list of parts",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Transferred the data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Entered it",
+    "node_B": "Any parts are missing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Transferred the data",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Any parts are missing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Creates a list of parts",
+    "node_B": "Procured",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Any parts are missing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Procured",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transferred the data",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Procured",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Any parts are missing",
+    "node_B": "Receive a notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Receive a notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Procured",
+    "node_B": "Takes care the implementation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Receive a notice",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Takes care the implementation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Checked the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive a notice",
+    "node_B": "Takes care the implementation",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receive a notice",
+    "node_B": "Checked the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes care the implementation",
+    "node_B": "Checked the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

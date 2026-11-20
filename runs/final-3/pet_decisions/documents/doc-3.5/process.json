@@ -1,0 +1,722 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The Assistant Registry Manager",
+   "The Cashier",
+   "The Mail Clerk",
+   "The Mail Processing Unit",
+   "The Registry",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_cf970a38",
+    "name": "Collected mail from the party",
+    "type": "task",
+    "lane": "The Mail Processing Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_956a0c9b",
+    "name": "Sorts the unopened mail",
+    "type": "task",
+    "lane": "The Mail Clerk",
+    "metadata": [
+     "Into the various business areas"
+    ]
+   },
+   {
+    "id": "Activity_392cfd53",
+    "name": "Distributed the mail",
+    "type": "task",
+    "lane": "The Mail Clerk",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5bae2b8a",
+    "name": "Received the mail",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c92201e6",
+    "name": "Opened it",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f351092c",
+    "name": "Sorted",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4c5c0fdd",
+    "name": "Registered",
+    "type": "task",
+    "lane": "The Registry",
+    "metadata": [
+     "In a manual incoming Mail Register"
+    ]
+   },
+   {
+    "id": "Activity_f4e50fdb",
+    "name": "Performs a quality check",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a5382fd1",
+    "name": "If the mail is not compliant",
+    "type": "exclusiveGateway",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_105a8539",
+    "name": "Compiled a list of requisition",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0abc168e",
+    "name": "Sent back",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_da88ed83",
+    "name": "Captured the matter details",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cf50de6d",
+    "name": "Provided",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5ea3ec52",
+    "name": "Takes the applicable fees",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_816c168c",
+    "name": "Puts the receipt and copied documents",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8c286ab0",
+    "name": "Posts it",
+    "type": "task",
+    "lane": "The Assistant Registry Manager",
+    "metadata": [
+     "Into an envelope"
+    ]
+   },
+   {
+    "id": "AND Gateway_ad391255",
+    "name": "Meantime",
+    "type": "parallelGateway",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_92fcf274",
+    "name": "Captures the Party Details",
+    "type": "task",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_28dddc11",
+    "name": "Prints the Physical Court File",
+    "type": "task",
+    "lane": "The Cashier",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The Cashier"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_cf970a38",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_cf970a38",
+    "target": "Activity_956a0c9b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_956a0c9b",
+    "target": "Activity_392cfd53",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_392cfd53",
+    "target": "Activity_5bae2b8a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_5bae2b8a",
+    "target": "Activity_c92201e6",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_c92201e6",
+    "target": "Activity_f351092c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_f351092c",
+    "target": "Activity_4c5c0fdd",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_4c5c0fdd",
+    "target": "Activity_f4e50fdb",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_f4e50fdb",
+    "target": "XOR Gateway_a5382fd1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "XOR Gateway_a5382fd1",
+    "target": "Activity_105a8539",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_105a8539",
+    "target": "Activity_0abc168e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "XOR Gateway_a5382fd1",
+    "target": "Activity_da88ed83",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_da88ed83",
+    "target": "Activity_cf50de6d",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_cf50de6d",
+    "target": "Activity_5ea3ec52",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "Activity_5ea3ec52",
+    "target": "Activity_816c168c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0016",
+    "source": "Activity_816c168c",
+    "target": "Activity_8c286ab0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0017",
+    "source": "Activity_0abc168e",
+    "target": "AND Gateway_ad391255",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0018",
+    "source": "Activity_8c286ab0",
+    "target": "AND Gateway_ad391255",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0019",
+    "source": "AND Gateway_ad391255",
+    "target": "Activity_92fcf274",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0020",
+    "source": "AND Gateway_ad391255",
+    "target": "Activity_28dddc11",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0021",
+    "source": "Activity_92fcf274",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0022",
+    "source": "Activity_28dddc11",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 25
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 19,
+   "label": "Activity Data",
+   "id": "Activity Data_13ee70be",
+   "type": null,
+   "name": "Mail from the party"
+  },
+  {
+   "start": 23,
+   "end": 32,
+   "label": "Activity",
+   "id": "Activity_cf970a38",
+   "type": "task",
+   "name": "Collected mail from the party"
+  },
+  {
+   "start": 53,
+   "end": 77,
+   "label": "Actor",
+   "id": "Actor_40393704",
+   "type": "Lane",
+   "name": "The Mail Processing Unit"
+  },
+  {
+   "start": 99,
+   "end": 113,
+   "label": "Actor",
+   "id": "Actor_830a52c3",
+   "type": "Lane",
+   "name": "The Mail Clerk"
+  },
+  {
+   "start": 114,
+   "end": 119,
+   "label": "Activity",
+   "id": "Activity_956a0c9b",
+   "type": "task",
+   "name": "Sorts the unopened mail"
+  },
+  {
+   "start": 120,
+   "end": 137,
+   "label": "Activity Data",
+   "id": "Activity Data_37f5bc0f",
+   "type": null,
+   "name": "The unopened mail"
+  },
+  {
+   "start": 138,
+   "end": 169,
+   "label": "Further Specification",
+   "id": "Further Specification_2231e0af",
+   "type": null,
+   "name": "Into the various business areas"
+  },
+  {
+   "start": 172,
+   "end": 180,
+   "label": "Activity Data",
+   "id": "Activity Data_8227ec23",
+   "type": null,
+   "name": "The mail"
+  },
+  {
+   "start": 189,
+   "end": 200,
+   "label": "Activity",
+   "id": "Activity_392cfd53",
+   "type": "task",
+   "name": "Distributed the mail"
+  },
+  {
+   "start": 208,
+   "end": 216,
+   "label": "Activity Data",
+   "id": "Activity Data_58818608",
+   "type": null,
+   "name": "The mail"
+  },
+  {
+   "start": 220,
+   "end": 228,
+   "label": "Activity",
+   "id": "Activity_5bae2b8a",
+   "type": "task",
+   "name": "Received the mail"
+  },
+  {
+   "start": 232,
+   "end": 244,
+   "label": "Actor",
+   "id": "Actor_8d9a8bc3",
+   "type": "Lane",
+   "name": "The Registry"
+  },
+  {
+   "start": 247,
+   "end": 249,
+   "label": "Activity Data",
+   "id": "Activity Data_513cc10c",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 253,
+   "end": 259,
+   "label": "Activity",
+   "id": "Activity_c92201e6",
+   "type": "task",
+   "name": "Opened it"
+  },
+  {
+   "start": 264,
+   "end": 270,
+   "label": "Activity",
+   "id": "Activity_f351092c",
+   "type": "task",
+   "name": "Sorted"
+  },
+  {
+   "start": 311,
+   "end": 321,
+   "label": "Activity",
+   "id": "Activity_4c5c0fdd",
+   "type": "task",
+   "name": "Registered"
+  },
+  {
+   "start": 322,
+   "end": 356,
+   "label": "Further Specification",
+   "id": "Further Specification_8de904dc",
+   "type": null,
+   "name": "In a manual incoming Mail Register"
+  },
+  {
+   "start": 372,
+   "end": 402,
+   "label": "Actor",
+   "id": "Actor_ba106078",
+   "type": "Lane",
+   "name": "The Assistant Registry Manager"
+  },
+  {
+   "start": 423,
+   "end": 447,
+   "label": "Activity",
+   "id": "Activity_f4e50fdb",
+   "type": "task",
+   "name": "Performs a quality check"
+  },
+  {
+   "start": 450,
+   "end": 452,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a5382fd1",
+   "type": "exclusiveGateway",
+   "name": "If the mail is not compliant"
+  },
+  {
+   "start": 453,
+   "end": 478,
+   "label": "Condition Specification",
+   "id": "Condition Specification_02b8a9f6",
+   "type": "exclusiveGateway",
+   "name": "The mail is not compliant"
+  },
+  {
+   "start": 481,
+   "end": 502,
+   "label": "Activity Data",
+   "id": "Activity Data_04a25904",
+   "type": null,
+   "name": "A list of requisition"
+  },
+  {
+   "start": 542,
+   "end": 550,
+   "label": "Activity",
+   "id": "Activity_105a8539",
+   "type": "task",
+   "name": "Compiled a list of requisition"
+  },
+  {
+   "start": 555,
+   "end": 564,
+   "label": "Activity",
+   "id": "Activity_0abc168e",
+   "type": "task",
+   "name": "Sent back"
+  },
+  {
+   "start": 568,
+   "end": 577,
+   "label": "Actor",
+   "id": "Actor_6106efca",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 580,
+   "end": 589,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_69dd8ed4",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 592,
+   "end": 610,
+   "label": "Activity Data",
+   "id": "Activity Data_706d0a6a",
+   "type": null,
+   "name": "The matter details"
+  },
+  {
+   "start": 635,
+   "end": 643,
+   "label": "Activity",
+   "id": "Activity_da88ed83",
+   "type": "task",
+   "name": "Captured the matter details"
+  },
+  {
+   "start": 648,
+   "end": 656,
+   "label": "Activity",
+   "id": "Activity_cf50de6d",
+   "type": "task",
+   "name": "Provided"
+  },
+  {
+   "start": 660,
+   "end": 671,
+   "label": "Actor",
+   "id": "Actor_07da98dc",
+   "type": "Lane",
+   "name": "The Cashier"
+  },
+  {
+   "start": 674,
+   "end": 677,
+   "label": "Actor",
+   "id": "Actor_7f224007",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 678,
+   "end": 683,
+   "label": "Activity",
+   "id": "Activity_5ea3ec52",
+   "type": "task",
+   "name": "Takes the applicable fees"
+  },
+  {
+   "start": 684,
+   "end": 703,
+   "label": "Activity Data",
+   "id": "Activity Data_4be56b79",
+   "type": null,
+   "name": "The applicable fees"
+  },
+  {
+   "start": 743,
+   "end": 773,
+   "label": "Actor",
+   "id": "Actor_3e7e949a",
+   "type": "Lane",
+   "name": "The Assistant Registry Manager"
+  },
+  {
+   "start": 774,
+   "end": 778,
+   "label": "Activity",
+   "id": "Activity_816c168c",
+   "type": "task",
+   "name": "Puts the receipt and copied documents"
+  },
+  {
+   "start": 779,
+   "end": 811,
+   "label": "Activity Data",
+   "id": "Activity Data_d7b992c9",
+   "type": null,
+   "name": "The receipt and copied documents"
+  },
+  {
+   "start": 812,
+   "end": 828,
+   "label": "Further Specification",
+   "id": "Further Specification_34a62294",
+   "type": null,
+   "name": "Into an envelope"
+  },
+  {
+   "start": 833,
+   "end": 838,
+   "label": "Activity",
+   "id": "Activity_8c286ab0",
+   "type": "task",
+   "name": "Posts it"
+  },
+  {
+   "start": 839,
+   "end": 841,
+   "label": "Activity Data",
+   "id": "Activity Data_77ea2616",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 845,
+   "end": 854,
+   "label": "Actor",
+   "id": "Actor_e905054d",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 857,
+   "end": 865,
+   "label": "AND Gateway",
+   "id": "AND Gateway_ad391255",
+   "type": "parallelGateway",
+   "name": "Meantime"
+  },
+  {
+   "start": 868,
+   "end": 879,
+   "label": "Actor",
+   "id": "Actor_17624381",
+   "type": "Lane",
+   "name": "The Cashier"
+  },
+  {
+   "start": 880,
+   "end": 888,
+   "label": "Activity",
+   "id": "Activity_92fcf274",
+   "type": "task",
+   "name": "Captures the Party Details"
+  },
+  {
+   "start": 889,
+   "end": 906,
+   "label": "Activity Data",
+   "id": "Activity Data_0656daa8",
+   "type": null,
+   "name": "The Party Details"
+  },
+  {
+   "start": 911,
+   "end": 917,
+   "label": "Activity",
+   "id": "Activity_28dddc11",
+   "type": "task",
+   "name": "Prints the Physical Court File"
+  },
+  {
+   "start": 918,
+   "end": 941,
+   "label": "Activity Data",
+   "id": "Activity Data_09b2d95e",
+   "type": null,
+   "name": "The Physical Court File"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If the mail is not compliant",
+    "node_B": "Compiled a list of requisition | Sent back | Captured the matter details | Provided | Takes the applicable fees | Puts the receipt and copied documents | Posts it | Captures the Party Details | Prints the Physical Court File",
+    "label": "yes yes no no no no no after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "parallel: Meantime",
+    "node_B": "Captures the Party Details | Prints the Physical Court File",
+    "label": "a b",
+    "source": "llm"
+   }
+  ]
+ }
+}

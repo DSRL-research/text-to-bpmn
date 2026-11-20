@@ -1,0 +1,547 @@
+{
+ "structured_data": {
+  "participants": [
+   "He",
+   "MPO",
+   "Main Process",
+   "The GO",
+   "The MPO",
+   "The MSP",
+   "The fault detector"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_77921a7e",
+    "name": "Reports a failure",
+    "type": "task",
+    "lane": "The fault detector",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b3507887",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_041110df",
+    "name": "Suspicion of their own fault",
+    "type": "task",
+    "lane": "MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f49e0b62",
+    "name": "Examine the failure",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d8946246",
+    "name": "Rejects the failure of the fault detector",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_ef0081f2",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0d7b99d5",
+    "name": "Confirms the failure of the fault detector",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7941c8d6",
+    "name": "Informes",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_181ca01b",
+    "name": "Fixes the fault at the measuring device",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_52b264d4",
+    "name": "Shares the results of the repairs",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": [
+     "Carried out with the fault detector"
+    ]
+   },
+   {
+    "id": "Activity_80866e62",
+    "name": "Inform about the resolution of the interference",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_94306ada",
+    "name": "Inform about the resolution of the interference",
+    "type": "task",
+    "lane": "The MPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_77921a7e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_77921a7e",
+    "target": "XOR Gateway_b3507887",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "XOR Gateway_b3507887",
+    "target": "Activity_041110df",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_041110df",
+    "target": "Activity_f49e0b62",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_f49e0b62",
+    "target": "Activity_d8946246",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_d8946246",
+    "target": "XOR Gateway_ef0081f2",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_ef0081f2",
+    "target": "Activity_0d7b99d5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_0d7b99d5",
+    "target": "Activity_7941c8d6",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_7941c8d6",
+    "target": "Activity_181ca01b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_181ca01b",
+    "target": "Activity_52b264d4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_52b264d4",
+    "target": "Activity_80866e62",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_80866e62",
+    "target": "Activity_94306ada",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_94306ada",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 12
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 18,
+   "label": "Actor",
+   "id": "Actor_5a232d39",
+   "type": "Lane",
+   "name": "The fault detector"
+  },
+  {
+   "start": 19,
+   "end": 26,
+   "label": "Activity",
+   "id": "Activity_77921a7e",
+   "type": "task",
+   "name": "Reports a failure"
+  },
+  {
+   "start": 27,
+   "end": 36,
+   "label": "Activity Data",
+   "id": "Activity Data_40d8b030",
+   "type": null,
+   "name": "A failure"
+  },
+  {
+   "start": 40,
+   "end": 47,
+   "label": "Actor",
+   "id": "Actor_5fbc2203",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 48,
+   "end": 50,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b3507887",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 51,
+   "end": 54,
+   "label": "Actor",
+   "id": "Actor_64442e44",
+   "type": "Lane",
+   "name": "MPO"
+  },
+  {
+   "start": 61,
+   "end": 70,
+   "label": "Activity",
+   "id": "Activity_041110df",
+   "type": "task",
+   "name": "Suspicion of their own fault"
+  },
+  {
+   "start": 71,
+   "end": 89,
+   "label": "Activity Data",
+   "id": "Activity Data_b60e95b0",
+   "type": null,
+   "name": "Of their own fault"
+  },
+  {
+   "start": 92,
+   "end": 99,
+   "label": "Actor",
+   "id": "Actor_11bb9f9b",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 106,
+   "end": 113,
+   "label": "Activity",
+   "id": "Activity_f49e0b62",
+   "type": "task",
+   "name": "Examine the failure"
+  },
+  {
+   "start": 114,
+   "end": 125,
+   "label": "Activity Data",
+   "id": "Activity Data_480f60da",
+   "type": null,
+   "name": "The failure"
+  },
+  {
+   "start": 128,
+   "end": 135,
+   "label": "Actor",
+   "id": "Actor_04b0b8dd",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 136,
+   "end": 143,
+   "label": "Activity",
+   "id": "Activity_d8946246",
+   "type": "task",
+   "name": "Rejects the failure of the fault detector"
+  },
+  {
+   "start": 144,
+   "end": 177,
+   "label": "Activity Data",
+   "id": "Activity Data_49a8050d",
+   "type": null,
+   "name": "The failure of the fault detector"
+  },
+  {
+   "start": 178,
+   "end": 180,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_ef0081f2",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 181,
+   "end": 188,
+   "label": "Actor",
+   "id": "Actor_a6af64cc",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 189,
+   "end": 197,
+   "label": "Activity",
+   "id": "Activity_0d7b99d5",
+   "type": "task",
+   "name": "Confirms the failure of the fault detector"
+  },
+  {
+   "start": 198,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_cdaeb9bb",
+   "type": null,
+   "name": "The failure of the fault detector"
+  },
+  {
+   "start": 290,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_3d1d7e79",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 293,
+   "end": 301,
+   "label": "Activity",
+   "id": "Activity_7941c8d6",
+   "type": "task",
+   "name": "Informes"
+  },
+  {
+   "start": 302,
+   "end": 308,
+   "label": "Actor",
+   "id": "Actor_42d846f0",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 313,
+   "end": 320,
+   "label": "Actor",
+   "id": "Actor_96c172a3",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 323,
+   "end": 330,
+   "label": "Actor",
+   "id": "Actor_c8c72300",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 331,
+   "end": 336,
+   "label": "Activity",
+   "id": "Activity_181ca01b",
+   "type": "task",
+   "name": "Fixes the fault at the measuring device"
+  },
+  {
+   "start": 337,
+   "end": 370,
+   "label": "Activity Data",
+   "id": "Activity Data_6e62ff07",
+   "type": null,
+   "name": "The fault at the measuring device"
+  },
+  {
+   "start": 373,
+   "end": 380,
+   "label": "Actor",
+   "id": "Actor_e148e11d",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 381,
+   "end": 387,
+   "label": "Activity",
+   "id": "Activity_52b264d4",
+   "type": "task",
+   "name": "Shares the results of the repairs"
+  },
+  {
+   "start": 388,
+   "end": 414,
+   "label": "Activity Data",
+   "id": "Activity Data_b7eebfdf",
+   "type": null,
+   "name": "The results of the repairs"
+  },
+  {
+   "start": 415,
+   "end": 450,
+   "label": "Further Specification",
+   "id": "Further Specification_a784fecd",
+   "type": null,
+   "name": "Carried out with the fault detector"
+  },
+  {
+   "start": 453,
+   "end": 460,
+   "label": "Actor",
+   "id": "Actor_7ae61a8a",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 466,
+   "end": 472,
+   "label": "Activity",
+   "id": "Activity_80866e62",
+   "type": "task",
+   "name": "Inform about the resolution of the interference"
+  },
+  {
+   "start": 473,
+   "end": 479,
+   "label": "Actor",
+   "id": "Actor_46081106",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 480,
+   "end": 520,
+   "label": "Activity Data",
+   "id": "Activity Data_9868f143",
+   "type": null,
+   "name": "About the resolution of the interference"
+  },
+  {
+   "start": 523,
+   "end": 530,
+   "label": "Actor",
+   "id": "Actor_d98db7a3",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 536,
+   "end": 542,
+   "label": "Activity",
+   "id": "Activity_94306ada",
+   "type": "task",
+   "name": "Inform about the resolution of the interference"
+  },
+  {
+   "start": 543,
+   "end": 550,
+   "label": "Actor",
+   "id": "Actor_2aeb90fa",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 551,
+   "end": 591,
+   "label": "Activity Data",
+   "id": "Activity Data_78962a8a",
+   "type": null,
+   "name": "About the resolution of the interference"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 2,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Or",
+    "node_B": "Suspicion of their own fault | Examine the failure | Rejects the failure of the fault detector | decision: Or | Confirms the failure of the fault detector | Informes | Fixes the fault at the measuring device | Shares the results of the repairs | Inform about the resolution of the interference | Inform about the resolution of the interference",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the failure of the fault detector | Informes | Fixes the fault at the measuring device | Shares the results of the repairs | Inform about the resolution of the interference | Inform about the resolution of the interference",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Suspicion of their own fault | Examine the failure | Rejects the failure of the fault detector | decision: Or | Confirms the failure of the fault detector | Informes | Fixes the fault at the measuring device | Shares the results of the repairs | Inform about the resolution of the interference | Inform about the resolution of the interference",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the failure of the fault detector | Informes | Fixes the fault at the measuring device | Shares the results of the repairs | Inform about the resolution of the interference | Inform about the resolution of the interference",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

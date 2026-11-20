@@ -1,0 +1,614 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The GO or the MPON",
+   "The MPON or the GO",
+   "The MPOO",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "XOR Gateway_31216fe4",
+    "name": "If",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_76a3cb6b",
+    "name": "Sends the bill for the temporary continuation of the metering point operations",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cfa45b3d",
+    "name": "Examines the bill",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a7533df0",
+    "name": "If",
+    "type": "exclusiveGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8a96ca8d",
+    "name": "Sends the bill for the temporary continuation of the measurement",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5509d00c",
+    "name": "Examines the bill",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_04dc517e",
+    "name": "If",
+    "type": "exclusiveGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bcfb3673",
+    "name": "Sends the bill for additional readings",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5d28ecef",
+    "name": "Examines the bill",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_45db6aa8",
+    "name": "If",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a1ac58e6",
+    "name": "Sends the bill for the equipment acquisition",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_79c988d4",
+    "name": "Examines the bill",
+    "type": "task",
+    "lane": "The MPON or the GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e557119c",
+    "name": "Confirms the invoice with payment advice",
+    "type": "task",
+    "lane": "The GO or the MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c98a39d4",
+    "name": "Rejects the invoice of the MPOO or the MSPO",
+    "type": "task",
+    "lane": "The GO or the MPON",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO or the MPON"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "XOR Gateway_31216fe4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "XOR Gateway_31216fe4",
+    "target": "Activity_76a3cb6b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_76a3cb6b",
+    "target": "Activity_cfa45b3d",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_cfa45b3d",
+    "target": "XOR Gateway_a7533df0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "XOR Gateway_a7533df0",
+    "target": "Activity_8a96ca8d",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_8a96ca8d",
+    "target": "Activity_5509d00c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_5509d00c",
+    "target": "XOR Gateway_04dc517e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "XOR Gateway_a7533df0",
+    "target": "XOR Gateway_04dc517e",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "XOR Gateway_04dc517e",
+    "target": "Activity_bcfb3673",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_bcfb3673",
+    "target": "Activity_5d28ecef",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_5d28ecef",
+    "target": "XOR Gateway_45db6aa8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "XOR Gateway_04dc517e",
+    "target": "XOR Gateway_45db6aa8",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "XOR Gateway_45db6aa8",
+    "target": "Activity_a1ac58e6",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_a1ac58e6",
+    "target": "Activity_79c988d4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "Activity_79c988d4",
+    "target": "Activity_e557119c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0016",
+    "source": "XOR Gateway_45db6aa8",
+    "target": "Activity_c98a39d4",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0017",
+    "source": "Activity_e557119c",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0018",
+    "source": "XOR Gateway_45db6aa8",
+    "target": "EndEvent_1",
+    "name": "Or",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0019",
+    "source": "Activity_c98a39d4",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 2,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_31216fe4",
+   "type": "exclusiveGateway",
+   "name": "If"
+  },
+  {
+   "start": 3,
+   "end": 11,
+   "label": "Actor",
+   "id": "Actor_42b8f2e7",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 12,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_76a3cb6b",
+   "type": "task",
+   "name": "Sends the bill for the temporary continuation of the metering point operations"
+  },
+  {
+   "start": 18,
+   "end": 90,
+   "label": "Activity Data",
+   "id": "Activity Data_446c481d",
+   "type": null,
+   "name": "The bill for the temporary continuation of the metering point operations"
+  },
+  {
+   "start": 94,
+   "end": 100,
+   "label": "Actor",
+   "id": "Actor_6d0ba51f",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 103,
+   "end": 109,
+   "label": "Actor",
+   "id": "Actor_3e263f7b",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 110,
+   "end": 118,
+   "label": "Activity",
+   "id": "Activity_cfa45b3d",
+   "type": "task",
+   "name": "Examines the bill"
+  },
+  {
+   "start": 119,
+   "end": 127,
+   "label": "Activity Data",
+   "id": "Activity Data_58fd4f8e",
+   "type": null,
+   "name": "The bill"
+  },
+  {
+   "start": 130,
+   "end": 132,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a7533df0",
+   "type": "exclusiveGateway",
+   "name": "If"
+  },
+  {
+   "start": 133,
+   "end": 141,
+   "label": "Actor",
+   "id": "Actor_a98d6bee",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 142,
+   "end": 147,
+   "label": "Activity",
+   "id": "Activity_8a96ca8d",
+   "type": "task",
+   "name": "Sends the bill for the temporary continuation of the measurement"
+  },
+  {
+   "start": 148,
+   "end": 206,
+   "label": "Activity Data",
+   "id": "Activity Data_11b72592",
+   "type": null,
+   "name": "The bill for the temporary continuation of the measurement"
+  },
+  {
+   "start": 210,
+   "end": 216,
+   "label": "Actor",
+   "id": "Actor_1fe125c1",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 219,
+   "end": 225,
+   "label": "Actor",
+   "id": "Actor_42265512",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 226,
+   "end": 234,
+   "label": "Activity",
+   "id": "Activity_5509d00c",
+   "type": "task",
+   "name": "Examines the bill"
+  },
+  {
+   "start": 235,
+   "end": 243,
+   "label": "Activity Data",
+   "id": "Activity Data_3edc3e67",
+   "type": null,
+   "name": "The bill"
+  },
+  {
+   "start": 246,
+   "end": 248,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_04dc517e",
+   "type": "exclusiveGateway",
+   "name": "If"
+  },
+  {
+   "start": 249,
+   "end": 257,
+   "label": "Actor",
+   "id": "Actor_8d2903fd",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 258,
+   "end": 263,
+   "label": "Activity",
+   "id": "Activity_bcfb3673",
+   "type": "task",
+   "name": "Sends the bill for additional readings"
+  },
+  {
+   "start": 264,
+   "end": 296,
+   "label": "Activity Data",
+   "id": "Activity Data_23dd82d0",
+   "type": null,
+   "name": "The bill for additional readings"
+  },
+  {
+   "start": 300,
+   "end": 306,
+   "label": "Actor",
+   "id": "Actor_12ed860c",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 309,
+   "end": 315,
+   "label": "Actor",
+   "id": "Actor_96bb1361",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 316,
+   "end": 324,
+   "label": "Activity",
+   "id": "Activity_5d28ecef",
+   "type": "task",
+   "name": "Examines the bill"
+  },
+  {
+   "start": 325,
+   "end": 333,
+   "label": "Activity Data",
+   "id": "Activity Data_48a4ae36",
+   "type": null,
+   "name": "The bill"
+  },
+  {
+   "start": 336,
+   "end": 338,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_45db6aa8",
+   "type": "exclusiveGateway",
+   "name": "If"
+  },
+  {
+   "start": 339,
+   "end": 347,
+   "label": "Actor",
+   "id": "Actor_75677a61",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 348,
+   "end": 353,
+   "label": "Activity",
+   "id": "Activity_a1ac58e6",
+   "type": "task",
+   "name": "Sends the bill for the equipment acquisition"
+  },
+  {
+   "start": 354,
+   "end": 392,
+   "label": "Activity Data",
+   "id": "Activity Data_55e84635",
+   "type": null,
+   "name": "The bill for the equipment acquisition"
+  },
+  {
+   "start": 396,
+   "end": 414,
+   "label": "Actor",
+   "id": "Actor_05a2473c",
+   "type": "Lane",
+   "name": "The MPON or the GO"
+  },
+  {
+   "start": 417,
+   "end": 435,
+   "label": "Actor",
+   "id": "Actor_b5c04d9b",
+   "type": "Lane",
+   "name": "The MPON or the GO"
+  },
+  {
+   "start": 436,
+   "end": 444,
+   "label": "Activity",
+   "id": "Activity_79c988d4",
+   "type": "task",
+   "name": "Examines the bill"
+  },
+  {
+   "start": 445,
+   "end": 453,
+   "label": "Activity Data",
+   "id": "Activity Data_a05da136",
+   "type": null,
+   "name": "The bill"
+  },
+  {
+   "start": 456,
+   "end": 474,
+   "label": "Actor",
+   "id": "Actor_f4e6bd9e",
+   "type": "Lane",
+   "name": "The GO or the MPON"
+  },
+  {
+   "start": 475,
+   "end": 483,
+   "label": "Activity",
+   "id": "Activity_e557119c",
+   "type": "task",
+   "name": "Confirms the invoice with payment advice"
+  },
+  {
+   "start": 484,
+   "end": 515,
+   "label": "Activity Data",
+   "id": "Activity Data_b5004a59",
+   "type": null,
+   "name": "The invoice with payment advice"
+  },
+  {
+   "start": 519,
+   "end": 539,
+   "label": "Actor",
+   "id": "Actor_4860afce",
+   "type": "Lane",
+   "name": "The MPOO or the MSPO"
+  },
+  {
+   "start": 542,
+   "end": 544,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_274f17d8",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 545,
+   "end": 563,
+   "label": "Actor",
+   "id": "Actor_6ea6ce43",
+   "type": "Lane",
+   "name": "The GO or the MPON"
+  },
+  {
+   "start": 564,
+   "end": 571,
+   "label": "Activity",
+   "id": "Activity_c98a39d4",
+   "type": "task",
+   "name": "Rejects the invoice of the MPOO or the MSPO"
+  },
+  {
+   "start": 572,
+   "end": 607,
+   "label": "Activity Data",
+   "id": "Activity Data_a9aa80a7",
+   "type": null,
+   "name": "The invoice of the MPOO or the MSPO"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 4,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If",
+    "node_B": "Sends the bill for the temporary continuation of the metering point operations | Examines the bill | decision: If | Sends the bill for the temporary continuation of the measurement | Examines the bill | decision: If | Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition",
+    "label": "after after after after after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If",
+    "node_B": "Sends the bill for the temporary continuation of the measurement | Examines the bill | decision: If | Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or",
+    "label": "yes yes after after after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If",
+    "node_B": "Sends the bill for additional readings | Examines the bill | decision: If | Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or | Rejects the invoice of the MPOO or the MSPO",
+    "label": "yes yes after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If",
+    "node_B": "Sends the bill for the equipment acquisition | Examines the bill | Confirms the invoice with payment advice | decision: Or | Rejects the invoice of the MPOO or the MSPO",
+    "label": "yes yes yes same no",
+    "source": "llm"
+   }
+  ]
+ }
+}

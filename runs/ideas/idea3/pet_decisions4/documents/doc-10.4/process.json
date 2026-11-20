@@ -1,0 +1,508 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MPON",
+   "The MPON or the MPOO",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_4228af08",
+    "name": "Notifies about equipment change intentions",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7aae6a1c",
+    "name": "Announces self dismounting",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_7e407f82",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fe44b3a8",
+    "name": "Notify about no self-dismounting of the MPOO",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d20d217c",
+    "name": "Perform the final reading",
+    "type": "task",
+    "lane": "The MPON or the MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_57027923",
+    "name": "Dismount the old equipment",
+    "type": "task",
+    "lane": "The MPON or the MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4e58b955",
+    "name": "Mounts the new device",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2443a883",
+    "name": "Reads the meter count",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_02bc9e56",
+    "name": "Sents the values of the final reading",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f013be67",
+    "name": "Tells about the device changes , the master data and the meter count at installation",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a2bf8b3f",
+    "name": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_4228af08",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_4228af08",
+    "target": "Activity_7aae6a1c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_7aae6a1c",
+    "target": "XOR Gateway_7e407f82",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_7e407f82",
+    "target": "Activity_fe44b3a8",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_fe44b3a8",
+    "target": "Activity_d20d217c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "XOR Gateway_7e407f82",
+    "target": "Activity_d20d217c",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_d20d217c",
+    "target": "Activity_57027923",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_57027923",
+    "target": "Activity_4e58b955",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_4e58b955",
+    "target": "Activity_2443a883",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_2443a883",
+    "target": "Activity_02bc9e56",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_02bc9e56",
+    "target": "Activity_f013be67",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_f013be67",
+    "target": "Activity_a2bf8b3f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_a2bf8b3f",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_e842fcff",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_4228af08",
+   "type": "task",
+   "name": "Notifies about equipment change intentions"
+  },
+  {
+   "start": 18,
+   "end": 26,
+   "label": "Actor",
+   "id": "Actor_c789ab28",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 27,
+   "end": 60,
+   "label": "Activity Data",
+   "id": "Activity Data_213838d8",
+   "type": null,
+   "name": "About equipment change intentions"
+  },
+  {
+   "start": 63,
+   "end": 71,
+   "label": "Actor",
+   "id": "Actor_7b4fe77d",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 72,
+   "end": 81,
+   "label": "Activity",
+   "id": "Activity_7aae6a1c",
+   "type": "task",
+   "name": "Announces self dismounting"
+  },
+  {
+   "start": 82,
+   "end": 98,
+   "label": "Activity Data",
+   "id": "Activity Data_8fb7791c",
+   "type": null,
+   "name": "Self dismounting"
+  },
+  {
+   "start": 102,
+   "end": 110,
+   "label": "Actor",
+   "id": "Actor_b5c76d35",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 111,
+   "end": 113,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_7e407f82",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 114,
+   "end": 122,
+   "label": "Actor",
+   "id": "Actor_306a7740",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 129,
+   "end": 135,
+   "label": "Activity",
+   "id": "Activity_fe44b3a8",
+   "type": "task",
+   "name": "Notify about no self-dismounting of the MPOO"
+  },
+  {
+   "start": 136,
+   "end": 144,
+   "label": "Actor",
+   "id": "Actor_afc7366e",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 145,
+   "end": 182,
+   "label": "Activity Data",
+   "id": "Activity Data_910da26a",
+   "type": null,
+   "name": "About no self-dismounting of the MPOO"
+  },
+  {
+   "start": 185,
+   "end": 205,
+   "label": "Actor",
+   "id": "Actor_8330610d",
+   "type": "Lane",
+   "name": "The MPON or the MPOO"
+  },
+  {
+   "start": 206,
+   "end": 213,
+   "label": "Activity",
+   "id": "Activity_d20d217c",
+   "type": "task",
+   "name": "Perform the final reading"
+  },
+  {
+   "start": 214,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_b6701888",
+   "type": null,
+   "name": "The final reading"
+  },
+  {
+   "start": 234,
+   "end": 254,
+   "label": "Actor",
+   "id": "Actor_b3c21971",
+   "type": "Lane",
+   "name": "The MPON or the MPOO"
+  },
+  {
+   "start": 255,
+   "end": 263,
+   "label": "Activity",
+   "id": "Activity_57027923",
+   "type": "task",
+   "name": "Dismount the old equipment"
+  },
+  {
+   "start": 264,
+   "end": 281,
+   "label": "Activity Data",
+   "id": "Activity Data_782794e6",
+   "type": null,
+   "name": "The old equipment"
+  },
+  {
+   "start": 284,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_0d68e41f",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 293,
+   "end": 299,
+   "label": "Activity",
+   "id": "Activity_4e58b955",
+   "type": "task",
+   "name": "Mounts the new device"
+  },
+  {
+   "start": 300,
+   "end": 314,
+   "label": "Activity Data",
+   "id": "Activity Data_d3ddf106",
+   "type": null,
+   "name": "The new device"
+  },
+  {
+   "start": 317,
+   "end": 325,
+   "label": "Actor",
+   "id": "Actor_03e07694",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 326,
+   "end": 331,
+   "label": "Activity",
+   "id": "Activity_2443a883",
+   "type": "task",
+   "name": "Reads the meter count"
+  },
+  {
+   "start": 332,
+   "end": 347,
+   "label": "Activity Data",
+   "id": "Activity Data_b2d8f628",
+   "type": null,
+   "name": "The meter count"
+  },
+  {
+   "start": 375,
+   "end": 383,
+   "label": "Actor",
+   "id": "Actor_f7af7cdc",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 384,
+   "end": 389,
+   "label": "Activity",
+   "id": "Activity_02bc9e56",
+   "type": "task",
+   "name": "Sents the values of the final reading"
+  },
+  {
+   "start": 390,
+   "end": 421,
+   "label": "Activity Data",
+   "id": "Activity Data_c30ea95b",
+   "type": null,
+   "name": "The values of the final reading"
+  },
+  {
+   "start": 425,
+   "end": 431,
+   "label": "Actor",
+   "id": "Actor_c52f3eaa",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 434,
+   "end": 442,
+   "label": "Actor",
+   "id": "Actor_784e4c27",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 443,
+   "end": 448,
+   "label": "Activity",
+   "id": "Activity_f013be67",
+   "type": "task",
+   "name": "Tells about the device changes , the master data and the meter count at installation"
+  },
+  {
+   "start": 449,
+   "end": 455,
+   "label": "Actor",
+   "id": "Actor_b542dac8",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 456,
+   "end": 534,
+   "label": "Activity Data",
+   "id": "Activity Data_059d833a",
+   "type": null,
+   "name": "About the device changes , the master data and the meter count at installation"
+  },
+  {
+   "start": 537,
+   "end": 543,
+   "label": "Actor",
+   "id": "Actor_aa0271c0",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 550,
+   "end": 556,
+   "label": "Activity",
+   "id": "Activity_a2bf8b3f",
+   "type": "task",
+   "name": "Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation"
+  },
+  {
+   "start": 557,
+   "end": 564,
+   "label": "Actor",
+   "id": "Actor_644ff3cb",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 565,
+   "end": 678,
+   "label": "Activity Data",
+   "id": "Activity Data_94ff9f2d",
+   "type": null,
+   "name": "About the device changes , the master data , the meter count at dismounting , and the meter count at installation"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Or",
+    "node_B": "Notify about no self-dismounting of the MPOO | Perform the final reading | Dismount the old equipment | Mounts the new device | Reads the meter count | Sents the values of the final reading | Tells about the device changes , the master data and the meter count at installation | Notify about the device changes , the master data , the meter count at dismounting , and the meter count at installation",
+    "label": "yes after after after after after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

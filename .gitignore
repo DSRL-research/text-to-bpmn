@@ -1,0 +1,24 @@
+# Python environments and caches
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Model weights: on Zenodo (README.md, "The recogniser weights"), never in git
+*.safetensors
+*.pt
+*.pth
+*.bin
+process-visualizer/
+text2bpmn/baselines/finetuned_315/*/best/
+
+# BBO's ontology, SHACL shapes and licence (GPL-3.0): fetched, pinned and
+# checked by text2bpmn/checks/fetch_bbo.py, not redistributed here
+/BPMNbasedOntologyV1_2.owl
+text2bpmn/checks/shacl/
+
+# Neuberger et al.'s files (no licence): fetched and checked by
+# python3 -m text2bpmn.pet_strict --fetch, not redistributed here
+text2bpmn/baselines/neuberger/
+
+# written by cq_compare from the reference models on every run
+runs/checks/final-3/cq_compare/references/

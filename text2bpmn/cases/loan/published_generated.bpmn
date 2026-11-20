@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+                  id="Definitions_1" 
+                  targetNamespace="http://bpmn.io/schema/bpmn" 
+                  exporter="bpmn-js (https://demo.bpmn.io)" 
+                  exporterVersion="16.4.0">
+  
+  <bpmn:process id="Process_Loan_Appraisal" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_System" name="System">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AppPasses</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_AutoReject</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Auto</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_CreditCheck</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Appraiser" name="Property Appraiser">
+        <bpmn:flowNodeRef>Activity_AppraiseProperty</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_RiskAssessment</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Officer" name="Loan Officer">
+        <bpmn:flowNodeRef>Activity_AssessEligibility</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Eligibility</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_Approve</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_ProcessRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_NotifyApplicant</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_AppPasses" name="Application passes?">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2_No</bpmn:outgoing>
+      <bpmn:outgoing>Flow_3_Yes</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_AutoReject" name="Reject automatically">
+      <bpmn:incoming>Flow_2_No</bpmn:incoming>
+      <bpmn:outgoing>Flow_AutoEnd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_Auto" name="End (Auto Rejected)">
+      <bpmn:incoming>Flow_AutoEnd</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_CreditCheck" name="Credit history check">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Activity_AppraiseProperty" name="Appraise the property">
+      <bpmn:incoming>Flow_3_Yes</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_RiskAssessment" name="Risk assessment">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Activity_AssessEligibility" name="Assess applicant eligibility">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_Eligibility" name="Is eligible?">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8_Yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_9_No</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_Approve" name="Approve loan application">
+      <bpmn:incoming>Flow_8_Yes</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_ProcessRejection" name="Reject loan application">
+      <bpmn:incoming>Flow_9_No</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_NotifyApplicant" name="Notify the applicant">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1" name="End (Processed)">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Gateway_AppPasses" />
+    <bpmn:sequenceFlow id="Flow_2_No" name="No" sourceRef="Gateway_AppPasses" targetRef="Activity_AutoReject" />
+    <bpmn:sequenceFlow id="Flow_AutoEnd" sourceRef="Activity_AutoReject" targetRef="EndEvent_Auto" />
+    <bpmn:sequenceFlow id="Flow_3_Yes" name="Yes" sourceRef="Gateway_AppPasses" targetRef="Activity_AppraiseProperty" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Activity_AppraiseProperty" targetRef="Activity_RiskAssessment" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Activity_RiskAssessment" targetRef="Activity_CreditCheck" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Activity_CreditCheck" targetRef="Activity_AssessEligibility" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Activity_AssessEligibility" targetRef="Gateway_Eligibility" />
+    <bpmn:sequenceFlow id="Flow_8_Yes" name="Yes" sourceRef="Gateway_Eligibility" targetRef="Activity_Approve" />
+    <bpmn:sequenceFlow id="Flow_9_No" name="No" sourceRef="Gateway_Eligibility" targetRef="Activity_ProcessRejection" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Activity_Approve" targetRef="Activity_NotifyApplicant" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Activity_ProcessRejection" targetRef="Activity_NotifyApplicant" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Activity_NotifyApplicant" targetRef="EndEvent_1" />
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Loan_Appraisal">
+      
+      <bpmndi:BPMNShape id="Lane_System_di" bpmnElement="Lane_System" isHorizontal="true">
+        <dc:Bounds x="150" y="80" width="1350" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Appraiser_di" bpmnElement="Lane_Appraiser" isHorizontal="true">
+        <dc:Bounds x="150" y="280" width="1350" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Officer_di" bpmnElement="Lane_Officer" isHorizontal="true">
+        <dc:Bounds x="150" y="480" width="1350" height="250" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="200" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_AppPasses_di" bpmnElement="Gateway_AppPasses" isMarkerVisible="true">
+        <dc:Bounds x="290" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_AutoReject_di" bpmnElement="Activity_AutoReject">
+        <dc:Bounds x="400" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Auto_di" bpmnElement="EndEvent_Auto">
+        <dc:Bounds x="550" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_CreditCheck_di" bpmnElement="Activity_CreditCheck">
+        <dc:Bounds x="700" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Activity_AppraiseProperty_di" bpmnElement="Activity_AppraiseProperty">
+        <dc:Bounds x="400" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_RiskAssessment_di" bpmnElement="Activity_RiskAssessment">
+        <dc:Bounds x="550" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Activity_AssessEligibility_di" bpmnElement="Activity_AssessEligibility">
+        <dc:Bounds x="850" y="560" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Eligibility_di" bpmnElement="Gateway_Eligibility" isMarkerVisible="true">
+        <dc:Bounds x="1000" y="575" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_Approve_di" bpmnElement="Activity_Approve">
+        <dc:Bounds x="1100" y="500" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_ProcessRejection_di" bpmnElement="Activity_ProcessRejection">
+        <dc:Bounds x="1100" y="630" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_NotifyApplicant_di" bpmnElement="Activity_NotifyApplicant">
+        <dc:Bounds x="1250" y="560" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1400" y="582" width="36" height="36" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="236" y="180" />
+        <di:waypoint x="290" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_No_di" bpmnElement="Flow_2_No">
+        <di:waypoint x="315" y="155" />
+        <di:waypoint x="315" y="140" />
+        <di:waypoint x="400" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_AutoEnd_di" bpmnElement="Flow_AutoEnd">
+        <di:waypoint x="500" y="140" />
+        <di:waypoint x="550" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_Yes_di" bpmnElement="Flow_3_Yes">
+        <di:waypoint x="315" y="205" />
+        <di:waypoint x="315" y="380" />
+        <di:waypoint x="400" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="500" y="380" />
+        <di:waypoint x="550" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="650" y="380" />
+        <di:waypoint x="675" y="380" />
+        <di:waypoint x="675" y="200" />
+        <di:waypoint x="700" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="800" y="200" />
+        <di:waypoint x="825" y="200" />
+        <di:waypoint x="825" y="600" />
+        <di:waypoint x="850" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="950" y="600" />
+        <di:waypoint x="1000" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_Yes_di" bpmnElement="Flow_8_Yes">
+        <di:waypoint x="1025" y="575" />
+        <di:waypoint x="1025" y="540" />
+        <di:waypoint x="1100" y="540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_No_di" bpmnElement="Flow_9_No">
+        <di:waypoint x="1025" y="625" />
+        <di:waypoint x="1025" y="670" />
+        <di:waypoint x="1100" y="670" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1200" y="540" />
+        <di:waypoint x="1225" y="540" />
+        <di:waypoint x="1225" y="600" />
+        <di:waypoint x="1250" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1200" y="670" />
+        <di:waypoint x="1225" y="670" />
+        <di:waypoint x="1225" y="600" />
+        <di:waypoint x="1250" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1350" y="600" />
+        <di:waypoint x="1400" y="600" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

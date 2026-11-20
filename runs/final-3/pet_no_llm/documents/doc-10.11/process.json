@@ -1,0 +1,782 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_b86ba0b2",
+    "name": "Requests the measurements",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_55fd29f8",
+    "name": "Checks the received request",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a9fcbda6",
+    "name": "Denies the request of the GO",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_7ef627eb",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ac2a797c",
+    "name": "Performs the measurement",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_7d66e2d1",
+    "name": "Informs about the failure of the reading",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_73f859c9",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9ffee9c0",
+    "name": "Transmits the measured values",
+    "type": "task",
+    "lane": "The MSP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d1b961b8",
+    "name": "Processes the measured values",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_07f6ed54",
+    "name": "Sends the changed values",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_77a6de29",
+    "name": "Transmit the readings",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_3ad25f7c",
+    "source": "StartEvent_1",
+    "target": "Activity_b86ba0b2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7d7acc1f",
+    "source": "Activity_b86ba0b2",
+    "target": "Activity_55fd29f8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9f19446b",
+    "source": "Activity_55fd29f8",
+    "target": "Activity_a9fcbda6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a4616b5e",
+    "source": "Activity_a9fcbda6",
+    "target": "XOR Gateway_7ef627eb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_878854a0",
+    "source": "XOR Gateway_7ef627eb",
+    "target": "Activity_ac2a797c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f5bef55a",
+    "source": "Activity_ac2a797c",
+    "target": "Activity_7d66e2d1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_071c27da",
+    "source": "Activity_7d66e2d1",
+    "target": "XOR Gateway_73f859c9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_502dd99b",
+    "source": "XOR Gateway_73f859c9",
+    "target": "Activity_9ffee9c0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b38b45a0",
+    "source": "Activity_9ffee9c0",
+    "target": "Activity_d1b961b8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3dad6e5a",
+    "source": "Activity_d1b961b8",
+    "target": "Activity_07f6ed54",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dd25ce57",
+    "source": "Activity_07f6ed54",
+    "target": "Activity_77a6de29",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_eeec3ccc",
+    "source": "Activity_77a6de29",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 6,
+   "label": "Actor",
+   "id": "Actor_e61cd480",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 7,
+   "end": 15,
+   "label": "Activity",
+   "id": "Activity_b86ba0b2",
+   "type": "task",
+   "name": "Requests the measurements"
+  },
+  {
+   "start": 16,
+   "end": 32,
+   "label": "Activity Data",
+   "id": "Activity Data_8c90d7bf",
+   "type": null,
+   "name": "The measurements"
+  },
+  {
+   "start": 36,
+   "end": 43,
+   "label": "Actor",
+   "id": "Actor_a1c9967e",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 46,
+   "end": 53,
+   "label": "Actor",
+   "id": "Actor_bb0d63a6",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 54,
+   "end": 60,
+   "label": "Activity",
+   "id": "Activity_55fd29f8",
+   "type": "task",
+   "name": "Checks the received request"
+  },
+  {
+   "start": 61,
+   "end": 81,
+   "label": "Activity Data",
+   "id": "Activity Data_5179298d",
+   "type": null,
+   "name": "The received request"
+  },
+  {
+   "start": 84,
+   "end": 91,
+   "label": "Actor",
+   "id": "Actor_3ac8d300",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 92,
+   "end": 98,
+   "label": "Activity",
+   "id": "Activity_a9fcbda6",
+   "type": "task",
+   "name": "Denies the request of the GO"
+  },
+  {
+   "start": 99,
+   "end": 120,
+   "label": "Activity Data",
+   "id": "Activity Data_b4d047aa",
+   "type": null,
+   "name": "The request of the GO"
+  },
+  {
+   "start": 121,
+   "end": 123,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_7ef627eb",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 124,
+   "end": 131,
+   "label": "Actor",
+   "id": "Actor_a2f3f7e9",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 132,
+   "end": 140,
+   "label": "Activity",
+   "id": "Activity_ac2a797c",
+   "type": "task",
+   "name": "Performs the measurement"
+  },
+  {
+   "start": 141,
+   "end": 156,
+   "label": "Activity Data",
+   "id": "Activity Data_d0dad5f0",
+   "type": null,
+   "name": "The measurement"
+  },
+  {
+   "start": 159,
+   "end": 166,
+   "label": "Actor",
+   "id": "Actor_6694e071",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 167,
+   "end": 174,
+   "label": "Activity",
+   "id": "Activity_7d66e2d1",
+   "type": "task",
+   "name": "Informs about the failure of the reading"
+  },
+  {
+   "start": 175,
+   "end": 181,
+   "label": "Actor",
+   "id": "Actor_5c80e674",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 182,
+   "end": 214,
+   "label": "Activity Data",
+   "id": "Activity Data_8c5fcc75",
+   "type": null,
+   "name": "About the failure of the reading"
+  },
+  {
+   "start": 215,
+   "end": 217,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_73f859c9",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 218,
+   "end": 225,
+   "label": "Actor",
+   "id": "Actor_e162175a",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 226,
+   "end": 235,
+   "label": "Activity",
+   "id": "Activity_9ffee9c0",
+   "type": "task",
+   "name": "Transmits the measured values"
+  },
+  {
+   "start": 236,
+   "end": 255,
+   "label": "Activity Data",
+   "id": "Activity Data_bd4a25d9",
+   "type": null,
+   "name": "The measured values"
+  },
+  {
+   "start": 259,
+   "end": 265,
+   "label": "Actor",
+   "id": "Actor_5d1d629a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 268,
+   "end": 274,
+   "label": "Actor",
+   "id": "Actor_a8f75022",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 275,
+   "end": 284,
+   "label": "Activity",
+   "id": "Activity_d1b961b8",
+   "type": "task",
+   "name": "Processes the measured values"
+  },
+  {
+   "start": 285,
+   "end": 304,
+   "label": "Activity Data",
+   "id": "Activity Data_9eb63391",
+   "type": null,
+   "name": "The measured values"
+  },
+  {
+   "start": 307,
+   "end": 313,
+   "label": "Actor",
+   "id": "Actor_98e9549e",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 314,
+   "end": 319,
+   "label": "Activity",
+   "id": "Activity_07f6ed54",
+   "type": "task",
+   "name": "Sends the changed values"
+  },
+  {
+   "start": 320,
+   "end": 338,
+   "label": "Activity Data",
+   "id": "Activity Data_099eb712",
+   "type": null,
+   "name": "The changed values"
+  },
+  {
+   "start": 342,
+   "end": 349,
+   "label": "Actor",
+   "id": "Actor_3d75cd8b",
+   "type": "Lane",
+   "name": "The MSP"
+  },
+  {
+   "start": 352,
+   "end": 358,
+   "label": "Actor",
+   "id": "Actor_e2c0e4c7",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 359,
+   "end": 367,
+   "label": "Activity",
+   "id": "Activity_77a6de29",
+   "type": "task",
+   "name": "Transmit the readings"
+  },
+  {
+   "start": 368,
+   "end": 380,
+   "label": "Activity Data",
+   "id": "Activity Data_a9f60a98",
+   "type": null,
+   "name": "The readings"
+  },
+  {
+   "start": 384,
+   "end": 390,
+   "label": "Actor",
+   "id": "Actor_511f8acb",
+   "type": "Lane",
+   "name": "The SP"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 27,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Checks the received request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Denies the request of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Denies the request of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Performs the measurement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Performs the measurement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Informs about the failure of the reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Performs the measurement",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the failure of the reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Informs about the failure of the reading",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Transmits the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Transmits the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Processes the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Transmits the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Processes the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Sends the changed values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Processes the measured values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Sends the changed values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Transmit the readings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the measured values",
+    "node_B": "Sends the changed values",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the measured values",
+    "node_B": "Transmit the readings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends the changed values",
+    "node_B": "Transmit the readings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Checks the received request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Denies the request of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests the measurements",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Denies the request of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the received request",
+    "node_B": "Performs the measurement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Performs the measurement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Denies the request of the GO",
+    "node_B": "Informs about the failure of the reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Performs the measurement",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the failure of the reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Informs about the failure of the reading",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Performs the measurement",
+    "node_B": "Transmits the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Transmits the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the failure of the reading",
+    "node_B": "Processes the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Transmits the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Processes the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Sends the changed values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Processes the measured values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Sends the changed values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Transmits the measured values",
+    "node_B": "Transmit the readings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the measured values",
+    "node_B": "Sends the changed values",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the measured values",
+    "node_B": "Transmit the readings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends the changed values",
+    "node_B": "Transmit the readings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

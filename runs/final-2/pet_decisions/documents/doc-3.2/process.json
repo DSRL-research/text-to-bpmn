@@ -1,0 +1,308 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_cd830e9c",
+    "name": "Checked the files which have yet to be processed",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_3f73d87e",
+    "name": "If some files are missing",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9ef0a934",
+    "name": "Initiated a search",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "The files"
+    ]
+   },
+   {
+    "id": "Activity_2aecc798",
+    "name": "Tracked",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "To the intended location"
+    ]
+   },
+   {
+    "id": "Activity_f678fc4f",
+    "name": "Handed these",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_89b055be",
+    "name": "Distributed the Judgeis Lawlist",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5d865fbb",
+    "name": "Conducted the directions hearings",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Main Process"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_cd830e9c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_cd830e9c",
+    "target": "XOR Gateway_3f73d87e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "XOR Gateway_3f73d87e",
+    "target": "Activity_9ef0a934",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_3f73d87e",
+    "target": "Activity_2aecc798",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_9ef0a934",
+    "target": "Activity_f678fc4f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_2aecc798",
+    "target": "Activity_f678fc4f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_f678fc4f",
+    "target": "Activity_89b055be",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_89b055be",
+    "target": "Activity_5d865fbb",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_5d865fbb",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 15,
+   "end": 55,
+   "label": "Activity Data",
+   "id": "Activity Data_a7def2c7",
+   "type": null,
+   "name": "The files which have yet to be processed"
+  },
+  {
+   "start": 67,
+   "end": 74,
+   "label": "Activity",
+   "id": "Activity_cd830e9c",
+   "type": "task",
+   "name": "Checked the files which have yet to be processed"
+  },
+  {
+   "start": 141,
+   "end": 143,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_3f73d87e",
+   "type": "exclusiveGateway",
+   "name": "If some files are missing"
+  },
+  {
+   "start": 144,
+   "end": 166,
+   "label": "Condition Specification",
+   "id": "Condition Specification_43bab5a2",
+   "type": "exclusiveGateway",
+   "name": "Some files are missing"
+  },
+  {
+   "start": 169,
+   "end": 177,
+   "label": "Activity Data",
+   "id": "Activity Data_3e80250b",
+   "type": null,
+   "name": "A search"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "label": "Activity",
+   "id": "Activity_9ef0a934",
+   "type": "task",
+   "name": "Initiated a search"
+  },
+  {
+   "start": 193,
+   "end": 202,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b3f120fc",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 203,
+   "end": 212,
+   "label": "Activity Data",
+   "id": "Activity Data_e755c26c",
+   "type": null,
+   "name": "The files"
+  },
+  {
+   "start": 231,
+   "end": 238,
+   "label": "Activity",
+   "id": "Activity_2aecc798",
+   "type": "task",
+   "name": "Tracked"
+  },
+  {
+   "start": 239,
+   "end": 263,
+   "label": "Further Specification",
+   "id": "Further Specification_bca770bc",
+   "type": null,
+   "name": "To the intended location"
+  },
+  {
+   "start": 297,
+   "end": 302,
+   "label": "Activity Data",
+   "id": "Activity Data_641ad17e",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 307,
+   "end": 313,
+   "label": "Activity",
+   "id": "Activity_f678fc4f",
+   "type": "task",
+   "name": "Handed these"
+  },
+  {
+   "start": 317,
+   "end": 330,
+   "label": "Actor",
+   "id": "Actor_ff1a7f4f",
+   "type": "Lane",
+   "name": "The Associate"
+  },
+  {
+   "start": 337,
+   "end": 345,
+   "label": "AND Gateway",
+   "id": "AND Gateway_5ad24d47",
+   "type": "parallelGateway",
+   "name": "Meantime"
+  },
+  {
+   "start": 346,
+   "end": 365,
+   "label": "Activity Data",
+   "id": "Activity Data_ace321c6",
+   "type": null,
+   "name": "The Judgeis Lawlist"
+  },
+  {
+   "start": 369,
+   "end": 380,
+   "label": "Activity",
+   "id": "Activity_89b055be",
+   "type": "task",
+   "name": "Distributed the Judgeis Lawlist"
+  },
+  {
+   "start": 384,
+   "end": 403,
+   "label": "Actor",
+   "id": "Actor_841c13f9",
+   "type": "Lane",
+   "name": "The relevant people"
+  },
+  {
+   "start": 419,
+   "end": 442,
+   "label": "Activity Data",
+   "id": "Activity Data_cdfe3334",
+   "type": null,
+   "name": "The directions hearings"
+  },
+  {
+   "start": 447,
+   "end": 456,
+   "label": "Activity",
+   "id": "Activity_5d865fbb",
+   "type": "task",
+   "name": "Conducted the directions hearings"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 1,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Initiated a search | Tracked | Handed these | Distributed the Judgeis Lawlist | Conducted the directions hearings",
+    "label": "yes no after after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

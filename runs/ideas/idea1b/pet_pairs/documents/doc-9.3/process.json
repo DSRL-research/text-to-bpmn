@@ -1,0 +1,507 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The Coordination Unit",
+   "The Coordination Unit at the Town Planning Authority",
+   "The Support Officer",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_ed137de0",
+    "name": "Drafts a schedule of meetings",
+    "type": "task",
+    "lane": "The Coordination Unit at the Town Planning Authority",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9a4faeae",
+    "name": "Adds draft dates",
+    "type": "task",
+    "lane": "The Coordination Unit at the Town Planning Authority",
+    "metadata": []
+   },
+   {
+    "id": "Activity_56f84919",
+    "name": "Checks the dates",
+    "type": "task",
+    "lane": "The Support Officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8a5c36c1",
+    "name": "Suggests modifications",
+    "type": "task",
+    "lane": "The Support Officer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_442860d5",
+    "name": "Rechecks all dates",
+    "type": "task",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_a9c09a0d",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_b08f42cf",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6a69d2cf",
+    "name": "Looks for potential conflicts",
+    "type": "task",
+    "lane": "The Coordination Unit",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fa1cb62e",
+    "name": "Sent the final schedule of meeting dates",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a5b6d3e8",
+    "name": "Check their diaries",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "By email"
+    ]
+   },
+   {
+    "id": "Activity_05a29bf0",
+    "name": "Advise of any conflicts",
+    "type": "task",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_aaebd266",
+    "source": "StartEvent_1",
+    "target": "Activity_ed137de0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d24ac82c",
+    "source": "Activity_ed137de0",
+    "target": "Activity_9a4faeae",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c3d1e944",
+    "source": "Activity_9a4faeae",
+    "target": "Activity_56f84919",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_990d7f97",
+    "source": "Activity_56f84919",
+    "target": "Activity_8a5c36c1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dd9f0e12",
+    "source": "Activity_8a5c36c1",
+    "target": "ParallelGateway_split_a9c09a0d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_efe3f629",
+    "source": "ParallelGateway_split_a9c09a0d",
+    "target": "Activity_442860d5",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_8a8c2757",
+    "source": "Activity_442860d5",
+    "target": "ParallelGateway_join_b08f42cf",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_2d18035f",
+    "source": "ParallelGateway_split_a9c09a0d",
+    "target": "Activity_6a69d2cf",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_9887cebc",
+    "source": "Activity_6a69d2cf",
+    "target": "ParallelGateway_join_b08f42cf",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_cedb2904",
+    "source": "ParallelGateway_join_b08f42cf",
+    "target": "Activity_fa1cb62e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_20df7d29",
+    "source": "Activity_fa1cb62e",
+    "target": "Activity_a5b6d3e8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3d92fd03",
+    "source": "Activity_a5b6d3e8",
+    "target": "Activity_05a29bf0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4a9822a4",
+    "source": "Activity_05a29bf0",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 27,
+   "end": 79,
+   "label": "Actor",
+   "id": "Actor_21be1afa",
+   "type": "Lane",
+   "name": "The Coordination Unit at the Town Planning Authority"
+  },
+  {
+   "start": 80,
+   "end": 86,
+   "label": "Activity",
+   "id": "Activity_ed137de0",
+   "type": "task",
+   "name": "Drafts a schedule of meetings"
+  },
+  {
+   "start": 87,
+   "end": 109,
+   "label": "Activity Data",
+   "id": "Activity Data_88966de8",
+   "type": null,
+   "name": "A schedule of meetings"
+  },
+  {
+   "start": 141,
+   "end": 145,
+   "label": "Activity",
+   "id": "Activity_9a4faeae",
+   "type": "task",
+   "name": "Adds draft dates"
+  },
+  {
+   "start": 146,
+   "end": 157,
+   "label": "Activity Data",
+   "id": "Activity Data_8be71b0f",
+   "type": null,
+   "name": "Draft dates"
+  },
+  {
+   "start": 177,
+   "end": 196,
+   "label": "Actor",
+   "id": "Actor_ddad9377",
+   "type": "Lane",
+   "name": "The Support Officer"
+  },
+  {
+   "start": 202,
+   "end": 208,
+   "label": "Activity",
+   "id": "Activity_56f84919",
+   "type": "task",
+   "name": "Checks the dates"
+  },
+  {
+   "start": 209,
+   "end": 218,
+   "label": "Activity Data",
+   "id": "Activity Data_f62e2337",
+   "type": null,
+   "name": "The dates"
+  },
+  {
+   "start": 223,
+   "end": 231,
+   "label": "Activity",
+   "id": "Activity_8a5c36c1",
+   "type": "task",
+   "name": "Suggests modifications"
+  },
+  {
+   "start": 232,
+   "end": 245,
+   "label": "Activity Data",
+   "id": "Activity Data_3d73a294",
+   "type": null,
+   "name": "Modifications"
+  },
+  {
+   "start": 248,
+   "end": 269,
+   "label": "Actor",
+   "id": "Actor_c4dac1fe",
+   "type": "Lane",
+   "name": "The Coordination Unit"
+  },
+  {
+   "start": 275,
+   "end": 283,
+   "label": "Activity",
+   "id": "Activity_442860d5",
+   "type": "task",
+   "name": "Rechecks all dates"
+  },
+  {
+   "start": 284,
+   "end": 293,
+   "label": "Activity Data",
+   "id": "Activity Data_44dc0de1",
+   "type": null,
+   "name": "All dates"
+  },
+  {
+   "start": 298,
+   "end": 307,
+   "label": "Activity",
+   "id": "Activity_6a69d2cf",
+   "type": "task",
+   "name": "Looks for potential conflicts"
+  },
+  {
+   "start": 308,
+   "end": 327,
+   "label": "Activity Data",
+   "id": "Activity Data_6b4e3b99",
+   "type": null,
+   "name": "Potential conflicts"
+  },
+  {
+   "start": 330,
+   "end": 365,
+   "label": "Activity Data",
+   "id": "Activity Data_c17d5071",
+   "type": null,
+   "name": "The final schedule of meeting dates"
+  },
+  {
+   "start": 369,
+   "end": 373,
+   "label": "Activity",
+   "id": "Activity_fa1cb62e",
+   "type": "task",
+   "name": "Sent the final schedule of meeting dates"
+  },
+  {
+   "start": 377,
+   "end": 414,
+   "label": "Actor",
+   "id": "Actor_ff19d2d0",
+   "type": "Lane",
+   "name": "All the independent Committee Members"
+  },
+  {
+   "start": 415,
+   "end": 423,
+   "label": "Further Specification",
+   "id": "Further Specification_84326015",
+   "type": null,
+   "name": "By email"
+  },
+  {
+   "start": 426,
+   "end": 429,
+   "label": "Actor",
+   "id": "Actor_0cd2de97",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 435,
+   "end": 440,
+   "label": "Activity",
+   "id": "Activity_a5b6d3e8",
+   "type": "task",
+   "name": "Check their diaries"
+  },
+  {
+   "start": 441,
+   "end": 454,
+   "label": "Activity Data",
+   "id": "Activity Data_aad3ec89",
+   "type": null,
+   "name": "Their diaries"
+  },
+  {
+   "start": 459,
+   "end": 465,
+   "label": "Activity",
+   "id": "Activity_05a29bf0",
+   "type": "task",
+   "name": "Advise of any conflicts"
+  },
+  {
+   "start": 466,
+   "end": 487,
+   "label": "Actor",
+   "id": "Actor_a7266f79",
+   "type": "Lane",
+   "name": "The Coordination Unit"
+  },
+  {
+   "start": 488,
+   "end": 504,
+   "label": "Activity Data",
+   "id": "Activity Data_99b314e5",
+   "type": null,
+   "name": "Of any conflicts"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Adds draft dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Checks the dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Drafts a schedule of meetings",
+    "node_B": "Suggests modifications",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Checks the dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Suggests modifications",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Adds draft dates",
+    "node_B": "Rechecks all dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Suggests modifications",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Rechecks all dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the dates",
+    "node_B": "Looks for potential conflicts",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Rechecks all dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Looks for potential conflicts",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Suggests modifications",
+    "node_B": "Sent the final schedule of meeting dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Looks for potential conflicts",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Sent the final schedule of meeting dates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rechecks all dates",
+    "node_B": "Check their diaries",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Check their diaries",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sent the final schedule of meeting dates",
+    "node_B": "Advise of any conflicts",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check their diaries",
+    "node_B": "Advise of any conflicts",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

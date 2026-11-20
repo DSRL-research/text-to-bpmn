@@ -1,0 +1,765 @@
+{
+  "structured_data": {
+    "participants": [
+      "Any employee",
+      "Main Process",
+      "The immediate supervisor of the employee",
+      "The purchase department",
+      "The supervisor",
+      "The system",
+      "The user",
+      "Who"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_18f97fb3",
+        "name": "Submits an office supply request",
+        "type": "task",
+        "lane": "Any employee",
+        "metadata": [
+          "An Office Supply Request"
+        ]
+      },
+      {
+        "id": "Activity_c8072197",
+        "name": "Registered the request",
+        "type": "task",
+        "lane": "The immediate supervisor of the employee",
+        "metadata": [
+          "The requirement"
+        ]
+      },
+      {
+        "id": "Activity_8e51038e",
+        "name": "Received",
+        "type": "task",
+        "lane": "The immediate supervisor of the employee",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_c19f57aa",
+        "name": "If the request is rejected",
+        "type": "exclusiveGateway",
+        "lane": "The supervisor",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d47341ba",
+        "name": "Returned an office supply request",
+        "type": "task",
+        "lane": "Who",
+        "metadata": [
+          "The request"
+        ]
+      },
+      {
+        "id": "Activity_d0317860",
+        "name": "Review the comments for the change request",
+        "type": "task",
+        "lane": "Who",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ddf2e7d6",
+        "name": "Making quotations",
+        "type": "task",
+        "lane": "Who",
+        "metadata": [
+          "An office supply request",
+          "A vendor"
+        ]
+      },
+      {
+        "id": "XOR Gateway_fe030f9e",
+        "name": "If the vendor is not valid in the system",
+        "type": "exclusiveGateway",
+        "lane": "The purchase department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_35cfcc7b",
+        "name": "Choose a different vendor",
+        "type": "task",
+        "lane": "The purchase department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_44fdb777",
+        "name": "Selected a vendor",
+        "type": "task",
+        "lane": "The system",
+        "metadata": []
+      },
+      {
+        "id": "Activity_35fba614",
+        "name": "Confirmed",
+        "type": "task",
+        "lane": "The system",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5a0b2d52",
+        "name": "Generate",
+        "type": "task",
+        "lane": "The system",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e51e14c5",
+        "name": "Send a purchase order",
+        "type": "task",
+        "lane": "The system",
+        "metadata": [
+          "The invoice received"
+        ]
+      },
+      {
+        "id": "Activity_446bb67d",
+        "name": "Send a notification",
+        "type": "task",
+        "lane": "The system",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1010d87f",
+        "name": "Send a notification",
+        "type": "task",
+        "lane": "The user",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The user"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_18f97fb3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_18f97fb3",
+        "target": "Activity_c8072197",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_c8072197",
+        "target": "Activity_8e51038e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_8e51038e",
+        "target": "XOR Gateway_c19f57aa",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_c19f57aa",
+        "target": "Activity_d47341ba",
+        "name": "If the request is asked to make a change",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_d47341ba",
+        "target": "Activity_d0317860",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_c19f57aa",
+        "target": "Activity_ddf2e7d6",
+        "name": "If the request is approved",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "XOR Gateway_c19f57aa",
+        "target": "XOR Gateway_fe030f9e",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_d0317860",
+        "target": "XOR Gateway_fe030f9e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_ddf2e7d6",
+        "target": "XOR Gateway_fe030f9e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "XOR Gateway_fe030f9e",
+        "target": "Activity_35cfcc7b",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_35cfcc7b",
+        "target": "Activity_44fdb777",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "XOR Gateway_fe030f9e",
+        "target": "Activity_44fdb777",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "Activity_44fdb777",
+        "target": "Activity_35fba614",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_35fba614",
+        "target": "Activity_5a0b2d52",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "Activity_5a0b2d52",
+        "target": "Activity_e51e14c5",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "Activity_e51e14c5",
+        "target": "Activity_446bb67d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0018",
+        "source": "Activity_446bb67d",
+        "target": "Activity_1010d87f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0019",
+        "source": "Activity_1010d87f",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 22
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 15,
+      "end": 39,
+      "label": "Activity Data",
+      "id": "Activity Data_cc0a9cdf",
+      "type": null,
+      "name": "An Office Supply Request"
+    },
+    {
+      "start": 52,
+      "end": 64,
+      "label": "Actor",
+      "id": "Actor_83e52fbc",
+      "type": "Lane",
+      "name": "Any employee"
+    },
+    {
+      "start": 85,
+      "end": 92,
+      "label": "Activity",
+      "id": "Activity_18f97fb3",
+      "type": "task",
+      "name": "Submits an office supply request"
+    },
+    {
+      "start": 93,
+      "end": 117,
+      "label": "Activity Data",
+      "id": "Activity Data_dd481286",
+      "type": null,
+      "name": "An office supply request"
+    },
+    {
+      "start": 125,
+      "end": 140,
+      "label": "Activity Data",
+      "id": "Activity Data_02c29fbd",
+      "type": null,
+      "name": "The requirement"
+    },
+    {
+      "start": 144,
+      "end": 154,
+      "label": "Activity",
+      "id": "Activity_c8072197",
+      "type": "task",
+      "name": "Registered the request"
+    },
+    {
+      "start": 157,
+      "end": 168,
+      "label": "Activity Data",
+      "id": "Activity Data_6c6c421c",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 172,
+      "end": 180,
+      "label": "Activity",
+      "id": "Activity_8e51038e",
+      "type": "task",
+      "name": "Received"
+    },
+    {
+      "start": 184,
+      "end": 224,
+      "label": "Actor",
+      "id": "Actor_bfe0851f",
+      "type": "Lane",
+      "name": "The immediate supervisor of the employee"
+    },
+    {
+      "start": 258,
+      "end": 272,
+      "label": "Actor",
+      "id": "Actor_63976c11",
+      "type": "Lane",
+      "name": "The supervisor"
+    },
+    {
+      "start": 318,
+      "end": 329,
+      "label": "Activity Data",
+      "id": "Activity Data_049e7e36",
+      "type": null,
+      "name": "The request"
+    },
+    {
+      "start": 332,
+      "end": 334,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_c19f57aa",
+      "type": "exclusiveGateway",
+      "name": "If the request is rejected"
+    },
+    {
+      "start": 335,
+      "end": 358,
+      "label": "Condition Specification",
+      "id": "Condition Specification_d514a4d2",
+      "type": "exclusiveGateway",
+      "name": "The request is rejected"
+    },
+    {
+      "start": 382,
+      "end": 384,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_44b36370",
+      "type": "exclusiveGateway",
+      "name": "If the request is asked to make a change"
+    },
+    {
+      "start": 385,
+      "end": 422,
+      "label": "Condition Specification",
+      "id": "Condition Specification_bbb22e5d",
+      "type": "exclusiveGateway",
+      "name": "The request is asked to make a change"
+    },
+    {
+      "start": 428,
+      "end": 452,
+      "label": "Activity Data",
+      "id": "Activity Data_4fa35ff8",
+      "type": null,
+      "name": "An office supply request"
+    },
+    {
+      "start": 456,
+      "end": 464,
+      "label": "Activity",
+      "id": "Activity_d47341ba",
+      "type": "task",
+      "name": "Returned an office supply request"
+    },
+    {
+      "start": 468,
+      "end": 493,
+      "label": "Actor",
+      "id": "Actor_c0c2100b",
+      "type": "Lane",
+      "name": "The petitioner / employee"
+    },
+    {
+      "start": 494,
+      "end": 497,
+      "label": "Actor",
+      "id": "Actor_5bbb04d3",
+      "type": "Lane",
+      "name": "Who"
+    },
+    {
+      "start": 502,
+      "end": 508,
+      "label": "Activity",
+      "id": "Activity_d0317860",
+      "type": "task",
+      "name": "Review the comments for the change request"
+    },
+    {
+      "start": 509,
+      "end": 544,
+      "label": "Activity Data",
+      "id": "Activity Data_0a0e9283",
+      "type": null,
+      "name": "The comments for the change request"
+    },
+    {
+      "start": 547,
+      "end": 549,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_749551d9",
+      "type": "exclusiveGateway",
+      "name": "If the request is approved"
+    },
+    {
+      "start": 550,
+      "end": 573,
+      "label": "Condition Specification",
+      "id": "Condition Specification_25c8d261",
+      "type": "exclusiveGateway",
+      "name": "The request is approved"
+    },
+    {
+      "start": 574,
+      "end": 598,
+      "label": "Activity Data",
+      "id": "Activity Data_cb180c17",
+      "type": null,
+      "name": "An office supply request"
+    },
+    {
+      "start": 610,
+      "end": 633,
+      "label": "Actor",
+      "id": "Actor_fc33178a",
+      "type": "Lane",
+      "name": "The purchase department"
+    },
+    {
+      "start": 660,
+      "end": 666,
+      "label": "Activity",
+      "id": "Activity_ddf2e7d6",
+      "type": "task",
+      "name": "Making quotations"
+    },
+    {
+      "start": 667,
+      "end": 677,
+      "label": "Activity Data",
+      "id": "Activity Data_a005b654",
+      "type": null,
+      "name": "Quotations"
+    },
+    {
+      "start": 705,
+      "end": 711,
+      "label": "Activity",
+      "id": "Activity_0eafb284",
+      "type": null,
+      "name": null
+    },
+    {
+      "start": 712,
+      "end": 720,
+      "label": "Activity Data",
+      "id": "Activity Data_e468f1eb",
+      "type": null,
+      "name": "A vendor"
+    },
+    {
+      "start": 723,
+      "end": 725,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_fe030f9e",
+      "type": "exclusiveGateway",
+      "name": "If the vendor is not valid in the system"
+    },
+    {
+      "start": 726,
+      "end": 763,
+      "label": "Condition Specification",
+      "id": "Condition Specification_116a9d74",
+      "type": "exclusiveGateway",
+      "name": "The vendor is not valid in the system"
+    },
+    {
+      "start": 764,
+      "end": 787,
+      "label": "Actor",
+      "id": "Actor_1b2305c2",
+      "type": "Lane",
+      "name": "The purchase department"
+    },
+    {
+      "start": 801,
+      "end": 807,
+      "label": "Activity",
+      "id": "Activity_35cfcc7b",
+      "type": "task",
+      "name": "Choose a different vendor"
+    },
+    {
+      "start": 808,
+      "end": 826,
+      "label": "Activity Data",
+      "id": "Activity Data_db88ae1e",
+      "type": null,
+      "name": "A different vendor"
+    },
+    {
+      "start": 835,
+      "end": 843,
+      "label": "Activity Data",
+      "id": "Activity Data_f919c674",
+      "type": null,
+      "name": "A vendor"
+    },
+    {
+      "start": 847,
+      "end": 855,
+      "label": "Activity",
+      "id": "Activity_44fdb777",
+      "type": "task",
+      "name": "Selected a vendor"
+    },
+    {
+      "start": 860,
+      "end": 869,
+      "label": "Activity",
+      "id": "Activity_35fba614",
+      "type": "task",
+      "name": "Confirmed"
+    },
+    {
+      "start": 872,
+      "end": 882,
+      "label": "Actor",
+      "id": "Actor_c29ce658",
+      "type": "Lane",
+      "name": "The system"
+    },
+    {
+      "start": 888,
+      "end": 896,
+      "label": "Activity",
+      "id": "Activity_5a0b2d52",
+      "type": "task",
+      "name": "Generate"
+    },
+    {
+      "start": 901,
+      "end": 905,
+      "label": "Activity",
+      "id": "Activity_e51e14c5",
+      "type": "task",
+      "name": "Send a purchase order"
+    },
+    {
+      "start": 906,
+      "end": 922,
+      "label": "Activity Data",
+      "id": "Activity Data_8791e322",
+      "type": null,
+      "name": "A purchase order"
+    },
+    {
+      "start": 968,
+      "end": 988,
+      "label": "Activity Data",
+      "id": "Activity Data_06c6553a",
+      "type": null,
+      "name": "The invoice received"
+    },
+    {
+      "start": 1003,
+      "end": 1013,
+      "label": "Actor",
+      "id": "Actor_08f38865",
+      "type": "Lane",
+      "name": "The system"
+    },
+    {
+      "start": 1019,
+      "end": 1023,
+      "label": "Activity",
+      "id": "Activity_446bb67d",
+      "type": "task",
+      "name": "Send a notification"
+    },
+    {
+      "start": 1024,
+      "end": 1038,
+      "label": "Activity Data",
+      "id": "Activity Data_e696ea10",
+      "type": null,
+      "name": "A notification"
+    },
+    {
+      "start": 1046,
+      "end": 1054,
+      "label": "Actor",
+      "id": "Actor_472a5fdb",
+      "type": "Lane",
+      "name": "The user"
+    },
+    {
+      "start": 1144,
+      "end": 1154,
+      "label": "Actor",
+      "id": "Actor_6e004ff2",
+      "type": "Lane",
+      "name": "The system"
+    },
+    {
+      "start": 1160,
+      "end": 1164,
+      "label": "Activity",
+      "id": "Activity_1010d87f",
+      "type": "task",
+      "name": "Send a notification"
+    },
+    {
+      "start": 1165,
+      "end": 1173,
+      "label": "Actor",
+      "id": "Actor_7af79082",
+      "type": "Lane",
+      "name": "The user"
+    },
+    {
+      "start": 1174,
+      "end": 1188,
+      "label": "Activity Data",
+      "id": "Activity Data_127c005b",
+      "type": null,
+      "name": "A notification"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 2,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the request is rejected",
+        "node_B": "decision: If the request is asked to make a change | Returned an office supply request | Review the comments for the change request | decision: If the request is approved | Making quotations | decision: If the vendor is not valid in the system | Choose a different vendor | Selected a vendor | Confirmed | Generate",
+        "label": "same yes yes same yes after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If the vendor is not valid in the system",
+        "node_B": "Choose a different vendor | Selected a vendor | Confirmed | Generate | Send a purchase order | Send a notification | Send a notification",
+        "label": "yes after after after after after after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

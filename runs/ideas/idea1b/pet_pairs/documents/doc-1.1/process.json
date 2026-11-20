@@ -1,0 +1,773 @@
+{
+ "structured_data": {
+  "participants": [
+   "A member of the sales department",
+   "Main Process",
+   "The engineering department",
+   "The sales department",
+   "The storehouse"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_8a3d3c75",
+    "name": "Receives an order",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e076a93e",
+    "name": "Reject",
+    "type": "task",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_3af5c5ee",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_ace48396",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5d45ecad",
+    "name": "Accept the order",
+    "type": "task",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_ddb628d1",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_856c27f3",
+    "name": "Informed",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_59d899cf",
+    "name": "Processes the part list of the order",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5b6082c8",
+    "name": "Checks the required quantity of each part",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a0ea4ff9",
+    "name": "If the part is available in-house",
+    "type": "exclusiveGateway",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b3754ced",
+    "name": "Reserved it",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_ebabfae4",
+    "name": "If it is not available",
+    "type": "exclusiveGateway",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3dbf6e22",
+    "name": "Ordered it",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_c6debe88",
+    "name": "In the meantime",
+    "type": "parallelGateway",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_aece0bc0",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The engineering department"
+   },
+   {
+    "id": "Activity_2dde2047",
+    "name": "Prepares everything",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b1b108e1",
+    "name": "Assembles the bicycle",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_081ed9e0",
+    "name": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "type": "exclusiveGateway",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3192889a",
+    "name": "Ships the bicycle",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The sales department"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_2665695f",
+    "source": "StartEvent_1",
+    "target": "Activity_8a3d3c75",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c73d1b62",
+    "source": "Activity_8a3d3c75",
+    "target": "ParallelGateway_split_3af5c5ee",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0dddf0ea",
+    "source": "ParallelGateway_split_3af5c5ee",
+    "target": "Activity_e076a93e",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_f3175ab3",
+    "source": "Activity_e076a93e",
+    "target": "ParallelGateway_join_ace48396",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_3afca5d6",
+    "source": "ParallelGateway_split_3af5c5ee",
+    "target": "Activity_5d45ecad",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_86bf243a",
+    "source": "Activity_5d45ecad",
+    "target": "ParallelGateway_join_ace48396",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_841c04ba",
+    "source": "ParallelGateway_join_ace48396",
+    "target": "XOR Gateway_ddb628d1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_862d0a3e",
+    "source": "XOR Gateway_ddb628d1",
+    "target": "Activity_856c27f3",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_3c32a342",
+    "source": "Activity_856c27f3",
+    "target": "Activity_59d899cf",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_be0cb066",
+    "source": "Activity_59d899cf",
+    "target": "Activity_5b6082c8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_99a2ff67",
+    "source": "Activity_5b6082c8",
+    "target": "XOR Gateway_a0ea4ff9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_53d1a0fb",
+    "source": "XOR Gateway_a0ea4ff9",
+    "target": "Activity_b3754ced",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_34aa845f",
+    "source": "XOR Gateway_a0ea4ff9",
+    "target": "XOR Gateway_ebabfae4",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_b9a7199c",
+    "source": "XOR Gateway_ebabfae4",
+    "target": "Activity_3dbf6e22",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_30a75e64",
+    "source": "XOR Gateway_a0ea4ff9",
+    "target": "AND Gateway_c6debe88",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5562e3fe",
+    "source": "AND Gateway_c6debe88",
+    "target": "Activity_2dde2047",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_b27bd94f",
+    "source": "Activity_2dde2047",
+    "target": "ParallelGateway_join_aece0bc0",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_1437d532",
+    "source": "AND Gateway_c6debe88",
+    "target": "Activity_b1b108e1",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_37cdd880",
+    "source": "Activity_b1b108e1",
+    "target": "ParallelGateway_join_aece0bc0",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_a2475709",
+    "source": "ParallelGateway_join_aece0bc0",
+    "target": "XOR Gateway_081ed9e0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ff7dc77c",
+    "source": "XOR Gateway_081ed9e0",
+    "target": "Activity_3192889a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d446d13",
+    "source": "Activity_b3754ced",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1fd30310",
+    "source": "Activity_3dbf6e22",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0f827463",
+    "source": "Activity_3192889a",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 60,
+   "end": 80,
+   "label": "Actor",
+   "id": "Actor_df369497",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 81,
+   "end": 89,
+   "label": "Activity",
+   "id": "Activity_8a3d3c75",
+   "type": "task",
+   "name": "Receives an order"
+  },
+  {
+   "start": 90,
+   "end": 98,
+   "label": "Activity Data",
+   "id": "Activity Data_1e141b82",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 137,
+   "end": 169,
+   "label": "Actor",
+   "id": "Actor_7ebd7511",
+   "type": "Lane",
+   "name": "A member of the sales department"
+  },
+  {
+   "start": 179,
+   "end": 185,
+   "label": "Activity",
+   "id": "Activity_e076a93e",
+   "type": "task",
+   "name": "Reject"
+  },
+  {
+   "start": 186,
+   "end": 188,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_ddb628d1",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 189,
+   "end": 195,
+   "label": "Activity",
+   "id": "Activity_5d45ecad",
+   "type": "task",
+   "name": "Accept the order"
+  },
+  {
+   "start": 196,
+   "end": 205,
+   "label": "Activity Data",
+   "id": "Activity Data_a10deaac",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 307,
+   "end": 321,
+   "label": "Actor",
+   "id": "Actor_4e56151b",
+   "type": "Lane",
+   "name": "The storehouse"
+  },
+  {
+   "start": 326,
+   "end": 352,
+   "label": "Actor",
+   "id": "Actor_445446d6",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 357,
+   "end": 365,
+   "label": "Activity",
+   "id": "Activity_856c27f3",
+   "type": "task",
+   "name": "Informed"
+  },
+  {
+   "start": 368,
+   "end": 382,
+   "label": "Actor",
+   "id": "Actor_bec33c45",
+   "type": "Lane",
+   "name": "The storehouse"
+  },
+  {
+   "start": 395,
+   "end": 404,
+   "label": "Activity",
+   "id": "Activity_59d899cf",
+   "type": "task",
+   "name": "Processes the part list of the order"
+  },
+  {
+   "start": 405,
+   "end": 431,
+   "label": "Activity Data",
+   "id": "Activity Data_80e7f18b",
+   "type": null,
+   "name": "The part list of the order"
+  },
+  {
+   "start": 436,
+   "end": 442,
+   "label": "Activity",
+   "id": "Activity_5b6082c8",
+   "type": "task",
+   "name": "Checks the required quantity of each part"
+  },
+  {
+   "start": 443,
+   "end": 477,
+   "label": "Activity Data",
+   "id": "Activity Data_b8987a06",
+   "type": null,
+   "name": "The required quantity of each part"
+  },
+  {
+   "start": 480,
+   "end": 482,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a0ea4ff9",
+   "type": "exclusiveGateway",
+   "name": "If the part is available in-house"
+  },
+  {
+   "start": 483,
+   "end": 513,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a36e9a49",
+   "type": "exclusiveGateway",
+   "name": "The part is available in-house"
+  },
+  {
+   "start": 516,
+   "end": 518,
+   "label": "Activity Data",
+   "id": "Activity Data_50166638",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 522,
+   "end": 530,
+   "label": "Activity",
+   "id": "Activity_b3754ced",
+   "type": "task",
+   "name": "Reserved it"
+  },
+  {
+   "start": 533,
+   "end": 535,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_ebabfae4",
+   "type": "exclusiveGateway",
+   "name": "If it is not available"
+  },
+  {
+   "start": 536,
+   "end": 555,
+   "label": "Condition Specification",
+   "id": "Condition Specification_13466a91",
+   "type": "exclusiveGateway",
+   "name": "It is not available"
+  },
+  {
+   "start": 558,
+   "end": 560,
+   "label": "Activity Data",
+   "id": "Activity Data_d05c57bc",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 564,
+   "end": 576,
+   "label": "Activity",
+   "id": "Activity_3dbf6e22",
+   "type": "task",
+   "name": "Ordered it"
+  },
+  {
+   "start": 639,
+   "end": 654,
+   "label": "AND Gateway",
+   "id": "AND Gateway_c6debe88",
+   "type": "parallelGateway",
+   "name": "In the meantime"
+  },
+  {
+   "start": 657,
+   "end": 683,
+   "label": "Actor",
+   "id": "Actor_1417a4df",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 684,
+   "end": 692,
+   "label": "Activity",
+   "id": "Activity_2dde2047",
+   "type": "task",
+   "name": "Prepares everything"
+  },
+  {
+   "start": 693,
+   "end": 703,
+   "label": "Activity Data",
+   "id": "Activity Data_024aaa6f",
+   "type": null,
+   "name": "Everything"
+  },
+  {
+   "start": 748,
+   "end": 750,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_081ed9e0",
+   "type": "exclusiveGateway",
+   "name": "If the storehouse has successfully reserved or back-ordered every item of the part list"
+  },
+  {
+   "start": 751,
+   "end": 835,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a4072c04",
+   "type": "exclusiveGateway",
+   "name": "The storehouse has successfully reserved or back-ordered every item of the part list"
+  },
+  {
+   "start": 880,
+   "end": 906,
+   "label": "Actor",
+   "id": "Actor_66a9d676",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 907,
+   "end": 916,
+   "label": "Activity",
+   "id": "Activity_b1b108e1",
+   "type": "task",
+   "name": "Assembles the bicycle"
+  },
+  {
+   "start": 917,
+   "end": 928,
+   "label": "Activity Data",
+   "id": "Activity Data_0bc243d3",
+   "type": null,
+   "name": "The bicycle"
+  },
+  {
+   "start": 944,
+   "end": 964,
+   "label": "Actor",
+   "id": "Actor_890827df",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 965,
+   "end": 970,
+   "label": "Activity",
+   "id": "Activity_3192889a",
+   "type": "task",
+   "name": "Ships the bicycle"
+  },
+  {
+   "start": 971,
+   "end": 982,
+   "label": "Activity Data",
+   "id": "Activity Data_1c642b24",
+   "type": null,
+   "name": "The bicycle"
+  },
+  {
+   "start": 986,
+   "end": 998,
+   "label": "Actor",
+   "id": "Actor_fdd3fc63",
+   "type": "Lane",
+   "name": "The customer"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 25,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Receives an order",
+    "node_B": "Reject",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Accept the order",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Or",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Accept the order",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Informed",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informed",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Processes the part list of the order",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Checks the required quantity of each part",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Processes the part list of the order",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Checks the required quantity of each part",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "If the part is available in-house",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Checks the required quantity of each part",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "If the part is available in-house",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Reserved it",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If the part is available in-house",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "Reserved it",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If it is not available",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Reserved it",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "If it is not available",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Ordered it",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Prepares everything",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Assembles the bicycle",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "node_B": "Ships the bicycle",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

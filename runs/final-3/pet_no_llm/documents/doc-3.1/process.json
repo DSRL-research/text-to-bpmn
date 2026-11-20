@@ -1,0 +1,749 @@
+{
+ "structured_data": {
+  "participants": [
+   "Back Office",
+   "Main Process",
+   "Some other MC internal staff",
+   "The Back Office",
+   "The Client Service Back Office",
+   "The party"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_28db323e",
+    "name": "Sends a warrant possession request",
+    "type": "task",
+    "lane": "The party",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dc572170",
+    "name": "Receives the request",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_50aef942",
+    "name": "Retrieves the SCT file",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1d734c95",
+    "name": "Forwarded the SCT Warrant Possession",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a9e4b002",
+    "name": "Stored the SCT physical file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_295587a7",
+    "name": "Awaiting a report",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "To be sent by the Police"
+    ]
+   },
+   {
+    "id": "Activity_2f5e57aa",
+    "name": "Received the respective SCT file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "The report"
+    ]
+   },
+   {
+    "id": "Activity_c5526027",
+    "name": "Retrieved",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fd9cfc46",
+    "name": "Attaches the new SCT document",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4432d7f6",
+    "name": "Stores the expanded SCT physical file",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a3f02e89",
+    "name": "Receives the physical SCT file",
+    "type": "task",
+    "lane": "Some other MC internal staff",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Some other MC internal staff"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_aa6a8db0",
+    "source": "StartEvent_1",
+    "target": "Activity_28db323e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_aa17620a",
+    "source": "Activity_28db323e",
+    "target": "Activity_dc572170",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_38345beb",
+    "source": "Activity_dc572170",
+    "target": "Activity_50aef942",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_58c9b84a",
+    "source": "Activity_50aef942",
+    "target": "Activity_1d734c95",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_60d602ed",
+    "source": "Activity_1d734c95",
+    "target": "Activity_a9e4b002",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0a26695d",
+    "source": "Activity_a9e4b002",
+    "target": "Activity_295587a7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0a30360b",
+    "source": "Activity_295587a7",
+    "target": "Activity_2f5e57aa",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ce9e698b",
+    "source": "Activity_2f5e57aa",
+    "target": "Activity_c5526027",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ef1b310d",
+    "source": "Activity_c5526027",
+    "target": "Activity_fd9cfc46",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f4ce648f",
+    "source": "Activity_fd9cfc46",
+    "target": "Activity_4432d7f6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d940d785",
+    "source": "Activity_4432d7f6",
+    "target": "Activity_a3f02e89",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_73e87d30",
+    "source": "Activity_a3f02e89",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 9,
+   "label": "Actor",
+   "id": "Actor_99b5e8ea",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 10,
+   "end": 15,
+   "label": "Activity",
+   "id": "Activity_28db323e",
+   "type": "task",
+   "name": "Sends a warrant possession request"
+  },
+  {
+   "start": 16,
+   "end": 44,
+   "label": "Activity Data",
+   "id": "Activity Data_c772b8d7",
+   "type": null,
+   "name": "A warrant possession request"
+  },
+  {
+   "start": 79,
+   "end": 109,
+   "label": "Actor",
+   "id": "Actor_766ea5b7",
+   "type": "Lane",
+   "name": "The Client Service Back Office"
+  },
+  {
+   "start": 158,
+   "end": 166,
+   "label": "Activity",
+   "id": "Activity_dc572170",
+   "type": "task",
+   "name": "Receives the request"
+  },
+  {
+   "start": 167,
+   "end": 178,
+   "label": "Activity Data",
+   "id": "Activity Data_d615b4a0",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 183,
+   "end": 192,
+   "label": "Activity",
+   "id": "Activity_50aef942",
+   "type": "task",
+   "name": "Retrieves the SCT file"
+  },
+  {
+   "start": 193,
+   "end": 205,
+   "label": "Activity Data",
+   "id": "Activity Data_fb859cf7",
+   "type": null,
+   "name": "The SCT file"
+  },
+  {
+   "start": 215,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_1e005e57",
+   "type": null,
+   "name": "The SCT Warrant Possession"
+  },
+  {
+   "start": 245,
+   "end": 254,
+   "label": "Activity",
+   "id": "Activity_1d734c95",
+   "type": "task",
+   "name": "Forwarded the SCT Warrant Possession"
+  },
+  {
+   "start": 258,
+   "end": 275,
+   "label": "Actor",
+   "id": "Actor_d0e966e2",
+   "type": "Lane",
+   "name": "Queensland Police"
+  },
+  {
+   "start": 278,
+   "end": 299,
+   "label": "Activity Data",
+   "id": "Activity Data_09eb7d54",
+   "type": null,
+   "name": "The SCT physical file"
+  },
+  {
+   "start": 303,
+   "end": 309,
+   "label": "Activity",
+   "id": "Activity_a9e4b002",
+   "type": "task",
+   "name": "Stored the SCT physical file"
+  },
+  {
+   "start": 313,
+   "end": 328,
+   "label": "Actor",
+   "id": "Actor_a9033353",
+   "type": "Lane",
+   "name": "The Back Office"
+  },
+  {
+   "start": 329,
+   "end": 337,
+   "label": "Activity",
+   "id": "Activity_295587a7",
+   "type": "task",
+   "name": "Awaiting a report"
+  },
+  {
+   "start": 338,
+   "end": 346,
+   "label": "Activity Data",
+   "id": "Activity Data_98b0ebe6",
+   "type": null,
+   "name": "A report"
+  },
+  {
+   "start": 347,
+   "end": 371,
+   "label": "Further Specification",
+   "id": "Further Specification_108b4490",
+   "type": null,
+   "name": "To be sent by the Police"
+  },
+  {
+   "start": 379,
+   "end": 389,
+   "label": "Activity Data",
+   "id": "Activity Data_ecfb044b",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 393,
+   "end": 401,
+   "label": "Activity",
+   "id": "Activity_2f5e57aa",
+   "type": "task",
+   "name": "Received the respective SCT file"
+  },
+  {
+   "start": 404,
+   "end": 427,
+   "label": "Activity Data",
+   "id": "Activity Data_14ac085b",
+   "type": null,
+   "name": "The respective SCT file"
+  },
+  {
+   "start": 431,
+   "end": 440,
+   "label": "Activity",
+   "id": "Activity_c5526027",
+   "type": "task",
+   "name": "Retrieved"
+  },
+  {
+   "start": 450,
+   "end": 461,
+   "label": "Actor",
+   "id": "Actor_62c29f47",
+   "type": "Lane",
+   "name": "Back Office"
+  },
+  {
+   "start": 462,
+   "end": 470,
+   "label": "Activity",
+   "id": "Activity_fd9cfc46",
+   "type": "task",
+   "name": "Attaches the new SCT document"
+  },
+  {
+   "start": 471,
+   "end": 491,
+   "label": "Activity Data",
+   "id": "Activity Data_38708451",
+   "type": null,
+   "name": "The new SCT document"
+  },
+  {
+   "start": 498,
+   "end": 504,
+   "label": "Activity",
+   "id": "Activity_4432d7f6",
+   "type": "task",
+   "name": "Stores the expanded SCT physical file"
+  },
+  {
+   "start": 505,
+   "end": 535,
+   "label": "Activity Data",
+   "id": "Activity Data_ed2107a3",
+   "type": null,
+   "name": "The expanded SCT physical file"
+  },
+  {
+   "start": 551,
+   "end": 579,
+   "label": "Actor",
+   "id": "Actor_85dc7662",
+   "type": "Lane",
+   "name": "Some other MC internal staff"
+  },
+  {
+   "start": 580,
+   "end": 588,
+   "label": "Activity",
+   "id": "Activity_a3f02e89",
+   "type": "task",
+   "name": "Receives the physical SCT file"
+  },
+  {
+   "start": 589,
+   "end": 610,
+   "label": "Activity Data",
+   "id": "Activity Data_6d79b463",
+   "type": null,
+   "name": "The physical SCT file"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 27,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Receives the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Retrieves the SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Retrieves the SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Stored the SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Stored the SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Awaiting a report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Stored the SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Awaiting a report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Received the respective SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Awaiting a report",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Received the respective SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Retrieved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Received the respective SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Retrieved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Attaches the new SCT document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Retrieved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Attaches the new SCT document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Stores the expanded SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Attaches the new SCT document",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Stores the expanded SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Receives the physical SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Stores the expanded SCT physical file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Receives the physical SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Stores the expanded SCT physical file",
+    "node_B": "Receives the physical SCT file",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Receives the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Retrieves the SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Retrieves the SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Stored the SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Stored the SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Awaiting a report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Stored the SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Awaiting a report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Received the respective SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Awaiting a report",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Received the respective SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Retrieved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Received the respective SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Retrieved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Attaches the new SCT document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Retrieved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Attaches the new SCT document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Attaches the new SCT document",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Receives the physical SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Receives the physical SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Stores the expanded SCT physical file",
+    "node_B": "Receives the physical SCT file",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

@@ -1,0 +1,257 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MPON",
+   "The MPOO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_b3f05193",
+    "name": "Requests a device takeover bid",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_327179c7",
+    "name": "Sends a tender for the equipment takeover",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bfc6847c",
+    "name": "Places an order",
+    "type": "task",
+    "lane": "The MPON",
+    "metadata": []
+   },
+   {
+    "id": "Activity_87d63896",
+    "name": "Confirms the order of the MPON",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_77cddc6f",
+    "name": "Sends the master data",
+    "type": "task",
+    "lane": "The MPOO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MPOO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_b3f05193",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_b3f05193",
+    "target": "Activity_327179c7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_327179c7",
+    "target": "Activity_bfc6847c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_bfc6847c",
+    "target": "Activity_87d63896",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_87d63896",
+    "target": "Activity_77cddc6f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_77cddc6f",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 7
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_8a3124cf",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 9,
+   "end": 17,
+   "label": "Activity",
+   "id": "Activity_b3f05193",
+   "type": "task",
+   "name": "Requests a device takeover bid"
+  },
+  {
+   "start": 18,
+   "end": 39,
+   "label": "Activity Data",
+   "id": "Activity Data_0694eddf",
+   "type": null,
+   "name": "A device takeover bid"
+  },
+  {
+   "start": 43,
+   "end": 51,
+   "label": "Actor",
+   "id": "Actor_c1f2bc7c",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 54,
+   "end": 62,
+   "label": "Actor",
+   "id": "Actor_5d870c49",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 63,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_327179c7",
+   "type": "task",
+   "name": "Sends a tender for the equipment takeover"
+  },
+  {
+   "start": 69,
+   "end": 104,
+   "label": "Activity Data",
+   "id": "Activity Data_cc5ad551",
+   "type": null,
+   "name": "A tender for the equipment takeover"
+  },
+  {
+   "start": 108,
+   "end": 116,
+   "label": "Actor",
+   "id": "Actor_de3a1428",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 119,
+   "end": 127,
+   "label": "Actor",
+   "id": "Actor_5f9fd6ba",
+   "type": "Lane",
+   "name": "The MPON"
+  },
+  {
+   "start": 128,
+   "end": 134,
+   "label": "Activity",
+   "id": "Activity_bfc6847c",
+   "type": "task",
+   "name": "Places an order"
+  },
+  {
+   "start": 135,
+   "end": 143,
+   "label": "Activity Data",
+   "id": "Activity Data_5c811635",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 147,
+   "end": 155,
+   "label": "Actor",
+   "id": "Actor_6d19a735",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 158,
+   "end": 166,
+   "label": "Actor",
+   "id": "Actor_3b644749",
+   "type": "Lane",
+   "name": "The MPOO"
+  },
+  {
+   "start": 167,
+   "end": 175,
+   "label": "Activity",
+   "id": "Activity_87d63896",
+   "type": "task",
+   "name": "Confirms the order of the MPON"
+  },
+  {
+   "start": 176,
+   "end": 197,
+   "label": "Activity Data",
+   "id": "Activity Data_82fa534d",
+   "type": null,
+   "name": "The order of the MPON"
+  },
+  {
+   "start": 202,
+   "end": 207,
+   "label": "Activity",
+   "id": "Activity_77cddc6f",
+   "type": "task",
+   "name": "Sends the master data"
+  },
+  {
+   "start": 208,
+   "end": 223,
+   "label": "Activity Data",
+   "id": "Activity Data_ff6a8768",
+   "type": null,
+   "name": "The master data"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:BPMN="http://BPMNbasedOntology#"
+   xmlns:onto="http://text2bpmn.local/ontology#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#ParallelFlow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Resource_EC">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#HumanResource"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EC</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Activity_f167523b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Task"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_INQ"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e1a04065"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notifies the change</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_2_45fd"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_1_db39"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_4_dc6c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_3f03d320"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#EndEvent_1"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#EndEvent_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#EndEvent"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_IP"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">End</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_4_dc6c"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_3f03d320"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Activity_3f03d320">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Task"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_IP"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#EndEvent_1"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rejectes the changes of the INQ</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_4_dc6c"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_5_540a"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_a78c7630"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_1_db39">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_f167523b"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_0_d424">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#StartEvent_1"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_3_3770">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e1a04065"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_a78c7630"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Process_25c2f468">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Process"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#StartEvent_1"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_f167523b"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e1a04065"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_a78c7630"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_3f03d320"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#EndEvent_1"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_0_d424"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_1_db39"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_2_45fd"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_3_3770"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_4_dc6c"/>
+    <BPMN:has_flowElements rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_5_540a"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Extracted process</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Resource_INQ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#HumanResource"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INQ</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#TrueBranchFlow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Task"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_EC"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_f167523b"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tells about the change of his master data</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_1_db39"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_0_d424"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#StartEvent_1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#StartEvent_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#StartEvent"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_EC"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e4d6c2ba"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_0_d424"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_5_540a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_a78c7630"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_3f03d320"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <onto:branch_condition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Or</onto:branch_condition>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#branch_condition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Activity_a78c7630">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Task"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_IP"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_3f03d320"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confirmes the changes of the INQ</rdfs:label>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_5_540a"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_3_3770"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e1a04065"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Activity_e1a04065">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#Task"/>
+    <BPMN:has_resource rdf:resource="http://text2bpmn.local/process/146dce2d#Resource_IP"/>
+    <BPMN:has_nextFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_a78c7630"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Checks</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether the master data can be changed at the desired time</rdfs:comment>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+    <BPMN:has_outgoing rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_3_3770"/>
+    <BPMN:has_incoming rdf:resource="http://text2bpmn.local/process/146dce2d#Flow_2_45fd"/>
+    <BPMN:has_previousFlowNode rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_f167523b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#ConditionDefFlow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#extracted_relation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Flow_2_45fd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+    <BPMN:has_sourceRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_f167523b"/>
+    <BPMN:has_targetRef rdf:resource="http://text2bpmn.local/process/146dce2d#Activity_e1a04065"/>
+    <onto:extracted_relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SEQUENCE</onto:extracted_relation>
+    <BPMN:has_container rdf:resource="http://text2bpmn.local/process/146dce2d#Process_25c2f468"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d#Resource_IP">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://BPMNbasedOntology#HumanResource"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/ontology#FalseBranchFlow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://BPMNbasedOntology#SequenceFlow"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://text2bpmn.local/process/146dce2d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://BPMNbasedOntology"/>
+  </rdf:Description>
+</rdf:RDF>

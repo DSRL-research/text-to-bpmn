@@ -1,0 +1,340 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The EC",
+   "The INQ",
+   "The IP"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_510c47ae",
+    "name": "Tells about the change of his master data",
+    "type": "task",
+    "lane": "The EC",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2f76e6fa",
+    "name": "Notifies the change",
+    "type": "task",
+    "lane": "The INQ",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b6743748",
+    "name": "Checks",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": [
+     "Whether the master data can be changed at the desired time"
+    ]
+   },
+   {
+    "id": "Activity_d5495d8d",
+    "name": "Confirmes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_e40bcdc3",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d4e17b65",
+    "name": "Rejectes the changes of the INQ",
+    "type": "task",
+    "lane": "The IP",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The IP"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_ce996442",
+    "source": "StartEvent_1",
+    "target": "Activity_510c47ae",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e5727774",
+    "source": "Activity_510c47ae",
+    "target": "Activity_2f76e6fa",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_347ad4e4",
+    "source": "Activity_2f76e6fa",
+    "target": "Activity_b6743748",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0c4b88a2",
+    "source": "Activity_b6743748",
+    "target": "Activity_d5495d8d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b4ee2605",
+    "source": "Activity_d5495d8d",
+    "target": "XOR Gateway_e40bcdc3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e2262620",
+    "source": "XOR Gateway_e40bcdc3",
+    "target": "Activity_d4e17b65",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_2f3a1575",
+    "source": "Activity_d4e17b65",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 6,
+   "label": "Actor",
+   "id": "Actor_a1f16811",
+   "type": "Lane",
+   "name": "The EC"
+  },
+  {
+   "start": 7,
+   "end": 12,
+   "label": "Activity",
+   "id": "Activity_510c47ae",
+   "type": "task",
+   "name": "Tells about the change of his master data"
+  },
+  {
+   "start": 13,
+   "end": 20,
+   "label": "Actor",
+   "id": "Actor_4935d840",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 21,
+   "end": 56,
+   "label": "Activity Data",
+   "id": "Activity Data_69b96225",
+   "type": null,
+   "name": "About the change of his master data"
+  },
+  {
+   "start": 59,
+   "end": 66,
+   "label": "Actor",
+   "id": "Actor_3a3e8f93",
+   "type": "Lane",
+   "name": "The INQ"
+  },
+  {
+   "start": 67,
+   "end": 75,
+   "label": "Activity",
+   "id": "Activity_2f76e6fa",
+   "type": "task",
+   "name": "Notifies the change"
+  },
+  {
+   "start": 76,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_6f6d7439",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 86,
+   "end": 96,
+   "label": "Activity Data",
+   "id": "Activity Data_a098d95b",
+   "type": null,
+   "name": "The change"
+  },
+  {
+   "start": 99,
+   "end": 105,
+   "label": "Actor",
+   "id": "Actor_a4ff857b",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 106,
+   "end": 112,
+   "label": "Activity",
+   "id": "Activity_b6743748",
+   "type": "task",
+   "name": "Checks"
+  },
+  {
+   "start": 113,
+   "end": 171,
+   "label": "Further Specification",
+   "id": "Further Specification_cccf320a",
+   "type": null,
+   "name": "Whether the master data can be changed at the desired time"
+  },
+  {
+   "start": 174,
+   "end": 180,
+   "label": "Actor",
+   "id": "Actor_fe9baeb1",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "label": "Activity",
+   "id": "Activity_d5495d8d",
+   "type": "task",
+   "name": "Confirmes the changes of the INQ"
+  },
+  {
+   "start": 191,
+   "end": 213,
+   "label": "Activity Data",
+   "id": "Activity Data_3995a5ce",
+   "type": null,
+   "name": "The changes of the INQ"
+  },
+  {
+   "start": 214,
+   "end": 216,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e40bcdc3",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 217,
+   "end": 223,
+   "label": "Actor",
+   "id": "Actor_57524aad",
+   "type": "Lane",
+   "name": "The IP"
+  },
+  {
+   "start": 224,
+   "end": 232,
+   "label": "Activity",
+   "id": "Activity_d4e17b65",
+   "type": "task",
+   "name": "Rejectes the changes of the INQ"
+  },
+  {
+   "start": 233,
+   "end": 255,
+   "label": "Activity Data",
+   "id": "Activity Data_e70e5470",
+   "type": null,
+   "name": "The changes of the INQ"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 12,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Notifies the change",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Checks",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Tells about the change of his master data",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Checks",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Notifies the change",
+    "node_B": "Or",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Confirmes the changes of the INQ",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checks",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Or",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Confirmes the changes of the INQ",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Rejectes the changes of the INQ",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

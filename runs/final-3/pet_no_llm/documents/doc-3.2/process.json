@@ -1,0 +1,559 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_7bd22e7c",
+    "name": "Checked the files which have yet to be processed",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b04b63ee",
+    "name": "If some files are missing",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_275867eb",
+    "name": "Initiated a search",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "The files"
+    ]
+   },
+   {
+    "id": "Activity_e65b9aae",
+    "name": "Tracked",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "To the intended location"
+    ]
+   },
+   {
+    "id": "Activity_bd92754d",
+    "name": "Handed these",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_3d2bdba3",
+    "name": "Meantime",
+    "type": "parallelGateway",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_57d4ee44",
+    "name": "Distributed the Judgeis Lawlist",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "Activity_14a0c55c",
+    "name": "Conducted the directions hearings",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Main Process"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_af89d8dd",
+    "source": "StartEvent_1",
+    "target": "Activity_7bd22e7c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a5aec987",
+    "source": "Activity_7bd22e7c",
+    "target": "XOR Gateway_b04b63ee",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cc4cfa77",
+    "source": "XOR Gateway_b04b63ee",
+    "target": "Activity_275867eb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4d959998",
+    "source": "XOR Gateway_b04b63ee",
+    "target": "Activity_e65b9aae",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_912a077a",
+    "source": "Activity_e65b9aae",
+    "target": "Activity_bd92754d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a116cbdc",
+    "source": "Activity_bd92754d",
+    "target": "AND Gateway_3d2bdba3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9315fcb9",
+    "source": "AND Gateway_3d2bdba3",
+    "target": "Activity_57d4ee44",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f36d8ef0",
+    "source": "Activity_57d4ee44",
+    "target": "Activity_14a0c55c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_64a84cb0",
+    "source": "Activity_275867eb",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d8ec0bbd",
+    "source": "Activity_14a0c55c",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 15,
+   "end": 55,
+   "label": "Activity Data",
+   "id": "Activity Data_feeff742",
+   "type": null,
+   "name": "The files which have yet to be processed"
+  },
+  {
+   "start": 67,
+   "end": 74,
+   "label": "Activity",
+   "id": "Activity_7bd22e7c",
+   "type": "task",
+   "name": "Checked the files which have yet to be processed"
+  },
+  {
+   "start": 141,
+   "end": 143,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b04b63ee",
+   "type": "exclusiveGateway",
+   "name": "If some files are missing"
+  },
+  {
+   "start": 144,
+   "end": 166,
+   "label": "Condition Specification",
+   "id": "Condition Specification_4acab93b",
+   "type": "exclusiveGateway",
+   "name": "Some files are missing"
+  },
+  {
+   "start": 169,
+   "end": 177,
+   "label": "Activity Data",
+   "id": "Activity Data_1bb5c382",
+   "type": null,
+   "name": "A search"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "label": "Activity",
+   "id": "Activity_275867eb",
+   "type": "task",
+   "name": "Initiated a search"
+  },
+  {
+   "start": 193,
+   "end": 202,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f08c80ad",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 203,
+   "end": 212,
+   "label": "Activity Data",
+   "id": "Activity Data_61929794",
+   "type": null,
+   "name": "The files"
+  },
+  {
+   "start": 231,
+   "end": 238,
+   "label": "Activity",
+   "id": "Activity_e65b9aae",
+   "type": "task",
+   "name": "Tracked"
+  },
+  {
+   "start": 239,
+   "end": 263,
+   "label": "Further Specification",
+   "id": "Further Specification_c6d8aa48",
+   "type": null,
+   "name": "To the intended location"
+  },
+  {
+   "start": 297,
+   "end": 302,
+   "label": "Activity Data",
+   "id": "Activity Data_4fc63453",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 307,
+   "end": 313,
+   "label": "Activity",
+   "id": "Activity_bd92754d",
+   "type": "task",
+   "name": "Handed these"
+  },
+  {
+   "start": 317,
+   "end": 330,
+   "label": "Actor",
+   "id": "Actor_032dd0d4",
+   "type": "Lane",
+   "name": "The Associate"
+  },
+  {
+   "start": 337,
+   "end": 345,
+   "label": "AND Gateway",
+   "id": "AND Gateway_3d2bdba3",
+   "type": "parallelGateway",
+   "name": "Meantime"
+  },
+  {
+   "start": 346,
+   "end": 365,
+   "label": "Activity Data",
+   "id": "Activity Data_440af3b4",
+   "type": null,
+   "name": "The Judgeis Lawlist"
+  },
+  {
+   "start": 369,
+   "end": 380,
+   "label": "Activity",
+   "id": "Activity_57d4ee44",
+   "type": "task",
+   "name": "Distributed the Judgeis Lawlist"
+  },
+  {
+   "start": 384,
+   "end": 403,
+   "label": "Actor",
+   "id": "Actor_7fd05527",
+   "type": "Lane",
+   "name": "The relevant people"
+  },
+  {
+   "start": 419,
+   "end": 442,
+   "label": "Activity Data",
+   "id": "Activity Data_1dafb2bf",
+   "type": null,
+   "name": "The directions hearings"
+  },
+  {
+   "start": 447,
+   "end": 456,
+   "label": "Activity",
+   "id": "Activity_14a0c55c",
+   "type": "task",
+   "name": "Conducted the directions hearings"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "If some files are missing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "Initiated a search",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Initiated a search",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Tracked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Otherwise",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Tracked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Handed these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Tracked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Handed these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Handed these",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Conducted the directions hearings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Conducted the directions hearings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Distributed the Judgeis Lawlist",
+    "node_B": "Conducted the directions hearings",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "If some files are missing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "Initiated a search",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked the files which have yet to be processed",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Initiated a search",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If some files are missing",
+    "node_B": "Tracked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Otherwise",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Tracked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Initiated a search",
+    "node_B": "Handed these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Tracked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Handed these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Handed these",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Tracked",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Handed these",
+    "node_B": "Conducted the directions hearings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Distributed the Judgeis Lawlist",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Meantime",
+    "node_B": "Conducted the directions hearings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Distributed the Judgeis Lawlist",
+    "node_B": "Conducted the directions hearings",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

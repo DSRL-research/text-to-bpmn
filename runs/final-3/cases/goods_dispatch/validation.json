@@ -1,0 +1,50 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 3,
+    "split/join": 1,
+    "lanes": 5
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "pass-through gateway 'If goods shall be shipped' removed"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'Same' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "gateways",
+      "change": "merging exclusiveGateway 'If necessary' -> parallelGateway, the type of the split its branches part at"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'End'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The secretary' -> 'Secretary'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The warehousemen' -> 'Warehousemen'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The logistics department head' -> 'Logistics department head'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The logistic company' -> 'Logistic company'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Start' in 'Main Process', which holds no task -> 'Secretary'"
+    }
+  ]
+}

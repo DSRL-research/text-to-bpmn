@@ -1,0 +1,419 @@
+{
+  "structured_data": {
+    "participants": [
+      "A financial officer",
+      "A loan officer",
+      "Main Process",
+      "Property appraiser"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_db82430f",
+        "name": "Approved a loan application",
+        "type": "task",
+        "lane": "Property appraiser",
+        "metadata": [
+          "Applicant’s loan risk assessment",
+          "The property"
+        ]
+      },
+      {
+        "id": "Condition Specification_9be8ba0d",
+        "name": "Loan application",
+        "type": "exclusiveGateway",
+        "lane": "Property appraiser",
+        "metadata": []
+      },
+      {
+        "id": "Activity_13d4adc1",
+        "name": "Check history",
+        "type": "task",
+        "lane": "A financial officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_8177fa1b",
+        "name": "Assess the applicant’s",
+        "type": "task",
+        "lane": "A loan officer",
+        "metadata": [
+          "Applicant’s eligibility"
+        ]
+      },
+      {
+        "id": "XOR Gateway_14e074ad",
+        "name": "If the applicant is not eligible",
+        "type": "exclusiveGateway",
+        "lane": "A loan officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a4b57b3a",
+        "name": "Rejected the application",
+        "type": "task",
+        "lane": "A loan officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_867ba14b",
+        "name": "Prepared the acceptance pack",
+        "type": "task",
+        "lane": "A loan officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_c7a980a9",
+        "name": "Sent",
+        "type": "task",
+        "lane": "A loan officer",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "A loan officer"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_db82430f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_db82430f",
+        "target": "Condition Specification_9be8ba0d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Condition Specification_9be8ba0d",
+        "target": "Activity_13d4adc1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_13d4adc1",
+        "target": "Activity_8177fa1b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_8177fa1b",
+        "target": "XOR Gateway_14e074ad",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_14e074ad",
+        "target": "Activity_a4b57b3a",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_14e074ad",
+        "target": "Activity_867ba14b",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_867ba14b",
+        "target": "Activity_c7a980a9",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_a4b57b3a",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_c7a980a9",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 11
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 18,
+      "label": "Activity Data",
+      "id": "Activity Data_198c47e5",
+      "type": null,
+      "name": "A loan application"
+    },
+    {
+      "start": 22,
+      "end": 30,
+      "label": "Activity",
+      "id": "Activity_db82430f",
+      "type": "task",
+      "name": "Approved a loan application"
+    },
+    {
+      "start": 36,
+      "end": 52,
+      "label": "Condition Specification",
+      "id": "Condition Specification_9be8ba0d",
+      "type": "exclusiveGateway",
+      "name": "Loan application"
+    },
+    {
+      "start": 80,
+      "end": 113,
+      "label": "Activity Data",
+      "id": "Activity Data_d99d7645",
+      "type": null,
+      "name": "Applicant’s loan risk assessment"
+    },
+    {
+      "start": 172,
+      "end": 184,
+      "label": "Activity Data",
+      "id": "Activity Data_34d23761",
+      "type": null,
+      "name": "The property"
+    },
+    {
+      "start": 237,
+      "end": 256,
+      "label": "Actor",
+      "id": "Actor_8f95f5ca",
+      "type": "Lane",
+      "name": "Property appraiser"
+    },
+    {
+      "start": 295,
+      "end": 302,
+      "label": "Activity Data",
+      "id": "Activity Data_a0c0ee34",
+      "type": null,
+      "name": "History"
+    },
+    {
+      "start": 303,
+      "end": 308,
+      "label": "Activity",
+      "id": "Activity_13d4adc1",
+      "type": "task",
+      "name": "Check history"
+    },
+    {
+      "start": 349,
+      "end": 369,
+      "label": "Actor",
+      "id": "Actor_fc5e7ae3",
+      "type": "Lane",
+      "name": "A financial officer"
+    },
+    {
+      "start": 453,
+      "end": 467,
+      "label": "Actor",
+      "id": "Actor_09a7cee2",
+      "type": "Lane",
+      "name": "A loan officer"
+    },
+    {
+      "start": 472,
+      "end": 478,
+      "label": "Activity",
+      "id": "Activity_8177fa1b",
+      "type": "task",
+      "name": "Assess the applicant’s"
+    },
+    {
+      "start": 479,
+      "end": 494,
+      "label": "Activity Data",
+      "id": "Activity Data_1164dbdf",
+      "type": null,
+      "name": "The applicant’s"
+    },
+    {
+      "start": 483,
+      "end": 507,
+      "label": "Activity Data",
+      "id": "Activity Data_cc6afab7",
+      "type": null,
+      "name": "Applicant’s eligibility"
+    },
+    {
+      "start": 508,
+      "end": 510,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_14e074ad",
+      "type": "exclusiveGateway",
+      "name": "If the applicant is not eligible"
+    },
+    {
+      "start": 511,
+      "end": 541,
+      "label": "Condition Specification",
+      "id": "Condition Specification_1e86f935",
+      "type": "exclusiveGateway",
+      "name": "The applicant is not eligible"
+    },
+    {
+      "start": 542,
+      "end": 557,
+      "label": "Activity Data",
+      "id": "Activity Data_64075a0e",
+      "type": null,
+      "name": "The application"
+    },
+    {
+      "start": 561,
+      "end": 570,
+      "label": "Activity",
+      "id": "Activity_a4b57b3a",
+      "type": "task",
+      "name": "Rejected the application"
+    },
+    {
+      "start": 571,
+      "end": 580,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_0b427191",
+      "type": "exclusiveGateway",
+      "name": "Otherwise"
+    },
+    {
+      "start": 581,
+      "end": 600,
+      "label": "Activity Data",
+      "id": "Activity Data_acf8ae23",
+      "type": null,
+      "name": "The acceptance pack"
+    },
+    {
+      "start": 604,
+      "end": 612,
+      "label": "Activity",
+      "id": "Activity_867ba14b",
+      "type": "task",
+      "name": "Prepared the acceptance pack"
+    },
+    {
+      "start": 617,
+      "end": 621,
+      "label": "Activity",
+      "id": "Activity_c7a980a9",
+      "type": "task",
+      "name": "Sent"
+    },
+    {
+      "start": 625,
+      "end": 639,
+      "label": "Actor",
+      "id": "Actor_fce88460",
+      "type": "Lane",
+      "name": "The applicant"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 2,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Loan application",
+        "node_B": "Check history | Assess the applicant’s | decision: If the applicant is not eligible | Rejected the application | Prepared the acceptance pack | Sent",
+        "label": "after after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If the applicant is not eligible",
+        "node_B": "Rejected the application | Prepared the acceptance pack | Sent",
+        "label": "yes no no",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:46:47+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

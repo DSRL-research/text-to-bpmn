@@ -1,0 +1,477 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The GO",
+      "The MSPN"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_9e687c0a",
+        "name": "Registers the measurement",
+        "type": "task",
+        "lane": "The MSPN",
+        "metadata": []
+      },
+      {
+        "id": "Activity_dcbe3fdd",
+        "name": "Examines the application of the MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_73a834a1",
+        "name": "Rejects the application of the MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_741b9038",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_13d41e44",
+        "name": "Confirmes the application of the MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_f15c3ec8",
+        "name": "Assigns the MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_00c31471",
+        "name": "Informs about the assignment of MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3fe682b7",
+        "name": "Informs about the assignment of the MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_30392103",
+        "name": "Informs about the assignment of MSPN",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The GO"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_9e687c0a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_9e687c0a",
+        "target": "Activity_dcbe3fdd",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_dcbe3fdd",
+        "target": "Activity_73a834a1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_73a834a1",
+        "target": "XOR Gateway_741b9038",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_741b9038",
+        "target": "Activity_13d41e44",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_13d41e44",
+        "target": "Activity_f15c3ec8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_f15c3ec8",
+        "target": "Activity_00c31471",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_00c31471",
+        "target": "Activity_3fe682b7",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_3fe682b7",
+        "target": "Activity_30392103",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_30392103",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "XOR Gateway_741b9038",
+        "target": "EndEvent_1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 13
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 8,
+      "label": "Actor",
+      "id": "Actor_80f4f331",
+      "type": "Lane",
+      "name": "The MSPN"
+    },
+    {
+      "start": 9,
+      "end": 18,
+      "label": "Activity",
+      "id": "Activity_9e687c0a",
+      "type": "task",
+      "name": "Registers the measurement"
+    },
+    {
+      "start": 19,
+      "end": 34,
+      "label": "Activity Data",
+      "id": "Activity Data_b7fa764b",
+      "type": null,
+      "name": "The measurement"
+    },
+    {
+      "start": 38,
+      "end": 44,
+      "label": "Actor",
+      "id": "Actor_3912cbe3",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 47,
+      "end": 53,
+      "label": "Actor",
+      "id": "Actor_f3b922f7",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 54,
+      "end": 62,
+      "label": "Activity",
+      "id": "Activity_dcbe3fdd",
+      "type": "task",
+      "name": "Examines the application of the MSPN"
+    },
+    {
+      "start": 63,
+      "end": 90,
+      "label": "Activity Data",
+      "id": "Activity Data_faafc30c",
+      "type": null,
+      "name": "The application of the MSPN"
+    },
+    {
+      "start": 93,
+      "end": 99,
+      "label": "Actor",
+      "id": "Actor_d7824321",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 100,
+      "end": 107,
+      "label": "Activity",
+      "id": "Activity_73a834a1",
+      "type": "task",
+      "name": "Rejects the application of the MSPN"
+    },
+    {
+      "start": 108,
+      "end": 135,
+      "label": "Activity Data",
+      "id": "Activity Data_9d2c66e6",
+      "type": null,
+      "name": "The application of the MSPN"
+    },
+    {
+      "start": 136,
+      "end": 138,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_741b9038",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 139,
+      "end": 145,
+      "label": "Actor",
+      "id": "Actor_dd9960c3",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 146,
+      "end": 155,
+      "label": "Activity",
+      "id": "Activity_13d41e44",
+      "type": "task",
+      "name": "Confirmes the application of the MSPN"
+    },
+    {
+      "start": 156,
+      "end": 183,
+      "label": "Activity Data",
+      "id": "Activity Data_3b088ac5",
+      "type": null,
+      "name": "The application of the MSPN"
+    },
+    {
+      "start": 186,
+      "end": 192,
+      "label": "Actor",
+      "id": "Actor_aada91e5",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 193,
+      "end": 200,
+      "label": "Activity",
+      "id": "Activity_f15c3ec8",
+      "type": "task",
+      "name": "Assigns the MSPN"
+    },
+    {
+      "start": 201,
+      "end": 209,
+      "label": "Activity Data",
+      "id": "Activity Data_3676e991",
+      "type": null,
+      "name": "The MSPN"
+    },
+    {
+      "start": 212,
+      "end": 218,
+      "label": "Actor",
+      "id": "Actor_1f698728",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 219,
+      "end": 226,
+      "label": "Activity",
+      "id": "Activity_00c31471",
+      "type": "task",
+      "name": "Informs about the assignment of MSPN"
+    },
+    {
+      "start": 227,
+      "end": 235,
+      "label": "Actor",
+      "id": "Actor_78e98edd",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 236,
+      "end": 264,
+      "label": "Activity Data",
+      "id": "Activity Data_4e5ed24a",
+      "type": null,
+      "name": "About the assignment of MSPN"
+    },
+    {
+      "start": 267,
+      "end": 273,
+      "label": "Actor",
+      "id": "Actor_cc4b3c30",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 274,
+      "end": 281,
+      "label": "Activity",
+      "id": "Activity_3fe682b7",
+      "type": "task",
+      "name": "Informs about the assignment of the MSPN"
+    },
+    {
+      "start": 282,
+      "end": 289,
+      "label": "Actor",
+      "id": "Actor_1b993786",
+      "type": "Lane",
+      "name": "The MPO"
+    },
+    {
+      "start": 290,
+      "end": 322,
+      "label": "Activity Data",
+      "id": "Activity Data_7a0170ae",
+      "type": null,
+      "name": "About the assignment of the MSPN"
+    },
+    {
+      "start": 325,
+      "end": 331,
+      "label": "Actor",
+      "id": "Actor_32348855",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 332,
+      "end": 339,
+      "label": "Activity",
+      "id": "Activity_30392103",
+      "type": "task",
+      "name": "Informs about the assignment of MSPN"
+    },
+    {
+      "start": 340,
+      "end": 346,
+      "label": "Actor",
+      "id": "Actor_ae3c38b3",
+      "type": "Lane",
+      "name": "The SP"
+    },
+    {
+      "start": 347,
+      "end": 375,
+      "label": "Activity Data",
+      "id": "Activity Data_43b94860",
+      "type": null,
+      "name": "About the assignment of MSPN"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Confirmes the application of the MSPN | Assigns the MSPN | Informs about the assignment of MSPN | Informs about the assignment of the MSPN | Informs about the assignment of MSPN",
+        "label": "yes yes yes yes yes",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

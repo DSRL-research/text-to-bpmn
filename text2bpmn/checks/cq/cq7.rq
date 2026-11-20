@@ -1,0 +1,12 @@
+# CQ7 Which tasks are performed before the first decision?
+# Tasks that lead to a decision and follow none.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?task WHERE {
+  { SELECT ?g WHERE { ?g a b:ExclusiveGateway . ?f b:has_sourceRef ?g } GROUP BY ?g HAVING (COUNT(?f) >= 2) }
+  ?t a b:Task ; rdfs:label ?task ; b:has_nextFlowNode+ ?g .
+  FILTER NOT EXISTS {
+    ?d a b:ExclusiveGateway . ?d b:has_nextFlowNode+ ?t .
+    { SELECT ?d WHERE { ?d a b:ExclusiveGateway . ?e b:has_sourceRef ?d } GROUP BY ?d HAVING (COUNT(?e) >= 2) } }
+} ORDER BY ?task

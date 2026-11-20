@@ -1,0 +1,38 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 2,
+    "split/join": 1,
+    "lanes": 3
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "pass-through gateway 'Or' removed"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'If the MPO confirms the failure of the fault detector' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'End'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The fault detector' -> 'Fault detector'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The MPO' -> 'MPO'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Start' in 'Main Process', which holds no task -> 'Fault detector'"
+    }
+  ]
+}

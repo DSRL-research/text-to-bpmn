@@ -1,0 +1,358 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The EC",
+      "The INQ",
+      "The IP"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_5c38a390",
+        "name": "Tells about the change of The EC's master data",
+        "type": "task",
+        "lane": "The EC",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2de45eb8",
+        "name": "Notifies of the change",
+        "type": "task",
+        "lane": "The INQ",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3ab73824",
+        "name": "Checks the master data",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": [
+          "Changed"
+        ]
+      },
+      {
+        "id": "Activity_b6b9303f",
+        "name": "Confirmes the changes of the INQ",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_df9930ec",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "Activity_17b589bd",
+        "name": "Rejectes the changes of the INQ",
+        "type": "task",
+        "lane": "The IP",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The IP"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_5c38a390",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_5c38a390",
+        "target": "Activity_2de45eb8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_2de45eb8",
+        "target": "Activity_3ab73824",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_3ab73824",
+        "target": "Activity_b6b9303f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_b6b9303f",
+        "target": "XOR Gateway_df9930ec",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "XOR Gateway_df9930ec",
+        "target": "Activity_17b589bd",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_df9930ec",
+        "target": "EndEvent_1",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_17b589bd",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 10
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 6,
+      "label": "Actor",
+      "id": "Actor_001890b8",
+      "type": "Lane",
+      "name": "The EC"
+    },
+    {
+      "start": 7,
+      "end": 12,
+      "label": "Activity",
+      "id": "Activity_5c38a390",
+      "type": "task",
+      "name": "Tells about the change of The EC's master data"
+    },
+    {
+      "start": 13,
+      "end": 20,
+      "label": "Actor",
+      "id": "Actor_35f67c27",
+      "type": "Lane",
+      "name": "The INQ"
+    },
+    {
+      "start": 21,
+      "end": 61,
+      "label": "Activity Data",
+      "id": "Activity Data_802b6236",
+      "type": null,
+      "name": "About the change of The EC's master data"
+    },
+    {
+      "start": 64,
+      "end": 71,
+      "label": "Actor",
+      "id": "Actor_73b8f832",
+      "type": "Lane",
+      "name": "The INQ"
+    },
+    {
+      "start": 72,
+      "end": 80,
+      "label": "Activity",
+      "id": "Activity_2de45eb8",
+      "type": "task",
+      "name": "Notifies of the change"
+    },
+    {
+      "start": 81,
+      "end": 87,
+      "label": "Actor",
+      "id": "Actor_57686750",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 88,
+      "end": 101,
+      "label": "Activity Data",
+      "id": "Activity Data_bda733fd",
+      "type": null,
+      "name": "Of the change"
+    },
+    {
+      "start": 104,
+      "end": 110,
+      "label": "Actor",
+      "id": "Actor_d2064be6",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 111,
+      "end": 117,
+      "label": "Activity",
+      "id": "Activity_3ab73824",
+      "type": "task",
+      "name": "Checks the master data"
+    },
+    {
+      "start": 126,
+      "end": 141,
+      "label": "Activity Data",
+      "id": "Activity Data_1c021c20",
+      "type": null,
+      "name": "The master data"
+    },
+    {
+      "start": 149,
+      "end": 156,
+      "label": "Activity Data",
+      "id": "Activity Data_5a2606a5",
+      "type": null,
+      "name": "Changed"
+    },
+    {
+      "start": 179,
+      "end": 185,
+      "label": "Actor",
+      "id": "Actor_d512e022",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 186,
+      "end": 195,
+      "label": "Activity",
+      "id": "Activity_b6b9303f",
+      "type": "task",
+      "name": "Confirmes the changes of the INQ"
+    },
+    {
+      "start": 196,
+      "end": 218,
+      "label": "Activity Data",
+      "id": "Activity Data_02b66e67",
+      "type": null,
+      "name": "The changes of the INQ"
+    },
+    {
+      "start": 219,
+      "end": 221,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_df9930ec",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 222,
+      "end": 228,
+      "label": "Actor",
+      "id": "Actor_3c26a324",
+      "type": "Lane",
+      "name": "The IP"
+    },
+    {
+      "start": 229,
+      "end": 237,
+      "label": "Activity",
+      "id": "Activity_17b589bd",
+      "type": "task",
+      "name": "Rejectes the changes of the INQ"
+    },
+    {
+      "start": 238,
+      "end": 260,
+      "label": "Activity Data",
+      "id": "Activity Data_5332406e",
+      "type": null,
+      "name": "The changes of the INQ"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Rejectes the changes of the INQ",
+        "label": "no",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

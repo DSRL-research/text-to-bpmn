@@ -1,0 +1,1888 @@
+{
+  "provenance": {
+    "run_at": "2026-11-20T08:19:35+00:00",
+    "code": {
+      "commit": "99107f3e41bf727c602c2fca020e95af618d614f",
+      "describe": "revision-final-3-76-g99107f3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "lxml": "5.2.1",
+      "pm4py": "2.7.19.2",
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.2",
+      "owlready2": "0.49",
+      "dspy": "3.1.2",
+      "transformers": "4.50.0"
+    },
+    "run": "runs/final-3/cases",
+    "cases": [
+      "healthcare",
+      "goods_dispatch"
+    ],
+    "references": {},
+    "sources": {
+      "threshold": "text2bpmn/compare.py:37",
+      "threshold_test": "text2bpmn/compare.py:155",
+      "similarity": "text2bpmn/compare.py:129",
+      "match_tasks": "text2bpmn/compare.py:148",
+      "assignment": "text2bpmn/compare.py:154",
+      "run_final_compare_call": "text2bpmn/run_final.py:161"
+    },
+    "assignment_packages": {
+      "now": {
+        "scipy": "1.16.2",
+        "numpy": "1.26.4"
+      },
+      "in_the_run": {
+        "numpy": "1.26.4",
+        "scipy": "1.16.2"
+      },
+      "run_freeze": "runs/final-3/pip_freeze.txt"
+    }
+  },
+  "threshold": 0.5,
+  "cases": {
+    "healthcare": {
+      "case": "healthcare",
+      "generated": "runs/final-3/cases/healthcare/model.bpmn",
+      "reference": {
+        "path": "text2bpmn/cases/healthcare/reference.bpmn",
+        "sha256": "f4c2538a27087dcef487e5115cb6a2ab8fe19f7d7ff55bd4bcfd1a25080e3511",
+        "run_commit": "808815f805259940897ef6171cc546420a688221",
+        "run_reference": "text2bpmn/cases/healthcare/reference.bpmn",
+        "run_reference_sha256": "d0d46041a69dca239bd917cafe42d64052748e8aa428e7a951dd37be06b15d77",
+        "same_as_run_reference": false
+      },
+      "comparison_json": "runs/final-3/cases/healthcare/comparison.json",
+      "run": {
+        "commit": "808815f805259940897ef6171cc546420a688221",
+        "describe": "revision-final-3",
+        "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+        "allow_no_llm": false,
+        "relation_mode": "decisions4",
+        "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+      },
+      "threshold": 0.5,
+      "reference_tasks": 23,
+      "generated_tasks": 32,
+      "matched": [
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_50",
+            "name": "Provide medical history"
+          },
+          "generated": {
+            "id": "Activity_61975b7c",
+            "name": "Provides the medical history"
+          },
+          "score": 1.0
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_70",
+            "name": "Submit summary to GP"
+          },
+          "generated": {
+            "id": "Activity_164dc880",
+            "name": "Submits"
+          },
+          "score": 0.5185185185185185
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_47",
+            "name": "Family Provides History"
+          },
+          "generated": {
+            "id": "Activity_a52ef6b5",
+            "name": "Provides history"
+          },
+          "score": 0.8205128205128205
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_5",
+            "name": "Patient Calls 112"
+          },
+          "generated": {
+            "id": "Activity_20ac38ea",
+            "name": "Discharge patient's"
+          },
+          "score": 0.5555555555555556
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_53",
+            "name": "Evaluate Patient"
+          },
+          "generated": {
+            "id": "Activity_9e813256",
+            "name": "Recommend patient"
+          },
+          "score": 0.6060606060606061
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_56",
+            "name": "Visit GP"
+          },
+          "generated": {
+            "id": "Activity_227a7619",
+            "name": "Sets up"
+          },
+          "score": 0.5333333333333333
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_125",
+            "name": "Adjust/Initiate Treatment"
+          },
+          "generated": {
+            "id": "Activity_5ce51912",
+            "name": "Adjusts"
+          },
+          "score": 0.5
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_130",
+            "name": "Recommend Cardiological Evaluation"
+          },
+          "generated": {
+            "id": "Activity_e3fb807f",
+            "name": "Recommends specialized evaluation"
+          },
+          "score": 0.746268656716418
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_110",
+            "name": "Consult Private Cardiologist"
+          },
+          "generated": {
+            "id": "Activity_fd395863",
+            "name": "Consult route"
+          },
+          "score": 0.5365853658536586
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_132",
+            "name": "Perform Evaluation"
+          },
+          "generated": {
+            "id": "Activity_4c606502",
+            "name": "Evaluates"
+          },
+          "score": 0.6666666666666666
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_136",
+            "name": "Prescribe Treatment and Followups"
+          },
+          "generated": {
+            "id": "Activity_c94bec99",
+            "name": "Prescribes treatment"
+          },
+          "score": 0.7169811320754716
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_72",
+            "name": "Provide Summary"
+          },
+          "generated": {
+            "id": "Activity_4e6f4515",
+            "name": "Gives a discharge summary"
+          },
+          "score": 0.5789473684210527
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_122",
+            "name": "Admit Urgent Hospitalization"
+          },
+          "generated": {
+            "id": "Activity_5c74f749",
+            "name": "Admit"
+          },
+          "score": 0.5
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_56",
+            "name": "Establish Final Diagnosis"
+          },
+          "generated": {
+            "id": "Activity_adbb0a31",
+            "name": "Establishes the final diagnosis"
+          },
+          "score": 1.0
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_71",
+            "name": "Prepare the discharge"
+          },
+          "generated": {
+            "id": "Activity_3eb86ebf",
+            "name": "Prepares the discharge"
+          },
+          "score": 1.0
+        },
+        {
+          "reference": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_63",
+            "name": "Interventional Treatment"
+          },
+          "generated": {
+            "id": "Activity_71b60376",
+            "name": "Discharge treatment recommendations"
+          },
+          "score": 0.6440677966101694
+        },
+        {
+          "reference": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_154",
+            "name": "Maintain Communication"
+          },
+          "generated": {
+            "id": "Activity_b9697d12",
+            "name": "Maintains"
+          },
+          "score": 0.6666666666666666
+        }
+      ],
+      "unmatched_reference": [
+        {
+          "id": "n_DrHWM0bc_9jmhA9yr9Kf_7",
+          "name": "Present Directly to ED",
+          "best_score": 0.5217391304347826,
+          "best_generated": [
+            {
+              "id": "Activity_61975b7c",
+              "name": "Provides the medical history",
+              "already_matched_to": {
+                "id": "n_zluWoaZNP5YGIbgktbYp_50",
+                "name": "Provide medical history",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_6106e1f1",
+            "name": "Presents",
+            "score": 0.4666666666666667
+          }
+        },
+        {
+          "id": "n_DrHWM0bc_9jmhA9yr9Kf_6",
+          "name": "Family Calls 112",
+          "best_score": 0.37209302325581395,
+          "best_generated": [
+            {
+              "id": "Activity_adbb0a31",
+              "name": "Establishes the final diagnosis",
+              "already_matched_to": {
+                "id": "n_zluWoaZNP5YGIbgktbYp_56",
+                "name": "Establish Final Diagnosis",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_e38efc9f",
+            "name": "Follow-up a",
+            "score": 0.32
+          }
+        },
+        {
+          "id": "n_DrHWM0bc_9jmhA9yr9Kf_128",
+          "name": "Refer to Outpatient Cardiologist",
+          "best_score": 0.5098039215686274,
+          "best_generated": [
+            {
+              "id": "Activity_20ac38ea",
+              "name": "Discharge patient's",
+              "already_matched_to": {
+                "id": "n_DrHWM0bc_9jmhA9yr9Kf_5",
+                "name": "Patient Calls 112",
+                "score": 0.5555555555555556
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_f53dd15d",
+            "name": "Referred",
+            "score": 0.4
+          }
+        },
+        {
+          "id": "n_DrHWM0bc_9jmhA9yr9Kf_162",
+          "name": "Complete Treatment",
+          "best_score": 0.631578947368421,
+          "best_generated": [
+            {
+              "id": "Activity_c94bec99",
+              "name": "Prescribes treatment",
+              "already_matched_to": {
+                "id": "n_DrHWM0bc_9jmhA9yr9Kf_136",
+                "name": "Prescribe Treatment and Followups",
+                "score": 0.7169811320754716
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_523397f9",
+            "name": "Make a triage decision",
+            "score": 0.42105263157894735
+          }
+        },
+        {
+          "id": "n_DrHWM0bc_9jmhA9yr9Kf_151",
+          "name": "Surgical Treatment",
+          "best_score": 0.6842105263157895,
+          "best_generated": [
+            {
+              "id": "Activity_c94bec99",
+              "name": "Prescribes treatment",
+              "already_matched_to": {
+                "id": "n_DrHWM0bc_9jmhA9yr9Kf_136",
+                "name": "Prescribe Treatment and Followups",
+                "score": 0.7169811320754716
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_d655a97d",
+            "name": "Initiates",
+            "score": 0.37037037037037035
+          }
+        },
+        {
+          "id": "n_zluWoaZNP5YGIbgktbYp_62",
+          "name": "Medical Treatment",
+          "best_score": 0.6486486486486487,
+          "best_generated": [
+            {
+              "id": "Activity_c94bec99",
+              "name": "Prescribes treatment",
+              "already_matched_to": {
+                "id": "n_DrHWM0bc_9jmhA9yr9Kf_136",
+                "name": "Prescribe Treatment and Followups",
+                "score": 0.7169811320754716
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_89a82ce0",
+            "name": "Gathered medical history",
+            "score": 0.4878048780487805
+          }
+        }
+      ],
+      "unmatched_generated": [
+        {
+          "id": "Activity_8ce3350c",
+          "name": "Develops",
+          "best_score": 0.38461538461538464,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_132",
+              "name": "Perform Evaluation",
+              "already_matched_to": {
+                "id": "Activity_4c606502",
+                "name": "Evaluates",
+                "score": 0.6666666666666666
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_5c569f06",
+          "name": "Contacts",
+          "best_score": 0.3333333333333333,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_154",
+              "name": "Maintain Communication",
+              "already_matched_to": {
+                "id": "Activity_b9697d12",
+                "name": "Maintains",
+                "score": 0.6666666666666666
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_6106e1f1",
+          "name": "Presents",
+          "best_score": 0.4666666666666667,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_7",
+              "name": "Present Directly to ED",
+              "already_matched_to": null
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_7",
+            "name": "Present Directly to ED",
+            "score": 0.4666666666666667
+          }
+        },
+        {
+          "id": "Activity_523397f9",
+          "name": "Make a triage decision",
+          "best_score": 0.47619047619047616,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_154",
+              "name": "Maintain Communication",
+              "already_matched_to": {
+                "id": "Activity_b9697d12",
+                "name": "Maintains",
+                "score": 0.6666666666666666
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_162",
+            "name": "Complete Treatment",
+            "score": 0.42105263157894735
+          }
+        },
+        {
+          "id": "Activity_7d62f730",
+          "name": "Managed",
+          "best_score": 0.3333333333333333,
+          "best_reference": [
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_71",
+              "name": "Prepare the discharge",
+              "already_matched_to": {
+                "id": "Activity_3eb86ebf",
+                "name": "Prepares the discharge",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_f53dd15d",
+          "name": "Referred",
+          "best_score": 0.4,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_7",
+              "name": "Present Directly to ED",
+              "already_matched_to": null
+            },
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_128",
+              "name": "Refer to Outpatient Cardiologist",
+              "already_matched_to": null
+            },
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_71",
+              "name": "Prepare the discharge",
+              "already_matched_to": {
+                "id": "Activity_3eb86ebf",
+                "name": "Prepares the discharge",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_128",
+            "name": "Refer to Outpatient Cardiologist",
+            "score": 0.4
+          }
+        },
+        {
+          "id": "Activity_5eb3837f",
+          "name": "Takes the",
+          "best_score": 0.2727272727272727,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_5",
+              "name": "Patient Calls 112",
+              "already_matched_to": {
+                "id": "Activity_20ac38ea",
+                "name": "Discharge patient's",
+                "score": 0.5555555555555556
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_d655a97d",
+          "name": "Initiates",
+          "best_score": 0.5,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_125",
+              "name": "Adjust/Initiate Treatment",
+              "already_matched_to": {
+                "id": "Activity_5ce51912",
+                "name": "Adjusts",
+                "score": 0.5
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_151",
+            "name": "Surgical Treatment",
+            "score": 0.37037037037037035
+          }
+        },
+        {
+          "id": "Activity_415ada7f",
+          "name": "Choose",
+          "best_score": 0.29411764705882354,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_110",
+              "name": "Consult Private Cardiologist",
+              "already_matched_to": {
+                "id": "Activity_fd395863",
+                "name": "Consult route",
+                "score": 0.5365853658536586
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_a884429f",
+          "name": "Decide",
+          "best_score": 0.3448275862068966,
+          "best_reference": [
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_50",
+              "name": "Provide medical history",
+              "already_matched_to": {
+                "id": "Activity_61975b7c",
+                "name": "Provides the medical history",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_89a82ce0",
+          "name": "Gathered medical history",
+          "best_score": 0.7659574468085106,
+          "best_reference": [
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_50",
+              "name": "Provide medical history",
+              "already_matched_to": {
+                "id": "Activity_61975b7c",
+                "name": "Provides the medical history",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_zluWoaZNP5YGIbgktbYp_62",
+            "name": "Medical Treatment",
+            "score": 0.4878048780487805
+          }
+        },
+        {
+          "id": "Activity_7cc321db",
+          "name": "Administers the",
+          "best_score": 0.47058823529411764,
+          "best_reference": [
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_47",
+              "name": "Family Provides History",
+              "already_matched_to": {
+                "id": "Activity_a52ef6b5",
+                "name": "Provides history",
+                "score": 0.8205128205128205
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_3c345e7d",
+          "name": "Inform",
+          "best_score": 0.5,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_132",
+              "name": "Perform Evaluation",
+              "already_matched_to": {
+                "id": "Activity_4c606502",
+                "name": "Evaluates",
+                "score": 0.6666666666666666
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_e38efc9f",
+          "name": "Follow-up a",
+          "best_score": 0.38095238095238093,
+          "best_reference": [
+            {
+              "id": "n_DrHWM0bc_9jmhA9yr9Kf_136",
+              "name": "Prescribe Treatment and Followups",
+              "already_matched_to": {
+                "id": "Activity_c94bec99",
+                "name": "Prescribes treatment",
+                "score": 0.7169811320754716
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "n_DrHWM0bc_9jmhA9yr9Kf_6",
+            "name": "Family Calls 112",
+            "score": 0.32
+          }
+        },
+        {
+          "id": "Activity_ac261ff2",
+          "name": "Concludes the",
+          "best_score": 0.3333333333333333,
+          "best_reference": [
+            {
+              "id": "n_zluWoaZNP5YGIbgktbYp_72",
+              "name": "Provide Summary",
+              "already_matched_to": {
+                "id": "Activity_4e6f4515",
+                "name": "Gives a discharge summary",
+                "score": 0.5789473684210527
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        }
+      ],
+      "unmatched_pairs_above_threshold": [],
+      "agreement": {
+        "counts_recomputed_by_compare": {
+          "tp": 17,
+          "fp": 15,
+          "fn": 6
+        },
+        "counts_from_these_sets": {
+          "tp": 17,
+          "fp": 15,
+          "fn": 6
+        },
+        "counts_saved": {
+          "tp": 17,
+          "fp": 15,
+          "fn": 6
+        },
+        "counts_reproduce_saved": true,
+        "mapping_reproduces_saved": true,
+        "unmatched_reference_reproduces_saved": true,
+        "unmatched_generated_reproduces_saved": true,
+        "differences": {}
+      },
+      "score_matrix": {
+        "reference": [
+          "n_zluWoaZNP5YGIbgktbYp_50",
+          "n_zluWoaZNP5YGIbgktbYp_70",
+          "n_zluWoaZNP5YGIbgktbYp_47",
+          "n_DrHWM0bc_9jmhA9yr9Kf_5",
+          "n_DrHWM0bc_9jmhA9yr9Kf_7",
+          "n_DrHWM0bc_9jmhA9yr9Kf_6",
+          "n_DrHWM0bc_9jmhA9yr9Kf_53",
+          "n_DrHWM0bc_9jmhA9yr9Kf_56",
+          "n_DrHWM0bc_9jmhA9yr9Kf_125",
+          "n_DrHWM0bc_9jmhA9yr9Kf_128",
+          "n_DrHWM0bc_9jmhA9yr9Kf_130",
+          "n_DrHWM0bc_9jmhA9yr9Kf_110",
+          "n_DrHWM0bc_9jmhA9yr9Kf_132",
+          "n_DrHWM0bc_9jmhA9yr9Kf_136",
+          "n_zluWoaZNP5YGIbgktbYp_72",
+          "n_DrHWM0bc_9jmhA9yr9Kf_122",
+          "n_zluWoaZNP5YGIbgktbYp_56",
+          "n_zluWoaZNP5YGIbgktbYp_71",
+          "n_zluWoaZNP5YGIbgktbYp_63",
+          "n_DrHWM0bc_9jmhA9yr9Kf_162",
+          "n_DrHWM0bc_9jmhA9yr9Kf_151",
+          "n_DrHWM0bc_9jmhA9yr9Kf_154",
+          "n_zluWoaZNP5YGIbgktbYp_62"
+        ],
+        "generated": [
+          "Activity_8ce3350c",
+          "Activity_5c569f06",
+          "Activity_6106e1f1",
+          "Activity_4c606502",
+          "Activity_523397f9",
+          "Activity_5c74f749",
+          "Activity_71b60376",
+          "Activity_7d62f730",
+          "Activity_f53dd15d",
+          "Activity_5eb3837f",
+          "Activity_5ce51912",
+          "Activity_d655a97d",
+          "Activity_e3fb807f",
+          "Activity_415ada7f",
+          "Activity_fd395863",
+          "Activity_adbb0a31",
+          "Activity_c94bec99",
+          "Activity_227a7619",
+          "Activity_a884429f",
+          "Activity_9e813256",
+          "Activity_89a82ce0",
+          "Activity_a52ef6b5",
+          "Activity_61975b7c",
+          "Activity_7cc321db",
+          "Activity_b9697d12",
+          "Activity_3c345e7d",
+          "Activity_3eb86ebf",
+          "Activity_4e6f4515",
+          "Activity_e38efc9f",
+          "Activity_ac261ff2",
+          "Activity_164dc880",
+          "Activity_20ac38ea"
+        ],
+        "scores": [
+          [
+            0.3225806451612903,
+            0.1935483870967742,
+            0.3225806451612903,
+            0.25,
+            0.4186046511627907,
+            0.14285714285714285,
+            0.3103448275862069,
+            0.2,
+            0.25806451612903225,
+            0.14285714285714285,
+            0.2,
+            0.1875,
+            0.39285714285714285,
+            0.20689655172413793,
+            0.3333333333333333,
+            0.36,
+            0.37209302325581395,
+            0.26666666666666666,
+            0.3448275862068966,
+            0.35,
+            0.7659574468085106,
+            0.8,
+            1.0,
+            0.29411764705882354,
+            0.1875,
+            0.27586206896551724,
+            0.43902439024390244,
+            0.30434782608695654,
+            0.1875,
+            0.3125,
+            0.13333333333333333,
+            0.38095238095238093
+          ],
+          [
+            0.14285714285714285,
+            0.07142857142857142,
+            0.2857142857142857,
+            0.06896551724137931,
+            0.25,
+            0.24,
+            0.32727272727272727,
+            0.2222222222222222,
+            0.07142857142857142,
+            0.08,
+            0.2222222222222222,
+            0.20689655172413793,
+            0.2641509433962264,
+            0.07692307692307693,
+            0.36363636363636365,
+            0.2978723404255319,
+            0.3,
+            0.2222222222222222,
+            0.07692307692307693,
+            0.32432432432432434,
+            0.3181818181818182,
+            0.3333333333333333,
+            0.2727272727272727,
+            0.25806451612903225,
+            0.20689655172413793,
+            0.07692307692307693,
+            0.21052631578947367,
+            0.5116279069767442,
+            0.13793103448275862,
+            0.06896551724137931,
+            0.5185185185185185,
+            0.3076923076923077
+          ],
+          [
+            0.1935483870967742,
+            0.12903225806451613,
+            0.3225806451612903,
+            0.3125,
+            0.37209302325581395,
+            0.2857142857142857,
+            0.20689655172413793,
+            0.13333333333333333,
+            0.25806451612903225,
+            0.21428571428571427,
+            0.26666666666666666,
+            0.25,
+            0.25,
+            0.20689655172413793,
+            0.2777777777777778,
+            0.28,
+            0.37209302325581395,
+            0.2,
+            0.20689655172413793,
+            0.3,
+            0.5106382978723404,
+            0.8205128205128205,
+            0.6808510638297872,
+            0.47058823529411764,
+            0.25,
+            0.20689655172413793,
+            0.3902439024390244,
+            0.391304347826087,
+            0.25,
+            0.25,
+            0.2,
+            0.38095238095238093
+          ],
+          [
+            0.16,
+            0.32,
+            0.4,
+            0.38461538461538464,
+            0.2702702702702703,
+            0.18181818181818182,
+            0.34615384615384615,
+            0.25,
+            0.08,
+            0.2727272727272727,
+            0.25,
+            0.3076923076923077,
+            0.28,
+            0.2608695652173913,
+            0.2,
+            0.3181818181818182,
+            0.43243243243243246,
+            0.25,
+            0.2608695652173913,
+            0.4117647058823529,
+            0.34146341463414637,
+            0.30303030303030304,
+            0.3902439024390244,
+            0.2857142857142857,
+            0.46153846153846156,
+            0.17391304347826086,
+            0.34285714285714286,
+            0.2,
+            0.3076923076923077,
+            0.23076923076923078,
+            0.16666666666666666,
+            0.5555555555555556
+          ],
+          [
+            0.3333333333333333,
+            0.26666666666666666,
+            0.4666666666666667,
+            0.25806451612903225,
+            0.3333333333333333,
+            0.2222222222222222,
+            0.42105263157894735,
+            0.20689655172413793,
+            0.4,
+            0.2222222222222222,
+            0.20689655172413793,
+            0.25806451612903225,
+            0.2545454545454545,
+            0.21428571428571427,
+            0.2857142857142857,
+            0.32653061224489793,
+            0.3333333333333333,
+            0.27586206896551724,
+            0.2857142857142857,
+            0.3076923076923077,
+            0.43478260869565216,
+            0.42105263157894735,
+            0.5217391304347826,
+            0.24242424242424243,
+            0.1935483870967742,
+            0.14285714285714285,
+            0.45,
+            0.35555555555555557,
+            0.1935483870967742,
+            0.1935483870967742,
+            0.20689655172413793,
+            0.4878048780487805
+          ],
+          [
+            0.16666666666666666,
+            0.25,
+            0.08333333333333333,
+            0.24,
+            0.2777777777777778,
+            0.2857142857142857,
+            0.27450980392156865,
+            0.17391304347826086,
+            0.08333333333333333,
+            0.19047619047619047,
+            0.17391304347826086,
+            0.16,
+            0.24489795918367346,
+            0.18181818181818182,
+            0.13793103448275862,
+            0.37209302325581395,
+            0.2777777777777778,
+            0.17391304347826086,
+            0.18181818181818182,
+            0.18181818181818182,
+            0.35,
+            0.1875,
+            0.3,
+            0.2962962962962963,
+            0.32,
+            0.18181818181818182,
+            0.17647058823529413,
+            0.2564102564102564,
+            0.32,
+            0.24,
+            0.2608695652173913,
+            0.22857142857142856
+          ],
+          [
+            0.3333333333333333,
+            0.16666666666666666,
+            0.3333333333333333,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.19047619047619047,
+            0.35294117647058826,
+            0.08695652173913043,
+            0.25,
+            0.09523809523809523,
+            0.2608695652173913,
+            0.24,
+            0.40816326530612246,
+            0.09090909090909091,
+            0.27586206896551724,
+            0.23255813953488372,
+            0.3333333333333333,
+            0.2608695652173913,
+            0.18181818181818182,
+            0.6060606060606061,
+            0.2,
+            0.3125,
+            0.35,
+            0.2222222222222222,
+            0.32,
+            0.18181818181818182,
+            0.35294117647058826,
+            0.2564102564102564,
+            0.24,
+            0.24,
+            0.17391304347826086,
+            0.5714285714285714
+          ],
+          [
+            0.25,
+            0.125,
+            0.375,
+            0.23529411764705882,
+            0.2857142857142857,
+            0.3076923076923077,
+            0.18604651162790697,
+            0.13333333333333333,
+            0.0,
+            0.15384615384615385,
+            0.26666666666666666,
+            0.35294117647058826,
+            0.14634146341463414,
+            0.14285714285714285,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.21428571428571427,
+            0.5333333333333333,
+            0.14285714285714285,
+            0.16,
+            0.3125,
+            0.4166666666666667,
+            0.3125,
+            0.3157894736842105,
+            0.23529411764705882,
+            0.14285714285714285,
+            0.23076923076923078,
+            0.25806451612903225,
+            0.23529411764705882,
+            0.11764705882352941,
+            0.4,
+            0.37037037037037035
+          ],
+          [
+            0.12121212121212122,
+            0.12121212121212122,
+            0.30303030303030304,
+            0.29411764705882354,
+            0.35555555555555557,
+            0.26666666666666666,
+            0.4666666666666667,
+            0.125,
+            0.18181818181818182,
+            0.13333333333333333,
+            0.5,
+            0.5,
+            0.3448275862068966,
+            0.12903225806451613,
+            0.2631578947368421,
+            0.3076923076923077,
+            0.5777777777777777,
+            0.0625,
+            0.1935483870967742,
+            0.38095238095238093,
+            0.2857142857142857,
+            0.24390243902439024,
+            0.20408163265306123,
+            0.4444444444444444,
+            0.29411764705882354,
+            0.25806451612903225,
+            0.32558139534883723,
+            0.16666666666666666,
+            0.058823529411764705,
+            0.11764705882352941,
+            0.1875,
+            0.3181818181818182
+          ],
+          [
+            0.25,
+            0.25,
+            0.3,
+            0.2926829268292683,
+            0.3076923076923077,
+            0.21621621621621623,
+            0.3880597014925373,
+            0.10256410256410256,
+            0.4,
+            0.10810810810810811,
+            0.20512820512820512,
+            0.2926829268292683,
+            0.36923076923076925,
+            0.2631578947368421,
+            0.4,
+            0.2711864406779661,
+            0.38461538461538464,
+            0.2564102564102564,
+            0.15789473684210525,
+            0.4489795918367347,
+            0.35714285714285715,
+            0.2916666666666667,
+            0.35714285714285715,
+            0.37209302325581395,
+            0.34146341463414637,
+            0.05263157894736842,
+            0.36,
+            0.36363636363636365,
+            0.2926829268292683,
+            0.14634146341463414,
+            0.10256410256410256,
+            0.5098039215686274
+          ],
+          [
+            0.19047619047619047,
+            0.23809523809523808,
+            0.23809523809523808,
+            0.5,
+            0.2962962962962963,
+            0.20512820512820512,
+            0.43478260869565216,
+            0.0975609756097561,
+            0.19047619047619047,
+            0.10256410256410256,
+            0.1951219512195122,
+            0.23255813953488372,
+            0.746268656716418,
+            0.2,
+            0.2553191489361702,
+            0.26229508196721313,
+            0.37037037037037035,
+            0.14634146341463414,
+            0.2,
+            0.5490196078431373,
+            0.41379310344827586,
+            0.16,
+            0.41379310344827586,
+            0.08888888888888889,
+            0.23255813953488372,
+            0.1,
+            0.3076923076923077,
+            0.3157894736842105,
+            0.23255813953488372,
+            0.27906976744186046,
+            0.14634146341463414,
+            0.37735849056603776
+          ],
+          [
+            0.2777777777777778,
+            0.2222222222222222,
+            0.2222222222222222,
+            0.32432432432432434,
+            0.3333333333333333,
+            0.24242424242424243,
+            0.4126984126984127,
+            0.22857142857142856,
+            0.2222222222222222,
+            0.12121212121212122,
+            0.2857142857142857,
+            0.3783783783783784,
+            0.36065573770491804,
+            0.29411764705882354,
+            0.5365853658536586,
+            0.32727272727272727,
+            0.2916666666666667,
+            0.2857142857142857,
+            0.17647058823529413,
+            0.4,
+            0.38461538461538464,
+            0.4090909090909091,
+            0.4230769230769231,
+            0.358974358974359,
+            0.2702702702702703,
+            0.11764705882352941,
+            0.391304347826087,
+            0.39215686274509803,
+            0.32432432432432434,
+            0.21621621621621623,
+            0.22857142857142856,
+            0.2978723404255319
+          ],
+          [
+            0.38461538461538464,
+            0.15384615384615385,
+            0.3076923076923077,
+            0.6666666666666666,
+            0.3684210526315789,
+            0.17391304347826086,
+            0.37735849056603776,
+            0.08,
+            0.3076923076923077,
+            0.08695652173913043,
+            0.24,
+            0.2222222222222222,
+            0.5098039215686274,
+            0.08333333333333333,
+            0.25806451612903225,
+            0.26666666666666666,
+            0.42105263157894735,
+            0.24,
+            0.25,
+            0.2857142857142857,
+            0.19047619047619047,
+            0.29411764705882354,
+            0.2857142857142857,
+            0.27586206896551724,
+            0.37037037037037035,
+            0.5,
+            0.2777777777777778,
+            0.1951219512195122,
+            0.2962962962962963,
+            0.2222222222222222,
+            0.16,
+            0.32432432432432434
+          ],
+          [
+            0.2926829268292683,
+            0.24390243902439024,
+            0.3902439024390244,
+            0.23809523809523808,
+            0.2641509433962264,
+            0.21052631578947367,
+            0.5588235294117647,
+            0.2,
+            0.2926829268292683,
+            0.15789473684210525,
+            0.25,
+            0.14285714285714285,
+            0.3333333333333333,
+            0.20512820512820512,
+            0.21739130434782608,
+            0.26666666666666666,
+            0.7169811320754716,
+            0.25,
+            0.2564102564102564,
+            0.36,
+            0.24561403508771928,
+            0.24489795918367346,
+            0.3157894736842105,
+            0.22727272727272727,
+            0.2857142857142857,
+            0.2564102564102564,
+            0.27450980392156865,
+            0.25,
+            0.38095238095238093,
+            0.19047619047619047,
+            0.2,
+            0.46153846153846156
+          ],
+          [
+            0.2608695652173913,
+            0.17391304347826086,
+            0.34782608695652173,
+            0.25,
+            0.34285714285714286,
+            0.1,
+            0.28,
+            0.18181818181818182,
+            0.17391304347826086,
+            0.2,
+            0.18181818181818182,
+            0.25,
+            0.2916666666666667,
+            0.19047619047619047,
+            0.21428571428571427,
+            0.23809523809523808,
+            0.34285714285714286,
+            0.09090909090909091,
+            0.2857142857142857,
+            0.3125,
+            0.20512820512820512,
+            0.7096774193548387,
+            0.5641025641025641,
+            0.15384615384615385,
+            0.16666666666666666,
+            0.19047619047619047,
+            0.30303030303030304,
+            0.5789473684210527,
+            0.08333333333333333,
+            0.3333333333333333,
+            0.2727272727272727,
+            0.23529411764705882
+          ],
+          [
+            0.2222222222222222,
+            0.2222222222222222,
+            0.2777777777777778,
+            0.2702702702702703,
+            0.4166666666666667,
+            0.5,
+            0.4126984126984127,
+            0.22857142857142856,
+            0.05555555555555555,
+            0.18181818181818182,
+            0.22857142857142856,
+            0.32432432432432434,
+            0.5245901639344263,
+            0.23529411764705882,
+            0.24390243902439024,
+            0.32727272727272727,
+            0.2916666666666667,
+            0.22857142857142856,
+            0.17647058823529413,
+            0.3111111111111111,
+            0.3076923076923077,
+            0.22727272727272727,
+            0.23076923076923078,
+            0.358974358974359,
+            0.32432432432432434,
+            0.058823529411764705,
+            0.2608695652173913,
+            0.27450980392156865,
+            0.2702702702702703,
+            0.21621621621621623,
+            0.22857142857142856,
+            0.3829787234042553
+          ],
+          [
+            0.18181818181818182,
+            0.24242424242424243,
+            0.24242424242424243,
+            0.17647058823529413,
+            0.3111111111111111,
+            0.2,
+            0.36666666666666664,
+            0.25,
+            0.18181818181818182,
+            0.2,
+            0.25,
+            0.23529411764705882,
+            0.3448275862068966,
+            0.1935483870967742,
+            0.15789473684210525,
+            1.0,
+            0.26666666666666666,
+            0.1875,
+            0.1935483870967742,
+            0.19047619047619047,
+            0.2857142857142857,
+            0.24390243902439024,
+            0.32653061224489793,
+            0.3888888888888889,
+            0.35294117647058826,
+            0.1935483870967742,
+            0.32558139534883723,
+            0.375,
+            0.11764705882352941,
+            0.17647058823529413,
+            0.1875,
+            0.36363636363636365
+          ],
+          [
+            0.16,
+            0.16,
+            0.4,
+            0.3076923076923077,
+            0.3783783783783784,
+            0.2727272727272727,
+            0.5769230769230769,
+            0.3333333333333333,
+            0.4,
+            0.18181818181818182,
+            0.25,
+            0.15384615384615385,
+            0.28,
+            0.2608695652173913,
+            0.2,
+            0.3181818181818182,
+            0.3783783783783784,
+            0.3333333333333333,
+            0.2608695652173913,
+            0.35294117647058826,
+            0.34146341463414637,
+            0.42424242424242425,
+            0.3902439024390244,
+            0.35714285714285715,
+            0.23076923076923078,
+            0.17391304347826086,
+            1.0,
+            0.65,
+            0.15384615384615385,
+            0.15384615384615385,
+            0.16666666666666666,
+            0.6666666666666666
+          ],
+          [
+            0.25,
+            0.1875,
+            0.25,
+            0.12121212121212122,
+            0.4090909090909091,
+            0.13793103448275862,
+            0.6440677966101694,
+            0.1935483870967742,
+            0.25,
+            0.13793103448275862,
+            0.06451612903225806,
+            0.24242424242424243,
+            0.42105263157894735,
+            0.06666666666666667,
+            0.16216216216216217,
+            0.35294117647058826,
+            0.5454545454545454,
+            0.12903225806451613,
+            0.13333333333333333,
+            0.4878048780487805,
+            0.4166666666666667,
+            0.15,
+            0.375,
+            0.2857142857142857,
+            0.24242424242424243,
+            0.26666666666666666,
+            0.3333333333333333,
+            0.2978723404255319,
+            0.18181818181818182,
+            0.24242424242424243,
+            0.12903225806451613,
+            0.27906976744186046
+          ],
+          [
+            0.15384615384615385,
+            0.3076923076923077,
+            0.46153846153846156,
+            0.2222222222222222,
+            0.42105263157894735,
+            0.17391304347826086,
+            0.5660377358490566,
+            0.16,
+            0.23076923076923078,
+            0.08695652173913043,
+            0.08,
+            0.14814814814814814,
+            0.27450980392156865,
+            0.25,
+            0.3225806451612903,
+            0.2222222222222222,
+            0.631578947368421,
+            0.24,
+            0.16666666666666666,
+            0.4,
+            0.2857142857142857,
+            0.23529411764705882,
+            0.2857142857142857,
+            0.27586206896551724,
+            0.2962962962962963,
+            0.16666666666666666,
+            0.3888888888888889,
+            0.1951219512195122,
+            0.14814814814814814,
+            0.2962962962962963,
+            0.16,
+            0.43243243243243246
+          ],
+          [
+            0.07692307692307693,
+            0.23076923076923078,
+            0.38461538461538464,
+            0.37037037037037035,
+            0.3684210526315789,
+            0.17391304347826086,
+            0.5283018867924528,
+            0.16,
+            0.23076923076923078,
+            0.08695652173913043,
+            0.16,
+            0.37037037037037035,
+            0.3137254901960784,
+            0.16666666666666666,
+            0.3225806451612903,
+            0.3111111111111111,
+            0.6842105263157895,
+            0.16,
+            0.16666666666666666,
+            0.4,
+            0.38095238095238093,
+            0.23529411764705882,
+            0.42857142857142855,
+            0.13793103448275862,
+            0.2222222222222222,
+            0.16666666666666666,
+            0.4444444444444444,
+            0.14634146341463414,
+            0.07407407407407407,
+            0.07407407407407407,
+            0.32,
+            0.4864864864864865
+          ],
+          [
+            0.06666666666666667,
+            0.3333333333333333,
+            0.13333333333333333,
+            0.25806451612903225,
+            0.47619047619047616,
+            0.2222222222222222,
+            0.49122807017543857,
+            0.27586206896551724,
+            0.0,
+            0.14814814814814814,
+            0.13793103448275862,
+            0.3870967741935484,
+            0.36363636363636365,
+            0.21428571428571427,
+            0.34285714285714286,
+            0.32653061224489793,
+            0.3333333333333333,
+            0.20689655172413793,
+            0.14285714285714285,
+            0.46153846153846156,
+            0.2608695652173913,
+            0.15789473684210525,
+            0.2608695652173913,
+            0.24242424242424243,
+            0.6666666666666666,
+            0.2857142857142857,
+            0.2,
+            0.17777777777777778,
+            0.12903225806451613,
+            0.1935483870967742,
+            0.20689655172413793,
+            0.2926829268292683
+          ],
+          [
+            0.16,
+            0.24,
+            0.4,
+            0.46153846153846156,
+            0.43243243243243246,
+            0.2727272727272727,
+            0.5384615384615384,
+            0.25,
+            0.16,
+            0.09090909090909091,
+            0.16666666666666666,
+            0.38461538461538464,
+            0.36,
+            0.08695652173913043,
+            0.06666666666666667,
+            0.3181818181818182,
+            0.6486486486486487,
+            0.16666666666666666,
+            0.2608695652173913,
+            0.4117647058823529,
+            0.4878048780487805,
+            0.24242424242424243,
+            0.4878048780487805,
+            0.21428571428571427,
+            0.3076923076923077,
+            0.08695652173913043,
+            0.5142857142857142,
+            0.35,
+            0.15384615384615385,
+            0.07692307692307693,
+            0.25,
+            0.5555555555555556
+          ]
+        ]
+      }
+    },
+    "goods_dispatch": {
+      "case": "goods_dispatch",
+      "generated": "runs/final-3/cases/goods_dispatch/model.bpmn",
+      "reference": {
+        "path": "text2bpmn/cases/goods_dispatch/reference.bpmn",
+        "sha256": "bae9ed647ee86d46a8389d1099d06857aa0aee12181cb01ae4ac449e8b198436",
+        "run_commit": "808815f805259940897ef6171cc546420a688221",
+        "run_reference": "text2bpmn/cases/goods_dispatch/reference.bpmn",
+        "run_reference_sha256": "bae9ed647ee86d46a8389d1099d06857aa0aee12181cb01ae4ac449e8b198436",
+        "same_as_run_reference": true
+      },
+      "comparison_json": "runs/final-3/cases/goods_dispatch/comparison.json",
+      "run": {
+        "commit": "808815f805259940897ef6171cc546420a688221",
+        "describe": "revision-final-3",
+        "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+        "allow_no_llm": false,
+        "relation_mode": "decisions4",
+        "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+      },
+      "threshold": 0.5,
+      "reference_tasks": 7,
+      "generated_tasks": 10,
+      "matched": [
+        {
+          "reference": {
+            "id": "Task_12j0pib",
+            "name": "Insure parcel"
+          },
+          "generated": {
+            "id": "Activity_930279a3",
+            "name": "Taken a parcel insurance"
+          },
+          "score": 0.8
+        },
+        {
+          "reference": {
+            "id": "Task_0jsoxba",
+            "name": "Write package label"
+          },
+          "generated": {
+            "id": "Activity_4bbb3124",
+            "name": "Written a package label"
+          },
+          "score": 0.95
+        },
+        {
+          "reference": {
+            "id": "Task_0vaxgaa",
+            "name": "Clarify shipment method"
+          },
+          "generated": {
+            "id": "Activity_f95b88d6",
+            "name": "Clarifies shipping"
+          },
+          "score": 0.6341463414634146
+        },
+        {
+          "reference": {
+            "id": "Task_05ftug5",
+            "name": "Package goods"
+          },
+          "generated": {
+            "id": "Activity_344384ab",
+            "name": "Packaged the goods"
+          },
+          "score": 1.0
+        },
+        {
+          "reference": {
+            "id": "Task_0sl26uo",
+            "name": "Prepare for picking up goods"
+          },
+          "generated": {
+            "id": "Activity_937e9ff4",
+            "name": "Prepared the packaged goods"
+          },
+          "score": 0.7058823529411765
+        }
+      ],
+      "unmatched_reference": [
+        {
+          "id": "Task_0e6hvnj",
+          "name": "Get 3 offers from logistic companies",
+          "best_score": 0.425531914893617,
+          "best_generated": [
+            {
+              "id": "Activity_ce9b55b2",
+              "name": "Make offers",
+              "already_matched_to": null
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_ce9b55b2",
+            "name": "Make offers",
+            "score": 0.425531914893617
+          }
+        },
+        {
+          "id": "Task_0s79ile",
+          "name": "Select logistic company and place order",
+          "best_score": 0.4,
+          "best_generated": [
+            {
+              "id": "Activity_0eb4322d",
+              "name": "Selects one",
+              "already_matched_to": null
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Activity_0eb4322d",
+            "name": "Selects one",
+            "score": 0.4
+          }
+        }
+      ],
+      "unmatched_generated": [
+        {
+          "id": "Activity_3e5c153f",
+          "name": "Invites",
+          "best_score": 0.3,
+          "best_reference": [
+            {
+              "id": "Task_12j0pib",
+              "name": "Insure parcel",
+              "already_matched_to": {
+                "id": "Activity_930279a3",
+                "name": "Taken a parcel insurance",
+                "score": 0.8
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_ce9b55b2",
+          "name": "Make offers",
+          "best_score": 0.5,
+          "best_reference": [
+            {
+              "id": "Task_05ftug5",
+              "name": "Package goods",
+              "already_matched_to": {
+                "id": "Activity_344384ab",
+                "name": "Packaged the goods",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Task_0e6hvnj",
+            "name": "Get 3 offers from logistic companies",
+            "score": 0.425531914893617
+          }
+        },
+        {
+          "id": "Activity_0eb4322d",
+          "name": "Selects one",
+          "best_score": 0.4166666666666667,
+          "best_reference": [
+            {
+              "id": "Task_12j0pib",
+              "name": "Insure parcel",
+              "already_matched_to": {
+                "id": "Activity_930279a3",
+                "name": "Taken a parcel insurance",
+                "score": 0.8
+              }
+            }
+          ],
+          "assigned_below_threshold": {
+            "id": "Task_0s79ile",
+            "name": "Select logistic company and place order",
+            "score": 0.4
+          }
+        },
+        {
+          "id": "Activity_73bcca1a",
+          "name": "Used post",
+          "best_score": 0.36363636363636365,
+          "best_reference": [
+            {
+              "id": "Task_12j0pib",
+              "name": "Insure parcel",
+              "already_matched_to": {
+                "id": "Activity_930279a3",
+                "name": "Taken a parcel insurance",
+                "score": 0.8
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        },
+        {
+          "id": "Activity_10b8865e",
+          "name": "Picked up",
+          "best_score": 0.45454545454545453,
+          "best_reference": [
+            {
+              "id": "Task_05ftug5",
+              "name": "Package goods",
+              "already_matched_to": {
+                "id": "Activity_344384ab",
+                "name": "Packaged the goods",
+                "score": 1.0
+              }
+            }
+          ],
+          "assigned_below_threshold": null
+        }
+      ],
+      "unmatched_pairs_above_threshold": [],
+      "agreement": {
+        "counts_recomputed_by_compare": {
+          "tp": 5,
+          "fp": 5,
+          "fn": 2
+        },
+        "counts_from_these_sets": {
+          "tp": 5,
+          "fp": 5,
+          "fn": 2
+        },
+        "counts_saved": {
+          "tp": 5,
+          "fp": 5,
+          "fn": 2
+        },
+        "counts_reproduce_saved": true,
+        "mapping_reproduces_saved": true,
+        "unmatched_reference_reproduces_saved": true,
+        "unmatched_generated_reproduces_saved": true,
+        "differences": {}
+      },
+      "score_matrix": {
+        "reference": [
+          "Task_12j0pib",
+          "Task_0jsoxba",
+          "Task_0vaxgaa",
+          "Task_0e6hvnj",
+          "Task_0s79ile",
+          "Task_05ftug5",
+          "Task_0sl26uo"
+        ],
+        "generated": [
+          "Activity_f95b88d6",
+          "Activity_344384ab",
+          "Activity_3e5c153f",
+          "Activity_ce9b55b2",
+          "Activity_0eb4322d",
+          "Activity_73bcca1a",
+          "Activity_4bbb3124",
+          "Activity_930279a3",
+          "Activity_937e9ff4",
+          "Activity_10b8865e"
+        ],
+        "scores": [
+          [
+            0.12903225806451613,
+            0.4444444444444444,
+            0.3,
+            0.25,
+            0.4166666666666667,
+            0.36363636363636365,
+            0.47058823529411764,
+            0.8,
+            0.3888888888888889,
+            0.2727272727272727
+          ],
+          [
+            0.32432432432432434,
+            0.48484848484848486,
+            0.23076923076923078,
+            0.3333333333333333,
+            0.26666666666666666,
+            0.21428571428571427,
+            0.95,
+            0.3902439024390244,
+            0.5238095238095238,
+            0.35714285714285715
+          ],
+          [
+            0.6341463414634146,
+            0.2702702702702703,
+            0.2,
+            0.17647058823529413,
+            0.29411764705882354,
+            0.1875,
+            0.3181818181818182,
+            0.3111111111111111,
+            0.34782608695652173,
+            0.3125
+          ],
+          [
+            0.25925925925925924,
+            0.2,
+            0.18604651162790697,
+            0.425531914893617,
+            0.2127659574468085,
+            0.26666666666666666,
+            0.2807017543859649,
+            0.20689655172413793,
+            0.2711864406779661,
+            0.17777777777777778
+          ],
+          [
+            0.21052631578947367,
+            0.2641509433962264,
+            0.13043478260869565,
+            0.28,
+            0.4,
+            0.25,
+            0.26666666666666666,
+            0.29508196721311475,
+            0.3870967741935484,
+            0.20833333333333334
+          ],
+          [
+            0.25806451612903225,
+            1.0,
+            0.2,
+            0.5,
+            0.25,
+            0.2727272727272727,
+            0.47058823529411764,
+            0.4,
+            0.8,
+            0.45454545454545453
+          ],
+          [
+            0.34782608695652173,
+            0.5238095238095238,
+            0.17142857142857143,
+            0.3076923076923077,
+            0.2564102564102564,
+            0.2702702702702703,
+            0.2857142857142857,
+            0.36,
+            0.7058823529411765,
+            0.43243243243243246
+          ]
+        ]
+      }
+    }
+  }
+}

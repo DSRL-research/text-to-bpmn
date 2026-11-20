@@ -1,0 +1,62 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 1,
+    "split/join": 2,
+    "lanes": 9
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'For' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'Evaluates'"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'Consult route'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Patient' -> 'Patient'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Patient or' -> 'Patient or'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane \"The Patient's Family\" -> \"Patient's Family\""
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Emergency Department' -> 'Emergency Department'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The General Practitioner' -> 'General Practitioner'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Family' -> 'Family'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Hospital' -> 'Hospital'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Start' in 'Main Process', which holds no task -> 'Patient'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'For acute' in 'Patient or', which holds no task -> \"Patient's Family\""
+    }
+  ]
+}

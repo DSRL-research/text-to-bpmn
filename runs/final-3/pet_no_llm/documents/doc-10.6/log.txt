@@ -1,0 +1,29 @@
+
+--- Processing Input ---
+   (Debug) Injected 14 spans from PET gold spans
+   (Debug) Injected text: The MSPN sents a dismissal to the MSPO . The MSPO reviews the dismissal . The MSPO rejects the dismissal of the MSPN or The MSPO confirms the dismissal of the MSPN .
+   (Debug) Raw Entities: ['The MSPN', 'sents', 'a dismissal', 'the MSPO', 'The MSPO', 'reviews', 'the dismissal', 'The MSPO', 'rejects', 'the dismissal of the MSPN', 'or', 'The MSPO', 'confirms', 'the dismissal of the MSPN']
+
+--- Split Entities ---
+[{'entity_group': 'Actor', 'word': 'The MSPN', 'start': 0, 'end': 8, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'sents', 'start': 9, 'end': 14, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a dismissal', 'start': 15, 'end': 26, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MSPO', 'start': 30, 'end': 38, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MSPO', 'start': 41, 'end': 49, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'reviews', 'start': 50, 'end': 57, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal', 'start': 58, 'end': 71, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MSPO', 'start': 74, 'end': 82, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'rejects', 'start': 83, 'end': 90, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal of the MSPN', 'start': 91, 'end': 116, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'or', 'start': 117, 'end': 119, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MSPO', 'start': 120, 'end': 128, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'confirms', 'start': 129, 'end': 137, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal of the MSPN', 'start': 138, 'end': 163, 'score': 1.0}]
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 1/1: {'node_A': 'Sents a dismissal', 'node_B': 'Reviews the dismissal', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 2/2: {'node_A': 'Sents a dismissal', 'node_B': 'Rejects the dismissal of the MSPN', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 3/3: {'node_A': 'Sents a dismissal', 'node_B': 'Or', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 4/4: {'node_A': 'Reviews the dismissal', 'node_B': 'Rejects the dismissal of the MSPN', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 5/5: {'node_A': 'Reviews the dismissal', 'node_B': 'Or', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 6/6: {'node_A': 'Reviews the dismissal', 'node_B': 'Confirms the dismissal of the MSPN', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 7/7: {'node_A': 'Rejects the dismissal of the MSPN', 'node_B': 'Or', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 8/8: {'node_A': 'Rejects the dismissal of the MSPN', 'node_B': 'Confirms the dismissal of the MSPN', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 9/9: {'node_A': 'Or', 'node_B': 'Confirms the dismissal of the MSPN', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+   💾 Saved Enriched Ontology to runs/final-3/pet_no_llm/documents/doc-10.6/ontology.owl: {'StartEvent': 1, 'Task': 4, 'EndEvent': 1}, relations {'SEQUENCE': 5}, 2 actors
+✅ Ontology Enrichment Complete: runs/final-3/pet_no_llm/documents/doc-10.6/ontology.owl
+   Relation parse failures: 9/9

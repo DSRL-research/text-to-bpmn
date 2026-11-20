@@ -1,0 +1,752 @@
+{
+ "structured_data": {
+  "participants": [
+   "I",
+   "Main Process",
+   "The Department"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_647db438",
+    "name": "Reported a vacancy",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_46bf4280",
+    "name": "Create a job description from the information",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b706ace7",
+    "name": "Sometimes there is still confusion in the message",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_47aef1d5",
+    "name": "Ask",
+    "type": "task",
+    "lane": "The Department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_475dbdb3",
+    "name": "Submitting the job description",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a851b975",
+    "name": "Waiting the approval",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_e298f8b1",
+    "name": "It can also happen that the department does not approve it",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_69e0ede8",
+    "name": "Requests a correction",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_22f6baa7",
+    "name": "Submit it",
+    "type": "task",
+    "lane": "I",
+    "metadata": [
+     "The description"
+    ]
+   },
+   {
+    "id": "XOR Gateway_9c60654a",
+    "name": "If the description is finally approved",
+    "type": "exclusiveGateway",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "Activity_02a37c67",
+    "name": "Post the job",
+    "type": "task",
+    "lane": "I",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "I"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_35f68fec",
+    "source": "StartEvent_1",
+    "target": "Activity_647db438",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_39d9d3de",
+    "source": "Activity_647db438",
+    "target": "Activity_46bf4280",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_44866335",
+    "source": "Activity_46bf4280",
+    "target": "XOR Gateway_b706ace7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ecdb5f4d",
+    "source": "XOR Gateway_b706ace7",
+    "target": "Activity_47aef1d5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_475f9d91",
+    "source": "Activity_47aef1d5",
+    "target": "Activity_475dbdb3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5b4950c8",
+    "source": "Activity_475dbdb3",
+    "target": "Activity_a851b975",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1641c0b8",
+    "source": "Activity_a851b975",
+    "target": "XOR Gateway_e298f8b1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4d6cc0dc",
+    "source": "XOR Gateway_e298f8b1",
+    "target": "Activity_69e0ede8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_79445407",
+    "source": "Activity_69e0ede8",
+    "target": "Activity_22f6baa7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bffc11af",
+    "source": "Activity_22f6baa7",
+    "target": "XOR Gateway_9c60654a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_50137f35",
+    "source": "XOR Gateway_9c60654a",
+    "target": "Activity_02a37c67",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4be77136",
+    "source": "Activity_02a37c67",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 25,
+   "end": 34,
+   "label": "Activity Data",
+   "id": "Activity Data_be2a17e3",
+   "type": null,
+   "name": "A vacancy"
+  },
+  {
+   "start": 38,
+   "end": 46,
+   "label": "Activity",
+   "id": "Activity_647db438",
+   "type": "task",
+   "name": "Reported a vacancy"
+  },
+  {
+   "start": 50,
+   "end": 52,
+   "label": "Actor",
+   "id": "Actor_b3f7f0dd",
+   "type": "Lane",
+   "name": "Me"
+  },
+  {
+   "start": 55,
+   "end": 56,
+   "label": "Actor",
+   "id": "Actor_5321c5e1",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 57,
+   "end": 63,
+   "label": "Activity",
+   "id": "Activity_46bf4280",
+   "type": "task",
+   "name": "Create a job description from the information"
+  },
+  {
+   "start": 64,
+   "end": 102,
+   "label": "Activity Data",
+   "id": "Activity Data_cb6e21f6",
+   "type": null,
+   "name": "A job description from the information"
+  },
+  {
+   "start": 105,
+   "end": 114,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b706ace7",
+   "type": "exclusiveGateway",
+   "name": "Sometimes there is still confusion in the message"
+  },
+  {
+   "start": 115,
+   "end": 154,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a4267ad6",
+   "type": "exclusiveGateway",
+   "name": "There is still confusion in the message"
+  },
+  {
+   "start": 162,
+   "end": 163,
+   "label": "Actor",
+   "id": "Actor_96afe3c5",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 169,
+   "end": 172,
+   "label": "Activity",
+   "id": "Activity_47aef1d5",
+   "type": "task",
+   "name": "Ask"
+  },
+  {
+   "start": 173,
+   "end": 187,
+   "label": "Actor",
+   "id": "Actor_412e6b8c",
+   "type": "Lane",
+   "name": "The Department"
+  },
+  {
+   "start": 196,
+   "end": 197,
+   "label": "Actor",
+   "id": "Actor_d93fb4dc",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 201,
+   "end": 211,
+   "label": "Activity",
+   "id": "Activity_475dbdb3",
+   "type": "task",
+   "name": "Submitting the job description"
+  },
+  {
+   "start": 212,
+   "end": 231,
+   "label": "Activity Data",
+   "id": "Activity Data_0037cce1",
+   "type": null,
+   "name": "The job description"
+  },
+  {
+   "start": 254,
+   "end": 261,
+   "label": "Activity",
+   "id": "Activity_a851b975",
+   "type": "task",
+   "name": "Waiting the approval"
+  },
+  {
+   "start": 266,
+   "end": 278,
+   "label": "Activity Data",
+   "id": "Activity Data_31776792",
+   "type": null,
+   "name": "The approval"
+  },
+  {
+   "start": 287,
+   "end": 310,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e298f8b1",
+   "type": "exclusiveGateway",
+   "name": "It can also happen that the department does not approve it"
+  },
+  {
+   "start": 311,
+   "end": 345,
+   "label": "Condition Specification",
+   "id": "Condition Specification_71413392",
+   "type": "exclusiveGateway",
+   "name": "The department does not approve it"
+  },
+  {
+   "start": 369,
+   "end": 377,
+   "label": "Activity",
+   "id": "Activity_69e0ede8",
+   "type": "task",
+   "name": "Requests a correction"
+  },
+  {
+   "start": 378,
+   "end": 390,
+   "label": "Activity Data",
+   "id": "Activity Data_2ea612b4",
+   "type": null,
+   "name": "A correction"
+  },
+  {
+   "start": 398,
+   "end": 399,
+   "label": "Actor",
+   "id": "Actor_7c53e804",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 400,
+   "end": 407,
+   "label": "Activity",
+   "id": "Activity_2e0aef26",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 408,
+   "end": 423,
+   "label": "Activity Data",
+   "id": "Activity Data_40cdc126",
+   "type": null,
+   "name": "The description"
+  },
+  {
+   "start": 428,
+   "end": 434,
+   "label": "Activity",
+   "id": "Activity_22f6baa7",
+   "type": "task",
+   "name": "Submit it"
+  },
+  {
+   "start": 435,
+   "end": 437,
+   "label": "Activity Data",
+   "id": "Activity Data_3bb9a71a",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 464,
+   "end": 466,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9c60654a",
+   "type": "exclusiveGateway",
+   "name": "If the description is finally approved"
+  },
+  {
+   "start": 467,
+   "end": 502,
+   "label": "Condition Specification",
+   "id": "Condition Specification_97b6914d",
+   "type": "exclusiveGateway",
+   "name": "The description is finally approved"
+  },
+  {
+   "start": 505,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_9f298968",
+   "type": "Lane",
+   "name": "I"
+  },
+  {
+   "start": 507,
+   "end": 511,
+   "label": "Activity",
+   "id": "Activity_02a37c67",
+   "type": "task",
+   "name": "Post the job"
+  },
+  {
+   "start": 512,
+   "end": 519,
+   "label": "Activity Data",
+   "id": "Activity Data_3d757c43",
+   "type": null,
+   "name": "The job"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 27,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Create a job description from the information",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Sometimes there is still confusion in the message",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Ask",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Sometimes there is still confusion in the message",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Ask",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Submitting the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Ask",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Submitting the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Waiting the approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "Submitting the job description",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "Waiting the approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "It can also happen that the department does not approve it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "Waiting the approval",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "It can also happen that the department does not approve it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "Requests a correction",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "It can also happen that the department does not approve it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "Requests a correction",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "Submit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "Requests a correction",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "Submit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "If the description is finally approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "Submit it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "If the description is finally approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "Post the job",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submit it",
+    "node_B": "If the description is finally approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submit it",
+    "node_B": "Post the job",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the description is finally approved",
+    "node_B": "Post the job",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Create a job description from the information",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Sometimes there is still confusion in the message",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reported a vacancy",
+    "node_B": "Ask",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Sometimes there is still confusion in the message",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Ask",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Create a job description from the information",
+    "node_B": "Submitting the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Ask",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Submitting the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sometimes there is still confusion in the message",
+    "node_B": "Waiting the approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "Submitting the job description",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "Waiting the approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ask",
+    "node_B": "It can also happen that the department does not approve it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "Waiting the approval",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "It can also happen that the department does not approve it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submitting the job description",
+    "node_B": "Requests a correction",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "It can also happen that the department does not approve it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "Requests a correction",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Waiting the approval",
+    "node_B": "Submit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "Requests a correction",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "Submit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "It can also happen that the department does not approve it",
+    "node_B": "If the description is finally approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "Submit it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "If the description is finally approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Requests a correction",
+    "node_B": "Post the job",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submit it",
+    "node_B": "If the description is finally approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submit it",
+    "node_B": "Post the job",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the description is finally approved",
+    "node_B": "Post the job",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

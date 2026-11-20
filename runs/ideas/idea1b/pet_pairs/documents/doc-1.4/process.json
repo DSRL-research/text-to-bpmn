@@ -1,0 +1,622 @@
+{
+ "structured_data": {
+  "participants": [
+   "A company",
+   "Main Process",
+   "They",
+   "Underwriters"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_43f88092",
+    "name": "Makes the decision to go public",
+    "type": "task",
+    "lane": "A company",
+    "metadata": [
+     "The underwriters"
+    ]
+   },
+   {
+    "id": "Activity_d1f7aba1",
+    "name": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4a02d7f1",
+    "name": "Check",
+    "type": "task",
+    "lane": "They",
+    "metadata": [
+     "That the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state"
+    ]
+   },
+   {
+    "id": "ParallelGateway_split_3f7d4804",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_4e0afab3",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_06173d76",
+    "name": "Awaiting approval",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_a739737e",
+    "name": "While",
+    "type": "parallelGateway",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_7079d8a2",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "Underwriters"
+   },
+   {
+    "id": "Activity_ce6b0b0a",
+    "name": "Firm up the issue price",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3b41f2c4",
+    "name": "Arrange a road show",
+    "type": "task",
+    "lane": "They",
+    "metadata": [
+     "To talk to potential investors"
+    ]
+   },
+   {
+    "id": "Activity_fc0f5d02",
+    "name": "Receive clearance",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ca3db02b",
+    "name": "Fix the issue price",
+    "type": "task",
+    "lane": "Underwriters",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b0e3a58c",
+    "name": "Enter into a firm commitment to buy the stock",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "Activity_675ffb16",
+    "name": "Offer it",
+    "type": "task",
+    "lane": "They",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "They"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_21152c37",
+    "source": "StartEvent_1",
+    "target": "Activity_43f88092",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_272e6a5b",
+    "source": "Activity_43f88092",
+    "target": "Activity_d1f7aba1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_739b86ca",
+    "source": "Activity_d1f7aba1",
+    "target": "ParallelGateway_split_3f7d4804",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0385b7dd",
+    "source": "ParallelGateway_split_3f7d4804",
+    "target": "Activity_4a02d7f1",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_3e869c24",
+    "source": "Activity_4a02d7f1",
+    "target": "ParallelGateway_join_4e0afab3",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_cea7db92",
+    "source": "ParallelGateway_split_3f7d4804",
+    "target": "Activity_06173d76",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_25ceb058",
+    "source": "Activity_06173d76",
+    "target": "ParallelGateway_join_4e0afab3",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_23238f71",
+    "source": "ParallelGateway_join_4e0afab3",
+    "target": "AND Gateway_a739737e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_afe7f90d",
+    "source": "AND Gateway_a739737e",
+    "target": "Activity_ce6b0b0a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_43330e08",
+    "source": "Activity_ce6b0b0a",
+    "target": "ParallelGateway_join_7079d8a2",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_76babe73",
+    "source": "AND Gateway_a739737e",
+    "target": "Activity_3b41f2c4",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_7f1c61d3",
+    "source": "Activity_3b41f2c4",
+    "target": "ParallelGateway_join_7079d8a2",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_08458a04",
+    "source": "ParallelGateway_join_7079d8a2",
+    "target": "Activity_fc0f5d02",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6f5a9807",
+    "source": "Activity_fc0f5d02",
+    "target": "Activity_ca3db02b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_157b29e2",
+    "source": "Activity_ca3db02b",
+    "target": "Activity_b0e3a58c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0be20139",
+    "source": "Activity_b0e3a58c",
+    "target": "Activity_675ffb16",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d6ff6373",
+    "source": "Activity_675ffb16",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 9,
+   "end": 18,
+   "label": "Actor",
+   "id": "Actor_21224e00",
+   "type": "Lane",
+   "name": "A company"
+  },
+  {
+   "start": 19,
+   "end": 24,
+   "label": "Activity",
+   "id": "Activity_43f88092",
+   "type": "task",
+   "name": "Makes the decision to go public"
+  },
+  {
+   "start": 25,
+   "end": 50,
+   "label": "Activity Data",
+   "id": "Activity Data_0f5e07b2",
+   "type": null,
+   "name": "The decision to go public"
+  },
+  {
+   "start": 74,
+   "end": 80,
+   "label": "Activity",
+   "id": "Activity_7c53f919",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 81,
+   "end": 97,
+   "label": "Activity Data",
+   "id": "Activity Data_90de80b4",
+   "type": null,
+   "name": "The underwriters"
+  },
+  {
+   "start": 605,
+   "end": 609,
+   "label": "Actor",
+   "id": "Actor_42eb1d8e",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 610,
+   "end": 617,
+   "label": "Activity",
+   "id": "Activity_d1f7aba1",
+   "type": "task",
+   "name": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )"
+  },
+  {
+   "start": 618,
+   "end": 709,
+   "label": "Activity Data",
+   "id": "Activity Data_dc0680e0",
+   "type": null,
+   "name": "A registration statement for the approval of the Securities and Exchange Commission ( SEC )"
+  },
+  {
+   "start": 764,
+   "end": 768,
+   "label": "Actor",
+   "id": "Actor_5f48fa30",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 777,
+   "end": 782,
+   "label": "Activity",
+   "id": "Activity_4a02d7f1",
+   "type": "task",
+   "name": "Check"
+  },
+  {
+   "start": 783,
+   "end": 904,
+   "label": "Further Specification",
+   "id": "Further Specification_f04fabd4",
+   "type": null,
+   "name": "That the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state"
+  },
+  {
+   "start": 907,
+   "end": 912,
+   "label": "AND Gateway",
+   "id": "AND Gateway_a739737e",
+   "type": "parallelGateway",
+   "name": "While"
+  },
+  {
+   "start": 943,
+   "end": 951,
+   "label": "Activity",
+   "id": "Activity_06173d76",
+   "type": "task",
+   "name": "Awaiting approval"
+  },
+  {
+   "start": 952,
+   "end": 960,
+   "label": "Activity Data",
+   "id": "Activity Data_1f6e2c11",
+   "type": null,
+   "name": "Approval"
+  },
+  {
+   "start": 963,
+   "end": 975,
+   "label": "Actor",
+   "id": "Actor_c400ae2c",
+   "type": "Lane",
+   "name": "Underwriters"
+  },
+  {
+   "start": 985,
+   "end": 992,
+   "label": "Activity",
+   "id": "Activity_ce6b0b0a",
+   "type": "task",
+   "name": "Firm up the issue price"
+  },
+  {
+   "start": 993,
+   "end": 1008,
+   "label": "Activity Data",
+   "id": "Activity Data_9b64df6b",
+   "type": null,
+   "name": "The issue price"
+  },
+  {
+   "start": 1011,
+   "end": 1015,
+   "label": "Actor",
+   "id": "Actor_99413172",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1016,
+   "end": 1023,
+   "label": "Activity",
+   "id": "Activity_3b41f2c4",
+   "type": "task",
+   "name": "Arrange a road show"
+  },
+  {
+   "start": 1024,
+   "end": 1035,
+   "label": "Activity Data",
+   "id": "Activity Data_678efb3e",
+   "type": null,
+   "name": "A road show"
+  },
+  {
+   "start": 1036,
+   "end": 1066,
+   "label": "Further Specification",
+   "id": "Further Specification_cb731dde",
+   "type": null,
+   "name": "To talk to potential investors"
+  },
+  {
+   "start": 1087,
+   "end": 1091,
+   "label": "Actor",
+   "id": "Actor_b55989ed",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1092,
+   "end": 1099,
+   "label": "Activity",
+   "id": "Activity_fc0f5d02",
+   "type": "task",
+   "name": "Receive clearance"
+  },
+  {
+   "start": 1100,
+   "end": 1109,
+   "label": "Activity Data",
+   "id": "Activity Data_b9a83c02",
+   "type": null,
+   "name": "Clearance"
+  },
+  {
+   "start": 1125,
+   "end": 1137,
+   "label": "Actor",
+   "id": "Actor_6b296229",
+   "type": "Lane",
+   "name": "Underwriters"
+  },
+  {
+   "start": 1138,
+   "end": 1141,
+   "label": "Activity",
+   "id": "Activity_ca3db02b",
+   "type": "task",
+   "name": "Fix the issue price"
+  },
+  {
+   "start": 1142,
+   "end": 1157,
+   "label": "Activity Data",
+   "id": "Activity Data_3f4b90f4",
+   "type": null,
+   "name": "The issue price"
+  },
+  {
+   "start": 1171,
+   "end": 1175,
+   "label": "Actor",
+   "id": "Actor_8f0f6060",
+   "type": "Lane",
+   "name": "They"
+  },
+  {
+   "start": 1176,
+   "end": 1181,
+   "label": "Activity",
+   "id": "Activity_b0e3a58c",
+   "type": "task",
+   "name": "Enter into a firm commitment to buy the stock"
+  },
+  {
+   "start": 1182,
+   "end": 1221,
+   "label": "Activity Data",
+   "id": "Activity Data_c8eb9fa8",
+   "type": null,
+   "name": "Into a firm commitment to buy the stock"
+  },
+  {
+   "start": 1231,
+   "end": 1236,
+   "label": "Activity",
+   "id": "Activity_675ffb16",
+   "type": "task",
+   "name": "Offer it"
+  },
+  {
+   "start": 1237,
+   "end": 1239,
+   "label": "Activity Data",
+   "id": "Activity Data_87823a8d",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 1243,
+   "end": 1253,
+   "label": "Actor",
+   "id": "Actor_5d2cc734",
+   "type": "Lane",
+   "name": "The public"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Makes the decision to go public",
+    "node_B": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Makes the decision to go public",
+    "node_B": "Check",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Makes the decision to go public",
+    "node_B": "While",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "node_B": "Check",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "node_B": "While",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC )",
+    "node_B": "Awaiting approval",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check",
+    "node_B": "While",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check",
+    "node_B": "Awaiting approval",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check",
+    "node_B": "Firm up the issue price",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Firm up the issue price",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Arrange a road show",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Receive clearance",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receive clearance",
+    "node_B": "Fix the issue price",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receive clearance",
+    "node_B": "Enter into a firm commitment to buy the stock",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receive clearance",
+    "node_B": "Offer it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Fix the issue price",
+    "node_B": "Enter into a firm commitment to buy the stock",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Fix the issue price",
+    "node_B": "Offer it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Enter into a firm commitment to buy the stock",
+    "node_B": "Offer it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

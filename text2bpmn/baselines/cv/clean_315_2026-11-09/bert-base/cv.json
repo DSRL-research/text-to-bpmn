@@ -1,0 +1,150 @@
+{
+  "kind": "bert",
+  "base": "bert-base-cased",
+  "name": "bert-base",
+  "epochs": 8,
+  "seed": 42,
+  "warmup_ratio": 0.0,
+  "seed_before_model": true,
+  "folds_definition_file": "text2bpmn/baselines/cv_folds.json",
+  "records": "pet_train.json",
+  "threshold": null,
+  "labels": [
+    "AND Gateway",
+    "Activity",
+    "Activity Data",
+    "Actor",
+    "Condition Specification",
+    "Further Specification",
+    "XOR Gateway"
+  ],
+  "folds_definition": {
+    "source": "pet_train.json",
+    "sentences_total": 375,
+    "development_sentences_excluded": 60,
+    "sentences_in_folds": 315,
+    "documents": 38,
+    "seed": 20261002,
+    "folds": 5,
+    "grouping": "by document name, round robin over a seeded shuffle",
+    "why_grouped": "a document's sentences share wording and actors, so splitting one across train and test would leak",
+    "why_dev_excluded": "the epoch budget is chosen on the development split; a dev sentence inside a held-out fold would be selection on test data",
+    "fold_sizes": [
+      60,
+      44,
+      85,
+      62,
+      64
+    ]
+  },
+  "strict_micro_f1": {
+    "mean": 0.649,
+    "sd": 0.075,
+    "folds": [
+      0.577,
+      0.758,
+      0.578,
+      0.663,
+      0.67
+    ]
+  },
+  "relaxed_micro_f1": {
+    "mean": 0.732,
+    "sd": 0.075,
+    "folds": [
+      0.67,
+      0.835,
+      0.651,
+      0.766,
+      0.739
+    ]
+  },
+  "per_fold": [
+    {
+      "fold": 0,
+      "train": 255,
+      "test": 60,
+      "strict_micro_f1": 0.577,
+      "relaxed_micro_f1": 0.67,
+      "strict_per_label": {
+        "AND Gateway": 0.0,
+        "Activity": 0.568,
+        "Activity Data": 0.509,
+        "Actor": 0.73,
+        "Condition Specification": 0.312,
+        "Further Specification": 0.19,
+        "XOR Gateway": 0.957
+      },
+      "minutes": 6.7
+    },
+    {
+      "fold": 1,
+      "train": 271,
+      "test": 44,
+      "strict_micro_f1": 0.758,
+      "relaxed_micro_f1": 0.835,
+      "strict_per_label": {
+        "AND Gateway": 0.0,
+        "Activity": 0.705,
+        "Activity Data": 0.746,
+        "Actor": 0.846,
+        "Condition Specification": 0.222,
+        "Further Specification": 0.0,
+        "XOR Gateway": 0.897
+      },
+      "minutes": 14.0
+    },
+    {
+      "fold": 2,
+      "train": 230,
+      "test": 85,
+      "strict_micro_f1": 0.578,
+      "relaxed_micro_f1": 0.651,
+      "strict_per_label": {
+        "AND Gateway": 0.0,
+        "Activity": 0.611,
+        "Activity Data": 0.552,
+        "Actor": 0.628,
+        "Condition Specification": 0.611,
+        "Further Specification": 0.0,
+        "XOR Gateway": 0.727
+      },
+      "minutes": 20.7
+    },
+    {
+      "fold": 3,
+      "train": 253,
+      "test": 62,
+      "strict_micro_f1": 0.663,
+      "relaxed_micro_f1": 0.766,
+      "strict_per_label": {
+        "AND Gateway": 0.0,
+        "Activity": 0.655,
+        "Activity Data": 0.667,
+        "Actor": 0.778,
+        "Condition Specification": 0.581,
+        "Further Specification": 0.0,
+        "XOR Gateway": 0.489
+      },
+      "minutes": 27.6
+    },
+    {
+      "fold": 4,
+      "train": 251,
+      "test": 64,
+      "strict_micro_f1": 0.67,
+      "relaxed_micro_f1": 0.739,
+      "strict_per_label": {
+        "AND Gateway": 0.0,
+        "Activity": 0.725,
+        "Activity Data": 0.658,
+        "Actor": 0.788,
+        "Condition Specification": 0.514,
+        "Further Specification": 0.0,
+        "XOR Gateway": 0.622
+      },
+      "minutes": 34.4
+    }
+  ],
+  "minutes": 34.4
+}

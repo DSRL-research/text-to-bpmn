@@ -1,0 +1,461 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The GO",
+      "The MSPO"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_e5d824dc",
+        "name": "Deregisters",
+        "type": "task",
+        "lane": "The MSPO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_495d919f",
+        "name": "Verifies the deregistration",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_042fb505",
+        "name": "Rejects the deregistration of the MSPO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_034922dc",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3a444750",
+        "name": "Confirms the deregistration of the MSPO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3a579511",
+        "name": "Assigns the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5a26d75b",
+        "name": "Informs",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e50c02ee",
+        "name": "Informs about the assignment of the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "Activity_bbf9ab4c",
+        "name": "Informs about the assignment of the GO",
+        "type": "task",
+        "lane": "The GO",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The GO"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_e5d824dc",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_e5d824dc",
+        "target": "Activity_495d919f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_495d919f",
+        "target": "Activity_042fb505",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_042fb505",
+        "target": "XOR Gateway_034922dc",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_034922dc",
+        "target": "Activity_3a444750",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_3a444750",
+        "target": "Activity_3a579511",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_034922dc",
+        "target": "Activity_3a579511",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_3a579511",
+        "target": "Activity_5a26d75b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_5a26d75b",
+        "target": "Activity_e50c02ee",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_e50c02ee",
+        "target": "Activity_bbf9ab4c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Activity_bbf9ab4c",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 13
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 8,
+      "label": "Actor",
+      "id": "Actor_20c220dc",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 9,
+      "end": 20,
+      "label": "Activity",
+      "id": "Activity_e5d824dc",
+      "type": "task",
+      "name": "Deregisters"
+    },
+    {
+      "start": 24,
+      "end": 30,
+      "label": "Actor",
+      "id": "Actor_2617f1f8",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 33,
+      "end": 39,
+      "label": "Actor",
+      "id": "Actor_e84b7be3",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 40,
+      "end": 48,
+      "label": "Activity",
+      "id": "Activity_495d919f",
+      "type": "task",
+      "name": "Verifies the deregistration"
+    },
+    {
+      "start": 49,
+      "end": 67,
+      "label": "Activity Data",
+      "id": "Activity Data_37998bc8",
+      "type": null,
+      "name": "The deregistration"
+    },
+    {
+      "start": 70,
+      "end": 76,
+      "label": "Actor",
+      "id": "Actor_6d6faf98",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 77,
+      "end": 84,
+      "label": "Activity",
+      "id": "Activity_042fb505",
+      "type": "task",
+      "name": "Rejects the deregistration of the MSPO"
+    },
+    {
+      "start": 85,
+      "end": 115,
+      "label": "Activity Data",
+      "id": "Activity Data_fbb7217a",
+      "type": null,
+      "name": "The deregistration of the MSPO"
+    },
+    {
+      "start": 116,
+      "end": 118,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_034922dc",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 119,
+      "end": 125,
+      "label": "Actor",
+      "id": "Actor_6d3536cd",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 140,
+      "end": 148,
+      "label": "Activity",
+      "id": "Activity_3a444750",
+      "type": "task",
+      "name": "Confirms the deregistration of the MSPO"
+    },
+    {
+      "start": 149,
+      "end": 179,
+      "label": "Activity Data",
+      "id": "Activity Data_d28b4ed2",
+      "type": null,
+      "name": "The deregistration of the MSPO"
+    },
+    {
+      "start": 182,
+      "end": 188,
+      "label": "Actor",
+      "id": "Actor_9e1791e2",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 189,
+      "end": 196,
+      "label": "Activity",
+      "id": "Activity_3a579511",
+      "type": "task",
+      "name": "Assigns the GO"
+    },
+    {
+      "start": 197,
+      "end": 203,
+      "label": "Activity Data",
+      "id": "Activity Data_1035b522",
+      "type": null,
+      "name": "The GO"
+    },
+    {
+      "start": 213,
+      "end": 219,
+      "label": "Actor",
+      "id": "Actor_6320fdee",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 220,
+      "end": 227,
+      "label": "Activity",
+      "id": "Activity_5a26d75b",
+      "type": "task",
+      "name": "Informs"
+    },
+    {
+      "start": 228,
+      "end": 236,
+      "label": "Actor",
+      "id": "Actor_85565551",
+      "type": "Lane",
+      "name": "The MSPO"
+    },
+    {
+      "start": 317,
+      "end": 323,
+      "label": "Actor",
+      "id": "Actor_5f520a24",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 324,
+      "end": 331,
+      "label": "Activity",
+      "id": "Activity_e50c02ee",
+      "type": "task",
+      "name": "Informs about the assignment of the GO"
+    },
+    {
+      "start": 332,
+      "end": 339,
+      "label": "Actor",
+      "id": "Actor_6c3104ac",
+      "type": "Lane",
+      "name": "The MPO"
+    },
+    {
+      "start": 340,
+      "end": 370,
+      "label": "Activity Data",
+      "id": "Activity Data_cca300a9",
+      "type": null,
+      "name": "About the assignment of the GO"
+    },
+    {
+      "start": 373,
+      "end": 379,
+      "label": "Actor",
+      "id": "Actor_bd1ccd1e",
+      "type": "Lane",
+      "name": "The GO"
+    },
+    {
+      "start": 380,
+      "end": 387,
+      "label": "Activity",
+      "id": "Activity_bbf9ab4c",
+      "type": "task",
+      "name": "Informs about the assignment of the GO"
+    },
+    {
+      "start": 388,
+      "end": 394,
+      "label": "Actor",
+      "id": "Actor_abf079f0",
+      "type": "Lane",
+      "name": "The SP"
+    },
+    {
+      "start": 395,
+      "end": 425,
+      "label": "Activity Data",
+      "id": "Activity Data_3fadbf94",
+      "type": null,
+      "name": "About the assignment of the GO"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Or",
+        "node_B": "Confirms the deregistration of the MSPO | Assigns the GO | Informs | Informs about the assignment of the GO | Informs about the assignment of the GO",
+        "label": "yes after after after after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T09:10:14+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

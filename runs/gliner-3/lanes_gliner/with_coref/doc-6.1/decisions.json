@@ -1,0 +1,33 @@
+{
+  "calls": 4,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+    {
+      "node_A": "Should everything be in order",
+      "node_B": "Notes | Returns the copy of the invoice | Passed on the copy of the invoice | decision: Or | decision: If all items are marked correct | Sent back | Move the copy of invoice | decision: If inconsistencies exist | decision: Because the ordered product is not of the expected quantity or quality | Rejects the AP",
+      "label": "yes yes yes same same yes yes same same no",
+      "source": "llm"
+    },
+    {
+      "node_A": "If",
+      "node_B": "Consults | Sent the copy of the invoice | Makes the commercial audit | Issues the approval for payment | decision: If the bill amount exceeds EUR 20 | Check the bill amount | Moves back the copy of the invoice including the docket | decision: Should | Resolved a complaint | Gives payment instructions",
+      "label": "yes after after after after after after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "If the bill amount exceeds EUR 20",
+      "node_B": "Check the bill amount | Moves back the copy of the invoice including the docket | decision: Should | Resolved a complaint | Gives payment instructions | Closes the instance",
+      "label": "yes yes after after after after",
+      "source": "llm"
+    },
+    {
+      "node_A": "Should",
+      "node_B": "Resolved a complaint | Gives payment instructions | Closes the instance",
+      "label": "yes after after",
+      "source": "llm"
+    }
+  ]
+}

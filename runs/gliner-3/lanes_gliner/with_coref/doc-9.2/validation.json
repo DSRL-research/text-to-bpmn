@@ -1,0 +1,34 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 2,
+    "split/join": 1,
+    "lanes": 2
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'If' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'If no answer is received after 2 weeks' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'End'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The Customer Service Representative' -> 'Customer Service Representative'"
+    },
+    {
+      "rule": "lanes",
+      "change": "'Start' in 'Main Process', which holds no task -> 'Customer Service Representative'"
+    }
+  ]
+}

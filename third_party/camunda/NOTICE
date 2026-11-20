@@ -1,0 +1,77 @@
+Camunda "BPMN for Research" material in this repository
+=========================================================
+
+Source:  https://github.com/camunda/bpmn-for-research
+Commit:  1416f6f2104ae597eafa3097946140ebc2136a53 (master, 2015-12-19; the
+         dispatch-of-goods files last changed in
+         808de6d65ecf69e6ac46a41545cfa8117c56dd00, 2015-11-10)
+
+Terms of use, verbatim from that repository's README.md:
+
+    The content of this repository can be used for academic and research
+    purposes only. It is mandatory that the link to this repository as a
+    source of the diagrams is kept in all usage scenarios. Commercial use of
+    the content of this repository is not allowed.
+
+The repository has no licence file (GitHub reports none; checked 2026-11-17).
+
+The files listed below are NOT covered by this repository's licence (LICENSE,
+MIT). They remain under Camunda's terms above: academic and research use only,
+no commercial use, and the link https://github.com/camunda/bpmn-for-research
+kept with them.
+
+
+1. Copied unchanged
+
+text2bpmn/cases/goods_dispatch/reference.bpmn
+    = BPMN for Research/English/01-Dispatch-of-goods/03-Solution/Dispatch-of-goods.bpmn
+    byte-identical, SHA-256
+    bae9ed647ee86d46a8389d1099d06857aa0aee12181cb01ae4ac449e8b198436
+    (git blob bbd7bb0553f00b5a34a033201595353246583498). The exercise's model
+    solution; the reference model of the goods dispatch case study.
+
+third_party/camunda/dispatch-of-goods_exercise.txt
+    The exercise text, verbatim: the text of
+    BPMN for Research/English/01-Dispatch-of-goods/01-Exercise/dispatch of goods - exercise.pdf
+    (SHA-256 1500eeb0fcc6627b43274d4a0c12997190e44bfe76233e3b82e49ea252859361),
+    with its headings, its line breaks inside paragraphs joined. The same
+    words as site/pages/en/exercises/01-Dispatch-of-goods.md, lines 15-20, at
+    the same commit.
+
+
+2. Adapted
+
+text2bpmn/cases/goods_dispatch/input.txt
+    The exercise text of 1, reworded; the pipeline's input for the case study.
+    It differs from the exercise text in these places:
+    - "In the meantime the goods can be already packaged by the warehousemen."
+      is moved to second place and begins "In parallel,";
+    - "Therefore a package label is written by the secretary and a parcel
+      insurance taken by ..." reads "In the same time, a package label is
+      written by the secretary, and a parcel insurance is taken by ...";
+    - "If everything is ready," reads "If everything is ready and merged,";
+    - the "Background" paragraph is left out, and so are the headings
+      ("exercise 1", "Dispatch of Goods", "Please model the following
+      process").
+
+
+3. Derived from 1 and 2
+
+- the pipeline's outputs on the text of 2, which repeat parts of it: the
+  goods_dispatch folders under runs/ (extraction.json, model.bpmn,
+  ontology.owl, log.txt and the run records), the goods_dispatch entries of
+  the reports under runs/checks/, and
+  runs/checks/final-3/open_analyses/concurrency_prompt_goods_dispatch.*;
+- the drawings of the model of 1 and of the generated model,
+  figures/section_4_6/goods_dispatch_reference.* and
+  figures/section_4_6/goods_dispatch_generated.*, made by text2bpmn.render.
+
+
+To check the copy
+
+    git clone https://github.com/camunda/bpmn-for-research
+    git -C bpmn-for-research checkout 1416f6f2104ae597eafa3097946140ebc2136a53
+    sha256sum "bpmn-for-research/BPMN for Research/English/01-Dispatch-of-goods/03-Solution/Dispatch-of-goods.bpmn" \
+              text2bpmn/cases/goods_dispatch/reference.bpmn
+
+text2bpmn/tests/test_third_party.py checks the second checksum.

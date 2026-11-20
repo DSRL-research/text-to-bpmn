@@ -1,0 +1,71 @@
+
+--- Processing Input ---
+   (Debug) Injected 30 spans from PET gold spans
+   (Debug) Injected text: The process starts when a customer submits a claim by sending in relevant documentation . The Notification department at the car insurer checks the documents upon completeness and registers the claim . Then , the Handling department picks up the claim and checks the insurance . Then , an assessment is performed . If the assessment is positive , a garage is phoned to authorise the repairs and the payment is scheduled ( in this order ) . Otherwise , the claim is rejected . In any case ( whether the outcome is positive or negative ) , a letter is sent to the customer and the process is considered to be complete .
+   (Debug) Raw Entities: ['a customer', 'submits', 'a claim', 'by sending in relevant documentation', 'The Notification department', 'checks', 'the documents', 'upon completeness', 'registers', 'the claim', 'the Handling department', 'picks up', 'the claim', 'checks', 'the insurance', 'an assessment', 'performed', 'If', 'the assessment is positive', 'a garage', 'phoned', 'to authorise the repairs', 'the payment', 'scheduled', 'Otherwise', 'the claim', 'rejected', 'a letter', 'sent', 'the customer']
+
+--- Split Entities ---
+[{'entity_group': 'Actor', 'word': 'a customer', 'start': 24, 'end': 34, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'submits', 'start': 35, 'end': 42, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a claim', 'start': 43, 'end': 50, 'score': 1.0}, {'entity_group': 'Further Specification', 'word': 'by sending in relevant documentation', 'start': 51, 'end': 87, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The Notification department', 'start': 90, 'end': 117, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'checks', 'start': 137, 'end': 143, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the documents', 'start': 144, 'end': 157, 'score': 1.0}, {'entity_group': 'Further Specification', 'word': 'upon completeness', 'start': 158, 'end': 175, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'registers', 'start': 180, 'end': 189, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the claim', 'start': 190, 'end': 199, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the Handling department', 'start': 209, 'end': 232, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'picks up', 'start': 233, 'end': 241, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the claim', 'start': 242, 'end': 251, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'checks', 'start': 256, 'end': 262, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the insurance', 'start': 263, 'end': 276, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'an assessment', 'start': 286, 'end': 299, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'performed', 'start': 303, 'end': 312, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'If', 'start': 315, 'end': 317, 'score': 1.0}, {'entity_group': 'Condition Specification', 'word': 'the assessment is positive', 'start': 318, 'end': 344, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'a garage', 'start': 347, 'end': 355, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'phoned', 'start': 359, 'end': 365, 'score': 1.0}, {'entity_group': 'Further Specification', 'word': 'to authorise the repairs', 'start': 366, 'end': 390, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the payment', 'start': 395, 'end': 406, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'scheduled', 'start': 410, 'end': 419, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'Otherwise', 'start': 440, 'end': 449, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the claim', 'start': 452, 'end': 461, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'rejected', 'start': 465, 'end': 473, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'a letter', 'start': 538, 'end': 546, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'sent', 'start': 550, 'end': 554, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the customer', 'start': 558, 'end': 570, 'score': 1.0}]
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 1/1: {'node_A': 'Submits a claim', 'node_B': 'Checks the documents', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 2/2: {'node_A': 'Submits a claim', 'node_B': 'Registers the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 3/3: {'node_A': 'Submits a claim', 'node_B': 'Picks up the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 4/4: {'node_A': 'Checks the documents', 'node_B': 'Registers the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 5/5: {'node_A': 'Checks the documents', 'node_B': 'Picks up the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 6/6: {'node_A': 'Checks the documents', 'node_B': 'Checks the insurance', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 7/7: {'node_A': 'Registers the claim', 'node_B': 'Picks up the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 8/8: {'node_A': 'Registers the claim', 'node_B': 'Checks the insurance', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 9/9: {'node_A': 'Registers the claim', 'node_B': 'Performed an assessment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 10/10: {'node_A': 'Picks up the claim', 'node_B': 'Checks the insurance', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 11/11: {'node_A': 'Picks up the claim', 'node_B': 'Performed an assessment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 12/12: {'node_A': 'Picks up the claim', 'node_B': 'If the assessment is positive', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 13/13: {'node_A': 'Checks the insurance', 'node_B': 'Performed an assessment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 14/14: {'node_A': 'Checks the insurance', 'node_B': 'If the assessment is positive', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 15/15: {'node_A': 'Checks the insurance', 'node_B': 'Phoned', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 16/16: {'node_A': 'Performed an assessment', 'node_B': 'If the assessment is positive', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 17/17: {'node_A': 'Performed an assessment', 'node_B': 'Phoned', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 18/18: {'node_A': 'Performed an assessment', 'node_B': 'Scheduled the payment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 19/19: {'node_A': 'If the assessment is positive', 'node_B': 'Phoned', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 20/20: {'node_A': 'If the assessment is positive', 'node_B': 'Scheduled the payment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 21/21: {'node_A': 'If the assessment is positive', 'node_B': 'Otherwise', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 22/22: {'node_A': 'Phoned', 'node_B': 'Scheduled the payment', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 23/23: {'node_A': 'Phoned', 'node_B': 'Otherwise', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 24/24: {'node_A': 'Phoned', 'node_B': 'Rejected the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 25/25: {'node_A': 'Scheduled the payment', 'node_B': 'Otherwise', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 26/26: {'node_A': 'Scheduled the payment', 'node_B': 'Rejected the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 27/27: {'node_A': 'Scheduled the payment', 'node_B': 'Sent a letter', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 28/28: {'node_A': 'Otherwise', 'node_B': 'Rejected the claim', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 29/29: {'node_A': 'Otherwise', 'node_B': 'Sent a letter', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+DSPy Error: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 30/30: {'node_A': 'Rejected the claim', 'node_B': 'Sent a letter', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+   💾 Saved Enriched Ontology to runs/final-3/pet_no_llm/documents/doc-3.8/ontology.owl: {'StartEvent': 1, 'Task': 10, 'ExclusiveGateway': 2, 'EndEvent': 1}, relations {'SEQUENCE': 14}, 4 actors
+✅ Ontology Enrichment Complete: runs/final-3/pet_no_llm/documents/doc-3.8/ontology.owl
+   Relation parse failures: 30/30

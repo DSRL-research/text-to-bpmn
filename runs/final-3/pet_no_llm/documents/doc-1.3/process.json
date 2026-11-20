@@ -1,0 +1,955 @@
+{
+ "structured_data": {
+  "participants": [
+   "A guest",
+   "Main Process",
+   "Room service",
+   "She",
+   "The kitchen",
+   "The room-service manager",
+   "The sommelier",
+   "The waiter"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_a2752e19",
+    "name": "Calls",
+    "type": "task",
+    "lane": "A guest",
+    "metadata": []
+   },
+   {
+    "id": "Activity_69391384",
+    "name": "Takes down the order",
+    "type": "task",
+    "lane": "The room-service manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a5a5c4ec",
+    "name": "Submits an order ticket",
+    "type": "task",
+    "lane": "She",
+    "metadata": [
+     "To begin preparing the food"
+    ]
+   },
+   {
+    "id": "Activity_25551aee",
+    "name": "Gives an order",
+    "type": "task",
+    "lane": "She",
+    "metadata": [
+     "To fetch wine from the cellar and to prepare any other alcoholic beverages"
+    ]
+   },
+   {
+    "id": "Activity_fc4f9c34",
+    "name": "Assigns the order",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_6c86d5fc",
+    "name": "While",
+    "type": "parallelGateway",
+    "lane": "The kitchen",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9b1035a8",
+    "name": "Doing their tasks",
+    "type": "task",
+    "lane": "The sommelier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_99ba9120",
+    "name": "Readies a cart",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b9385d4c",
+    "name": "Delivers it",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ec027f0d",
+    "name": "Returning",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": [
+     "To the room-service station"
+    ]
+   },
+   {
+    "id": "Activity_6af82bf2",
+    "name": "Debits the guest ’ s account",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f0810308",
+    "name": "Wait to do the billing",
+    "type": "task",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_532de061",
+    "name": "If he has another order to prepare or deliver",
+    "type": "exclusiveGateway",
+    "lane": "The waiter",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The waiter"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_56a0fe9a",
+    "source": "StartEvent_1",
+    "target": "Activity_a2752e19",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e37bb192",
+    "source": "Activity_a2752e19",
+    "target": "Activity_69391384",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2a3a4670",
+    "source": "Activity_69391384",
+    "target": "Activity_a5a5c4ec",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b7cd843a",
+    "source": "Activity_a5a5c4ec",
+    "target": "Activity_25551aee",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b64dc7bf",
+    "source": "Activity_25551aee",
+    "target": "Activity_fc4f9c34",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d32756c7",
+    "source": "Activity_fc4f9c34",
+    "target": "AND Gateway_6c86d5fc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_98b0c8c0",
+    "source": "AND Gateway_6c86d5fc",
+    "target": "Activity_9b1035a8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7714dfc7",
+    "source": "Activity_9b1035a8",
+    "target": "Activity_99ba9120",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f4fccd3c",
+    "source": "Activity_99ba9120",
+    "target": "Activity_b9385d4c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1360b55f",
+    "source": "Activity_b9385d4c",
+    "target": "Activity_ec027f0d",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_09781fa1",
+    "source": "Activity_ec027f0d",
+    "target": "Activity_6af82bf2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8dfe1ce7",
+    "source": "Activity_6af82bf2",
+    "target": "Activity_f0810308",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cb2b3b08",
+    "source": "Activity_f0810308",
+    "target": "XOR Gateway_532de061",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_44c0952f",
+    "source": "XOR Gateway_532de061",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 55,
+   "end": 62,
+   "label": "Actor",
+   "id": "Actor_aea7e1ab",
+   "type": "Lane",
+   "name": "A guest"
+  },
+  {
+   "start": 63,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_a2752e19",
+   "type": "task",
+   "name": "Calls"
+  },
+  {
+   "start": 69,
+   "end": 81,
+   "label": "Actor",
+   "id": "Actor_a29d7ea5",
+   "type": "Lane",
+   "name": "Room service"
+  },
+  {
+   "start": 103,
+   "end": 127,
+   "label": "Actor",
+   "id": "Actor_de3eb427",
+   "type": "Lane",
+   "name": "The room-service manager"
+  },
+  {
+   "start": 128,
+   "end": 138,
+   "label": "Activity",
+   "id": "Activity_69391384",
+   "type": "task",
+   "name": "Takes down the order"
+  },
+  {
+   "start": 139,
+   "end": 148,
+   "label": "Activity Data",
+   "id": "Activity Data_504c31db",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 151,
+   "end": 154,
+   "label": "Actor",
+   "id": "Actor_c9f567da",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 160,
+   "end": 167,
+   "label": "Activity",
+   "id": "Activity_a5a5c4ec",
+   "type": "task",
+   "name": "Submits an order ticket"
+  },
+  {
+   "start": 168,
+   "end": 183,
+   "label": "Activity Data",
+   "id": "Activity Data_4a887d08",
+   "type": null,
+   "name": "An order ticket"
+  },
+  {
+   "start": 187,
+   "end": 198,
+   "label": "Actor",
+   "id": "Actor_0be6347f",
+   "type": "Lane",
+   "name": "The kitchen"
+  },
+  {
+   "start": 199,
+   "end": 226,
+   "label": "Further Specification",
+   "id": "Further Specification_5a8c6061",
+   "type": null,
+   "name": "To begin preparing the food"
+  },
+  {
+   "start": 229,
+   "end": 232,
+   "label": "Actor",
+   "id": "Actor_06a6e5c7",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 238,
+   "end": 243,
+   "label": "Activity",
+   "id": "Activity_25551aee",
+   "type": "task",
+   "name": "Gives an order"
+  },
+  {
+   "start": 244,
+   "end": 252,
+   "label": "Activity Data",
+   "id": "Activity Data_f84cc9b1",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 256,
+   "end": 269,
+   "label": "Actor",
+   "id": "Actor_98117069",
+   "type": "Lane",
+   "name": "The sommelier"
+  },
+  {
+   "start": 298,
+   "end": 372,
+   "label": "Further Specification",
+   "id": "Further Specification_019b1edb",
+   "type": null,
+   "name": "To fetch wine from the cellar and to prepare any other alcoholic beverages"
+  },
+  {
+   "start": 471,
+   "end": 474,
+   "label": "Actor",
+   "id": "Actor_6ac67732",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 475,
+   "end": 482,
+   "label": "Activity",
+   "id": "Activity_fc4f9c34",
+   "type": "task",
+   "name": "Assigns the order"
+  },
+  {
+   "start": 483,
+   "end": 492,
+   "label": "Activity Data",
+   "id": "Activity Data_75fd16bb",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 496,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_4c21daab",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 509,
+   "end": 514,
+   "label": "AND Gateway",
+   "id": "AND Gateway_6c86d5fc",
+   "type": "parallelGateway",
+   "name": "While"
+  },
+  {
+   "start": 515,
+   "end": 526,
+   "label": "Actor",
+   "id": "Actor_91e9209d",
+   "type": "Lane",
+   "name": "The kitchen"
+  },
+  {
+   "start": 531,
+   "end": 544,
+   "label": "Actor",
+   "id": "Actor_03c20770",
+   "type": "Lane",
+   "name": "The sommelier"
+  },
+  {
+   "start": 549,
+   "end": 554,
+   "label": "Activity",
+   "id": "Activity_9b1035a8",
+   "type": "task",
+   "name": "Doing their tasks"
+  },
+  {
+   "start": 555,
+   "end": 566,
+   "label": "Activity Data",
+   "id": "Activity Data_e3d88295",
+   "type": null,
+   "name": "Their tasks"
+  },
+  {
+   "start": 569,
+   "end": 579,
+   "label": "Actor",
+   "id": "Actor_19daf73d",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 580,
+   "end": 587,
+   "label": "Activity",
+   "id": "Activity_99ba9120",
+   "type": "task",
+   "name": "Readies a cart"
+  },
+  {
+   "start": 588,
+   "end": 594,
+   "label": "Activity Data",
+   "id": "Activity Data_1425c37f",
+   "type": null,
+   "name": "A cart"
+  },
+  {
+   "start": 763,
+   "end": 773,
+   "label": "Actor",
+   "id": "Actor_1d658b47",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 774,
+   "end": 782,
+   "label": "Activity",
+   "id": "Activity_b9385d4c",
+   "type": "task",
+   "name": "Delivers it"
+  },
+  {
+   "start": 783,
+   "end": 785,
+   "label": "Activity Data",
+   "id": "Activity Data_b1dc1f2a",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 789,
+   "end": 807,
+   "label": "Actor",
+   "id": "Actor_365f3bb9",
+   "type": "Lane",
+   "name": "The guest ’ s room"
+  },
+  {
+   "start": 816,
+   "end": 825,
+   "label": "Activity",
+   "id": "Activity_ec027f0d",
+   "type": "task",
+   "name": "Returning"
+  },
+  {
+   "start": 826,
+   "end": 853,
+   "label": "Further Specification",
+   "id": "Further Specification_86daf311",
+   "type": null,
+   "name": "To the room-service station"
+  },
+  {
+   "start": 856,
+   "end": 866,
+   "label": "Actor",
+   "id": "Actor_4ae8daa5",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 867,
+   "end": 873,
+   "label": "Activity",
+   "id": "Activity_6af82bf2",
+   "type": "task",
+   "name": "Debits the guest ’ s account"
+  },
+  {
+   "start": 874,
+   "end": 895,
+   "label": "Activity Data",
+   "id": "Activity Data_73c1f21a",
+   "type": null,
+   "name": "The guest ’ s account"
+  },
+  {
+   "start": 898,
+   "end": 908,
+   "label": "Actor",
+   "id": "Actor_13c60119",
+   "type": "Lane",
+   "name": "The waiter"
+  },
+  {
+   "start": 913,
+   "end": 917,
+   "label": "Activity",
+   "id": "Activity_f0810308",
+   "type": "task",
+   "name": "Wait to do the billing"
+  },
+  {
+   "start": 918,
+   "end": 935,
+   "label": "Activity Data",
+   "id": "Activity Data_ce306845",
+   "type": null,
+   "name": "To do the billing"
+  },
+  {
+   "start": 936,
+   "end": 938,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_532de061",
+   "type": "exclusiveGateway",
+   "name": "If he has another order to prepare or deliver"
+  },
+  {
+   "start": 939,
+   "end": 981,
+   "label": "Condition Specification",
+   "id": "Condition Specification_2797073c",
+   "type": "exclusiveGateway",
+   "name": "He has another order to prepare or deliver"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 33,
+  "skipped": 0,
+  "failures": 33,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Calls",
+    "node_B": "Takes down the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calls",
+    "node_B": "Submits an order ticket",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Calls",
+    "node_B": "Gives an order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Submits an order ticket",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Gives an order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Assigns the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "Gives an order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "Assigns the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "While",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "Assigns the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "While",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "Doing their tasks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "While",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "Doing their tasks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "Readies a cart",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "While",
+    "node_B": "Doing their tasks",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "While",
+    "node_B": "Readies a cart",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "While",
+    "node_B": "Delivers it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Readies a cart",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Delivers it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Returning",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Delivers it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Returning",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Debits the guest ’ s account",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Returning",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Debits the guest ’ s account",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Wait to do the billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "Debits the guest ’ s account",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "Wait to do the billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "If he has another order to prepare or deliver",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Debits the guest ’ s account",
+    "node_B": "Wait to do the billing",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Debits the guest ’ s account",
+    "node_B": "If he has another order to prepare or deliver",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Wait to do the billing",
+    "node_B": "If he has another order to prepare or deliver",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Calls",
+    "node_B": "Takes down the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calls",
+    "node_B": "Submits an order ticket",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Calls",
+    "node_B": "Gives an order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Submits an order ticket",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Gives an order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Takes down the order",
+    "node_B": "Assigns the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "Gives an order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "Assigns the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits an order ticket",
+    "node_B": "While",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "Assigns the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "While",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Gives an order",
+    "node_B": "Doing their tasks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "While",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "Doing their tasks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns the order",
+    "node_B": "Readies a cart",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Doing their tasks",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Readies a cart",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "While",
+    "node_B": "Delivers it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Readies a cart",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Delivers it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Doing their tasks",
+    "node_B": "Returning",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Delivers it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Returning",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Readies a cart",
+    "node_B": "Debits the guest ’ s account",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Returning",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Debits the guest ’ s account",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Delivers it",
+    "node_B": "Wait to do the billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "Debits the guest ’ s account",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "Wait to do the billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returning",
+    "node_B": "If he has another order to prepare or deliver",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Debits the guest ’ s account",
+    "node_B": "Wait to do the billing",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Debits the guest ’ s account",
+    "node_B": "If he has another order to prepare or deliver",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Wait to do the billing",
+    "node_B": "If he has another order to prepare or deliver",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

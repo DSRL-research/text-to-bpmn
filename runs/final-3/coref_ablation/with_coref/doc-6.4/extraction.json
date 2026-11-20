@@ -1,0 +1,814 @@
+{
+  "structured_data": {
+    "participants": [
+      "A pre-sales",
+      "A sales representative",
+      "Main Process",
+      "Our marketing staff",
+      "Pre-sales employee",
+      "The call center staff",
+      "The customer",
+      "The head of development",
+      "We",
+      "You"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_847e847a",
+        "name": "Determine contact details",
+        "type": "task",
+        "lane": "Main Process",
+        "metadata": []
+      },
+      {
+        "id": "Activity_df97ebbf",
+        "name": "Buy details for cold calls",
+        "type": "task",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Activity_ead9d6c4",
+        "name": "Participates in exhibitions",
+        "type": "task",
+        "lane": "Our marketing staff",
+        "metadata": []
+      },
+      {
+        "id": "Activity_5787dec4",
+        "name": "Know somebody",
+        "type": "task",
+        "lane": "You",
+        "metadata": [
+          "Who"
+        ]
+      },
+      {
+        "id": "Activity_ef23b89d",
+        "name": "Calling",
+        "type": "task",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1b243f54",
+        "name": "Determining the contact person",
+        "type": "task",
+        "lane": "The call center staff",
+        "metadata": [
+          "The budget"
+        ]
+      },
+      {
+        "id": "Activity_4c4335a3",
+        "name": "Asking",
+        "type": "task",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "Condition Specification_0bdd58d0",
+        "name": "Is generally interested",
+        "type": "exclusiveGateway",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e1931948",
+        "name": "Leave",
+        "type": "task",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Activity_fcdbb1f5",
+        "name": "Acquire the customer",
+        "type": "task",
+        "lane": "The head of development",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_4a154c13",
+        "name": "If the customer is interested in the end",
+        "type": "exclusiveGateway",
+        "lane": "The head of development",
+        "metadata": []
+      },
+      {
+        "id": "Activity_8d88ce6c",
+        "name": "Given a detailed online presentation",
+        "type": "task",
+        "lane": "A sales representative",
+        "metadata": [
+          "Detailed online presentation"
+        ]
+      },
+      {
+        "id": "Activity_576314e1",
+        "name": "Waiting",
+        "type": "task",
+        "lane": "We",
+        "metadata": []
+      },
+      {
+        "id": "Activity_eb4e2fae",
+        "name": "Come back",
+        "type": "task",
+        "lane": "We",
+        "metadata": [
+          "The customer"
+        ]
+      },
+      {
+        "id": "XOR Gateway_ed1a0c02",
+        "name": "If we are not contacted within 2 weeks",
+        "type": "exclusiveGateway",
+        "lane": "A sales representative",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a29f45d2",
+        "name": "Calling",
+        "type": "task",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_44e51d09",
+        "name": "Creation a quotation",
+        "type": "task",
+        "lane": "The customer",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The customer"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_847e847a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_847e847a",
+        "target": "Activity_df97ebbf",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_df97ebbf",
+        "target": "Activity_ead9d6c4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_ead9d6c4",
+        "target": "Activity_5787dec4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_5787dec4",
+        "target": "Activity_ef23b89d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_ef23b89d",
+        "target": "Activity_1b243f54",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_1b243f54",
+        "target": "Activity_4c4335a3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_4c4335a3",
+        "target": "Condition Specification_0bdd58d0",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Condition Specification_0bdd58d0",
+        "target": "Activity_e1931948",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_e1931948",
+        "target": "Activity_fcdbb1f5",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "Condition Specification_0bdd58d0",
+        "target": "XOR Gateway_4a154c13",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_fcdbb1f5",
+        "target": "XOR Gateway_4a154c13",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "XOR Gateway_4a154c13",
+        "target": "Activity_8d88ce6c",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_8d88ce6c",
+        "target": "Activity_576314e1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "XOR Gateway_4a154c13",
+        "target": "Activity_576314e1",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "Activity_576314e1",
+        "target": "Activity_eb4e2fae",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0018",
+        "source": "Activity_eb4e2fae",
+        "target": "XOR Gateway_ed1a0c02",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0019",
+        "source": "XOR Gateway_ed1a0c02",
+        "target": "Activity_a29f45d2",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0020",
+        "source": "Activity_a29f45d2",
+        "target": "Activity_44e51d09",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0021",
+        "source": "XOR Gateway_ed1a0c02",
+        "target": "Activity_44e51d09",
+        "name": "No",
+        "relation": "FALSE_BRANCH"
+      },
+      {
+        "id": "Flow_0022",
+        "source": "Activity_44e51d09",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 25
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 21,
+      "end": 30,
+      "label": "Activity",
+      "id": "Activity_847e847a",
+      "type": "task",
+      "name": "Determine contact details"
+    },
+    {
+      "start": 31,
+      "end": 46,
+      "label": "Activity Data",
+      "id": "Activity Data_5ccead61",
+      "type": null,
+      "name": "Contact details"
+    },
+    {
+      "start": 128,
+      "end": 130,
+      "label": "Actor",
+      "id": "Actor_1670f1fb",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 131,
+      "end": 134,
+      "label": "Activity",
+      "id": "Activity_df97ebbf",
+      "type": "task",
+      "name": "Buy details for cold calls"
+    },
+    {
+      "start": 135,
+      "end": 157,
+      "label": "Activity Data",
+      "id": "Activity Data_bbab739c",
+      "type": null,
+      "name": "Details for cold calls"
+    },
+    {
+      "start": 172,
+      "end": 191,
+      "label": "Actor",
+      "id": "Actor_eefffef8",
+      "type": "Lane",
+      "name": "Our marketing staff"
+    },
+    {
+      "start": 192,
+      "end": 204,
+      "label": "Activity",
+      "id": "Activity_ead9d6c4",
+      "type": "task",
+      "name": "Participates in exhibitions"
+    },
+    {
+      "start": 205,
+      "end": 219,
+      "label": "Activity Data",
+      "id": "Activity Data_6d8ad682",
+      "type": null,
+      "name": "In exhibitions"
+    },
+    {
+      "start": 236,
+      "end": 239,
+      "label": "Actor",
+      "id": "Actor_2d621f35",
+      "type": "Lane",
+      "name": "You"
+    },
+    {
+      "start": 255,
+      "end": 259,
+      "label": "Activity",
+      "id": "Activity_5787dec4",
+      "type": "task",
+      "name": "Know somebody"
+    },
+    {
+      "start": 260,
+      "end": 268,
+      "label": "Activity Data",
+      "id": "Activity Data_f2d3b426",
+      "type": null,
+      "name": "Somebody"
+    },
+    {
+      "start": 271,
+      "end": 274,
+      "label": "Activity Data",
+      "id": "Activity Data_ab87a4a1",
+      "type": null,
+      "name": "Who"
+    },
+    {
+      "start": 311,
+      "end": 313,
+      "label": "Actor",
+      "id": "Actor_129753a6",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 320,
+      "end": 327,
+      "label": "Activity",
+      "id": "Activity_ef23b89d",
+      "type": "task",
+      "name": "Calling"
+    },
+    {
+      "start": 328,
+      "end": 340,
+      "label": "Actor",
+      "id": "Actor_4de59580",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 362,
+      "end": 383,
+      "label": "Actor",
+      "id": "Actor_881bbd0d",
+      "type": "Lane",
+      "name": "The call center staff"
+    },
+    {
+      "start": 386,
+      "end": 407,
+      "label": "Actor",
+      "id": "Actor_338a6fb2",
+      "type": "Lane",
+      "name": "The call center staff"
+    },
+    {
+      "start": 412,
+      "end": 423,
+      "label": "Activity",
+      "id": "Activity_1b243f54",
+      "type": "task",
+      "name": "Determining the contact person"
+    },
+    {
+      "start": 424,
+      "end": 442,
+      "label": "Activity Data",
+      "id": "Activity Data_4c094781",
+      "type": null,
+      "name": "The contact person"
+    },
+    {
+      "start": 447,
+      "end": 457,
+      "label": "Activity Data",
+      "id": "Activity Data_e0dd9efd",
+      "type": null,
+      "name": "The budget"
+    },
+    {
+      "start": 513,
+      "end": 519,
+      "label": "Activity",
+      "id": "Activity_4c4335a3",
+      "type": "task",
+      "name": "Asking"
+    },
+    {
+      "start": 520,
+      "end": 532,
+      "label": "Actor",
+      "id": "Actor_e3eceff4",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 554,
+      "end": 577,
+      "label": "Condition Specification",
+      "id": "Condition Specification_0bdd58d0",
+      "type": "exclusiveGateway",
+      "name": "Is generally interested"
+    },
+    {
+      "start": 598,
+      "end": 600,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_4656e640",
+      "type": "exclusiveGateway",
+      "name": "If this is not the case"
+    },
+    {
+      "start": 601,
+      "end": 621,
+      "label": "Condition Specification",
+      "id": "Condition Specification_ae18f139",
+      "type": "exclusiveGateway",
+      "name": "This is not the case"
+    },
+    {
+      "start": 624,
+      "end": 626,
+      "label": "Actor",
+      "id": "Actor_02eb919d",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 627,
+      "end": 632,
+      "label": "Activity",
+      "id": "Activity_e1931948",
+      "type": "task",
+      "name": "Leave"
+    },
+    {
+      "start": 633,
+      "end": 645,
+      "label": "Actor",
+      "id": "Actor_db6d8d44",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 668,
+      "end": 700,
+      "label": "Condition Specification",
+      "id": "Condition Specification_59c3143f",
+      "type": "exclusiveGateway",
+      "name": "Potential project budget is huge"
+    },
+    {
+      "start": 708,
+      "end": 731,
+      "label": "Actor",
+      "id": "Actor_14ba9b6f",
+      "type": "Lane",
+      "name": "The head of development"
+    },
+    {
+      "start": 752,
+      "end": 759,
+      "label": "Activity",
+      "id": "Activity_fcdbb1f5",
+      "type": "task",
+      "name": "Acquire the customer"
+    },
+    {
+      "start": 760,
+      "end": 772,
+      "label": "Activity Data",
+      "id": "Activity Data_9c945c46",
+      "type": null,
+      "name": "The customer"
+    },
+    {
+      "start": 775,
+      "end": 777,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_4a154c13",
+      "type": "exclusiveGateway",
+      "name": "If the customer is interested in the end"
+    },
+    {
+      "start": 778,
+      "end": 815,
+      "label": "Condition Specification",
+      "id": "Condition Specification_c7692681",
+      "type": "exclusiveGateway",
+      "name": "The customer is interested in the end"
+    },
+    {
+      "start": 837,
+      "end": 865,
+      "label": "Activity Data",
+      "id": "Activity Data_ecd64838",
+      "type": null,
+      "name": "Detailed online presentation"
+    },
+    {
+      "start": 868,
+      "end": 898,
+      "label": "Activity Data",
+      "id": "Activity Data_1e696350",
+      "type": null,
+      "name": "A detailed online presentation"
+    },
+    {
+      "start": 902,
+      "end": 907,
+      "label": "Activity",
+      "id": "Activity_8d88ce6c",
+      "type": "task",
+      "name": "Given a detailed online presentation"
+    },
+    {
+      "start": 918,
+      "end": 940,
+      "label": "Actor",
+      "id": "Actor_ac3df947",
+      "type": "Lane",
+      "name": "A sales representative"
+    },
+    {
+      "start": 947,
+      "end": 958,
+      "label": "Actor",
+      "id": "Actor_6040f283",
+      "type": "Lane",
+      "name": "A pre-sales"
+    },
+    {
+      "start": 949,
+      "end": 967,
+      "label": "Actor",
+      "id": "Actor_01a37f70",
+      "type": "Lane",
+      "name": "Pre-sales employee"
+    },
+    {
+      "start": 1022,
+      "end": 1024,
+      "label": "Actor",
+      "id": "Actor_24d7982e",
+      "type": "Lane",
+      "name": "We"
+    },
+    {
+      "start": 1029,
+      "end": 1036,
+      "label": "Activity",
+      "id": "Activity_576314e1",
+      "type": "task",
+      "name": "Waiting"
+    },
+    {
+      "start": 1041,
+      "end": 1053,
+      "label": "Activity Data",
+      "id": "Activity Data_b3778dfa",
+      "type": null,
+      "name": "The customer"
+    },
+    {
+      "start": 1057,
+      "end": 1061,
+      "label": "Activity",
+      "id": "Activity_eb4e2fae",
+      "type": "task",
+      "name": "Come back"
+    },
+    {
+      "start": 1062,
+      "end": 1066,
+      "label": "Activity Data",
+      "id": "Activity Data_faf3ca0a",
+      "type": null,
+      "name": "Back"
+    },
+    {
+      "start": 1075,
+      "end": 1077,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_ed1a0c02",
+      "type": "exclusiveGateway",
+      "name": "If we are not contacted within 2 weeks"
+    },
+    {
+      "start": 1078,
+      "end": 1113,
+      "label": "Condition Specification",
+      "id": "Condition Specification_06280ff7",
+      "type": "exclusiveGateway",
+      "name": "We are not contacted within 2 weeks"
+    },
+    {
+      "start": 1116,
+      "end": 1138,
+      "label": "Actor",
+      "id": "Actor_92b859f4",
+      "type": "Lane",
+      "name": "A sales representative"
+    },
+    {
+      "start": 1142,
+      "end": 1149,
+      "label": "Activity",
+      "id": "Activity_a29f45d2",
+      "type": "task",
+      "name": "Calling"
+    },
+    {
+      "start": 1150,
+      "end": 1162,
+      "label": "Actor",
+      "id": "Actor_6d8a07c4",
+      "type": "Lane",
+      "name": "The customer"
+    },
+    {
+      "start": 1187,
+      "end": 1195,
+      "label": "Activity",
+      "id": "Activity_44e51d09",
+      "type": "task",
+      "name": "Creation a quotation"
+    },
+    {
+      "start": 1199,
+      "end": 1210,
+      "label": "Activity Data",
+      "id": "Activity Data_ac5e06b1",
+      "type": null,
+      "name": "A quotation"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 3,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "Is generally interested",
+        "node_B": "decision: If this is not the case | Leave | Acquire the customer | decision: If the customer is interested in the end | Given a detailed online presentation | Waiting | Come back | decision: If we are not contacted within 2 weeks | Calling | Creation a quotation",
+        "label": "same no no after after after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If the customer is interested in the end",
+        "node_B": "Given a detailed online presentation | Waiting | Come back | decision: If we are not contacted within 2 weeks | Calling | Creation a quotation",
+        "label": "yes after after after after after",
+        "source": "llm"
+      },
+      {
+        "node_A": "If we are not contacted within 2 weeks",
+        "node_B": "Calling | Creation a quotation",
+        "label": "yes after",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

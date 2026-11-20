@@ -1,0 +1,328 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The MSPN",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_c32adc09",
+    "name": "Sents a dismissal",
+    "type": "task",
+    "lane": "The MSPN",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6fca1812",
+    "name": "Reviews the dismissal",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3125b52e",
+    "name": "Rejects the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_8f194242",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2d30c96b",
+    "name": "Confirms the dismissal of the MSPN",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The MSPO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_151621d8",
+    "source": "StartEvent_1",
+    "target": "Activity_c32adc09",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_64f9bcf4",
+    "source": "Activity_c32adc09",
+    "target": "Activity_6fca1812",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1aad50f0",
+    "source": "Activity_6fca1812",
+    "target": "Activity_3125b52e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2217226f",
+    "source": "Activity_3125b52e",
+    "target": "XOR Gateway_8f194242",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_57ebb776",
+    "source": "XOR Gateway_8f194242",
+    "target": "Activity_2d30c96b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_cf8ae661",
+    "source": "Activity_2d30c96b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_9562c709",
+   "type": "Lane",
+   "name": "The MSPN"
+  },
+  {
+   "start": 9,
+   "end": 14,
+   "label": "Activity",
+   "id": "Activity_c32adc09",
+   "type": "task",
+   "name": "Sents a dismissal"
+  },
+  {
+   "start": 15,
+   "end": 26,
+   "label": "Activity Data",
+   "id": "Activity Data_0b7ef493",
+   "type": null,
+   "name": "A dismissal"
+  },
+  {
+   "start": 30,
+   "end": 38,
+   "label": "Actor",
+   "id": "Actor_86855d82",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 41,
+   "end": 49,
+   "label": "Actor",
+   "id": "Actor_ee7db197",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 50,
+   "end": 57,
+   "label": "Activity",
+   "id": "Activity_6fca1812",
+   "type": "task",
+   "name": "Reviews the dismissal"
+  },
+  {
+   "start": 58,
+   "end": 71,
+   "label": "Activity Data",
+   "id": "Activity Data_e1aaf3ad",
+   "type": null,
+   "name": "The dismissal"
+  },
+  {
+   "start": 74,
+   "end": 82,
+   "label": "Actor",
+   "id": "Actor_79dd71c1",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 83,
+   "end": 90,
+   "label": "Activity",
+   "id": "Activity_3125b52e",
+   "type": "task",
+   "name": "Rejects the dismissal of the MSPN"
+  },
+  {
+   "start": 91,
+   "end": 116,
+   "label": "Activity Data",
+   "id": "Activity Data_9b2ab2db",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  },
+  {
+   "start": 117,
+   "end": 119,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_8f194242",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 120,
+   "end": 128,
+   "label": "Actor",
+   "id": "Actor_471ae87e",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 129,
+   "end": 137,
+   "label": "Activity",
+   "id": "Activity_2d30c96b",
+   "type": "task",
+   "name": "Confirms the dismissal of the MSPN"
+  },
+  {
+   "start": 138,
+   "end": 163,
+   "label": "Activity Data",
+   "id": "Activity Data_de2781b6",
+   "type": null,
+   "name": "The dismissal of the MSPN"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 9,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Reviews the dismissal",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Reviews the dismissal",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Sents a dismissal",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Rejects the dismissal of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reviews the dismissal",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the dismissal of the MSPN",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the dismissal of the MSPN",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

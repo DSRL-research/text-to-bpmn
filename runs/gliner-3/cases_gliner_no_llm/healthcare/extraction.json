@@ -1,0 +1,1240 @@
+{
+  "structured_data": {
+    "participants": [
+      "Emergency services",
+      "Main Process",
+      "Outpatient Cardiology",
+      "The Emergency Department",
+      "The Family",
+      "The General Practitioner",
+      "The Hospital",
+      "The Patient"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Condition Specification_7280d98e",
+        "name": "Acute severe symptoms",
+        "type": "exclusiveGateway",
+        "lane": "Emergency services",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e9c3aed2",
+        "name": "Contacts",
+        "type": "task",
+        "lane": "Emergency services",
+        "metadata": []
+      },
+      {
+        "id": "Activity_7e5433ba",
+        "name": "Presents",
+        "type": "task",
+        "lane": "Emergency services",
+        "metadata": []
+      },
+      {
+        "id": "Activity_dd04b880",
+        "name": "Evaluates the Patient",
+        "type": "task",
+        "lane": "The Emergency Department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_1fe3412b",
+        "name": "Admit",
+        "type": "task",
+        "lane": "The Emergency Department",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_5e1fc6c3",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The Emergency Department",
+        "metadata": []
+      },
+      {
+        "id": "Activity_69d3b312",
+        "name": "Discharge the Patient",
+        "type": "task",
+        "lane": "The Emergency Department",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_45617e8d",
+        "name": "If",
+        "type": "exclusiveGateway",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d63c615b",
+        "name": "Managed follow-up care",
+        "type": "task",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_f6ee7d4f",
+        "name": "Or",
+        "type": "exclusiveGateway",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "Activity_b98ed24d",
+        "name": "Referred the Patient",
+        "type": "task",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "Activity_043f5ad1",
+        "name": "Takes the non-emergency route",
+        "type": "task",
+        "lane": "The Patient",
+        "metadata": []
+      },
+      {
+        "id": "Activity_010c10c2",
+        "name": "Visiting",
+        "type": "task",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "Activity_b7d7f4fc",
+        "name": "Initiates",
+        "type": "task",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "Activity_a0eee17c",
+        "name": "Recommends a specialized evaluation",
+        "type": "task",
+        "lane": "The General Practitioner",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_9408148b",
+        "name": "Alternatively the complexity of the case",
+        "type": "exclusiveGateway",
+        "lane": "The Patient",
+        "metadata": [
+          "The Patient is unable to communicate"
+        ]
+      },
+      {
+        "id": "Activity_68caccc6",
+        "name": "Choose a private route",
+        "type": "task",
+        "lane": "The Patient",
+        "metadata": []
+      },
+      {
+        "id": "Activity_c53a3792",
+        "name": "Consult",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2f4cad4a",
+        "name": "Establishes the final diagnosis",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_99abd36c",
+        "name": "Assessing",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2864406d",
+        "name": "Decide",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_0425e8fb",
+        "name": "Recommend",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_93746c4f",
+        "name": "Admitting the Patient",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_3e5a6d00",
+        "name": "Admitted",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_23863bf0",
+        "name": "Gathered medical history",
+        "type": "task",
+        "lane": "Outpatient Cardiology",
+        "metadata": []
+      },
+      {
+        "id": "Activity_4a15784b",
+        "name": "Provides medical history",
+        "type": "task",
+        "lane": "The Patient",
+        "metadata": []
+      },
+      {
+        "id": "Activity_56cf0c0e",
+        "name": "Provides the medical history",
+        "type": "task",
+        "lane": "The Family",
+        "metadata": []
+      },
+      {
+        "id": "Activity_be28cc4a",
+        "name": "Administers",
+        "type": "task",
+        "lane": "The Hospital",
+        "metadata": []
+      },
+      {
+        "id": "Activity_706f4bdf",
+        "name": "Maintains communication",
+        "type": "task",
+        "lane": "The Hospital",
+        "metadata": []
+      },
+      {
+        "id": "Activity_7aeae270",
+        "name": "Inform of the Patient’s progress",
+        "type": "task",
+        "lane": "The Family",
+        "metadata": []
+      },
+      {
+        "id": "Activity_9ab00366",
+        "name": "Prepares the discharge",
+        "type": "task",
+        "lane": "The Hospital",
+        "metadata": []
+      },
+      {
+        "id": "Activity_02363208",
+        "name": "Gives a discharge summary",
+        "type": "task",
+        "lane": "The Patient",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2c76fe45",
+        "name": "Submits this discharge summary",
+        "type": "task",
+        "lane": "The Patient",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The Patient"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Condition Specification_7280d98e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Condition Specification_7280d98e",
+        "target": "Activity_e9c3aed2",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_e9c3aed2",
+        "target": "Activity_7e5433ba",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_7e5433ba",
+        "target": "Activity_dd04b880",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_dd04b880",
+        "target": "Activity_1fe3412b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_1fe3412b",
+        "target": "XOR Gateway_5e1fc6c3",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_5e1fc6c3",
+        "target": "Activity_69d3b312",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_69d3b312",
+        "target": "XOR Gateway_45617e8d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "XOR Gateway_45617e8d",
+        "target": "Activity_d63c615b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_d63c615b",
+        "target": "XOR Gateway_f6ee7d4f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "XOR Gateway_f6ee7d4f",
+        "target": "Activity_b98ed24d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_b98ed24d",
+        "target": "Activity_043f5ad1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_043f5ad1",
+        "target": "Activity_010c10c2",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0014",
+        "source": "Activity_010c10c2",
+        "target": "Activity_b7d7f4fc",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0015",
+        "source": "Activity_b7d7f4fc",
+        "target": "Activity_a0eee17c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0016",
+        "source": "Activity_a0eee17c",
+        "target": "XOR Gateway_9408148b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0017",
+        "source": "XOR Gateway_9408148b",
+        "target": "Activity_68caccc6",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0018",
+        "source": "Activity_68caccc6",
+        "target": "Activity_c53a3792",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0019",
+        "source": "Activity_c53a3792",
+        "target": "Activity_2f4cad4a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0020",
+        "source": "Activity_2f4cad4a",
+        "target": "Activity_99abd36c",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0021",
+        "source": "Activity_99abd36c",
+        "target": "Activity_2864406d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0022",
+        "source": "Activity_2864406d",
+        "target": "Activity_0425e8fb",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0023",
+        "source": "Activity_0425e8fb",
+        "target": "Activity_93746c4f",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0024",
+        "source": "Activity_93746c4f",
+        "target": "Activity_3e5a6d00",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0025",
+        "source": "Activity_3e5a6d00",
+        "target": "Activity_23863bf0",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0026",
+        "source": "Activity_23863bf0",
+        "target": "Activity_4a15784b",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0027",
+        "source": "Activity_4a15784b",
+        "target": "Activity_56cf0c0e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0028",
+        "source": "Activity_56cf0c0e",
+        "target": "Activity_be28cc4a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0029",
+        "source": "Activity_be28cc4a",
+        "target": "Activity_706f4bdf",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0030",
+        "source": "Activity_706f4bdf",
+        "target": "Activity_7aeae270",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0031",
+        "source": "Activity_7aeae270",
+        "target": "Activity_9ab00366",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0032",
+        "source": "Activity_9ab00366",
+        "target": "Activity_02363208",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0033",
+        "source": "Activity_02363208",
+        "target": "Activity_2c76fe45",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0034",
+        "source": "Activity_2c76fe45",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 30
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 237,
+      "end": 258,
+      "label": "Condition Specification",
+      "id": "Condition Specification_7280d98e",
+      "type": "exclusiveGateway",
+      "name": "Acute severe symptoms"
+    },
+    {
+      "start": 296,
+      "end": 304,
+      "label": "Activity",
+      "id": "Activity_e9c3aed2",
+      "type": "task",
+      "name": "Contacts"
+    },
+    {
+      "start": 305,
+      "end": 323,
+      "label": "Actor",
+      "id": "Actor_f876e7fc",
+      "type": "Lane",
+      "name": "Emergency services"
+    },
+    {
+      "start": 327,
+      "end": 335,
+      "label": "Activity",
+      "id": "Activity_7e5433ba",
+      "type": "task",
+      "name": "Presents"
+    },
+    {
+      "start": 348,
+      "end": 372,
+      "label": "Actor",
+      "id": "Actor_87366e5a",
+      "type": "Lane",
+      "name": "The Emergency Department"
+    },
+    {
+      "start": 374,
+      "end": 398,
+      "label": "Actor",
+      "id": "Actor_66ed3ce6",
+      "type": "Lane",
+      "name": "The Emergency Department"
+    },
+    {
+      "start": 399,
+      "end": 408,
+      "label": "Activity",
+      "id": "Activity_dd04b880",
+      "type": "task",
+      "name": "Evaluates the Patient"
+    },
+    {
+      "start": 409,
+      "end": 420,
+      "label": "Activity Data",
+      "id": "Activity Data_fb31f6a7",
+      "type": null,
+      "name": "The Patient"
+    },
+    {
+      "start": 448,
+      "end": 472,
+      "label": "Actor",
+      "id": "Actor_7787e3bf",
+      "type": "Lane",
+      "name": "The Emergency Department"
+    },
+    {
+      "start": 480,
+      "end": 485,
+      "label": "Activity",
+      "id": "Activity_1fe3412b",
+      "type": "task",
+      "name": "Admit"
+    },
+    {
+      "start": 531,
+      "end": 533,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_5e1fc6c3",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 534,
+      "end": 558,
+      "label": "Actor",
+      "id": "Actor_f5ae39c9",
+      "type": "Lane",
+      "name": "The Emergency Department"
+    },
+    {
+      "start": 559,
+      "end": 568,
+      "label": "Activity",
+      "id": "Activity_69d3b312",
+      "type": "task",
+      "name": "Discharge the Patient"
+    },
+    {
+      "start": 569,
+      "end": 580,
+      "label": "Activity Data",
+      "id": "Activity Data_3e70f565",
+      "type": null,
+      "name": "The Patient"
+    },
+    {
+      "start": 613,
+      "end": 615,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_45617e8d",
+      "type": "exclusiveGateway",
+      "name": "If"
+    },
+    {
+      "start": 628,
+      "end": 642,
+      "label": "Activity Data",
+      "id": "Activity Data_31490dce",
+      "type": null,
+      "name": "Follow-up care"
+    },
+    {
+      "start": 646,
+      "end": 653,
+      "label": "Activity",
+      "id": "Activity_d63c615b",
+      "type": "task",
+      "name": "Managed follow-up care"
+    },
+    {
+      "start": 657,
+      "end": 681,
+      "label": "Actor",
+      "id": "Actor_d418f627",
+      "type": "Lane",
+      "name": "The General Practitioner"
+    },
+    {
+      "start": 683,
+      "end": 685,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_f6ee7d4f",
+      "type": "exclusiveGateway",
+      "name": "Or"
+    },
+    {
+      "start": 686,
+      "end": 697,
+      "label": "Activity Data",
+      "id": "Activity Data_1ed8baf3",
+      "type": null,
+      "name": "The Patient"
+    },
+    {
+      "start": 701,
+      "end": 709,
+      "label": "Activity",
+      "id": "Activity_b98ed24d",
+      "type": "task",
+      "name": "Referred the Patient"
+    },
+    {
+      "start": 713,
+      "end": 734,
+      "label": "Actor",
+      "id": "Actor_388f5b33",
+      "type": "Lane",
+      "name": "Outpatient Cardiology"
+    },
+    {
+      "start": 775,
+      "end": 786,
+      "label": "Actor",
+      "id": "Actor_4039ba63",
+      "type": "Lane",
+      "name": "The Patient"
+    },
+    {
+      "start": 787,
+      "end": 792,
+      "label": "Activity",
+      "id": "Activity_043f5ad1",
+      "type": "task",
+      "name": "Takes the non-emergency route"
+    },
+    {
+      "start": 793,
+      "end": 816,
+      "label": "Activity Data",
+      "id": "Activity Data_571cda16",
+      "type": null,
+      "name": "The non-emergency route"
+    },
+    {
+      "start": 820,
+      "end": 828,
+      "label": "Activity",
+      "id": "Activity_010c10c2",
+      "type": "task",
+      "name": "Visiting"
+    },
+    {
+      "start": 829,
+      "end": 853,
+      "label": "Actor",
+      "id": "Actor_29fc3567",
+      "type": "Lane",
+      "name": "The General Practitioner"
+    },
+    {
+      "start": 855,
+      "end": 879,
+      "label": "Actor",
+      "id": "Actor_ee09fdba",
+      "type": "Lane",
+      "name": "The General Practitioner"
+    },
+    {
+      "start": 891,
+      "end": 900,
+      "label": "Activity",
+      "id": "Activity_b7d7f4fc",
+      "type": "task",
+      "name": "Initiates"
+    },
+    {
+      "start": 915,
+      "end": 925,
+      "label": "Activity",
+      "id": "Activity_a0eee17c",
+      "type": "task",
+      "name": "Recommends a specialized evaluation"
+    },
+    {
+      "start": 926,
+      "end": 950,
+      "label": "Activity Data",
+      "id": "Activity Data_f83565b7",
+      "type": null,
+      "name": "A specialized evaluation"
+    },
+    {
+      "start": 952,
+      "end": 965,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_9408148b",
+      "type": "exclusiveGateway",
+      "name": "Alternatively the complexity of the case"
+    },
+    {
+      "start": 967,
+      "end": 978,
+      "label": "Actor",
+      "id": "Actor_ce6f46de",
+      "type": "Lane",
+      "name": "The Patient"
+    },
+    {
+      "start": 983,
+      "end": 989,
+      "label": "Activity",
+      "id": "Activity_68caccc6",
+      "type": "task",
+      "name": "Choose a private route"
+    },
+    {
+      "start": 990,
+      "end": 1005,
+      "label": "Activity Data",
+      "id": "Activity Data_db90a8d4",
+      "type": null,
+      "name": "A private route"
+    },
+    {
+      "start": 1010,
+      "end": 1017,
+      "label": "Activity",
+      "id": "Activity_c53a3792",
+      "type": "task",
+      "name": "Consult"
+    },
+    {
+      "start": 1032,
+      "end": 1053,
+      "label": "Actor",
+      "id": "Actor_65c5a6f9",
+      "type": "Lane",
+      "name": "Outpatient Cardiology"
+    },
+    {
+      "start": 1090,
+      "end": 1111,
+      "label": "Actor",
+      "id": "Actor_d11bcc11",
+      "type": "Lane",
+      "name": "Outpatient Cardiology"
+    },
+    {
+      "start": 1112,
+      "end": 1123,
+      "label": "Activity",
+      "id": "Activity_2f4cad4a",
+      "type": "task",
+      "name": "Establishes the final diagnosis"
+    },
+    {
+      "start": 1124,
+      "end": 1143,
+      "label": "Activity Data",
+      "id": "Activity Data_23e92a1f",
+      "type": null,
+      "name": "The final diagnosis"
+    },
+    {
+      "start": 1214,
+      "end": 1223,
+      "label": "Activity",
+      "id": "Activity_99abd36c",
+      "type": "task",
+      "name": "Assessing"
+    },
+    {
+      "start": 1224,
+      "end": 1250,
+      "label": "Condition Specification",
+      "id": "Condition Specification_e02da86a",
+      "type": "exclusiveGateway",
+      "name": "The complexity of the case"
+    },
+    {
+      "start": 1252,
+      "end": 1273,
+      "label": "Actor",
+      "id": "Actor_528e5c53",
+      "type": "Lane",
+      "name": "Outpatient Cardiology"
+    },
+    {
+      "start": 1278,
+      "end": 1284,
+      "label": "Activity",
+      "id": "Activity_2864406d",
+      "type": "task",
+      "name": "Decide"
+    },
+    {
+      "start": 1338,
+      "end": 1347,
+      "label": "Activity",
+      "id": "Activity_0425e8fb",
+      "type": "task",
+      "name": "Recommend"
+    },
+    {
+      "start": 1348,
+      "end": 1357,
+      "label": "Activity",
+      "id": "Activity_93746c4f",
+      "type": "task",
+      "name": "Admitting the Patient"
+    },
+    {
+      "start": 1358,
+      "end": 1369,
+      "label": "Activity Data",
+      "id": "Activity Data_13422e46",
+      "type": null,
+      "name": "The Patient"
+    },
+    {
+      "start": 1392,
+      "end": 1400,
+      "label": "Activity",
+      "id": "Activity_3e5a6d00",
+      "type": "task",
+      "name": "Admitted"
+    },
+    {
+      "start": 1418,
+      "end": 1433,
+      "label": "Activity Data",
+      "id": "Activity Data_8ba8c882",
+      "type": null,
+      "name": "Medical history"
+    },
+    {
+      "start": 1442,
+      "end": 1450,
+      "label": "Activity",
+      "id": "Activity_23863bf0",
+      "type": "task",
+      "name": "Gathered medical history"
+    },
+    {
+      "start": 1452,
+      "end": 1463,
+      "label": "Actor",
+      "id": "Actor_4c5551eb",
+      "type": "Lane",
+      "name": "The Patient"
+    },
+    {
+      "start": 1464,
+      "end": 1472,
+      "label": "Activity",
+      "id": "Activity_4a15784b",
+      "type": "task",
+      "name": "Provides medical history"
+    },
+    {
+      "start": 1473,
+      "end": 1488,
+      "label": "Activity Data",
+      "id": "Activity Data_1b8d91e7",
+      "type": null,
+      "name": "Medical history"
+    },
+    {
+      "start": 1501,
+      "end": 1519,
+      "label": "Actor",
+      "id": "Actor_5d25cf92",
+      "type": "Lane",
+      "name": "The Hospital staff"
+    },
+    {
+      "start": 1550,
+      "end": 1586,
+      "label": "Condition Specification",
+      "id": "Condition Specification_063b1be1",
+      "type": "exclusiveGateway",
+      "name": "The Patient is unable to communicate"
+    },
+    {
+      "start": 1588,
+      "end": 1598,
+      "label": "Actor",
+      "id": "Actor_5cfd0b23",
+      "type": "Lane",
+      "name": "The Family"
+    },
+    {
+      "start": 1599,
+      "end": 1607,
+      "label": "Activity",
+      "id": "Activity_56cf0c0e",
+      "type": "task",
+      "name": "Provides the medical history"
+    },
+    {
+      "start": 1608,
+      "end": 1627,
+      "label": "Activity Data",
+      "id": "Activity Data_cdb103f0",
+      "type": null,
+      "name": "The medical history"
+    },
+    {
+      "start": 1667,
+      "end": 1679,
+      "label": "Actor",
+      "id": "Actor_6f8f866a",
+      "type": "Lane",
+      "name": "The Hospital"
+    },
+    {
+      "start": 1680,
+      "end": 1691,
+      "label": "Activity",
+      "id": "Activity_be28cc4a",
+      "type": "task",
+      "name": "Administers"
+    },
+    {
+      "start": 1777,
+      "end": 1789,
+      "label": "Actor",
+      "id": "Actor_ff211785",
+      "type": "Lane",
+      "name": "The Hospital"
+    },
+    {
+      "start": 1790,
+      "end": 1799,
+      "label": "Activity",
+      "id": "Activity_706f4bdf",
+      "type": "task",
+      "name": "Maintains communication"
+    },
+    {
+      "start": 1800,
+      "end": 1813,
+      "label": "Activity Data",
+      "id": "Activity Data_d2fd57f6",
+      "type": null,
+      "name": "Communication"
+    },
+    {
+      "start": 1819,
+      "end": 1829,
+      "label": "Actor",
+      "id": "Actor_611ecf96",
+      "type": "Lane",
+      "name": "The Family"
+    },
+    {
+      "start": 1846,
+      "end": 1852,
+      "label": "Activity",
+      "id": "Activity_7aeae270",
+      "type": "task",
+      "name": "Inform of the Patient’s progress"
+    },
+    {
+      "start": 1866,
+      "end": 1891,
+      "label": "Activity Data",
+      "id": "Activity Data_b8fd0bc3",
+      "type": null,
+      "name": "Of the Patient’s progress"
+    },
+    {
+      "start": 1921,
+      "end": 1933,
+      "label": "Actor",
+      "id": "Actor_bd701c8c",
+      "type": "Lane",
+      "name": "The Hospital"
+    },
+    {
+      "start": 1934,
+      "end": 1942,
+      "label": "Activity",
+      "id": "Activity_9ab00366",
+      "type": "task",
+      "name": "Prepares the discharge"
+    },
+    {
+      "start": 1943,
+      "end": 1956,
+      "label": "Activity Data",
+      "id": "Activity Data_dbf1c856",
+      "type": null,
+      "name": "The discharge"
+    },
+    {
+      "start": 1961,
+      "end": 1966,
+      "label": "Activity",
+      "id": "Activity_02363208",
+      "type": "task",
+      "name": "Gives a discharge summary"
+    },
+    {
+      "start": 1967,
+      "end": 1978,
+      "label": "Actor",
+      "id": "Actor_66784fa5",
+      "type": "Lane",
+      "name": "The Patient"
+    },
+    {
+      "start": 1979,
+      "end": 1998,
+      "label": "Activity Data",
+      "id": "Activity Data_d6029680",
+      "type": null,
+      "name": "A discharge summary"
+    },
+    {
+      "start": 2085,
+      "end": 2096,
+      "label": "Actor",
+      "id": "Actor_9f004040",
+      "type": "Lane",
+      "name": "The Patient"
+    },
+    {
+      "start": 2097,
+      "end": 2104,
+      "label": "Activity",
+      "id": "Activity_2c76fe45",
+      "type": "task",
+      "name": "Submits this discharge summary"
+    },
+    {
+      "start": 2105,
+      "end": 2127,
+      "label": "Activity Data",
+      "id": "Activity Data_e7a11f69",
+      "type": null,
+      "name": "This discharge summary"
+    },
+    {
+      "start": 2131,
+      "end": 2165,
+      "label": "Actor",
+      "id": "Actor_62dc7897",
+      "type": "Lane",
+      "name": "The Patient's General Practitioner"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 5,
+    "skipped": 0,
+    "failures": 5,
+    "rate": 1.0,
+    "records": [
+      {
+        "node_A": "Acute severe symptoms",
+        "node_B": "Contacts | Presents | Evaluates the Patient | Admit | decision: Or | Discharge the Patient | decision: If | Managed follow-up care | decision: Or | Referred the Patient",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "Or",
+        "node_B": "Discharge the Patient | decision: If | Managed follow-up care | decision: Or | Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "If",
+        "node_B": "Managed follow-up care | decision: Or | Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case | Choose a private route | Consult",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "Or",
+        "node_B": "Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case | Choose a private route | Consult | Establishes the final diagnosis | Assessing",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "Alternatively the complexity of the case",
+        "node_B": "Choose a private route | Consult | Establishes the final diagnosis | Assessing | Decide | Recommend | Admitting the Patient | Admitted | Gathered medical history | Provides medical history",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      }
+    ],
+    "decisions": [
+      {
+        "node_A": "Acute severe symptoms",
+        "node_B": "Contacts | Presents | Evaluates the Patient | Admit | decision: Or | Discharge the Patient | decision: If | Managed follow-up care | decision: Or | Referred the Patient",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "Or",
+        "node_B": "Discharge the Patient | decision: If | Managed follow-up care | decision: Or | Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "If",
+        "node_B": "Managed follow-up care | decision: Or | Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case | Choose a private route | Consult",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "Or",
+        "node_B": "Referred the Patient | Takes the non-emergency route | Visiting | Initiates | Recommends a specialized evaluation | decision: Alternatively the complexity of the case | Choose a private route | Consult | Establishes the final diagnosis | Assessing",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "Alternatively the complexity of the case",
+        "node_B": "Choose a private route | Consult | Establishes the final diagnosis | Assessing | Decide | Recommend | Admitting the Patient | Admitted | Gathered medical history | Provides medical history",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://127.0.0.1:1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 5,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": true,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": false,
+      "error": "<urlopen error [Errno 111] Connection refused>",
+      "api": "openai"
+    },
+    "run_at": "2026-11-12T09:09:50+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

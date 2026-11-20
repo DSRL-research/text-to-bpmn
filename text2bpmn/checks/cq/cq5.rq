@@ -1,0 +1,13 @@
+# CQ5 Where does work pass from one participant to another?
+# A task followed, directly or through gateways, by the next task in another lane.
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?from_lane ?from_task ?to_lane ?to_task WHERE {
+  ?a a b:Task ; rdfs:label ?from_task ; b:has_resource ?ra .
+  ?c a b:Task ; rdfs:label ?to_task ; b:has_resource ?rc .
+  FILTER(?ra != ?rc)
+  ?a b:has_nextFlowNode+ ?c .
+  FILTER NOT EXISTS { ?a b:has_nextFlowNode+ ?m . ?m b:has_nextFlowNode+ ?c . ?m a b:Task }
+  ?ra rdfs:label ?from_lane . ?rc rdfs:label ?to_lane .
+} ORDER BY ?from_lane ?from_task

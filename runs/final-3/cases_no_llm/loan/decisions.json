@@ -1,0 +1,34 @@
+{
+  "calls": 2,
+  "skipped": 0,
+  "failures": 2,
+  "rate": 1.0,
+  "records": [
+    {
+      "node_A": "Loan application",
+      "node_B": "Check history | Assess the applicant’s | decision: If the applicant is not eligible | Rejected the application | Prepared the acceptance pack | Sent",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    },
+    {
+      "node_A": "If the applicant is not eligible",
+      "node_B": "Rejected the application | Prepared the acceptance pack | Sent",
+      "raw_output": null,
+      "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+    }
+  ],
+  "decisions": [
+    {
+      "node_A": "Loan application",
+      "node_B": "Check history | Assess the applicant’s | decision: If the applicant is not eligible | Rejected the application | Prepared the acceptance pack | Sent",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    },
+    {
+      "node_A": "If the applicant is not eligible",
+      "node_B": "Rejected the application | Prepared the acceptance pack | Sent",
+      "label": "UNKNOWN",
+      "source": "call_failed"
+    }
+  ]
+}

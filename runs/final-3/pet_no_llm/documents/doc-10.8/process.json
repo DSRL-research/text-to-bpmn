@@ -1,0 +1,656 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_36543a95",
+    "name": "Deregisters",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e2cc0319",
+    "name": "Verifies the deregistration",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_febd3c95",
+    "name": "Rejects the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a4be8539",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2d1846aa",
+    "name": "Confirms the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "Preliminarily"
+    ]
+   },
+   {
+    "id": "Activity_86d56ae5",
+    "name": "Assigns himself",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "As MSP"
+    ]
+   },
+   {
+    "id": "Activity_8a685f48",
+    "name": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_94e90994",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8022e490",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_b9b32828",
+    "source": "StartEvent_1",
+    "target": "Activity_36543a95",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9ed0c4de",
+    "source": "Activity_36543a95",
+    "target": "Activity_e2cc0319",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_96ccc370",
+    "source": "Activity_e2cc0319",
+    "target": "Activity_febd3c95",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5dd73c97",
+    "source": "Activity_febd3c95",
+    "target": "XOR Gateway_a4be8539",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6688e943",
+    "source": "XOR Gateway_a4be8539",
+    "target": "Activity_2d1846aa",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_63ada343",
+    "source": "Activity_2d1846aa",
+    "target": "Activity_86d56ae5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b3c2e89f",
+    "source": "Activity_86d56ae5",
+    "target": "Activity_8a685f48",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ae98bd53",
+    "source": "Activity_8a685f48",
+    "target": "Activity_94e90994",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7c812c13",
+    "source": "Activity_94e90994",
+    "target": "Activity_8022e490",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7783de94",
+    "source": "Activity_8022e490",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_4dfd248a",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 9,
+   "end": 20,
+   "label": "Activity",
+   "id": "Activity_36543a95",
+   "type": "task",
+   "name": "Deregisters"
+  },
+  {
+   "start": 24,
+   "end": 30,
+   "label": "Actor",
+   "id": "Actor_2c761b23",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 33,
+   "end": 39,
+   "label": "Actor",
+   "id": "Actor_7708be0b",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 40,
+   "end": 48,
+   "label": "Activity",
+   "id": "Activity_e2cc0319",
+   "type": "task",
+   "name": "Verifies the deregistration"
+  },
+  {
+   "start": 49,
+   "end": 67,
+   "label": "Activity Data",
+   "id": "Activity Data_1f2dcfca",
+   "type": null,
+   "name": "The deregistration"
+  },
+  {
+   "start": 70,
+   "end": 76,
+   "label": "Actor",
+   "id": "Actor_19bef7fd",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 77,
+   "end": 84,
+   "label": "Activity",
+   "id": "Activity_febd3c95",
+   "type": "task",
+   "name": "Rejects the deregistration of the MSPO"
+  },
+  {
+   "start": 85,
+   "end": 115,
+   "label": "Activity Data",
+   "id": "Activity Data_3af70f4b",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 116,
+   "end": 118,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a4be8539",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 119,
+   "end": 125,
+   "label": "Actor",
+   "id": "Actor_90a824a2",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 126,
+   "end": 139,
+   "label": "Further Specification",
+   "id": "Further Specification_5b1fe6ae",
+   "type": null,
+   "name": "Preliminarily"
+  },
+  {
+   "start": 140,
+   "end": 148,
+   "label": "Activity",
+   "id": "Activity_2d1846aa",
+   "type": "task",
+   "name": "Confirms the deregistration of the MSPO"
+  },
+  {
+   "start": 149,
+   "end": 179,
+   "label": "Activity Data",
+   "id": "Activity Data_c09547a4",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 182,
+   "end": 188,
+   "label": "Actor",
+   "id": "Actor_1ba08c8d",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 189,
+   "end": 196,
+   "label": "Activity",
+   "id": "Activity_86d56ae5",
+   "type": "task",
+   "name": "Assigns himself"
+  },
+  {
+   "start": 197,
+   "end": 204,
+   "label": "Activity Data",
+   "id": "Activity Data_5fa0f27e",
+   "type": null,
+   "name": "Himself"
+  },
+  {
+   "start": 205,
+   "end": 211,
+   "label": "Further Specification",
+   "id": "Further Specification_d56a02f8",
+   "type": null,
+   "name": "As MSP"
+  },
+  {
+   "start": 214,
+   "end": 220,
+   "label": "Actor",
+   "id": "Actor_358311fa",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 221,
+   "end": 228,
+   "label": "Activity",
+   "id": "Activity_8a685f48",
+   "type": "task",
+   "name": "Informs about the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 229,
+   "end": 237,
+   "label": "Actor",
+   "id": "Actor_8811105d",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 238,
+   "end": 315,
+   "label": "Activity Data",
+   "id": "Activity Data_3e21d6d0",
+   "type": null,
+   "name": "About the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 318,
+   "end": 324,
+   "label": "Actor",
+   "id": "Actor_1ffd7c4f",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 325,
+   "end": 332,
+   "label": "Activity",
+   "id": "Activity_94e90994",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 333,
+   "end": 340,
+   "label": "Actor",
+   "id": "Actor_c58eed31",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 341,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_999ebfd5",
+   "type": null,
+   "name": "About the assignment of the GO"
+  },
+  {
+   "start": 374,
+   "end": 380,
+   "label": "Actor",
+   "id": "Actor_b004044a",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 381,
+   "end": 388,
+   "label": "Activity",
+   "id": "Activity_8022e490",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 389,
+   "end": 395,
+   "label": "Actor",
+   "id": "Actor_126fc8a2",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 396,
+   "end": 426,
+   "label": "Activity Data",
+   "id": "Activity Data_f6714c13",
+   "type": null,
+   "name": "About the assignment of the GO"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 21,
+  "skipped": 0,
+  "failures": 21,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Deregisters",
+    "node_B": "Verifies the deregistration",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Assigns himself",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Assigns himself",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Assigns himself",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informs about the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Deregisters",
+    "node_B": "Verifies the deregistration",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Assigns himself",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Assigns himself",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Assigns himself",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Confirms the deregistration of the MSPO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informs about the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

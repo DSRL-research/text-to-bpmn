@@ -1,0 +1,8 @@
+# CQ1 Which tasks does each participant (lane / HumanResource) perform?
+PREFIX b: <http://BPMNbasedOntology#>
+PREFIX t: <http://text2bpmn.local/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?participant ?task WHERE {
+  ?t a b:Task ; rdfs:label ?task ; b:has_resource ?r .
+  ?r a b:HumanResource ; rdfs:label ?participant .
+} ORDER BY ?participant ?task

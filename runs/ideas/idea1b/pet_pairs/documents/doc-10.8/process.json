@@ -1,0 +1,584 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The GO",
+   "The MSPO"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_0aee682e",
+    "name": "Deregisters",
+    "type": "task",
+    "lane": "The MSPO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_267f14db",
+    "name": "Verifies the deregistration",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5b532224",
+    "name": "Rejects the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_f52078b0",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_d6bff7db",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6244dc40",
+    "name": "Confirms the deregistration of the MSPO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "Preliminarily"
+    ]
+   },
+   {
+    "id": "XOR Gateway_0bbc3822",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_de5b028c",
+    "name": "Assigns himself",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": [
+     "As MSP"
+    ]
+   },
+   {
+    "id": "Activity_ee82b33f",
+    "name": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_cc4e9043",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_5b953c15",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_fcb56bc3",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3b0e61b5",
+    "name": "Informs about the assignment of the GO",
+    "type": "task",
+    "lane": "The GO",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The GO"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_053f647d",
+    "source": "StartEvent_1",
+    "target": "Activity_0aee682e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2393064b",
+    "source": "Activity_0aee682e",
+    "target": "Activity_267f14db",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_109e971d",
+    "source": "Activity_267f14db",
+    "target": "ParallelGateway_split_f52078b0",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bbf4cf14",
+    "source": "ParallelGateway_split_f52078b0",
+    "target": "Activity_5b532224",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_ec433ac2",
+    "source": "Activity_5b532224",
+    "target": "ParallelGateway_join_d6bff7db",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_b097de65",
+    "source": "ParallelGateway_split_f52078b0",
+    "target": "Activity_6244dc40",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_5d33632c",
+    "source": "Activity_6244dc40",
+    "target": "ParallelGateway_join_d6bff7db",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_6fbcd17f",
+    "source": "ParallelGateway_join_d6bff7db",
+    "target": "XOR Gateway_0bbc3822",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2baa20c3",
+    "source": "XOR Gateway_0bbc3822",
+    "target": "Activity_de5b028c",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_9e31b221",
+    "source": "Activity_de5b028c",
+    "target": "Activity_ee82b33f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c67fc4cb",
+    "source": "Activity_ee82b33f",
+    "target": "ParallelGateway_split_5b953c15",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4894302c",
+    "source": "ParallelGateway_split_5b953c15",
+    "target": "Activity_cc4e9043",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_2e9fc7c0",
+    "source": "Activity_cc4e9043",
+    "target": "ParallelGateway_join_fcb56bc3",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_975ca636",
+    "source": "ParallelGateway_split_5b953c15",
+    "target": "Activity_3b0e61b5",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_0c491c89",
+    "source": "Activity_3b0e61b5",
+    "target": "ParallelGateway_join_fcb56bc3",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_c2c0ea16",
+    "source": "ParallelGateway_join_fcb56bc3",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 8,
+   "label": "Actor",
+   "id": "Actor_e669ee5b",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 9,
+   "end": 20,
+   "label": "Activity",
+   "id": "Activity_0aee682e",
+   "type": "task",
+   "name": "Deregisters"
+  },
+  {
+   "start": 24,
+   "end": 30,
+   "label": "Actor",
+   "id": "Actor_bea511c7",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 33,
+   "end": 39,
+   "label": "Actor",
+   "id": "Actor_d29db6b1",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 40,
+   "end": 48,
+   "label": "Activity",
+   "id": "Activity_267f14db",
+   "type": "task",
+   "name": "Verifies the deregistration"
+  },
+  {
+   "start": 49,
+   "end": 67,
+   "label": "Activity Data",
+   "id": "Activity Data_b6ca6198",
+   "type": null,
+   "name": "The deregistration"
+  },
+  {
+   "start": 70,
+   "end": 76,
+   "label": "Actor",
+   "id": "Actor_a7c425bc",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 77,
+   "end": 84,
+   "label": "Activity",
+   "id": "Activity_5b532224",
+   "type": "task",
+   "name": "Rejects the deregistration of the MSPO"
+  },
+  {
+   "start": 85,
+   "end": 115,
+   "label": "Activity Data",
+   "id": "Activity Data_07d76d41",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 116,
+   "end": 118,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_0bbc3822",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 119,
+   "end": 125,
+   "label": "Actor",
+   "id": "Actor_43566252",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 126,
+   "end": 139,
+   "label": "Further Specification",
+   "id": "Further Specification_072d7d2b",
+   "type": null,
+   "name": "Preliminarily"
+  },
+  {
+   "start": 140,
+   "end": 148,
+   "label": "Activity",
+   "id": "Activity_6244dc40",
+   "type": "task",
+   "name": "Confirms the deregistration of the MSPO"
+  },
+  {
+   "start": 149,
+   "end": 179,
+   "label": "Activity Data",
+   "id": "Activity Data_05b6b5ef",
+   "type": null,
+   "name": "The deregistration of the MSPO"
+  },
+  {
+   "start": 182,
+   "end": 188,
+   "label": "Actor",
+   "id": "Actor_cff036e7",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 189,
+   "end": 196,
+   "label": "Activity",
+   "id": "Activity_de5b028c",
+   "type": "task",
+   "name": "Assigns himself"
+  },
+  {
+   "start": 197,
+   "end": 204,
+   "label": "Activity Data",
+   "id": "Activity Data_91c13d66",
+   "type": null,
+   "name": "Himself"
+  },
+  {
+   "start": 205,
+   "end": 211,
+   "label": "Further Specification",
+   "id": "Further Specification_4c716b21",
+   "type": null,
+   "name": "As MSP"
+  },
+  {
+   "start": 214,
+   "end": 220,
+   "label": "Actor",
+   "id": "Actor_9b35252c",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 221,
+   "end": 228,
+   "label": "Activity",
+   "id": "Activity_ee82b33f",
+   "type": "task",
+   "name": "Informs about the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 229,
+   "end": 237,
+   "label": "Actor",
+   "id": "Actor_25efdc13",
+   "type": "Lane",
+   "name": "The MSPO"
+  },
+  {
+   "start": 238,
+   "end": 315,
+   "label": "Activity Data",
+   "id": "Activity Data_f7f24009",
+   "type": null,
+   "name": "About the end of the assignment and the beginning of the assignment of the GO"
+  },
+  {
+   "start": 318,
+   "end": 324,
+   "label": "Actor",
+   "id": "Actor_d4eb53e5",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 325,
+   "end": 332,
+   "label": "Activity",
+   "id": "Activity_cc4e9043",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 333,
+   "end": 340,
+   "label": "Actor",
+   "id": "Actor_e239babb",
+   "type": "Lane",
+   "name": "The MPO"
+  },
+  {
+   "start": 341,
+   "end": 371,
+   "label": "Activity Data",
+   "id": "Activity Data_8dd784f7",
+   "type": null,
+   "name": "About the assignment of the GO"
+  },
+  {
+   "start": 374,
+   "end": 380,
+   "label": "Actor",
+   "id": "Actor_b64c9af9",
+   "type": "Lane",
+   "name": "The GO"
+  },
+  {
+   "start": 381,
+   "end": 388,
+   "label": "Activity",
+   "id": "Activity_3b0e61b5",
+   "type": "task",
+   "name": "Informs about the assignment of the GO"
+  },
+  {
+   "start": 389,
+   "end": 395,
+   "label": "Actor",
+   "id": "Actor_7089864d",
+   "type": "Lane",
+   "name": "The SP"
+  },
+  {
+   "start": 396,
+   "end": 426,
+   "label": "Activity Data",
+   "id": "Activity Data_e8eb3610",
+   "type": null,
+   "name": "About the assignment of the GO"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Deregisters",
+    "node_B": "Verifies the deregistration",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Deregisters",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Rejects the deregistration of the MSPO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Verifies the deregistration",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Or",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Confirms the deregistration of the MSPO",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Rejects the deregistration of the MSPO",
+    "node_B": "Assigns himself",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Assigns himself",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Assigns himself",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informs about the end of the assignment and the beginning of the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informs about the assignment of the GO",
+    "node_B": "Informs about the assignment of the GO",
+    "label": "PARALLEL",
+    "source": "llm"
+   }
+  ]
+ }
+}

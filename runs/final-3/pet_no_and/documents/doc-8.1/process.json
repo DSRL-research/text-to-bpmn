@@ -1,0 +1,209 @@
+{
+ "structured_data": {
+  "participants": [
+   "A functional department",
+   "Applicants",
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_717796ab",
+    "name": "Demand to fill a post",
+    "type": "task",
+    "lane": "A functional department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c918781f",
+    "name": "Advertised the post",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c8711652",
+    "name": "Apply the applications",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_18dd45c4",
+    "name": "Checked",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1ba42f74",
+    "name": "Filled the post",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Applicants"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_717796ab",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_717796ab",
+    "target": "Activity_c918781f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_c918781f",
+    "target": "Activity_c8711652",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_c8711652",
+    "target": "Activity_18dd45c4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_18dd45c4",
+    "target": "Activity_1ba42f74",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_1ba42f74",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 7
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 32,
+   "end": 38,
+   "label": "Activity",
+   "id": "Activity_717796ab",
+   "type": "task",
+   "name": "Demand to fill a post"
+  },
+  {
+   "start": 42,
+   "end": 65,
+   "label": "Actor",
+   "id": "Actor_fd7eca5b",
+   "type": "Lane",
+   "name": "A functional department"
+  },
+  {
+   "start": 66,
+   "end": 80,
+   "label": "Activity Data",
+   "id": "Activity Data_d54345db",
+   "type": null,
+   "name": "To fill a post"
+  },
+  {
+   "start": 83,
+   "end": 91,
+   "label": "Activity Data",
+   "id": "Activity Data_0035055e",
+   "type": null,
+   "name": "The post"
+  },
+  {
+   "start": 95,
+   "end": 105,
+   "label": "Activity",
+   "id": "Activity_c918781f",
+   "type": "task",
+   "name": "Advertised the post"
+  },
+  {
+   "start": 108,
+   "end": 118,
+   "label": "Actor",
+   "id": "Actor_69ec1303",
+   "type": "Lane",
+   "name": "Applicants"
+  },
+  {
+   "start": 119,
+   "end": 124,
+   "label": "Activity",
+   "id": "Activity_c8711652",
+   "type": "task",
+   "name": "Apply the applications"
+  },
+  {
+   "start": 127,
+   "end": 143,
+   "label": "Activity Data",
+   "id": "Activity Data_27c91a9d",
+   "type": null,
+   "name": "The applications"
+  },
+  {
+   "start": 148,
+   "end": 155,
+   "label": "Activity",
+   "id": "Activity_18dd45c4",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 160,
+   "end": 168,
+   "label": "Activity Data",
+   "id": "Activity Data_ef968ad2",
+   "type": null,
+   "name": "The post"
+  },
+  {
+   "start": 172,
+   "end": 178,
+   "label": "Activity",
+   "id": "Activity_1ba42f74",
+   "type": "task",
+   "name": "Filled the post"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 0,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": []
+ }
+}

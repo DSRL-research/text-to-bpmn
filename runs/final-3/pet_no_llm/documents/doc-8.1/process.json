@@ -1,0 +1,304 @@
+{
+ "structured_data": {
+  "participants": [
+   "A functional department",
+   "Applicants",
+   "Main Process"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_ec24dc2e",
+    "name": "Demand to fill a post",
+    "type": "task",
+    "lane": "A functional department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d3ac4546",
+    "name": "Advertised the post",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1b16ac7c",
+    "name": "Apply the applications",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_bb7c6a4f",
+    "name": "Checked",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "Activity_480cb6b7",
+    "name": "Filled the post",
+    "type": "task",
+    "lane": "Applicants",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Applicants"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_2e563a1a",
+    "source": "StartEvent_1",
+    "target": "Activity_ec24dc2e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_608234ba",
+    "source": "Activity_ec24dc2e",
+    "target": "Activity_d3ac4546",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d0596592",
+    "source": "Activity_d3ac4546",
+    "target": "Activity_1b16ac7c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8c72c654",
+    "source": "Activity_1b16ac7c",
+    "target": "Activity_bb7c6a4f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ecb7c723",
+    "source": "Activity_bb7c6a4f",
+    "target": "Activity_480cb6b7",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bc602870",
+    "source": "Activity_480cb6b7",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 32,
+   "end": 38,
+   "label": "Activity",
+   "id": "Activity_ec24dc2e",
+   "type": "task",
+   "name": "Demand to fill a post"
+  },
+  {
+   "start": 42,
+   "end": 65,
+   "label": "Actor",
+   "id": "Actor_e6e4ab4f",
+   "type": "Lane",
+   "name": "A functional department"
+  },
+  {
+   "start": 66,
+   "end": 80,
+   "label": "Activity Data",
+   "id": "Activity Data_8193212e",
+   "type": null,
+   "name": "To fill a post"
+  },
+  {
+   "start": 83,
+   "end": 91,
+   "label": "Activity Data",
+   "id": "Activity Data_19cc5696",
+   "type": null,
+   "name": "The post"
+  },
+  {
+   "start": 95,
+   "end": 105,
+   "label": "Activity",
+   "id": "Activity_d3ac4546",
+   "type": "task",
+   "name": "Advertised the post"
+  },
+  {
+   "start": 108,
+   "end": 118,
+   "label": "Actor",
+   "id": "Actor_9fe3cf85",
+   "type": "Lane",
+   "name": "Applicants"
+  },
+  {
+   "start": 119,
+   "end": 124,
+   "label": "Activity",
+   "id": "Activity_1b16ac7c",
+   "type": "task",
+   "name": "Apply the applications"
+  },
+  {
+   "start": 127,
+   "end": 143,
+   "label": "Activity Data",
+   "id": "Activity Data_8c46956e",
+   "type": null,
+   "name": "The applications"
+  },
+  {
+   "start": 148,
+   "end": 155,
+   "label": "Activity",
+   "id": "Activity_bb7c6a4f",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 160,
+   "end": 168,
+   "label": "Activity Data",
+   "id": "Activity Data_a65b8042",
+   "type": null,
+   "name": "The post"
+  },
+  {
+   "start": 172,
+   "end": 178,
+   "label": "Activity",
+   "id": "Activity_480cb6b7",
+   "type": "task",
+   "name": "Filled the post"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 9,
+  "skipped": 0,
+  "failures": 9,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Advertised the post",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Apply the applications",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Checked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Apply the applications",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Checked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Filled the post",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Apply the applications",
+    "node_B": "Checked",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Apply the applications",
+    "node_B": "Filled the post",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Filled the post",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Advertised the post",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Apply the applications",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Demand to fill a post",
+    "node_B": "Checked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Apply the applications",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Checked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Advertised the post",
+    "node_B": "Filled the post",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Apply the applications",
+    "node_B": "Checked",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Apply the applications",
+    "node_B": "Filled the post",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Filled the post",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

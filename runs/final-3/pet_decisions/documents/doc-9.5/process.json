@@ -1,0 +1,644 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The employee",
+   "The supervisor"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_5793e46e",
+    "name": "Received a new account",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "The Expense Report"
+    ]
+   },
+   {
+    "id": "Activity_aef2a3e1",
+    "name": "Created",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_059f6fbc",
+    "name": "If the employee does not already have one",
+    "type": "exclusiveGateway",
+    "lane": "Main Process",
+    "metadata": [
+     "Amounts under $200"
+    ]
+   },
+   {
+    "id": "Activity_4f2ba38d",
+    "name": "Reviewed the report",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "For automatic approval"
+    ]
+   },
+   {
+    "id": "Activity_3dfbcf13",
+    "name": "Approved",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": [
+     "Automatically"
+    ]
+   },
+   {
+    "id": "XOR Gateway_c9bf0521",
+    "name": "Whereas amounts equal to or over $200",
+    "type": "exclusiveGateway",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ce515fa8",
+    "name": "Require approval",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_b6aef2dc",
+    "name": "In case of rejection",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f693488e",
+    "name": "Receive a rejection notice",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": [
+     "By email"
+    ]
+   },
+   {
+    "id": "Activity_670d3412",
+    "name": "Goes the reimbursement",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": [
+     "To the employees direct deposit bank account"
+    ]
+   },
+   {
+    "id": "XOR Gateway_16423857",
+    "name": "If the request is not completed in 7 days",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_eb049d32",
+    "name": "Receive an approval in progress email",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_cdd943a3",
+    "name": "If the request is not finished within 30 days",
+    "type": "exclusiveGateway",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_716c957e",
+    "name": "Receives an email cancellation notice",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_79bc1278",
+    "name": "Re-submit the expense report",
+    "type": "task",
+    "lane": "The employee",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_5793e46e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_5793e46e",
+    "target": "Activity_aef2a3e1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_aef2a3e1",
+    "target": "XOR Gateway_059f6fbc",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_059f6fbc",
+    "target": "Activity_4f2ba38d",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_4f2ba38d",
+    "target": "Activity_3dfbcf13",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_3dfbcf13",
+    "target": "XOR Gateway_c9bf0521",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "XOR Gateway_c9bf0521",
+    "target": "Activity_ce515fa8",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_ce515fa8",
+    "target": "XOR Gateway_b6aef2dc",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "XOR Gateway_c9bf0521",
+    "target": "XOR Gateway_b6aef2dc",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "XOR Gateway_b6aef2dc",
+    "target": "Activity_f693488e",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "XOR Gateway_b6aef2dc",
+    "target": "Activity_670d3412",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_f693488e",
+    "target": "XOR Gateway_16423857",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "Activity_670d3412",
+    "target": "XOR Gateway_16423857",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "XOR Gateway_16423857",
+    "target": "Activity_eb049d32",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "Activity_eb049d32",
+    "target": "XOR Gateway_cdd943a3",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0016",
+    "source": "XOR Gateway_16423857",
+    "target": "XOR Gateway_cdd943a3",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0017",
+    "source": "XOR Gateway_cdd943a3",
+    "target": "Activity_716c957e",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0018",
+    "source": "Activity_716c957e",
+    "target": "Activity_79bc1278",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0019",
+    "source": "Activity_79bc1278",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0020",
+    "source": "XOR Gateway_cdd943a3",
+    "target": "EndEvent_1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 24
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 6,
+   "end": 24,
+   "label": "Activity Data",
+   "id": "Activity Data_1733a88d",
+   "type": null,
+   "name": "The Expense Report"
+  },
+  {
+   "start": 28,
+   "end": 36,
+   "label": "Activity",
+   "id": "Activity_5793e46e",
+   "type": "task",
+   "name": "Received a new account"
+  },
+  {
+   "start": 39,
+   "end": 52,
+   "label": "Activity Data",
+   "id": "Activity Data_a5605d84",
+   "type": null,
+   "name": "A new account"
+  },
+  {
+   "start": 61,
+   "end": 68,
+   "label": "Activity",
+   "id": "Activity_aef2a3e1",
+   "type": "task",
+   "name": "Created"
+  },
+  {
+   "start": 69,
+   "end": 71,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_059f6fbc",
+   "type": "exclusiveGateway",
+   "name": "If the employee does not already have one"
+  },
+  {
+   "start": 72,
+   "end": 110,
+   "label": "Condition Specification",
+   "id": "Condition Specification_dbbbfd84",
+   "type": "exclusiveGateway",
+   "name": "The employee does not already have one"
+  },
+  {
+   "start": 113,
+   "end": 123,
+   "label": "Activity Data",
+   "id": "Activity Data_edde4223",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 132,
+   "end": 140,
+   "label": "Activity",
+   "id": "Activity_4f2ba38d",
+   "type": "task",
+   "name": "Reviewed the report"
+  },
+  {
+   "start": 141,
+   "end": 163,
+   "label": "Further Specification",
+   "id": "Further Specification_65763a3e",
+   "type": null,
+   "name": "For automatic approval"
+  },
+  {
+   "start": 166,
+   "end": 184,
+   "label": "Condition Specification",
+   "id": "Condition Specification_51a37fa3",
+   "type": "exclusiveGateway",
+   "name": "Amounts under $200"
+  },
+  {
+   "start": 189,
+   "end": 202,
+   "label": "Further Specification",
+   "id": "Further Specification_e8e1627c",
+   "type": null,
+   "name": "Automatically"
+  },
+  {
+   "start": 203,
+   "end": 211,
+   "label": "Activity",
+   "id": "Activity_3dfbcf13",
+   "type": "task",
+   "name": "Approved"
+  },
+  {
+   "start": 214,
+   "end": 221,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_c9bf0521",
+   "type": "exclusiveGateway",
+   "name": "Whereas amounts equal to or over $200"
+  },
+  {
+   "start": 222,
+   "end": 251,
+   "label": "Condition Specification",
+   "id": "Condition Specification_5663be73",
+   "type": "exclusiveGateway",
+   "name": "Amounts equal to or over $200"
+  },
+  {
+   "start": 252,
+   "end": 259,
+   "label": "Activity",
+   "id": "Activity_ce515fa8",
+   "type": "task",
+   "name": "Require approval"
+  },
+  {
+   "start": 260,
+   "end": 268,
+   "label": "Activity Data",
+   "id": "Activity Data_fa6ce221",
+   "type": null,
+   "name": "Approval"
+  },
+  {
+   "start": 272,
+   "end": 286,
+   "label": "Actor",
+   "id": "Actor_08a2cbd5",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 289,
+   "end": 299,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_b6aef2dc",
+   "type": "exclusiveGateway",
+   "name": "In case of rejection"
+  },
+  {
+   "start": 300,
+   "end": 309,
+   "label": "Condition Specification",
+   "id": "Condition Specification_56d9d255",
+   "type": "exclusiveGateway",
+   "name": "Rejection"
+  },
+  {
+   "start": 312,
+   "end": 324,
+   "label": "Actor",
+   "id": "Actor_a889f140",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 330,
+   "end": 337,
+   "label": "Activity",
+   "id": "Activity_f693488e",
+   "type": "task",
+   "name": "Receive a rejection notice"
+  },
+  {
+   "start": 338,
+   "end": 356,
+   "label": "Activity Data",
+   "id": "Activity Data_d83fa959",
+   "type": null,
+   "name": "A rejection notice"
+  },
+  {
+   "start": 357,
+   "end": 365,
+   "label": "Further Specification",
+   "id": "Further Specification_af6be103",
+   "type": null,
+   "name": "By email"
+  },
+  {
+   "start": 368,
+   "end": 377,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_0af0125a",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 380,
+   "end": 397,
+   "label": "Activity Data",
+   "id": "Activity Data_7867d00e",
+   "type": null,
+   "name": "The reimbursement"
+  },
+  {
+   "start": 398,
+   "end": 402,
+   "label": "Activity",
+   "id": "Activity_670d3412",
+   "type": "task",
+   "name": "Goes the reimbursement"
+  },
+  {
+   "start": 403,
+   "end": 447,
+   "label": "Further Specification",
+   "id": "Further Specification_4b5dd54b",
+   "type": null,
+   "name": "To the employees direct deposit bank account"
+  },
+  {
+   "start": 450,
+   "end": 452,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_16423857",
+   "type": "exclusiveGateway",
+   "name": "If the request is not completed in 7 days"
+  },
+  {
+   "start": 453,
+   "end": 491,
+   "label": "Condition Specification",
+   "id": "Condition Specification_c5f8d831",
+   "type": "exclusiveGateway",
+   "name": "The request is not completed in 7 days"
+  },
+  {
+   "start": 499,
+   "end": 511,
+   "label": "Actor",
+   "id": "Actor_c916d2ea",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 517,
+   "end": 524,
+   "label": "Activity",
+   "id": "Activity_eb049d32",
+   "type": "task",
+   "name": "Receive an approval in progress email"
+  },
+  {
+   "start": 525,
+   "end": 554,
+   "label": "Activity Data",
+   "id": "Activity Data_0309d14e",
+   "type": null,
+   "name": "An approval in progress email"
+  },
+  {
+   "start": 557,
+   "end": 559,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_cdd943a3",
+   "type": "exclusiveGateway",
+   "name": "If the request is not finished within 30 days"
+  },
+  {
+   "start": 560,
+   "end": 602,
+   "label": "Condition Specification",
+   "id": "Condition Specification_589258e2",
+   "type": "exclusiveGateway",
+   "name": "The request is not finished within 30 days"
+  },
+  {
+   "start": 637,
+   "end": 649,
+   "label": "Actor",
+   "id": "Actor_feeb9df5",
+   "type": "Lane",
+   "name": "The employee"
+  },
+  {
+   "start": 650,
+   "end": 658,
+   "label": "Activity",
+   "id": "Activity_716c957e",
+   "type": "task",
+   "name": "Receives an email cancellation notice"
+  },
+  {
+   "start": 659,
+   "end": 687,
+   "label": "Activity Data",
+   "id": "Activity Data_fe35cd30",
+   "type": null,
+   "name": "An email cancellation notice"
+  },
+  {
+   "start": 697,
+   "end": 706,
+   "label": "Activity",
+   "id": "Activity_79bc1278",
+   "type": "task",
+   "name": "Re-submit the expense report"
+  },
+  {
+   "start": 707,
+   "end": 725,
+   "label": "Activity Data",
+   "id": "Activity Data_ceaf3f9f",
+   "type": null,
+   "name": "The expense report"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 5,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "If the employee does not already have one",
+    "node_B": "Reviewed the report | Approved | decision: Whereas amounts equal to or over $200 | Require approval | decision: In case of rejection | Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email | decision: If the request is not finished within 30 days",
+    "label": "after after after after after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "Whereas amounts equal to or over $200",
+    "node_B": "Require approval | decision: In case of rejection | Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice | Re-submit the expense report",
+    "label": "yes after after after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of rejection",
+    "node_B": "Receive a rejection notice | Goes the reimbursement | decision: If the request is not completed in 7 days | Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice | Re-submit the expense report",
+    "label": "yes no after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is not completed in 7 days",
+    "node_B": "Receive an approval in progress email | decision: If the request is not finished within 30 days | Receives an email cancellation notice | Re-submit the expense report",
+    "label": "yes after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the request is not finished within 30 days",
+    "node_B": "Receives an email cancellation notice | Re-submit the expense report",
+    "label": "yes yes",
+    "source": "llm"
+   }
+  ]
+ }
+}

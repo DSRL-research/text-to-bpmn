@@ -1,0 +1,602 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The Customer Service Representative"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_64423e33",
+    "name": "Sends a Mortgage offer",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c8f5b4ab",
+    "name": "Waits for a reply",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_400ffe7f",
+    "name": "If the customer calls or writes back declining the mortgage",
+    "type": "exclusiveGateway",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1719416f",
+    "name": "Updated the case details",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": [
+     "The work"
+    ]
+   },
+   {
+    "id": "Activity_0d41638b",
+    "name": "Archived",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_60b98701",
+    "name": "Cancellation",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_30615a4f",
+    "name": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+    "type": "exclusiveGateway",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_20457379",
+    "name": "Moved the case",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_9909adac",
+    "name": "If all pre-requisite documents are not provided",
+    "type": "exclusiveGateway",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_aadec7af",
+    "name": "Generated a message",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": [
+     "Requesting outstanding documents"
+    ]
+   },
+   {
+    "id": "XOR Gateway_e8e18a58",
+    "name": "If no answer is received after 2 weeks",
+    "type": "exclusiveGateway",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3a0fcb2c",
+    "name": "Updated the case details",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8e1e36a5",
+    "name": "Archive",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a291426b",
+    "name": "Cancellation",
+    "type": "task",
+    "lane": "The Customer Service Representative",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The Customer Service Representative"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_c0104d4e",
+    "source": "StartEvent_1",
+    "target": "Activity_64423e33",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ba7462b5",
+    "source": "Activity_64423e33",
+    "target": "Activity_c8f5b4ab",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_d61aa306",
+    "source": "Activity_c8f5b4ab",
+    "target": "XOR Gateway_400ffe7f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f7fa546d",
+    "source": "XOR Gateway_400ffe7f",
+    "target": "Activity_1719416f",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_543a50db",
+    "source": "Activity_1719416f",
+    "target": "Activity_0d41638b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_da122f7c",
+    "source": "Activity_0d41638b",
+    "target": "Activity_60b98701",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_90bc659c",
+    "source": "XOR Gateway_400ffe7f",
+    "target": "XOR Gateway_30615a4f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e81f7f90",
+    "source": "XOR Gateway_30615a4f",
+    "target": "Activity_20457379",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_3fe9fd2d",
+    "source": "XOR Gateway_30615a4f",
+    "target": "XOR Gateway_9909adac",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_ebc07c9e",
+    "source": "XOR Gateway_9909adac",
+    "target": "Activity_aadec7af",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_c6f70b1d",
+    "source": "XOR Gateway_9909adac",
+    "target": "XOR Gateway_e8e18a58",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3a4572ad",
+    "source": "XOR Gateway_e8e18a58",
+    "target": "Activity_3a0fcb2c",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_04a8df8b",
+    "source": "Activity_3a0fcb2c",
+    "target": "Activity_8e1e36a5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5f23c229",
+    "source": "Activity_8e1e36a5",
+    "target": "Activity_a291426b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f4fc5327",
+    "source": "Activity_60b98701",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b4c40434",
+    "source": "Activity_20457379",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5a0f0931",
+    "source": "Activity_aadec7af",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_27a260c9",
+    "source": "Activity_a291426b",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 35,
+   "label": "Actor",
+   "id": "Actor_d650dd62",
+   "type": "Lane",
+   "name": "The Customer Service Representative"
+  },
+  {
+   "start": 36,
+   "end": 41,
+   "label": "Activity",
+   "id": "Activity_64423e33",
+   "type": "task",
+   "name": "Sends a Mortgage offer"
+  },
+  {
+   "start": 42,
+   "end": 58,
+   "label": "Activity Data",
+   "id": "Activity Data_cb128ca8",
+   "type": null,
+   "name": "A Mortgage offer"
+  },
+  {
+   "start": 62,
+   "end": 74,
+   "label": "Actor",
+   "id": "Actor_df9fbcef",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 79,
+   "end": 88,
+   "label": "Activity",
+   "id": "Activity_c8f5b4ab",
+   "type": "task",
+   "name": "Waits for a reply"
+  },
+  {
+   "start": 89,
+   "end": 96,
+   "label": "Activity Data",
+   "id": "Activity Data_33f5ed64",
+   "type": null,
+   "name": "A reply"
+  },
+  {
+   "start": 99,
+   "end": 101,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_400ffe7f",
+   "type": "exclusiveGateway",
+   "name": "If the customer calls or writes back declining the mortgage"
+  },
+  {
+   "start": 102,
+   "end": 158,
+   "label": "Condition Specification",
+   "id": "Condition Specification_7525e78a",
+   "type": "exclusiveGateway",
+   "name": "The customer calls or writes back declining the mortgage"
+  },
+  {
+   "start": 161,
+   "end": 177,
+   "label": "Activity Data",
+   "id": "Activity Data_872f443d",
+   "type": null,
+   "name": "The case details"
+  },
+  {
+   "start": 182,
+   "end": 189,
+   "label": "Activity",
+   "id": "Activity_1719416f",
+   "type": "task",
+   "name": "Updated the case details"
+  },
+  {
+   "start": 194,
+   "end": 202,
+   "label": "Activity Data",
+   "id": "Activity Data_a2529621",
+   "type": null,
+   "name": "The work"
+  },
+  {
+   "start": 211,
+   "end": 219,
+   "label": "Activity",
+   "id": "Activity_0d41638b",
+   "type": "task",
+   "name": "Archived"
+  },
+  {
+   "start": 229,
+   "end": 241,
+   "label": "Activity",
+   "id": "Activity_60b98701",
+   "type": "task",
+   "name": "Cancellation"
+  },
+  {
+   "start": 244,
+   "end": 246,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_30615a4f",
+   "type": "exclusiveGateway",
+   "name": "If the customer sends back the completed offer documents and attaches all prerequisite documents"
+  },
+  {
+   "start": 247,
+   "end": 340,
+   "label": "Condition Specification",
+   "id": "Condition Specification_bf8b3b91",
+   "type": "exclusiveGateway",
+   "name": "The customer sends back the completed offer documents and attaches all prerequisite documents"
+  },
+  {
+   "start": 346,
+   "end": 354,
+   "label": "Activity Data",
+   "id": "Activity Data_51cc584c",
+   "type": null,
+   "name": "The case"
+  },
+  {
+   "start": 358,
+   "end": 363,
+   "label": "Activity",
+   "id": "Activity_20457379",
+   "type": "task",
+   "name": "Moved the case"
+  },
+  {
+   "start": 367,
+   "end": 381,
+   "label": "Actor",
+   "id": "Actor_db2b39e9",
+   "type": "Lane",
+   "name": "Administration"
+  },
+  {
+   "start": 399,
+   "end": 401,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9909adac",
+   "type": "exclusiveGateway",
+   "name": "If all pre-requisite documents are not provided"
+  },
+  {
+   "start": 402,
+   "end": 446,
+   "label": "Condition Specification",
+   "id": "Condition Specification_e4ad606a",
+   "type": "exclusiveGateway",
+   "name": "All pre-requisite documents are not provided"
+  },
+  {
+   "start": 447,
+   "end": 456,
+   "label": "Activity Data",
+   "id": "Activity Data_05d005ea",
+   "type": null,
+   "name": "A message"
+  },
+  {
+   "start": 460,
+   "end": 469,
+   "label": "Activity",
+   "id": "Activity_aadec7af",
+   "type": "task",
+   "name": "Generated a message"
+  },
+  {
+   "start": 473,
+   "end": 485,
+   "label": "Actor",
+   "id": "Actor_059deb4b",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 486,
+   "end": 518,
+   "label": "Further Specification",
+   "id": "Further Specification_ad38361c",
+   "type": null,
+   "name": "Requesting outstanding documents"
+  },
+  {
+   "start": 521,
+   "end": 523,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e8e18a58",
+   "type": "exclusiveGateway",
+   "name": "If no answer is received after 2 weeks"
+  },
+  {
+   "start": 524,
+   "end": 559,
+   "label": "Condition Specification",
+   "id": "Condition Specification_ee04e2df",
+   "type": "exclusiveGateway",
+   "name": "No answer is received after 2 weeks"
+  },
+  {
+   "start": 562,
+   "end": 578,
+   "label": "Activity Data",
+   "id": "Activity Data_fc99e83f",
+   "type": null,
+   "name": "The case details"
+  },
+  {
+   "start": 583,
+   "end": 590,
+   "label": "Activity",
+   "id": "Activity_3a0fcb2c",
+   "type": "task",
+   "name": "Updated the case details"
+  },
+  {
+   "start": 600,
+   "end": 607,
+   "label": "Activity",
+   "id": "Activity_8e1e36a5",
+   "type": "task",
+   "name": "Archive"
+  },
+  {
+   "start": 612,
+   "end": 624,
+   "label": "Activity",
+   "id": "Activity_a291426b",
+   "type": "task",
+   "name": "Cancellation"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Sends a Mortgage offer",
+    "node_B": "Waits for a reply",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a Mortgage offer",
+    "node_B": "If the customer calls or writes back declining the mortgage",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a Mortgage offer",
+    "node_B": "Updated the case details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Waits for a reply",
+    "node_B": "If the customer calls or writes back declining the mortgage",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Waits for a reply",
+    "node_B": "Updated the case details",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Waits for a reply",
+    "node_B": "Archived",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer calls or writes back declining the mortgage",
+    "node_B": "Updated the case details",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer calls or writes back declining the mortgage",
+    "node_B": "Archived",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer calls or writes back declining the mortgage",
+    "node_B": "Cancellation",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+    "node_B": "Moved the case",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+    "node_B": "If all pre-requisite documents are not provided",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the customer sends back the completed offer documents and attaches all prerequisite documents",
+    "node_B": "Generated a message",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If all pre-requisite documents are not provided",
+    "node_B": "Generated a message",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If all pre-requisite documents are not provided",
+    "node_B": "If no answer is received after 2 weeks",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If all pre-requisite documents are not provided",
+    "node_B": "Updated the case details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If no answer is received after 2 weeks",
+    "node_B": "Updated the case details",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If no answer is received after 2 weeks",
+    "node_B": "Archive",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If no answer is received after 2 weeks",
+    "node_B": "Cancellation",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

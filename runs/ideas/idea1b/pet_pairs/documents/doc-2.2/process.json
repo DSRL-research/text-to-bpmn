@@ -1,0 +1,1958 @@
+{
+ "structured_data": {
+  "participants": [
+   "Customer service",
+   "Main Process",
+   "The CIS",
+   "The customer",
+   "The grid operator",
+   "The old supplier"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_88adefd2",
+    "name": "Transmits his data",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0391b0ee",
+    "name": "Received the customer data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_eecfa0bc",
+    "name": "Entered a customer data object",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": [
+     "Into the CRM system"
+    ]
+   },
+   {
+    "id": "Activity_5a36ac08",
+    "name": "Compared it",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c742f5c3",
+    "name": "Checked the internal customer data base",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": [
+     "For completeness and plausibility"
+    ]
+   },
+   {
+    "id": "XOR Gateway_0dc8b2c8",
+    "name": "In case of any errors",
+    "type": "exclusiveGateway",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f8cceeaa",
+    "name": "Corrected these",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_567d244d",
+    "name": "Created a new customer object",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_2c8ea9ce",
+    "name": "In case the customer does not exist in the customer data base",
+    "type": "exclusiveGateway",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f3fe9467",
+    "name": "Prepare the contract documents for the power supplier switch",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_91482943",
+    "name": "Check the contract documents",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_f5377f27",
+    "name": "In case of a negative response",
+    "type": "exclusiveGateway",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c22ba0f2",
+    "name": "Analyzed the causing issues",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5ad40f7e",
+    "name": "Resolved",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a15912ff",
+    "name": "Generated the contract documents",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_0ba46b48",
+    "name": "In case of a positive response",
+    "type": "exclusiveGateway",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_12f4e825",
+    "name": "Sent out a confirmation document",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c8cf1e37",
+    "name": "Sent out a request",
+    "type": "task",
+    "lane": "The CIS",
+    "metadata": []
+   },
+   {
+    "id": "Activity_85c5f1b1",
+    "name": "Checked the switch-over request",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_85ab97b6",
+    "name": "Transmits a response comment",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_1391b830",
+    "name": "In the case of supplier concurrence",
+    "type": "exclusiveGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_803083a7",
+    "name": "Inform",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_d9e074d0",
+    "name": "Demand the resolution of the conflict",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c7bc4ba4",
+    "name": "Communicates",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_82cc7a22",
+    "name": "Carries out the termination of the sales agreement",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_4f61f2b5",
+    "name": "If there are not any objections by the grid operator",
+    "type": "exclusiveGateway",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3adf470d",
+    "name": "Creates a CIS contract",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c0e19cc3",
+    "name": "Check the contract details",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_19528a6c",
+    "name": "Either",
+    "type": "exclusiveGateway",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e73d4509",
+    "name": "Withdraw",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_14898bd7",
+    "name": "Confirm it",
+    "type": "task",
+    "lane": "The customer",
+    "metadata": [
+     "The switch contract"
+    ]
+   },
+   {
+    "id": "XOR Gateway_23f1aee9",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "The customer",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5e337ccb",
+    "name": "Transmits the power meter data",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": [
+     "Via messages containing a services consumption report"
+    ]
+   },
+   {
+    "id": "ParallelGateway_split_e0cecfbf",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_695234fe",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b4567c07",
+    "name": "Computes the final billing",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c5f173fc",
+    "name": "Sends it",
+    "type": "task",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_cc0b2420",
+    "name": "At the same time",
+    "type": "parallelGateway",
+    "lane": "The grid operator",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_29173985",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The grid operator"
+   },
+   {
+    "id": "Activity_7a5fd7f1",
+    "name": "Creates",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_f069f451",
+    "name": "Sends the final billing",
+    "type": "task",
+    "lane": "The old supplier",
+    "metadata": []
+   },
+   {
+    "id": "Activity_86bb534a",
+    "name": "Receiving the meter data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e983a746",
+    "name": "Imports the meter data",
+    "type": "task",
+    "lane": "Customer service",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Customer service"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_8433c164",
+    "source": "StartEvent_1",
+    "target": "Activity_88adefd2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_70cd4fa4",
+    "source": "Activity_88adefd2",
+    "target": "Activity_0391b0ee",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_aa2350eb",
+    "source": "Activity_0391b0ee",
+    "target": "Activity_eecfa0bc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_3bf99038",
+    "source": "Activity_eecfa0bc",
+    "target": "Activity_5a36ac08",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_795dad13",
+    "source": "Activity_5a36ac08",
+    "target": "Activity_c742f5c3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f7ff3803",
+    "source": "Activity_c742f5c3",
+    "target": "XOR Gateway_0dc8b2c8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_38e6e965",
+    "source": "XOR Gateway_0dc8b2c8",
+    "target": "Activity_f8cceeaa",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_7af2f8ec",
+    "source": "XOR Gateway_0dc8b2c8",
+    "target": "Activity_567d244d",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_6202be73",
+    "source": "XOR Gateway_0dc8b2c8",
+    "target": "XOR Gateway_2c8ea9ce",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c4fe8b41",
+    "source": "XOR Gateway_2c8ea9ce",
+    "target": "Activity_567d244d",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_5c87d370",
+    "source": "XOR Gateway_2c8ea9ce",
+    "target": "Activity_f3fe9467",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_bb2943a7",
+    "source": "Activity_f3fe9467",
+    "target": "Activity_91482943",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_85739dcd",
+    "source": "Activity_91482943",
+    "target": "XOR Gateway_f5377f27",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f1b45572",
+    "source": "XOR Gateway_f5377f27",
+    "target": "Activity_c22ba0f2",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_7c1010e7",
+    "source": "Activity_c22ba0f2",
+    "target": "Activity_5ad40f7e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4c24c509",
+    "source": "Activity_5ad40f7e",
+    "target": "Activity_a15912ff",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6aa65e8c",
+    "source": "XOR Gateway_f5377f27",
+    "target": "XOR Gateway_0ba46b48",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_20f5c3a8",
+    "source": "XOR Gateway_0ba46b48",
+    "target": "Activity_12f4e825",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_4d2e06fa",
+    "source": "Activity_12f4e825",
+    "target": "Activity_c8cf1e37",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b8fae280",
+    "source": "Activity_c8cf1e37",
+    "target": "Activity_85c5f1b1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2fc84299",
+    "source": "Activity_85c5f1b1",
+    "target": "Activity_85ab97b6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_51b40362",
+    "source": "Activity_85ab97b6",
+    "target": "XOR Gateway_1391b830",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4df30b97",
+    "source": "XOR Gateway_1391b830",
+    "target": "Activity_803083a7",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_6cb14684",
+    "source": "Activity_803083a7",
+    "target": "Activity_d9e074d0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1fa1a846",
+    "source": "Activity_d9e074d0",
+    "target": "Activity_c7bc4ba4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6d4bceec",
+    "source": "Activity_c7bc4ba4",
+    "target": "Activity_82cc7a22",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ee8faa53",
+    "source": "Activity_82cc7a22",
+    "target": "XOR Gateway_4f61f2b5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6700b5e0",
+    "source": "XOR Gateway_4f61f2b5",
+    "target": "Activity_3adf470d",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_d05c473a",
+    "source": "Activity_3adf470d",
+    "target": "Activity_c0e19cc3",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ae1473de",
+    "source": "Activity_c0e19cc3",
+    "target": "XOR Gateway_19528a6c",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_aa3a9721",
+    "source": "XOR Gateway_19528a6c",
+    "target": "Activity_e73d4509",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_5673b38e",
+    "source": "Activity_e73d4509",
+    "target": "Activity_14898bd7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_5be0b563",
+    "source": "XOR Gateway_19528a6c",
+    "target": "XOR Gateway_23f1aee9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_690ff413",
+    "source": "XOR Gateway_23f1aee9",
+    "target": "Activity_14898bd7",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_ef9b1854",
+    "source": "XOR Gateway_23f1aee9",
+    "target": "ParallelGateway_split_e0cecfbf",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f185f604",
+    "source": "ParallelGateway_split_e0cecfbf",
+    "target": "Activity_5e337ccb",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_8ad775ae",
+    "source": "Activity_5e337ccb",
+    "target": "ParallelGateway_join_695234fe",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_ca0a091d",
+    "source": "ParallelGateway_split_e0cecfbf",
+    "target": "Activity_b4567c07",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_f6738d3a",
+    "source": "Activity_b4567c07",
+    "target": "ParallelGateway_join_695234fe",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_fd1a8619",
+    "source": "ParallelGateway_split_e0cecfbf",
+    "target": "Activity_c5f173fc",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_6fd7f864",
+    "source": "Activity_c5f173fc",
+    "target": "ParallelGateway_join_695234fe",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_e8189df9",
+    "source": "ParallelGateway_join_695234fe",
+    "target": "AND Gateway_cc0b2420",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dd35308a",
+    "source": "AND Gateway_cc0b2420",
+    "target": "Activity_7a5fd7f1",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_148265b5",
+    "source": "Activity_7a5fd7f1",
+    "target": "ParallelGateway_join_29173985",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_e032580c",
+    "source": "AND Gateway_cc0b2420",
+    "target": "Activity_f069f451",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_2a61db05",
+    "source": "Activity_f069f451",
+    "target": "ParallelGateway_join_29173985",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_1a46913f",
+    "source": "AND Gateway_cc0b2420",
+    "target": "Activity_86bb534a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_e19c17ec",
+    "source": "Activity_86bb534a",
+    "target": "ParallelGateway_join_29173985",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_7dae8989",
+    "source": "ParallelGateway_join_29173985",
+    "target": "Activity_e983a746",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d950c7e",
+    "source": "Activity_f8cceeaa",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e26b225f",
+    "source": "Activity_567d244d",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f01b3afe",
+    "source": "Activity_a15912ff",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a254987c",
+    "source": "Activity_14898bd7",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a3b02d6d",
+    "source": "Activity_e983a746",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 66,
+   "end": 78,
+   "label": "Actor",
+   "id": "Actor_827e38d8",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 79,
+   "end": 88,
+   "label": "Activity",
+   "id": "Activity_88adefd2",
+   "type": "task",
+   "name": "Transmits his data"
+  },
+  {
+   "start": 89,
+   "end": 97,
+   "label": "Activity Data",
+   "id": "Activity Data_b4f81038",
+   "type": null,
+   "name": "His data"
+  },
+  {
+   "start": 101,
+   "end": 132,
+   "label": "Actor",
+   "id": "Actor_44e68c2f",
+   "type": "Lane",
+   "name": "The customer service department"
+  },
+  {
+   "start": 243,
+   "end": 260,
+   "label": "Activity Data",
+   "id": "Activity Data_c542da8e",
+   "type": null,
+   "name": "The customer data"
+  },
+  {
+   "start": 264,
+   "end": 272,
+   "label": "Activity",
+   "id": "Activity_0391b0ee",
+   "type": "task",
+   "name": "Received the customer data"
+  },
+  {
+   "start": 276,
+   "end": 292,
+   "label": "Actor",
+   "id": "Actor_0903a9a3",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 316,
+   "end": 338,
+   "label": "Activity Data",
+   "id": "Activity Data_b1073997",
+   "type": null,
+   "name": "A customer data object"
+  },
+  {
+   "start": 342,
+   "end": 349,
+   "label": "Activity",
+   "id": "Activity_eecfa0bc",
+   "type": "task",
+   "name": "Entered a customer data object"
+  },
+  {
+   "start": 350,
+   "end": 369,
+   "label": "Further Specification",
+   "id": "Further Specification_e0f8eaf0",
+   "type": null,
+   "name": "Into the CRM system"
+  },
+  {
+   "start": 409,
+   "end": 411,
+   "label": "Activity Data",
+   "id": "Activity Data_f45b9b77",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 427,
+   "end": 435,
+   "label": "Activity",
+   "id": "Activity_5a36ac08",
+   "type": "task",
+   "name": "Compared it"
+  },
+  {
+   "start": 441,
+   "end": 472,
+   "label": "Activity Data",
+   "id": "Activity Data_546f3c74",
+   "type": null,
+   "name": "The internal customer data base"
+  },
+  {
+   "start": 477,
+   "end": 484,
+   "label": "Activity",
+   "id": "Activity_c742f5c3",
+   "type": "task",
+   "name": "Checked the internal customer data base"
+  },
+  {
+   "start": 485,
+   "end": 518,
+   "label": "Further Specification",
+   "id": "Further Specification_2439ee3e",
+   "type": null,
+   "name": "For completeness and plausibility"
+  },
+  {
+   "start": 521,
+   "end": 531,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_0dc8b2c8",
+   "type": "exclusiveGateway",
+   "name": "In case of any errors"
+  },
+  {
+   "start": 532,
+   "end": 542,
+   "label": "Condition Specification",
+   "id": "Condition Specification_8a4ccfb3",
+   "type": "exclusiveGateway",
+   "name": "Any errors"
+  },
+  {
+   "start": 543,
+   "end": 548,
+   "label": "Activity Data",
+   "id": "Activity Data_af17df7f",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 559,
+   "end": 568,
+   "label": "Activity",
+   "id": "Activity_f8cceeaa",
+   "type": "task",
+   "name": "Corrected these"
+  },
+  {
+   "start": 704,
+   "end": 711,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_2c8ea9ce",
+   "type": "exclusiveGateway",
+   "name": "In case the customer does not exist in the customer data base"
+  },
+  {
+   "start": 712,
+   "end": 765,
+   "label": "Condition Specification",
+   "id": "Condition Specification_b742572e",
+   "type": "exclusiveGateway",
+   "name": "The customer does not exist in the customer data base"
+  },
+  {
+   "start": 768,
+   "end": 789,
+   "label": "Activity Data",
+   "id": "Activity Data_feff27b8",
+   "type": null,
+   "name": "A new customer object"
+  },
+  {
+   "start": 799,
+   "end": 806,
+   "label": "Activity",
+   "id": "Activity_567d244d",
+   "type": "task",
+   "name": "Created a new customer object"
+  },
+  {
+   "start": 1088,
+   "end": 1095,
+   "label": "Activity",
+   "id": "Activity_f3fe9467",
+   "type": "task",
+   "name": "Prepare the contract documents for the power supplier switch"
+  },
+  {
+   "start": 1096,
+   "end": 1148,
+   "label": "Activity Data",
+   "id": "Activity Data_e8050acb",
+   "type": null,
+   "name": "The contract documents for the power supplier switch"
+  },
+  {
+   "start": 1291,
+   "end": 1296,
+   "label": "Activity",
+   "id": "Activity_91482943",
+   "type": "task",
+   "name": "Check the contract documents"
+  },
+  {
+   "start": 1300,
+   "end": 1322,
+   "label": "Activity Data",
+   "id": "Activity Data_4830d8d5",
+   "type": null,
+   "name": "The contract documents"
+  },
+  {
+   "start": 1345,
+   "end": 1352,
+   "label": "Actor",
+   "id": "Actor_468a651b",
+   "type": "Lane",
+   "name": "The CIS"
+  },
+  {
+   "start": 1435,
+   "end": 1445,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f5377f27",
+   "type": "exclusiveGateway",
+   "name": "In case of a negative response"
+  },
+  {
+   "start": 1446,
+   "end": 1465,
+   "label": "Condition Specification",
+   "id": "Condition Specification_d60155e3",
+   "type": "exclusiveGateway",
+   "name": "A negative response"
+  },
+  {
+   "start": 1536,
+   "end": 1554,
+   "label": "Activity Data",
+   "id": "Activity Data_a0410dac",
+   "type": null,
+   "name": "The causing issues"
+  },
+  {
+   "start": 1565,
+   "end": 1573,
+   "label": "Activity",
+   "id": "Activity_c22ba0f2",
+   "type": "task",
+   "name": "Analyzed the causing issues"
+  },
+  {
+   "start": 1578,
+   "end": 1586,
+   "label": "Activity",
+   "id": "Activity_5ad40f7e",
+   "type": "task",
+   "name": "Resolved"
+  },
+  {
+   "start": 1602,
+   "end": 1624,
+   "label": "Activity Data",
+   "id": "Activity Data_4fe4fd42",
+   "type": null,
+   "name": "The contract documents"
+  },
+  {
+   "start": 1629,
+   "end": 1638,
+   "label": "Activity",
+   "id": "Activity_a15912ff",
+   "type": "task",
+   "name": "Generated the contract documents"
+  },
+  {
+   "start": 1652,
+   "end": 1662,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_0ba46b48",
+   "type": "exclusiveGateway",
+   "name": "In case of a positive response"
+  },
+  {
+   "start": 1663,
+   "end": 1682,
+   "label": "Condition Specification",
+   "id": "Condition Specification_d8572895",
+   "type": "exclusiveGateway",
+   "name": "A positive response"
+  },
+  {
+   "start": 1683,
+   "end": 1706,
+   "label": "Activity Data",
+   "id": "Activity Data_74b3d88d",
+   "type": null,
+   "name": "A confirmation document"
+  },
+  {
+   "start": 1710,
+   "end": 1718,
+   "label": "Activity",
+   "id": "Activity_12f4e825",
+   "type": "task",
+   "name": "Sent out a confirmation document"
+  },
+  {
+   "start": 1722,
+   "end": 1734,
+   "label": "Actor",
+   "id": "Actor_66ec5a9a",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 1802,
+   "end": 1811,
+   "label": "Activity Data",
+   "id": "Activity Data_304eb637",
+   "type": null,
+   "name": "A request"
+  },
+  {
+   "start": 1815,
+   "end": 1832,
+   "label": "Actor",
+   "id": "Actor_b0731f19",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 1850,
+   "end": 1858,
+   "label": "Activity",
+   "id": "Activity_c8cf1e37",
+   "type": "task",
+   "name": "Sent out a request"
+  },
+  {
+   "start": 1862,
+   "end": 1869,
+   "label": "Actor",
+   "id": "Actor_f7848d1c",
+   "type": "Lane",
+   "name": "The CIS"
+  },
+  {
+   "start": 1971,
+   "end": 1994,
+   "label": "Activity Data",
+   "id": "Activity Data_9125cee8",
+   "type": null,
+   "name": "The switch-over request"
+  },
+  {
+   "start": 1998,
+   "end": 2005,
+   "label": "Activity",
+   "id": "Activity_85c5f1b1",
+   "type": "task",
+   "name": "Checked the switch-over request"
+  },
+  {
+   "start": 2009,
+   "end": 2026,
+   "label": "Actor",
+   "id": "Actor_399b4d85",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2058,
+   "end": 2075,
+   "label": "Actor",
+   "id": "Actor_8d68661b",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2076,
+   "end": 2085,
+   "label": "Activity",
+   "id": "Activity_85ab97b6",
+   "type": "task",
+   "name": "Transmits a response comment"
+  },
+  {
+   "start": 2086,
+   "end": 2104,
+   "label": "Activity Data",
+   "id": "Activity Data_d2f923c8",
+   "type": null,
+   "name": "A response comment"
+  },
+  {
+   "start": 2107,
+   "end": 2121,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_1391b830",
+   "type": "exclusiveGateway",
+   "name": "In the case of supplier concurrence"
+  },
+  {
+   "start": 2122,
+   "end": 2142,
+   "label": "Condition Specification",
+   "id": "Condition Specification_621af757",
+   "type": "exclusiveGateway",
+   "name": "Supplier concurrence"
+  },
+  {
+   "start": 2143,
+   "end": 2160,
+   "label": "Actor",
+   "id": "Actor_43f463bb",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2167,
+   "end": 2173,
+   "label": "Activity",
+   "id": "Activity_803083a7",
+   "type": "task",
+   "name": "Inform"
+  },
+  {
+   "start": 2174,
+   "end": 2196,
+   "label": "Actor",
+   "id": "Actor_cfc9c5d2",
+   "type": "Lane",
+   "name": "All involved suppliers"
+  },
+  {
+   "start": 2201,
+   "end": 2207,
+   "label": "Activity",
+   "id": "Activity_d9e074d0",
+   "type": "task",
+   "name": "Demand the resolution of the conflict"
+  },
+  {
+   "start": 2208,
+   "end": 2238,
+   "label": "Activity Data",
+   "id": "Activity Data_7fbde296",
+   "type": null,
+   "name": "The resolution of the conflict"
+  },
+  {
+   "start": 2241,
+   "end": 2258,
+   "label": "Actor",
+   "id": "Actor_2cfc1acc",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 2259,
+   "end": 2271,
+   "label": "Activity",
+   "id": "Activity_c7bc4ba4",
+   "type": "task",
+   "name": "Communicates"
+  },
+  {
+   "start": 2277,
+   "end": 2293,
+   "label": "Actor",
+   "id": "Actor_98bc37da",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 2298,
+   "end": 2309,
+   "label": "Activity",
+   "id": "Activity_82cc7a22",
+   "type": "task",
+   "name": "Carries out the termination of the sales agreement"
+  },
+  {
+   "start": 2310,
+   "end": 2348,
+   "label": "Activity Data",
+   "id": "Activity Data_6afbac5c",
+   "type": null,
+   "name": "The termination of the sales agreement"
+  },
+  {
+   "start": 2518,
+   "end": 2520,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_4f61f2b5",
+   "type": "exclusiveGateway",
+   "name": "If there are not any objections by the grid operator"
+  },
+  {
+   "start": 2521,
+   "end": 2570,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cd59fc02",
+   "type": "exclusiveGateway",
+   "name": "There are not any objections by the grid operator"
+  },
+  {
+   "start": 2607,
+   "end": 2623,
+   "label": "Actor",
+   "id": "Actor_a80eccf3",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 2624,
+   "end": 2631,
+   "label": "Activity",
+   "id": "Activity_3adf470d",
+   "type": "task",
+   "name": "Creates a CIS contract"
+  },
+  {
+   "start": 2632,
+   "end": 2646,
+   "label": "Activity Data",
+   "id": "Activity Data_f9ed1332",
+   "type": null,
+   "name": "A CIS contract"
+  },
+  {
+   "start": 2649,
+   "end": 2661,
+   "label": "Actor",
+   "id": "Actor_d938bda3",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 2685,
+   "end": 2690,
+   "label": "Activity",
+   "id": "Activity_c0e19cc3",
+   "type": "task",
+   "name": "Check the contract details"
+  },
+  {
+   "start": 2691,
+   "end": 2711,
+   "label": "Activity Data",
+   "id": "Activity Data_f889a616",
+   "type": null,
+   "name": "The contract details"
+  },
+  {
+   "start": 2750,
+   "end": 2756,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_19528a6c",
+   "type": "exclusiveGateway",
+   "name": "Either"
+  },
+  {
+   "start": 2757,
+   "end": 2765,
+   "label": "Activity",
+   "id": "Activity_e73d4509",
+   "type": "task",
+   "name": "Withdraw"
+  },
+  {
+   "start": 2771,
+   "end": 2790,
+   "label": "Activity Data",
+   "id": "Activity Data_416efcaf",
+   "type": null,
+   "name": "The switch contract"
+  },
+  {
+   "start": 2791,
+   "end": 2793,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_23f1aee9",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 2794,
+   "end": 2801,
+   "label": "Activity",
+   "id": "Activity_14898bd7",
+   "type": "task",
+   "name": "Confirm it"
+  },
+  {
+   "start": 2802,
+   "end": 2804,
+   "label": "Activity Data",
+   "id": "Activity Data_1b226f57",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 3425,
+   "end": 3442,
+   "label": "Actor",
+   "id": "Actor_894e1995",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 3443,
+   "end": 3452,
+   "label": "Activity",
+   "id": "Activity_5e337ccb",
+   "type": "task",
+   "name": "Transmits the power meter data"
+  },
+  {
+   "start": 3453,
+   "end": 3473,
+   "label": "Activity Data",
+   "id": "Activity Data_6582b292",
+   "type": null,
+   "name": "The power meter data"
+  },
+  {
+   "start": 3477,
+   "end": 3497,
+   "label": "Actor",
+   "id": "Actor_0370dae2",
+   "type": "Lane",
+   "name": "The customer service"
+  },
+  {
+   "start": 3502,
+   "end": 3518,
+   "label": "Actor",
+   "id": "Actor_c338de7d",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3519,
+   "end": 3572,
+   "label": "Further Specification",
+   "id": "Further Specification_b53407ef",
+   "type": null,
+   "name": "Via messages containing a services consumption report"
+  },
+  {
+   "start": 3575,
+   "end": 3591,
+   "label": "AND Gateway",
+   "id": "AND Gateway_cc0b2420",
+   "type": "parallelGateway",
+   "name": "At the same time"
+  },
+  {
+   "start": 3594,
+   "end": 3611,
+   "label": "Actor",
+   "id": "Actor_9f442e13",
+   "type": "Lane",
+   "name": "The grid operator"
+  },
+  {
+   "start": 3612,
+   "end": 3620,
+   "label": "Activity",
+   "id": "Activity_b4567c07",
+   "type": "task",
+   "name": "Computes the final billing"
+  },
+  {
+   "start": 3621,
+   "end": 3638,
+   "label": "Activity Data",
+   "id": "Activity Data_e3dc985c",
+   "type": null,
+   "name": "The final billing"
+  },
+  {
+   "start": 3667,
+   "end": 3672,
+   "label": "Activity",
+   "id": "Activity_c5f173fc",
+   "type": "task",
+   "name": "Sends it"
+  },
+  {
+   "start": 3673,
+   "end": 3675,
+   "label": "Activity Data",
+   "id": "Activity Data_20f69579",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 3679,
+   "end": 3695,
+   "label": "Actor",
+   "id": "Actor_bfe4d63d",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3707,
+   "end": 3723,
+   "label": "Actor",
+   "id": "Actor_180c659c",
+   "type": "Lane",
+   "name": "The old supplier"
+  },
+  {
+   "start": 3724,
+   "end": 3731,
+   "label": "Activity",
+   "id": "Activity_7a5fd7f1",
+   "type": "task",
+   "name": "Creates"
+  },
+  {
+   "start": 3736,
+   "end": 3741,
+   "label": "Activity",
+   "id": "Activity_f069f451",
+   "type": "task",
+   "name": "Sends the final billing"
+  },
+  {
+   "start": 3742,
+   "end": 3759,
+   "label": "Activity Data",
+   "id": "Activity Data_a3048494",
+   "type": null,
+   "name": "The final billing"
+  },
+  {
+   "start": 3763,
+   "end": 3775,
+   "label": "Actor",
+   "id": "Actor_877a51e7",
+   "type": "Lane",
+   "name": "The customer"
+  },
+  {
+   "start": 3854,
+   "end": 3863,
+   "label": "Activity",
+   "id": "Activity_86bb534a",
+   "type": "task",
+   "name": "Receiving the meter data"
+  },
+  {
+   "start": 3864,
+   "end": 3878,
+   "label": "Activity Data",
+   "id": "Activity Data_75d6c8b6",
+   "type": null,
+   "name": "The meter data"
+  },
+  {
+   "start": 3879,
+   "end": 3895,
+   "label": "Actor",
+   "id": "Actor_999648b7",
+   "type": "Lane",
+   "name": "Customer service"
+  },
+  {
+   "start": 3896,
+   "end": 3903,
+   "label": "Activity",
+   "id": "Activity_e983a746",
+   "type": "task",
+   "name": "Imports the meter data"
+  },
+  {
+   "start": 3904,
+   "end": 3918,
+   "label": "Activity Data",
+   "id": "Activity Data_3c8a007d",
+   "type": null,
+   "name": "The meter data"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 78,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Received the customer data",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Entered a customer data object",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits his data",
+    "node_B": "Compared it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Entered a customer data object",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Compared it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the customer data",
+    "node_B": "Checked the internal customer data base",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Compared it",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "Checked the internal customer data base",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Entered a customer data object",
+    "node_B": "In case of any errors",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Checked the internal customer data base",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "In case of any errors",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Compared it",
+    "node_B": "Corrected these",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case of any errors",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "Corrected these",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the internal customer data base",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Corrected these",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "In case the customer does not exist in the customer data base",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of any errors",
+    "node_B": "Created a new customer object",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Created a new customer object",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Prepare the contract documents for the power supplier switch",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case the customer does not exist in the customer data base",
+    "node_B": "Check the contract documents",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Check the contract documents",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "In case of a negative response",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Prepare the contract documents for the power supplier switch",
+    "node_B": "Analyzed the causing issues",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "In case of a negative response",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Analyzed the causing issues",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract documents",
+    "node_B": "Resolved",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Analyzed the causing issues",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Resolved",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a negative response",
+    "node_B": "Generated the contract documents",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a confirmation document",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Sent out a request",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In case of a positive response",
+    "node_B": "Checked the switch-over request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Checked the switch-over request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "Transmits a response comment",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sent out a request",
+    "node_B": "In the case of supplier concurrence",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Transmits a response comment",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "In the case of supplier concurrence",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked the switch-over request",
+    "node_B": "Inform",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "In the case of supplier concurrence",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Inform",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits a response comment",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Inform",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "In the case of supplier concurrence",
+    "node_B": "Communicates",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Demand the resolution of the conflict",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Communicates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Inform",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Communicates",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Demand the resolution of the conflict",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Carries out the termination of the sales agreement",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Communicates",
+    "node_B": "Creates a CIS contract",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "If there are not any objections by the grid operator",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Creates a CIS contract",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Carries out the termination of the sales agreement",
+    "node_B": "Check the contract details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Creates a CIS contract",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Check the contract details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "If there are not any objections by the grid operator",
+    "node_B": "Either",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Check the contract details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Either",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Creates a CIS contract",
+    "node_B": "Withdraw",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Either",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Withdraw",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Check the contract details",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Withdraw",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Or",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Either",
+    "node_B": "Confirm it",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Confirm it",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Transmits the power meter data",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "At the same time",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "At the same time",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Computes the final billing",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Transmits the power meter data",
+    "node_B": "Sends it",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Creates",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Sends the final billing",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "At the same time",
+    "node_B": "Receiving the meter data",
+    "label": "PARALLEL",
+    "source": "llm"
+   }
+  ]
+ }
+}

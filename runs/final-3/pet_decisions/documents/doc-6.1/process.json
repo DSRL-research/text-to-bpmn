@@ -1,0 +1,1333 @@
+{
+ "structured_data": {
+  "participants": [
+   "ACME AG",
+   "He",
+   "Main Process",
+   "She",
+   "The Board",
+   "The Secretariat",
+   "The accounting employee",
+   "The cost center manager",
+   "The cost center managers"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_d08fac05",
+    "name": "Receives invoices",
+    "type": "task",
+    "lane": "ACME AG",
+    "metadata": []
+   },
+   {
+    "id": "Activity_44cd77c8",
+    "name": "Received these",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ca8c4543",
+    "name": "Forwarded",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a8be20c4",
+    "name": "Inspection",
+    "type": "task",
+    "lane": "The Secretariat",
+    "metadata": [
+     "A short visual"
+    ]
+   },
+   {
+    "id": "Activity_cd30976c",
+    "name": "Identifies the charging suppliers",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e9cea310",
+    "name": "Creates a new instance",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_e4e6b60c",
+    "name": "Checks the invoice items",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_21693b19",
+    "name": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0434aedb",
+    "name": "Sent the docket and the copy of the invoice",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4dad33a3",
+    "name": "Reviews the content",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_dd3414a0",
+    "name": "Receiving the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "For accuracy"
+    ]
+   },
+   {
+    "id": "XOR Gateway_896e2cec",
+    "name": "Should everything be in order",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_99009157",
+    "name": "Notes his code",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "On the docket"
+    ]
+   },
+   {
+    "id": "Activity_4dc61578",
+    "name": "Returns the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_34901aa5",
+    "name": "Passed on the copy of the invoice",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a612b22b",
+    "name": "If all items are marked correct",
+    "type": "exclusiveGateway",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2904ca24",
+    "name": "Sent back",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "Activity_00ec1c07",
+    "name": "Rejects the AP",
+    "type": "task",
+    "lane": "The cost center manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_41d5729a",
+    "name": "Sent back the copy of the invoice",
+    "type": "task",
+    "lane": "The cost center manager",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fc05def7",
+    "name": "Proceede the clarification with the vendor",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_480db4b7",
+    "name": "If necessary",
+    "type": "exclusiveGateway",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3cb39523",
+    "name": "Consults",
+    "type": "task",
+    "lane": "She",
+    "metadata": []
+   },
+   {
+    "id": "Activity_28720e7a",
+    "name": "Sent the copy of the invoice",
+    "type": "task",
+    "lane": "The cost center managers",
+    "metadata": []
+   },
+   {
+    "id": "Activity_ceaf79b6",
+    "name": "Makes the commercial audit",
+    "type": "task",
+    "lane": "He",
+    "metadata": [
+     "The copy of the invoice"
+    ]
+   },
+   {
+    "id": "Activity_34b4343f",
+    "name": "Issues the approval for payment",
+    "type": "task",
+    "lane": "He",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_e250e4ad",
+    "name": "If the bill amount exceeds EUR 20",
+    "type": "exclusiveGateway",
+    "lane": "The Board",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4e71c49c",
+    "name": "Check it",
+    "type": "task",
+    "lane": "The Board",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5caf9190",
+    "name": "Moves back the copy of the invoice including the docket",
+    "type": "task",
+    "lane": "The Board",
+    "metadata": [
+     "In the appropriate signature file"
+    ]
+   },
+   {
+    "id": "XOR Gateway_afc4b5a7",
+    "name": "Should there be a complaint during the commercial audit",
+    "type": "exclusiveGateway",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_58ac2391",
+    "name": "Resolved it",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_973a77c5",
+    "name": "Gives payment instructions",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_5579ac99",
+    "name": "Closes the instance in `` ACME financial accounting ``",
+    "type": "task",
+    "lane": "The accounting employee",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The accounting employee"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_d08fac05",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_d08fac05",
+    "target": "Activity_44cd77c8",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_44cd77c8",
+    "target": "Activity_ca8c4543",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "Activity_ca8c4543",
+    "target": "Activity_a8be20c4",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_a8be20c4",
+    "target": "Activity_cd30976c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_cd30976c",
+    "target": "Activity_e9cea310",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_e9cea310",
+    "target": "Activity_e4e6b60c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_e4e6b60c",
+    "target": "Activity_21693b19",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_21693b19",
+    "target": "Activity_0434aedb",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "Activity_0434aedb",
+    "target": "Activity_4dad33a3",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_4dad33a3",
+    "target": "Activity_dd3414a0",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_dd3414a0",
+    "target": "XOR Gateway_896e2cec",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0013",
+    "source": "XOR Gateway_896e2cec",
+    "target": "Activity_99009157",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0014",
+    "source": "Activity_99009157",
+    "target": "Activity_4dc61578",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0015",
+    "source": "Activity_4dc61578",
+    "target": "Activity_34901aa5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0016",
+    "source": "Activity_34901aa5",
+    "target": "XOR Gateway_a612b22b",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0017",
+    "source": "XOR Gateway_896e2cec",
+    "target": "XOR Gateway_a612b22b",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0018",
+    "source": "XOR Gateway_a612b22b",
+    "target": "Activity_2904ca24",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0019",
+    "source": "XOR Gateway_a612b22b",
+    "target": "Activity_00ec1c07",
+    "name": "If inconsistencies exist",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0020",
+    "source": "Activity_00ec1c07",
+    "target": "Activity_41d5729a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0021",
+    "source": "Activity_41d5729a",
+    "target": "Activity_fc05def7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0022",
+    "source": "Activity_2904ca24",
+    "target": "XOR Gateway_480db4b7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0023",
+    "source": "Activity_fc05def7",
+    "target": "XOR Gateway_480db4b7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0024",
+    "source": "XOR Gateway_480db4b7",
+    "target": "Activity_3cb39523",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0025",
+    "source": "Activity_3cb39523",
+    "target": "Activity_28720e7a",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0026",
+    "source": "XOR Gateway_480db4b7",
+    "target": "Activity_28720e7a",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0027",
+    "source": "Activity_28720e7a",
+    "target": "Activity_ceaf79b6",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0028",
+    "source": "Activity_ceaf79b6",
+    "target": "Activity_34b4343f",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0029",
+    "source": "Activity_34b4343f",
+    "target": "XOR Gateway_e250e4ad",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0030",
+    "source": "XOR Gateway_e250e4ad",
+    "target": "Activity_4e71c49c",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0031",
+    "source": "Activity_4e71c49c",
+    "target": "Activity_5caf9190",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0032",
+    "source": "Activity_5caf9190",
+    "target": "XOR Gateway_afc4b5a7",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0033",
+    "source": "XOR Gateway_e250e4ad",
+    "target": "XOR Gateway_afc4b5a7",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0034",
+    "source": "XOR Gateway_afc4b5a7",
+    "target": "Activity_58ac2391",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_0035",
+    "source": "Activity_58ac2391",
+    "target": "Activity_973a77c5",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0036",
+    "source": "XOR Gateway_afc4b5a7",
+    "target": "Activity_973a77c5",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_0037",
+    "source": "Activity_973a77c5",
+    "target": "Activity_5579ac99",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0038",
+    "source": "Activity_5579ac99",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 44
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 23,
+   "end": 30,
+   "label": "Actor",
+   "id": "Actor_b84dfa24",
+   "type": "Lane",
+   "name": "ACME AG"
+  },
+  {
+   "start": 31,
+   "end": 39,
+   "label": "Activity",
+   "id": "Activity_d08fac05",
+   "type": "task",
+   "name": "Receives invoices"
+  },
+  {
+   "start": 40,
+   "end": 48,
+   "label": "Activity Data",
+   "id": "Activity Data_bbe222ca",
+   "type": null,
+   "name": "Invoices"
+  },
+  {
+   "start": 67,
+   "end": 72,
+   "label": "Activity Data",
+   "id": "Activity Data_e9947d2e",
+   "type": null,
+   "name": "These"
+  },
+  {
+   "start": 77,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_44cd77c8",
+   "type": "task",
+   "name": "Received these"
+  },
+  {
+   "start": 89,
+   "end": 104,
+   "label": "Actor",
+   "id": "Actor_9bed648c",
+   "type": "Lane",
+   "name": "The Secretariat"
+  },
+  {
+   "start": 130,
+   "end": 139,
+   "label": "Activity",
+   "id": "Activity_ca8c4543",
+   "type": "task",
+   "name": "Forwarded"
+  },
+  {
+   "start": 146,
+   "end": 160,
+   "label": "Further Specification",
+   "id": "Further Specification_c776ce51",
+   "type": null,
+   "name": "A short visual"
+  },
+  {
+   "start": 161,
+   "end": 171,
+   "label": "Activity",
+   "id": "Activity_a8be20c4",
+   "type": "task",
+   "name": "Inspection"
+  },
+  {
+   "start": 175,
+   "end": 197,
+   "label": "Actor",
+   "id": "Actor_2fcd6494",
+   "type": "Lane",
+   "name": "An accounting employee"
+  },
+  {
+   "start": 286,
+   "end": 289,
+   "label": "Actor",
+   "id": "Actor_771a7076",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 290,
+   "end": 300,
+   "label": "Activity",
+   "id": "Activity_cd30976c",
+   "type": "task",
+   "name": "Identifies the charging suppliers"
+  },
+  {
+   "start": 301,
+   "end": 323,
+   "label": "Activity Data",
+   "id": "Activity Data_c66fc036",
+   "type": null,
+   "name": "The charging suppliers"
+  },
+  {
+   "start": 328,
+   "end": 335,
+   "label": "Activity",
+   "id": "Activity_e9cea310",
+   "type": "task",
+   "name": "Creates a new instance"
+  },
+  {
+   "start": 336,
+   "end": 350,
+   "label": "Activity Data",
+   "id": "Activity Data_bb3b0a6f",
+   "type": null,
+   "name": "A new instance"
+  },
+  {
+   "start": 365,
+   "end": 368,
+   "label": "Actor",
+   "id": "Actor_e163de6d",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 374,
+   "end": 380,
+   "label": "Activity",
+   "id": "Activity_e4e6b60c",
+   "type": "task",
+   "name": "Checks the invoice items"
+  },
+  {
+   "start": 381,
+   "end": 398,
+   "label": "Activity Data",
+   "id": "Activity Data_abff9ab8",
+   "type": null,
+   "name": "The invoice items"
+  },
+  {
+   "start": 403,
+   "end": 408,
+   "label": "Activity",
+   "id": "Activity_21693b19",
+   "type": "task",
+   "name": "Notes the corresponding cost center at the ACME AG and the related cost center managers for each position"
+  },
+  {
+   "start": 409,
+   "end": 508,
+   "label": "Activity Data",
+   "id": "Activity Data_2d931ea4",
+   "type": null,
+   "name": "The corresponding cost center at the ACME AG and the related cost center managers for each position"
+  },
+  {
+   "start": 547,
+   "end": 585,
+   "label": "Activity Data",
+   "id": "Activity Data_93da86c1",
+   "type": null,
+   "name": "The docket and the copy of the invoice"
+  },
+  {
+   "start": 586,
+   "end": 588,
+   "label": "Activity",
+   "id": "Activity_4286a04f",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 592,
+   "end": 609,
+   "label": "Actor",
+   "id": "Actor_12f54d6a",
+   "type": "Lane",
+   "name": "The internal mail"
+  },
+  {
+   "start": 627,
+   "end": 631,
+   "label": "Activity",
+   "id": "Activity_0434aedb",
+   "type": "task",
+   "name": "Sent the docket and the copy of the invoice"
+  },
+  {
+   "start": 635,
+   "end": 664,
+   "label": "Actor",
+   "id": "Actor_4d42dd16",
+   "type": "Lane",
+   "name": "The first cost center manager"
+  },
+  {
+   "start": 679,
+   "end": 681,
+   "label": "Actor",
+   "id": "Actor_52b54ffe",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 682,
+   "end": 689,
+   "label": "Activity",
+   "id": "Activity_4dad33a3",
+   "type": "task",
+   "name": "Reviews the content"
+  },
+  {
+   "start": 690,
+   "end": 701,
+   "label": "Activity Data",
+   "id": "Activity Data_1cb8aeb5",
+   "type": null,
+   "name": "The content"
+  },
+  {
+   "start": 702,
+   "end": 714,
+   "label": "Further Specification",
+   "id": "Further Specification_b88dc18c",
+   "type": null,
+   "name": "For accuracy"
+  },
+  {
+   "start": 721,
+   "end": 730,
+   "label": "Activity",
+   "id": "Activity_dd3414a0",
+   "type": "task",
+   "name": "Receiving the copy of the invoice"
+  },
+  {
+   "start": 731,
+   "end": 754,
+   "label": "Activity Data",
+   "id": "Activity Data_b5c6f4f2",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 757,
+   "end": 763,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_896e2cec",
+   "type": "exclusiveGateway",
+   "name": "Should everything be in order"
+  },
+  {
+   "start": 764,
+   "end": 786,
+   "label": "Condition Specification",
+   "id": "Condition Specification_b665fd6e",
+   "type": "exclusiveGateway",
+   "name": "Everything be in order"
+  },
+  {
+   "start": 789,
+   "end": 791,
+   "label": "Actor",
+   "id": "Actor_2a8cb8dd",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 792,
+   "end": 797,
+   "label": "Activity",
+   "id": "Activity_99009157",
+   "type": "task",
+   "name": "Notes his code"
+  },
+  {
+   "start": 798,
+   "end": 806,
+   "label": "Activity Data",
+   "id": "Activity Data_247d0cff",
+   "type": null,
+   "name": "His code"
+  },
+  {
+   "start": 811,
+   "end": 824,
+   "label": "Further Specification",
+   "id": "Further Specification_377af4b9",
+   "type": null,
+   "name": "On the docket"
+  },
+  {
+   "start": 862,
+   "end": 869,
+   "label": "Activity",
+   "id": "Activity_4dc61578",
+   "type": "task",
+   "name": "Returns the copy of the invoice"
+  },
+  {
+   "start": 870,
+   "end": 893,
+   "label": "Activity Data",
+   "id": "Activity Data_194d5874",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 897,
+   "end": 914,
+   "label": "Actor",
+   "id": "Actor_77594eb7",
+   "type": "Lane",
+   "name": "The internal mail"
+  },
+  {
+   "start": 927,
+   "end": 950,
+   "label": "Activity Data",
+   "id": "Activity Data_fab1eed7",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 954,
+   "end": 963,
+   "label": "Activity",
+   "id": "Activity_34901aa5",
+   "type": "task",
+   "name": "Passed on the copy of the invoice"
+  },
+  {
+   "start": 967,
+   "end": 995,
+   "label": "Actor",
+   "id": "Actor_09134997",
+   "type": "Lane",
+   "name": "The next cost center manager"
+  },
+  {
+   "start": 1023,
+   "end": 1025,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a612b22b",
+   "type": "exclusiveGateway",
+   "name": "If all items are marked correct"
+  },
+  {
+   "start": 1026,
+   "end": 1054,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cd7b3071",
+   "type": "exclusiveGateway",
+   "name": "All items are marked correct"
+  },
+  {
+   "start": 1057,
+   "end": 1066,
+   "label": "Activity",
+   "id": "Activity_2904ca24",
+   "type": "task",
+   "name": "Sent back"
+  },
+  {
+   "start": 1070,
+   "end": 1080,
+   "label": "Actor",
+   "id": "Actor_8134854f",
+   "type": "Lane",
+   "name": "Accounting"
+  },
+  {
+   "start": 1257,
+   "end": 1259,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_46b35362",
+   "type": "exclusiveGateway",
+   "name": "If inconsistencies exist"
+  },
+  {
+   "start": 1260,
+   "end": 1281,
+   "label": "Condition Specification",
+   "id": "Condition Specification_260f90aa",
+   "type": "exclusiveGateway",
+   "name": "Inconsistencies exist"
+  },
+  {
+   "start": 1363,
+   "end": 1386,
+   "label": "Actor",
+   "id": "Actor_3d226cbe",
+   "type": "Lane",
+   "name": "The cost center manager"
+  },
+  {
+   "start": 1387,
+   "end": 1394,
+   "label": "Activity",
+   "id": "Activity_00ec1c07",
+   "type": "task",
+   "name": "Rejects the AP"
+  },
+  {
+   "start": 1395,
+   "end": 1401,
+   "label": "Activity Data",
+   "id": "Activity Data_58fccf8f",
+   "type": null,
+   "name": "The AP"
+  },
+  {
+   "start": 1460,
+   "end": 1483,
+   "label": "Activity Data",
+   "id": "Activity Data_bd39d426",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1487,
+   "end": 1496,
+   "label": "Activity",
+   "id": "Activity_41d5729a",
+   "type": "task",
+   "name": "Sent back the copy of the invoice"
+  },
+  {
+   "start": 1500,
+   "end": 1510,
+   "label": "Actor",
+   "id": "Actor_0ced3155",
+   "type": "Lane",
+   "name": "Accounting"
+  },
+  {
+   "start": 1576,
+   "end": 1579,
+   "label": "Actor",
+   "id": "Actor_d3f6ac2d",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 1585,
+   "end": 1593,
+   "label": "Activity",
+   "id": "Activity_fc05def7",
+   "type": "task",
+   "name": "Proceede the clarification with the vendor"
+  },
+  {
+   "start": 1599,
+   "end": 1632,
+   "label": "Activity Data",
+   "id": "Activity Data_de1f5830",
+   "type": null,
+   "name": "The clarification with the vendor"
+  },
+  {
+   "start": 1641,
+   "end": 1643,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_480db4b7",
+   "type": "exclusiveGateway",
+   "name": "If necessary"
+  },
+  {
+   "start": 1644,
+   "end": 1653,
+   "label": "Condition Specification",
+   "id": "Condition Specification_5b661640",
+   "type": "exclusiveGateway",
+   "name": "Necessary"
+  },
+  {
+   "start": 1656,
+   "end": 1659,
+   "label": "Actor",
+   "id": "Actor_bdf3ee16",
+   "type": "Lane",
+   "name": "She"
+  },
+  {
+   "start": 1660,
+   "end": 1668,
+   "label": "Activity",
+   "id": "Activity_3cb39523",
+   "type": "task",
+   "name": "Consults"
+  },
+  {
+   "start": 1669,
+   "end": 1693,
+   "label": "Actor",
+   "id": "Actor_f58131d4",
+   "type": "Lane",
+   "name": "The cost center managers"
+  },
+  {
+   "start": 1765,
+   "end": 1788,
+   "label": "Activity Data",
+   "id": "Activity Data_d4fd7100",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1792,
+   "end": 1796,
+   "label": "Activity",
+   "id": "Activity_28720e7a",
+   "type": "task",
+   "name": "Sent the copy of the invoice"
+  },
+  {
+   "start": 1800,
+   "end": 1824,
+   "label": "Actor",
+   "id": "Actor_5cdf2500",
+   "type": "Lane",
+   "name": "The cost center managers"
+  },
+  {
+   "start": 1894,
+   "end": 1917,
+   "label": "Actor",
+   "id": "Actor_06acd18f",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 1918,
+   "end": 1926,
+   "label": "Activity",
+   "id": "Activity_0726e37b",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 1927,
+   "end": 1950,
+   "label": "Activity Data",
+   "id": "Activity Data_ceb2c8bb",
+   "type": null,
+   "name": "The copy of the invoice"
+  },
+  {
+   "start": 1954,
+   "end": 1976,
+   "label": "Actor",
+   "id": "Actor_b5dd63ec",
+   "type": "Lane",
+   "name": "The commercial manager"
+  },
+  {
+   "start": 1979,
+   "end": 1981,
+   "label": "Actor",
+   "id": "Actor_a1da7eba",
+   "type": "Lane",
+   "name": "He"
+  },
+  {
+   "start": 1982,
+   "end": 1987,
+   "label": "Activity",
+   "id": "Activity_ceaf79b6",
+   "type": "task",
+   "name": "Makes the commercial audit"
+  },
+  {
+   "start": 1988,
+   "end": 2008,
+   "label": "Activity Data",
+   "id": "Activity Data_75e9c6d5",
+   "type": null,
+   "name": "The commercial audit"
+  },
+  {
+   "start": 2013,
+   "end": 2019,
+   "label": "Activity",
+   "id": "Activity_34b4343f",
+   "type": "task",
+   "name": "Issues the approval for payment"
+  },
+  {
+   "start": 2020,
+   "end": 2044,
+   "label": "Activity Data",
+   "id": "Activity Data_47ba072e",
+   "type": null,
+   "name": "The approval for payment"
+  },
+  {
+   "start": 2047,
+   "end": 2049,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_e250e4ad",
+   "type": "exclusiveGateway",
+   "name": "If the bill amount exceeds EUR 20"
+  },
+  {
+   "start": 2050,
+   "end": 2080,
+   "label": "Condition Specification",
+   "id": "Condition Specification_1d4a09a3",
+   "type": "exclusiveGateway",
+   "name": "The bill amount exceeds EUR 20"
+  },
+  {
+   "start": 2083,
+   "end": 2092,
+   "label": "Actor",
+   "id": "Actor_976e3dec",
+   "type": "Lane",
+   "name": "The Board"
+  },
+  {
+   "start": 2102,
+   "end": 2107,
+   "label": "Activity",
+   "id": "Activity_4e71c49c",
+   "type": "task",
+   "name": "Check it"
+  },
+  {
+   "start": 2108,
+   "end": 2110,
+   "label": "Activity Data",
+   "id": "Activity Data_12c5dc88",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 2142,
+   "end": 2186,
+   "label": "Activity Data",
+   "id": "Activity Data_aaed8e71",
+   "type": null,
+   "name": "The copy of the invoice including the docket"
+  },
+  {
+   "start": 2187,
+   "end": 2197,
+   "label": "Activity",
+   "id": "Activity_5caf9190",
+   "type": "task",
+   "name": "Moves back the copy of the invoice including the docket"
+  },
+  {
+   "start": 2201,
+   "end": 2224,
+   "label": "Actor",
+   "id": "Actor_fbfafd7b",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2225,
+   "end": 2258,
+   "label": "Further Specification",
+   "id": "Further Specification_c1ff937d",
+   "type": null,
+   "name": "In the appropriate signature file"
+  },
+  {
+   "start": 2261,
+   "end": 2267,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_afc4b5a7",
+   "type": "exclusiveGateway",
+   "name": "Should there be a complaint during the commercial audit"
+  },
+  {
+   "start": 2268,
+   "end": 2316,
+   "label": "Condition Specification",
+   "id": "Condition Specification_6570e380",
+   "type": "exclusiveGateway",
+   "name": "There be a complaint during the commercial audit"
+  },
+  {
+   "start": 2319,
+   "end": 2321,
+   "label": "Activity Data",
+   "id": "Activity Data_126425c3",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 2330,
+   "end": 2338,
+   "label": "Activity",
+   "id": "Activity_58ac2391",
+   "type": "task",
+   "name": "Resolved it"
+  },
+  {
+   "start": 2342,
+   "end": 2365,
+   "label": "Actor",
+   "id": "Actor_0c1c79d4",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2441,
+   "end": 2464,
+   "label": "Actor",
+   "id": "Actor_1e909796",
+   "type": "Lane",
+   "name": "The accounting employee"
+  },
+  {
+   "start": 2465,
+   "end": 2470,
+   "label": "Activity",
+   "id": "Activity_973a77c5",
+   "type": "task",
+   "name": "Gives payment instructions"
+  },
+  {
+   "start": 2471,
+   "end": 2491,
+   "label": "Activity Data",
+   "id": "Activity Data_de702e92",
+   "type": null,
+   "name": "Payment instructions"
+  },
+  {
+   "start": 2496,
+   "end": 2502,
+   "label": "Activity",
+   "id": "Activity_5579ac99",
+   "type": "task",
+   "name": "Closes the instance in `` ACME financial accounting ``"
+  },
+  {
+   "start": 2503,
+   "end": 2550,
+   "label": "Activity Data",
+   "id": "Activity Data_807ed239",
+   "type": null,
+   "name": "The instance in `` ACME financial accounting ``"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 5,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Should everything be in order",
+    "node_B": "Notes his code | Returns the copy of the invoice | Passed on the copy of the invoice | decision: If all items are marked correct | Sent back | decision: If inconsistencies exist | Rejects the AP | Sent back the copy of the invoice | Proceede the clarification with the vendor | decision: If necessary",
+    "label": "yes yes yes after after same no no no after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If all items are marked correct",
+    "node_B": "Sent back | decision: If inconsistencies exist | Rejects the AP | Sent back the copy of the invoice | Proceede the clarification with the vendor | decision: If necessary | Consults | Sent the copy of the invoice | Makes the commercial audit | Issues the approval for payment",
+    "label": "yes same yes yes yes after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If necessary",
+    "node_B": "Consults | Sent the copy of the invoice | Makes the commercial audit | Issues the approval for payment | decision: If the bill amount exceeds EUR 20 | Check it | Moves back the copy of the invoice including the docket | decision: Should there be a complaint during the commercial audit | Resolved it | Gives payment instructions",
+    "label": "yes after after after after after after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the bill amount exceeds EUR 20",
+    "node_B": "Check it | Moves back the copy of the invoice including the docket | decision: Should there be a complaint during the commercial audit | Resolved it | Gives payment instructions | Closes the instance in `` ACME financial accounting ``",
+    "label": "yes yes after after after after",
+    "source": "llm"
+   },
+   {
+    "node_A": "Should there be a complaint during the commercial audit",
+    "node_B": "Resolved it | Gives payment instructions | Closes the instance in `` ACME financial accounting ``",
+    "label": "yes after after",
+    "source": "llm"
+   }
+  ]
+ }
+}

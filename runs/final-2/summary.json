@@ -1,0 +1,349 @@
+{
+  "dry_run": false,
+  "code": {
+    "commit": "589e630a10d307560893cd663801f06cc803932e",
+    "describe": "revision-final-2",
+    "dirty": false
+  },
+  "command": [
+    "text2bpmn/run_final.py",
+    "--model",
+    "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+    "--api-base",
+    "http://localhost:11434/v1",
+    "--api-key",
+    "EMPTY",
+    "--no-thinking",
+    "--constrained-output",
+    "--max-tokens",
+    "1024"
+  ],
+  "started": "2026-11-11T19:40:52+00:00",
+  "experiments": {
+    "pet_decisions": {
+      "status": "ok",
+      "error": null,
+      "seconds": 674.3,
+      "overall": {
+        "tp": 411,
+        "fp": 185,
+        "fn": 57,
+        "precision": 0.69,
+        "recall": 0.878,
+        "f1": 0.773
+      },
+      "scores": null,
+      "totals": null
+    },
+    "pet_no_llm": {
+      "status": "ok",
+      "error": null,
+      "seconds": 59.9,
+      "overall": {
+        "tp": 397,
+        "fp": 170,
+        "fn": 78,
+        "precision": 0.7,
+        "recall": 0.836,
+        "f1": 0.762
+      },
+      "scores": null,
+      "totals": null
+    },
+    "pet_no_and": {
+      "status": "ok",
+      "error": null,
+      "seconds": 5.8,
+      "overall": {
+        "tp": 397,
+        "fp": 162,
+        "fn": 78,
+        "precision": 0.71,
+        "recall": 0.836,
+        "f1": 0.768
+      },
+      "scores": null,
+      "totals": null
+    },
+    "cases": {
+      "status": "ok",
+      "error": null,
+      "seconds": 88.5,
+      "overall": null,
+      "scores": {
+        "loan": {
+          "tasks": {
+            "tp": 5,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "f1": 0.7692307692307692
+          },
+          "gateways": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "f1": 0.16666666666666666
+          },
+          "ged": {
+            "ged": 19.97,
+            "rged": 0.74,
+            "similarity": 0.26,
+            "rged_combined": 0.425,
+            "similarity_combined": 0.575,
+            "reference_size": 27,
+            "generated_size": 20,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "goods_dispatch": {
+          "tasks": {
+            "tp": 5,
+            "fp": 5,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.7142857142857143,
+            "f1": 0.588235294117647
+          },
+          "gateways": {
+            "tp": 3,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 9,
+            "fn": 7,
+            "precision": 0.1,
+            "recall": 0.125,
+            "f1": 0.11111111111111112
+          },
+          "ged": {
+            "ged": 42.91,
+            "rged": 1.3,
+            "similarity": 0.0,
+            "rged_combined": 0.66,
+            "similarity_combined": 0.34,
+            "reference_size": 32,
+            "generated_size": 33,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "healthcare": {
+          "tasks": {
+            "tp": 17,
+            "fp": 15,
+            "fn": 6,
+            "precision": 0.53125,
+            "recall": 0.7391304347826086,
+            "f1": 0.6181818181818182
+          },
+          "gateways": {
+            "tp": 6,
+            "fp": 0,
+            "fn": 6,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 34,
+            "fn": 27,
+            "precision": 0.02857142857142857,
+            "recall": 0.03571428571428571,
+            "f1": 0.031746031746031744
+          },
+          "ged": {
+            "ged": 114.12,
+            "rged": 1.343,
+            "similarity": 0.0,
+            "rged_combined": 0.683,
+            "similarity_combined": 0.317,
+            "reference_size": 85,
+            "generated_size": 82,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        }
+      },
+      "totals": null
+    },
+    "cases_no_llm": {
+      "status": "ok",
+      "error": null,
+      "seconds": 2.2,
+      "overall": null,
+      "scores": {
+        "loan": {
+          "tasks": {
+            "tp": 5,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "f1": 0.7692307692307692
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "f1": 0.16666666666666666
+          },
+          "ged": {
+            "ged": 24.97,
+            "rged": 0.925,
+            "similarity": 0.075,
+            "rged_combined": 0.595,
+            "similarity_combined": 0.405,
+            "reference_size": 27,
+            "generated_size": 15,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "goods_dispatch": {
+          "tasks": {
+            "tp": 5,
+            "fp": 5,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.7142857142857143,
+            "f1": 0.588235294117647
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 6,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 8,
+            "fn": 7,
+            "precision": 0.1111111111111111,
+            "recall": 0.125,
+            "f1": 0.11764705882352941
+          },
+          "ged": {
+            "ged": 37.91,
+            "rged": 1.185,
+            "similarity": 0.0,
+            "rged_combined": 0.689,
+            "similarity_combined": 0.311,
+            "reference_size": 32,
+            "generated_size": 23,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        },
+        "healthcare": {
+          "tasks": {
+            "tp": 17,
+            "fp": 15,
+            "fn": 6,
+            "precision": 0.53125,
+            "recall": 0.7391304347826086,
+            "f1": 0.6181818181818182
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 30,
+            "fn": 27,
+            "precision": 0.03225806451612903,
+            "recall": 0.03571428571428571,
+            "f1": 0.03389830508474576
+          },
+          "ged": {
+            "ged": 108.12,
+            "rged": 1.272,
+            "similarity": 0.0,
+            "rged_combined": 0.711,
+            "similarity_combined": 0.289,
+            "reference_size": 85,
+            "generated_size": 67,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          }
+        }
+      },
+      "totals": null
+    },
+    "coref_ablation": {
+      "status": "ok",
+      "error": null,
+      "seconds": 1150.4,
+      "overall": null,
+      "scores": null,
+      "totals": {
+        "with_coref": {
+          "documents": 45,
+          "tasks": 514,
+          "lanes": 159,
+          "flows": 763,
+          "relation_calls": 71,
+          "lanes_scored": {
+            "activities_with_a_gold_performer": 396,
+            "recognised": 378,
+            "in_performer_lane": 0.8333,
+            "in_main_process_lane": 0.0053,
+            "performer_is_a_pronoun": 55,
+            "in_performer_lane_when_pronoun": 0.4,
+            "tasks": 514,
+            "tasks_in_main_process_lane": 0.0506,
+            "documents_without_log": []
+          }
+        },
+        "without_coref": {
+          "documents": 45,
+          "tasks": 515,
+          "lanes": 168,
+          "flows": 766,
+          "relation_calls": 71,
+          "lanes_scored": {
+            "activities_with_a_gold_performer": 396,
+            "recognised": 381,
+            "in_performer_lane": 0.769,
+            "in_main_process_lane": 0.0052,
+            "performer_is_a_pronoun": 56,
+            "in_performer_lane_when_pronoun": 0.0,
+            "tasks": 515,
+            "tasks_in_main_process_lane": 0.0505,
+            "documents_without_log": []
+          }
+        }
+      }
+    }
+  },
+  "finished": "2026-11-11T20:13:53+00:00"
+}

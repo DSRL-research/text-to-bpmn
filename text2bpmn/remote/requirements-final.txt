@@ -1,0 +1,28 @@
+# What text2bpmn.run_final needs inside the GPU container, pinned to the
+# versions the pipeline was tested with on 2026-11-04. The LLM is served by
+# vLLM in its own environment; this one is the pipeline's, and runs the
+# recogniser and FastCoref on whatever torch device it finds.
+#
+# Python 3.11 or 3.12 (scipy 1.16 needs 3.11; numpy 1.26 and pandas 2.1 have
+# no wheels past 3.12). transformers was a 4.50 development build here; 4.50.0
+# is the release nearest to it. Every run records the versions it actually used,
+# and run_in_container.sh keeps the venv's full `pip freeze` with the results.
+#
+# pyarrow and datasets are FastCoref's, pinned to the laptop's: left open, pip
+# took a pyarrow that needs NumPy 2, FastCoref stopped importing, and the
+# pipeline ran on without coreference (2026-11-04).
+dspy==3.1.2
+litellm==1.81.5
+transformers==4.50.0
+torch==2.13.0
+fastcoref==2.1.6
+spacy==3.8.11
+owlready2==0.49
+rdflib==7.5.0
+pandas==2.1.4
+numpy==1.26.4
+scipy==1.16.2
+scikit-learn==1.4.2
+tqdm==4.67.1
+pyarrow==19.0.1
+datasets==3.4.1

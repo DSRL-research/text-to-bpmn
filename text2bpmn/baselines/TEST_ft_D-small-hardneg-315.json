@@ -1,0 +1,1758 @@
+{
+ "run": {
+  "model": "text2bpmn/baselines/finetuned_315/D-small-hardneg-315/best",
+  "revision": "unknown (HFValidationError)",
+  "api": "gliner",
+  "phrasing": "identity",
+  "prompts": {
+   "Activity": "Activity",
+   "Activity Data": "Activity Data",
+   "Actor": "Actor",
+   "AND Gateway": "AND Gateway",
+   "Condition Specification": "Condition Specification",
+   "Further Specification": "Further Specification",
+   "XOR Gateway": "XOR Gateway"
+  },
+  "score_floor": 0.3,
+  "threshold": "not applied; filter the saved scores",
+  "data": "pet_test.json",
+  "sentences": 42,
+  "spans_at_floor": 210,
+  "seed": 0,
+  "run_at": "2026-11-09T15:49:54+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "interpreter": ".venvs/gliner-env/bin/python",
+  "packages": {
+   "library": "gliner",
+   "gliner": "0.2.29",
+   "transformers": "5.16.1",
+   "torch": "2.13.0"
+  },
+  "code": "b2238e8f8831913b24c1f83e2f1902d50073a2ce"
+ },
+ "documents": [
+  {
+   "id": "doc-9.1#0",
+   "text": "Every weekday morning , the database is backed up and then it is checked to see whether the Account Defaulter table has new records .",
+   "spans": [
+    {
+     "start": 24,
+     "end": 36,
+     "label": "Activity Data",
+     "score": 0.9953,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 40,
+     "end": 49,
+     "label": "Activity",
+     "score": 0.9991,
+     "prompt": "Activity"
+    },
+    {
+     "start": 59,
+     "end": 61,
+     "label": "Activity Data",
+     "score": 0.9985,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 65,
+     "end": 72,
+     "label": "Activity",
+     "score": 0.9969,
+     "prompt": "Activity"
+    },
+    {
+     "start": 76,
+     "end": 79,
+     "label": "Activity",
+     "score": 0.5422,
+     "prompt": "Activity"
+    },
+    {
+     "start": 88,
+     "end": 131,
+     "label": "Activity Data",
+     "score": 0.9603,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#1",
+   "text": "If no new records are found , then the process should check the CRM system to see whether new returns have been filed .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 2,
+     "label": "AND Gateway",
+     "score": 0.9997,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 3,
+     "end": 27,
+     "label": "Condition Specification",
+     "score": 0.9827,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 35,
+     "end": 46,
+     "label": "Actor",
+     "score": 0.8271,
+     "prompt": "Actor"
+    },
+    {
+     "start": 54,
+     "end": 59,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 60,
+     "end": 74,
+     "label": "Actor",
+     "score": 0.7595,
+     "prompt": "Actor"
+    },
+    {
+     "start": 78,
+     "end": 81,
+     "label": "Activity",
+     "score": 0.3181,
+     "prompt": "Activity"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#2",
+   "text": "If new returns exist , then register all defaulting accounts and customers .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 2,
+     "label": "AND Gateway",
+     "score": 0.9999,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 3,
+     "end": 20,
+     "label": "Condition Specification",
+     "score": 0.9896,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 28,
+     "end": 36,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 37,
+     "end": 74,
+     "label": "Activity Data",
+     "score": 0.9781,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#3",
+   "text": "If the defaulting client codes have not been previously advised , produce another table of defaulting accounts and send to account management .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 2,
+     "label": "AND Gateway",
+     "score": 0.9999,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 3,
+     "end": 63,
+     "label": "Condition Specification",
+     "score": 0.9948,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 66,
+     "end": 73,
+     "label": "Activity",
+     "score": 0.9998,
+     "prompt": "Activity"
+    },
+    {
+     "start": 74,
+     "end": 110,
+     "label": "Activity Data",
+     "score": 0.9887,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 115,
+     "end": 119,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 123,
+     "end": 141,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#4",
+   "text": "All of this must be completed by 2 : 30 pm , if it is not , then an alert should be sent to the supervisor .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 11,
+     "label": "Activity Data",
+     "score": 0.6253,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 20,
+     "end": 29,
+     "label": "Activity",
+     "score": 0.8673,
+     "prompt": "Activity"
+    },
+    {
+     "start": 45,
+     "end": 47,
+     "label": "AND Gateway",
+     "score": 0.9987,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 48,
+     "end": 57,
+     "label": "Condition Specification",
+     "score": 0.9043,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 65,
+     "end": 73,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 84,
+     "end": 88,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 92,
+     "end": 106,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#5",
+   "text": "Once the new defaulting account report has been completed , check the CRM system to see whether new returns have been filed .",
+   "spans": [
+    {
+     "start": 5,
+     "end": 38,
+     "label": "Activity Data",
+     "score": 0.9597,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 48,
+     "end": 57,
+     "label": "Activity",
+     "score": 0.3075,
+     "prompt": "Activity"
+    },
+    {
+     "start": 60,
+     "end": 65,
+     "label": "Activity",
+     "score": 0.9998,
+     "prompt": "Activity"
+    },
+    {
+     "start": 66,
+     "end": 80,
+     "label": "Actor",
+     "score": 0.9878,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#6",
+   "text": "If new returns have been filed , reconcile with the existing account defaulters table .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 2,
+     "label": "AND Gateway",
+     "score": 0.9997,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 3,
+     "end": 30,
+     "label": "Condition Specification",
+     "score": 0.9661,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 33,
+     "end": 42,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 43,
+     "end": 85,
+     "label": "Further Specification",
+     "score": 0.8999,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.1#7",
+   "text": "This must be completed by 4 : 0 pm otherwise a supervisor should be sent a message .",
+   "spans": [
+    {
+     "start": 13,
+     "end": 22,
+     "label": "Activity",
+     "score": 0.7439,
+     "prompt": "Activity"
+    },
+    {
+     "start": 35,
+     "end": 44,
+     "label": "AND Gateway",
+     "score": 0.9994,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 45,
+     "end": 57,
+     "label": "Actor",
+     "score": 0.9996,
+     "prompt": "Actor"
+    },
+    {
+     "start": 68,
+     "end": 72,
+     "label": "Activity",
+     "score": 0.9986,
+     "prompt": "Activity"
+    },
+    {
+     "start": 73,
+     "end": 82,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.4#8",
+   "text": "Once the dates are finalized ( by the Coordination Unit ) , the Support Officer updates all group calendars and creates meeting folders for each meeting and ensures all appropriate documents are uploaded to system .",
+   "spans": [
+    {
+     "start": 19,
+     "end": 28,
+     "label": "Activity",
+     "score": 0.7575,
+     "prompt": "Activity"
+    },
+    {
+     "start": 34,
+     "end": 55,
+     "label": "Actor",
+     "score": 0.8366,
+     "prompt": "Actor"
+    },
+    {
+     "start": 60,
+     "end": 79,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 80,
+     "end": 87,
+     "label": "Activity",
+     "score": 0.9997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 88,
+     "end": 107,
+     "label": "Activity Data",
+     "score": 0.9834,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 112,
+     "end": 119,
+     "label": "Activity",
+     "score": 0.8754,
+     "prompt": "Activity"
+    },
+    {
+     "start": 136,
+     "end": 152,
+     "label": "Further Specification",
+     "score": 0.5691,
+     "prompt": "Further Specification"
+    },
+    {
+     "start": 165,
+     "end": 190,
+     "label": "Activity Data",
+     "score": 0.9624,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 195,
+     "end": 203,
+     "label": "Activity",
+     "score": 0.9993,
+     "prompt": "Activity"
+    },
+    {
+     "start": 204,
+     "end": 213,
+     "label": "Further Specification",
+     "score": 0.5522,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.4#9",
+   "text": "Committee Members are advised a week before each meeting to read all related documents .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 17,
+     "label": "Actor",
+     "score": 0.9999,
+     "prompt": "Actor"
+    },
+    {
+     "start": 22,
+     "end": 29,
+     "label": "Activity",
+     "score": 0.9764,
+     "prompt": "Activity"
+    },
+    {
+     "start": 60,
+     "end": 64,
+     "label": "Activity",
+     "score": 0.9998,
+     "prompt": "Activity"
+    },
+    {
+     "start": 65,
+     "end": 86,
+     "label": "Activity Data",
+     "score": 0.9969,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.4#10",
+   "text": "The Committee Members hold their meeting , and the Support Office then produces minutes including any Action Points for each Committee Member .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 21,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 22,
+     "end": 26,
+     "label": "Activity",
+     "score": 0.9995,
+     "prompt": "Activity"
+    },
+    {
+     "start": 27,
+     "end": 40,
+     "label": "Activity Data",
+     "score": 0.7878,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 47,
+     "end": 65,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 71,
+     "end": 79,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 80,
+     "end": 87,
+     "label": "Activity Data",
+     "score": 0.9994,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 88,
+     "end": 141,
+     "label": "Further Specification",
+     "score": 0.3675,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.4#11",
+   "text": "Within 5 working days , the Coordination Unit must conduct a QA check on the minutes , which are then sent to all Committee Members .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 21,
+     "label": "AND Gateway",
+     "score": 0.4352,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 24,
+     "end": 45,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 51,
+     "end": 58,
+     "label": "Activity",
+     "score": 0.9141,
+     "prompt": "Activity"
+    },
+    {
+     "start": 59,
+     "end": 69,
+     "label": "Activity Data",
+     "score": 0.3242,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 73,
+     "end": 84,
+     "label": "Activity Data",
+     "score": 0.9979,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 102,
+     "end": 106,
+     "label": "Activity",
+     "score": 0.9988,
+     "prompt": "Activity"
+    },
+    {
+     "start": 110,
+     "end": 131,
+     "label": "Actor",
+     "score": 0.9996,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.4#12",
+   "text": "The Support Officer then updates all departmental records .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 19,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 25,
+     "end": 32,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 33,
+     "end": 57,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.3#13",
+   "text": "In November of each year , the Coordination Unit at the Town Planning Authority drafts a schedule of meetings for the next calendar year and adds draft dates to all calendars .",
+   "spans": [
+    {
+     "start": 27,
+     "end": 48,
+     "label": "Actor",
+     "score": 0.9986,
+     "prompt": "Actor"
+    },
+    {
+     "start": 80,
+     "end": 86,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 87,
+     "end": 136,
+     "label": "Activity Data",
+     "score": 0.447,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 141,
+     "end": 145,
+     "label": "Activity",
+     "score": 0.997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 146,
+     "end": 157,
+     "label": "Activity Data",
+     "score": 0.5073,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 158,
+     "end": 174,
+     "label": "Further Specification",
+     "score": 0.7232,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.3#14",
+   "text": "The Support Officer then checks the dates and suggests modifications .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 19,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 25,
+     "end": 31,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 32,
+     "end": 41,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 46,
+     "end": 54,
+     "label": "Activity",
+     "score": 0.8406,
+     "prompt": "Activity"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.3#15",
+   "text": "The Coordination Unit then rechecks all dates and looks for potential conflicts .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 21,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 27,
+     "end": 35,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 36,
+     "end": 45,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 50,
+     "end": 59,
+     "label": "Activity",
+     "score": 0.6852,
+     "prompt": "Activity"
+    }
+   ]
+  },
+  {
+   "id": "doc-9.3#16",
+   "text": "The final schedule of meeting dates is sent to all the independent Committee Members by email , who then check their diaries and advise the Coordination Unit of any conflicts .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 35,
+     "label": "Activity Data",
+     "score": 0.9943,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 39,
+     "end": 43,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 47,
+     "end": 84,
+     "label": "Actor",
+     "score": 0.9853,
+     "prompt": "Actor"
+    },
+    {
+     "start": 85,
+     "end": 93,
+     "label": "Further Specification",
+     "score": 0.8679,
+     "prompt": "Further Specification"
+    },
+    {
+     "start": 96,
+     "end": 99,
+     "label": "Actor",
+     "score": 0.9873,
+     "prompt": "Actor"
+    },
+    {
+     "start": 105,
+     "end": 110,
+     "label": "Activity",
+     "score": 0.9993,
+     "prompt": "Activity"
+    },
+    {
+     "start": 111,
+     "end": 124,
+     "label": "Activity Data",
+     "score": 0.9597,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 129,
+     "end": 135,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 136,
+     "end": 157,
+     "label": "Actor",
+     "score": 0.9979,
+     "prompt": "Actor"
+    },
+    {
+     "start": 158,
+     "end": 174,
+     "label": "Activity Data",
+     "score": 0.9356,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#17",
+   "text": "I am the HR clerk .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 4,
+     "label": "Actor",
+     "score": 0.4143,
+     "prompt": "Actor"
+    },
+    {
+     "start": 5,
+     "end": 17,
+     "label": "Actor",
+     "score": 0.9411,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#18",
+   "text": "When a vacancy is reported to me , I create a job description from the information .",
+   "spans": [
+    {
+     "start": 5,
+     "end": 14,
+     "label": "Activity Data",
+     "score": 0.9912,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 18,
+     "end": 26,
+     "label": "Activity",
+     "score": 0.9997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 30,
+     "end": 32,
+     "label": "Actor",
+     "score": 0.9898,
+     "prompt": "Actor"
+    },
+    {
+     "start": 35,
+     "end": 36,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 37,
+     "end": 43,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 44,
+     "end": 61,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 62,
+     "end": 82,
+     "label": "Further Specification",
+     "score": 0.8301,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#19",
+   "text": "Sometimes there is still confusion in the message , then I must ask the Department again .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 9,
+     "label": "AND Gateway",
+     "score": 0.8105,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 57,
+     "end": 58,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 64,
+     "end": 67,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 68,
+     "end": 82,
+     "label": "Actor",
+     "score": 0.9999,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#20",
+   "text": "I am submitting the job description for consideration and waiting for the approval .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 1,
+     "label": "Actor",
+     "score": 0.9999,
+     "prompt": "Actor"
+    },
+    {
+     "start": 5,
+     "end": 15,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 16,
+     "end": 35,
+     "label": "Activity Data",
+     "score": 0.999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 36,
+     "end": 53,
+     "label": "Further Specification",
+     "score": 0.8674,
+     "prompt": "Further Specification"
+    },
+    {
+     "start": 58,
+     "end": 69,
+     "label": "Activity",
+     "score": 0.9823,
+     "prompt": "Activity"
+    },
+    {
+     "start": 70,
+     "end": 82,
+     "label": "Activity Data",
+     "score": 0.945,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#21",
+   "text": "But , it can also happen that the department does not approve it , but rejects it , and requests a correction .",
+   "spans": [
+    {
+     "start": 25,
+     "end": 29,
+     "label": "AND Gateway",
+     "score": 0.4182,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 30,
+     "end": 44,
+     "label": "Actor",
+     "score": 0.9998,
+     "prompt": "Actor"
+    },
+    {
+     "start": 71,
+     "end": 78,
+     "label": "Activity",
+     "score": 0.9947,
+     "prompt": "Activity"
+    },
+    {
+     "start": 79,
+     "end": 81,
+     "label": "Activity Data",
+     "score": 0.9965,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 88,
+     "end": 96,
+     "label": "Activity",
+     "score": 0.9987,
+     "prompt": "Activity"
+    },
+    {
+     "start": 97,
+     "end": 109,
+     "label": "Activity Data",
+     "score": 0.9997,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#22",
+   "text": "Then I correct the description and submit it again for consideration .",
+   "spans": [
+    {
+     "start": 5,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 30,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 35,
+     "end": 41,
+     "label": "Activity",
+     "score": 0.9997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 42,
+     "end": 44,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 51,
+     "end": 68,
+     "label": "Further Specification",
+     "score": 0.9166,
+     "prompt": "Further Specification"
+    }
+   ]
+  },
+  {
+   "id": "doc-8.2#23",
+   "text": "If the description is finally approved , I post the job .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 2,
+     "label": "AND Gateway",
+     "score": 0.9999,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 3,
+     "end": 38,
+     "label": "Condition Specification",
+     "score": 0.9971,
+     "prompt": "Condition Specification"
+    },
+    {
+     "start": 41,
+     "end": 42,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 43,
+     "end": 47,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 48,
+     "end": 55,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.12#24",
+   "text": "The EC tells the INQ about the change of his master data .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 12,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 13,
+     "end": 20,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 21,
+     "end": 56,
+     "label": "Activity Data",
+     "score": 0.9834,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.12#25",
+   "text": "The INQ notifies the IP of the change .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 7,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 8,
+     "end": 16,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 17,
+     "end": 23,
+     "label": "Actor",
+     "score": 0.9997,
+     "prompt": "Actor"
+    },
+    {
+     "start": 24,
+     "end": 37,
+     "label": "Activity Data",
+     "score": 0.9369,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.12#26",
+   "text": "The IP checks whether the master data can be changed at the desired time .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 13,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.12#27",
+   "text": "The IP confirmes the changes of the INQ or the IP rejectes the changes of the INQ .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 16,
+     "label": "Activity",
+     "score": 0.9998,
+     "prompt": "Activity"
+    },
+    {
+     "start": 17,
+     "end": 39,
+     "label": "Activity Data",
+     "score": 0.9973,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 40,
+     "end": 42,
+     "label": "AND Gateway",
+     "score": 0.9948,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 43,
+     "end": 49,
+     "label": "Actor",
+     "score": 0.9999,
+     "prompt": "Actor"
+    },
+    {
+     "start": 50,
+     "end": 58,
+     "label": "Activity",
+     "score": 0.9982,
+     "prompt": "Activity"
+    },
+    {
+     "start": 59,
+     "end": 81,
+     "label": "Activity Data",
+     "score": 0.9996,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#28",
+   "text": "The MSPN registers the measurement at the GO .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 8,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 9,
+     "end": 18,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 19,
+     "end": 34,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 38,
+     "end": 44,
+     "label": "Actor",
+     "score": 0.9998,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#29",
+   "text": "The GO examines the application of the MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 15,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 16,
+     "end": 31,
+     "label": "Activity Data",
+     "score": 0.9881,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#30",
+   "text": "The GO rejects the application of the MSPN or the GO confirmes the application of the MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 42,
+     "label": "Activity Data",
+     "score": 0.9955,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 43,
+     "end": 45,
+     "label": "AND Gateway",
+     "score": 0.9964,
+     "prompt": "AND Gateway"
+    },
+    {
+     "start": 46,
+     "end": 52,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 53,
+     "end": 62,
+     "label": "Activity",
+     "score": 0.9972,
+     "prompt": "Activity"
+    },
+    {
+     "start": 63,
+     "end": 90,
+     "label": "Activity Data",
+     "score": 0.9988,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#31",
+   "text": "The GO assigns the MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 23,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#32",
+   "text": "The GO informs the MSPO about the assignment of MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 23,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 24,
+     "end": 52,
+     "label": "Activity Data",
+     "score": 0.9984,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#33",
+   "text": "The GO informs the MPO about the assignment of the MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 22,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 23,
+     "end": 55,
+     "label": "Activity Data",
+     "score": 0.9986,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-10.7#34",
+   "text": "The GO informs the SP about the assignment of MSPN .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 6,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 7,
+     "end": 14,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 15,
+     "end": 21,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 22,
+     "end": 50,
+     "label": "Activity Data",
+     "score": 0.999,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#35",
+   "text": "The party sends a warrant possession request asking a warrant to be released .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 9,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 10,
+     "end": 15,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 16,
+     "end": 44,
+     "label": "Activity Data",
+     "score": 0.9934,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 52,
+     "end": 76,
+     "label": "Activity Data",
+     "score": 0.9772,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#36",
+   "text": "The Client Service Back Office as part of the Small Claims Registry Operations receives the request and retrieves the SCT file .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 30,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 42,
+     "end": 78,
+     "label": "Actor",
+     "score": 0.537,
+     "prompt": "Actor"
+    },
+    {
+     "start": 79,
+     "end": 87,
+     "label": "Activity",
+     "score": 0.9997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 88,
+     "end": 99,
+     "label": "Activity Data",
+     "score": 0.9999,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 104,
+     "end": 113,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 114,
+     "end": 126,
+     "label": "Activity Data",
+     "score": 1.0,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#37",
+   "text": "Then , the SCT Warrant Possession is forwarded to Queensland Police .",
+   "spans": [
+    {
+     "start": 7,
+     "end": 33,
+     "label": "Activity Data",
+     "score": 0.9997,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 37,
+     "end": 46,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 50,
+     "end": 67,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#38",
+   "text": "The SCT physical file is stored by the Back Office awaiting a report to be sent by the Police .",
+   "spans": [
+    {
+     "start": 0,
+     "end": 21,
+     "label": "Activity Data",
+     "score": 0.9936,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 25,
+     "end": 31,
+     "label": "Activity",
+     "score": 0.9997,
+     "prompt": "Activity"
+    },
+    {
+     "start": 35,
+     "end": 50,
+     "label": "Actor",
+     "score": 0.9999,
+     "prompt": "Actor"
+    },
+    {
+     "start": 51,
+     "end": 59,
+     "label": "Activity",
+     "score": 0.8291,
+     "prompt": "Activity"
+    },
+    {
+     "start": 60,
+     "end": 68,
+     "label": "Activity Data",
+     "score": 0.9831,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 83,
+     "end": 93,
+     "label": "Actor",
+     "score": 0.6451,
+     "prompt": "Actor"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#39",
+   "text": "When the report is received , the respective SCT file is retrieved .",
+   "spans": [
+    {
+     "start": 5,
+     "end": 15,
+     "label": "Activity Data",
+     "score": 0.9899,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 19,
+     "end": 27,
+     "label": "Activity",
+     "score": 0.9991,
+     "prompt": "Activity"
+    },
+    {
+     "start": 30,
+     "end": 53,
+     "label": "Activity Data",
+     "score": 0.9976,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 57,
+     "end": 66,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#40",
+   "text": "Then , Back Office attaches the new SCT document , and stores the expanded SCT physical file .",
+   "spans": [
+    {
+     "start": 7,
+     "end": 18,
+     "label": "Actor",
+     "score": 1.0,
+     "prompt": "Actor"
+    },
+    {
+     "start": 19,
+     "end": 27,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 28,
+     "end": 48,
+     "label": "Activity Data",
+     "score": 0.9991,
+     "prompt": "Activity Data"
+    },
+    {
+     "start": 55,
+     "end": 61,
+     "label": "Activity",
+     "score": 0.9999,
+     "prompt": "Activity"
+    },
+    {
+     "start": 62,
+     "end": 92,
+     "label": "Activity Data",
+     "score": 0.9946,
+     "prompt": "Activity Data"
+    }
+   ]
+  },
+  {
+   "id": "doc-3.1#41",
+   "text": "After that , some other MC internal staff receives the physical SCT file ( out of scope ) .",
+   "spans": [
+    {
+     "start": 13,
+     "end": 41,
+     "label": "Actor",
+     "score": 0.9972,
+     "prompt": "Actor"
+    },
+    {
+     "start": 42,
+     "end": 50,
+     "label": "Activity",
+     "score": 1.0,
+     "prompt": "Activity"
+    },
+    {
+     "start": 51,
+     "end": 72,
+     "label": "Activity Data",
+     "score": 0.9998,
+     "prompt": "Activity Data"
+    }
+   ]
+  }
+ ]
+}

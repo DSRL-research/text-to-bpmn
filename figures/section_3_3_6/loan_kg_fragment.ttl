@@ -1,0 +1,43 @@
+# A fragment of the loan case's knowledge graph (release run, revision-final-3):
+# 24 triples selected from runs/final-3/cases/loan/ontology.owl
+# (sha256 348bae615c9b785ee1b8ccfec658444e109166df0c9e444bd77b1887d2572021) by text2bpmn/checks/kg_fragment.py.
+@prefix BPMN: <http://BPMNbasedOntology#> .
+@prefix onto: <http://text2bpmn.local/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix proc: <http://text2bpmn.local/process/f8f8ad9a#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://text2bpmn.local/process/f8f8ad9a> a owl:Ontology ;
+    owl:imports <http://BPMNbasedOntology> .
+
+onto:FalseBranchFlow rdfs:subClassOf BPMN:SequenceFlow .
+
+onto:TrueBranchFlow rdfs:subClassOf BPMN:SequenceFlow .
+
+proc:Activity_867ba14b rdfs:label "Prepared the acceptance pack"^^xsd:string .
+
+proc:Activity_a4b57b3a a BPMN:Task ;
+    rdfs:label "Rejected the application"^^xsd:string ;
+    BPMN:has_resource proc:Resource_Loan_officer .
+
+proc:Flow_3_a825 a onto:TrueBranchFlow ;
+    BPMN:has_sourceRef proc:XOR_Gateway_14e074ad ;
+    BPMN:has_targetRef proc:Activity_a4b57b3a ;
+    onto:branch_condition "Yes"^^xsd:string ;
+    onto:extracted_relation "TRUE_BRANCH"^^xsd:string .
+
+proc:Flow_4_9764 a onto:FalseBranchFlow ;
+    BPMN:has_sourceRef proc:XOR_Gateway_14e074ad ;
+    BPMN:has_targetRef proc:Activity_867ba14b ;
+    onto:branch_condition "No"^^xsd:string ;
+    onto:extracted_relation "FALSE_BRANCH"^^xsd:string .
+
+proc:Resource_Loan_officer a BPMN:HumanResource ;
+    rdfs:label "Loan officer"^^xsd:string .
+
+proc:XOR_Gateway_14e074ad a BPMN:ExclusiveGateway ;
+    rdfs:label "If the applicant is not eligible"^^xsd:string ;
+    BPMN:has_outgoing proc:Flow_3_a825,
+        proc:Flow_4_9764 .
+

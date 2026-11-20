@@ -1,0 +1,637 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The claimant"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_db506f8f",
+    "name": "Received it",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "A claim"
+    ]
+   },
+   {
+    "id": "Activity_6eb25a21",
+    "name": "Checked",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_91caf871",
+    "name": "If not",
+    "type": "exclusiveGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_63ecb703",
+    "name": "Informed the claim must be rejected",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_1c7048e9",
+    "name": "Evaluated the severity of the claim",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_split_575ea0a1",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "ParallelGateway_join_2309574a",
+    "name": "+",
+    "type": "parallelGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_20819958",
+    "name": "Sent relevant forms",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fcda8f77",
+    "name": "Returned they",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "The forms"
+    ]
+   },
+   {
+    "id": "Activity_5b960564",
+    "name": "Checked",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "For completeness"
+    ]
+   },
+   {
+    "id": "XOR Gateway_46696459",
+    "name": "If the forms provide all relevant details",
+    "type": "exclusiveGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2ca51b3f",
+    "name": "Registered the claim",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "In the Claims Management system"
+    ]
+   },
+   {
+    "id": "Activity_1b0c616e",
+    "name": "Informed",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "To update the forms"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The claimant"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_9a7d235f",
+    "source": "StartEvent_1",
+    "target": "Activity_db506f8f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b77f7cfa",
+    "source": "Activity_db506f8f",
+    "target": "Activity_6eb25a21",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f008524d",
+    "source": "Activity_6eb25a21",
+    "target": "XOR Gateway_91caf871",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_875a0c52",
+    "source": "XOR Gateway_91caf871",
+    "target": "ParallelGateway_split_575ea0a1",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_e30e3c61",
+    "source": "Activity_63ecb703",
+    "target": "Activity_1c7048e9",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_58ce59c1",
+    "source": "ParallelGateway_split_575ea0a1",
+    "target": "Activity_63ecb703",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_4f2f7b5b",
+    "source": "Activity_63ecb703",
+    "target": "ParallelGateway_join_2309574a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_b0cffded",
+    "source": "ParallelGateway_split_575ea0a1",
+    "target": "Activity_20819958",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_17450957",
+    "source": "Activity_20819958",
+    "target": "ParallelGateway_join_2309574a",
+    "name": "",
+    "relation": "PARALLEL"
+   },
+   {
+    "id": "Flow_82cc4538",
+    "source": "XOR Gateway_91caf871",
+    "target": "Activity_1c7048e9",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_6e5b2672",
+    "source": "Activity_1c7048e9",
+    "target": "Activity_fcda8f77",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e053451a",
+    "source": "Activity_fcda8f77",
+    "target": "Activity_5b960564",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_b643c8a8",
+    "source": "Activity_5b960564",
+    "target": "XOR Gateway_46696459",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_289575c0",
+    "source": "XOR Gateway_46696459",
+    "target": "Activity_2ca51b3f",
+    "name": "Yes",
+    "relation": "TRUE_BRANCH"
+   },
+   {
+    "id": "Flow_c2459bc2",
+    "source": "XOR Gateway_46696459",
+    "target": "Activity_1b0c616e",
+    "name": "No",
+    "relation": "FALSE_BRANCH"
+   },
+   {
+    "id": "Flow_467e1094",
+    "source": "ParallelGateway_join_2309574a",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c62fed13",
+    "source": "Activity_2ca51b3f",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f213bea6",
+    "source": "Activity_1b0c616e",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 5,
+   "end": 12,
+   "label": "Activity Data",
+   "id": "Activity Data_5a28f350",
+   "type": null,
+   "name": "A claim"
+  },
+  {
+   "start": 16,
+   "end": 24,
+   "label": "Activity",
+   "id": "Activity_db506f8f",
+   "type": "task",
+   "name": "Received it"
+  },
+  {
+   "start": 27,
+   "end": 29,
+   "label": "Activity Data",
+   "id": "Activity Data_93f49e24",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 39,
+   "end": 46,
+   "label": "Activity",
+   "id": "Activity_6eb25a21",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 101,
+   "end": 103,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_91caf871",
+   "type": "exclusiveGateway",
+   "name": "If not"
+  },
+  {
+   "start": 104,
+   "end": 107,
+   "label": "Condition Specification",
+   "id": "Condition Specification_214c8e5f",
+   "type": "exclusiveGateway",
+   "name": "Not"
+  },
+  {
+   "start": 110,
+   "end": 122,
+   "label": "Actor",
+   "id": "Actor_d6fa1b2f",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 126,
+   "end": 134,
+   "label": "Activity",
+   "id": "Activity_63ecb703",
+   "type": "task",
+   "name": "Informed the claim must be rejected"
+  },
+  {
+   "start": 140,
+   "end": 166,
+   "label": "Activity Data",
+   "id": "Activity Data_ff844880",
+   "type": null,
+   "name": "The claim must be rejected"
+  },
+  {
+   "start": 169,
+   "end": 178,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_61a8d8d8",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 181,
+   "end": 206,
+   "label": "Activity Data",
+   "id": "Activity Data_a0e9a79e",
+   "type": null,
+   "name": "The severity of the claim"
+  },
+  {
+   "start": 210,
+   "end": 219,
+   "label": "Activity",
+   "id": "Activity_1c7048e9",
+   "type": "task",
+   "name": "Evaluated the severity of the claim"
+  },
+  {
+   "start": 274,
+   "end": 288,
+   "label": "Activity Data",
+   "id": "Activity Data_8d72a3a1",
+   "type": null,
+   "name": "Relevant forms"
+  },
+  {
+   "start": 293,
+   "end": 297,
+   "label": "Activity",
+   "id": "Activity_20819958",
+   "type": "task",
+   "name": "Sent relevant forms"
+  },
+  {
+   "start": 301,
+   "end": 313,
+   "label": "Actor",
+   "id": "Actor_31ff3c8f",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 321,
+   "end": 330,
+   "label": "Activity Data",
+   "id": "Activity Data_a3838a68",
+   "type": null,
+   "name": "The forms"
+  },
+  {
+   "start": 335,
+   "end": 343,
+   "label": "Activity",
+   "id": "Activity_fcda8f77",
+   "type": "task",
+   "name": "Returned they"
+  },
+  {
+   "start": 346,
+   "end": 350,
+   "label": "Activity Data",
+   "id": "Activity Data_a37762e8",
+   "type": null,
+   "name": "They"
+  },
+  {
+   "start": 355,
+   "end": 362,
+   "label": "Activity",
+   "id": "Activity_5b960564",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 363,
+   "end": 379,
+   "label": "Further Specification",
+   "id": "Further Specification_f933726d",
+   "type": null,
+   "name": "For completeness"
+  },
+  {
+   "start": 382,
+   "end": 384,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_46696459",
+   "type": "exclusiveGateway",
+   "name": "If the forms provide all relevant details"
+  },
+  {
+   "start": 385,
+   "end": 423,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cc205a54",
+   "type": "exclusiveGateway",
+   "name": "The forms provide all relevant details"
+  },
+  {
+   "start": 426,
+   "end": 435,
+   "label": "Activity Data",
+   "id": "Activity Data_c5cdea76",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 439,
+   "end": 449,
+   "label": "Activity",
+   "id": "Activity_2ca51b3f",
+   "type": "task",
+   "name": "Registered the claim"
+  },
+  {
+   "start": 450,
+   "end": 481,
+   "label": "Further Specification",
+   "id": "Further Specification_bb965b60",
+   "type": null,
+   "name": "In the Claims Management system"
+  },
+  {
+   "start": 529,
+   "end": 538,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_10f60aa8",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 541,
+   "end": 553,
+   "label": "Actor",
+   "id": "Actor_36f29862",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 557,
+   "end": 565,
+   "label": "Activity",
+   "id": "Activity_1b0c616e",
+   "type": "task",
+   "name": "Informed"
+  },
+  {
+   "start": 566,
+   "end": 585,
+   "label": "Further Specification",
+   "id": "Further Specification_239afb3f",
+   "type": null,
+   "name": "To update the forms"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 25,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Received it",
+    "node_B": "Checked",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received it",
+    "node_B": "If not",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received it",
+    "node_B": "Informed the claim must be rejected",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "If not",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Informed the claim must be rejected",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If not",
+    "node_B": "Informed the claim must be rejected",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If not",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If not",
+    "node_B": "Evaluated the severity of the claim",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed the claim must be rejected",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed the claim must be rejected",
+    "node_B": "Evaluated the severity of the claim",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Informed the claim must be rejected",
+    "node_B": "Sent relevant forms",
+    "label": "PARALLEL",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Evaluated the severity of the claim",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Returned they",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Checked",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Returned they",
+    "node_B": "Checked",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Returned they",
+    "node_B": "If the forms provide all relevant details",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Returned they",
+    "node_B": "Registered the claim",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "If the forms provide all relevant details",
+    "label": "CONDITION_DEF",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Registered the claim",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Checked",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the forms provide all relevant details",
+    "node_B": "Registered the claim",
+    "label": "TRUE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the forms provide all relevant details",
+    "node_B": "Otherwise",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "If the forms provide all relevant details",
+    "node_B": "Informed",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   },
+   {
+    "node_A": "Otherwise",
+    "node_B": "Informed",
+    "label": "FALSE_BRANCH",
+    "source": "llm"
+   }
+  ]
+ }
+}

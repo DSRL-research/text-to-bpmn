@@ -1,0 +1,586 @@
+{
+ "structured_data": {
+  "participants": [
+   "Back Office",
+   "Main Process",
+   "Some other MC internal staff",
+   "The Back Office",
+   "The Client Service Back Office",
+   "The party"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_256c9460",
+    "name": "Sends a warrant possession request",
+    "type": "task",
+    "lane": "The party",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0a8773a4",
+    "name": "Receives the request",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_daa0a882",
+    "name": "Retrieves the SCT file",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_83ea7860",
+    "name": "Forwarded the SCT Warrant Possession",
+    "type": "task",
+    "lane": "The Client Service Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_25fc7bbc",
+    "name": "Stored the SCT physical file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6897b54a",
+    "name": "Awaiting a report",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "To be sent by the Police"
+    ]
+   },
+   {
+    "id": "Activity_8eea3e1f",
+    "name": "Received the respective SCT file",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": [
+     "The report"
+    ]
+   },
+   {
+    "id": "Activity_188e097a",
+    "name": "Retrieved",
+    "type": "task",
+    "lane": "The Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_48349ab2",
+    "name": "Attaches the new SCT document",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_fa8f6d9a",
+    "name": "Stores the expanded SCT physical file",
+    "type": "task",
+    "lane": "Back Office",
+    "metadata": []
+   },
+   {
+    "id": "Activity_57f3dbc6",
+    "name": "Receives the physical SCT file",
+    "type": "task",
+    "lane": "Some other MC internal staff",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Some other MC internal staff"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_276de12a",
+    "source": "StartEvent_1",
+    "target": "Activity_256c9460",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_da90605c",
+    "source": "Activity_256c9460",
+    "target": "Activity_0a8773a4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_082ab590",
+    "source": "Activity_0a8773a4",
+    "target": "Activity_daa0a882",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a37aadb3",
+    "source": "Activity_daa0a882",
+    "target": "Activity_83ea7860",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_fe67824e",
+    "source": "Activity_83ea7860",
+    "target": "Activity_25fc7bbc",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8a3fa7fb",
+    "source": "Activity_25fc7bbc",
+    "target": "Activity_6897b54a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c794bccc",
+    "source": "Activity_6897b54a",
+    "target": "Activity_8eea3e1f",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_394e7993",
+    "source": "Activity_8eea3e1f",
+    "target": "Activity_188e097a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a1b92356",
+    "source": "Activity_188e097a",
+    "target": "Activity_48349ab2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_8d2d9dbf",
+    "source": "Activity_48349ab2",
+    "target": "Activity_fa8f6d9a",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_afa18fe6",
+    "source": "Activity_fa8f6d9a",
+    "target": "Activity_57f3dbc6",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f6df261b",
+    "source": "Activity_57f3dbc6",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 0,
+   "end": 9,
+   "label": "Actor",
+   "id": "Actor_949f4881",
+   "type": "Lane",
+   "name": "The party"
+  },
+  {
+   "start": 10,
+   "end": 15,
+   "label": "Activity",
+   "id": "Activity_256c9460",
+   "type": "task",
+   "name": "Sends a warrant possession request"
+  },
+  {
+   "start": 16,
+   "end": 44,
+   "label": "Activity Data",
+   "id": "Activity Data_d10bdc03",
+   "type": null,
+   "name": "A warrant possession request"
+  },
+  {
+   "start": 79,
+   "end": 109,
+   "label": "Actor",
+   "id": "Actor_51030937",
+   "type": "Lane",
+   "name": "The Client Service Back Office"
+  },
+  {
+   "start": 158,
+   "end": 166,
+   "label": "Activity",
+   "id": "Activity_0a8773a4",
+   "type": "task",
+   "name": "Receives the request"
+  },
+  {
+   "start": 167,
+   "end": 178,
+   "label": "Activity Data",
+   "id": "Activity Data_c87284c2",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 183,
+   "end": 192,
+   "label": "Activity",
+   "id": "Activity_daa0a882",
+   "type": "task",
+   "name": "Retrieves the SCT file"
+  },
+  {
+   "start": 193,
+   "end": 205,
+   "label": "Activity Data",
+   "id": "Activity Data_fec92c1a",
+   "type": null,
+   "name": "The SCT file"
+  },
+  {
+   "start": 215,
+   "end": 241,
+   "label": "Activity Data",
+   "id": "Activity Data_6ba922de",
+   "type": null,
+   "name": "The SCT Warrant Possession"
+  },
+  {
+   "start": 245,
+   "end": 254,
+   "label": "Activity",
+   "id": "Activity_83ea7860",
+   "type": "task",
+   "name": "Forwarded the SCT Warrant Possession"
+  },
+  {
+   "start": 258,
+   "end": 275,
+   "label": "Actor",
+   "id": "Actor_2aee6582",
+   "type": "Lane",
+   "name": "Queensland Police"
+  },
+  {
+   "start": 278,
+   "end": 299,
+   "label": "Activity Data",
+   "id": "Activity Data_0ffb7e43",
+   "type": null,
+   "name": "The SCT physical file"
+  },
+  {
+   "start": 303,
+   "end": 309,
+   "label": "Activity",
+   "id": "Activity_25fc7bbc",
+   "type": "task",
+   "name": "Stored the SCT physical file"
+  },
+  {
+   "start": 313,
+   "end": 328,
+   "label": "Actor",
+   "id": "Actor_435b41cf",
+   "type": "Lane",
+   "name": "The Back Office"
+  },
+  {
+   "start": 329,
+   "end": 337,
+   "label": "Activity",
+   "id": "Activity_6897b54a",
+   "type": "task",
+   "name": "Awaiting a report"
+  },
+  {
+   "start": 338,
+   "end": 346,
+   "label": "Activity Data",
+   "id": "Activity Data_0e11a92d",
+   "type": null,
+   "name": "A report"
+  },
+  {
+   "start": 347,
+   "end": 371,
+   "label": "Further Specification",
+   "id": "Further Specification_3a292988",
+   "type": null,
+   "name": "To be sent by the Police"
+  },
+  {
+   "start": 379,
+   "end": 389,
+   "label": "Activity Data",
+   "id": "Activity Data_d16142cb",
+   "type": null,
+   "name": "The report"
+  },
+  {
+   "start": 393,
+   "end": 401,
+   "label": "Activity",
+   "id": "Activity_8eea3e1f",
+   "type": "task",
+   "name": "Received the respective SCT file"
+  },
+  {
+   "start": 404,
+   "end": 427,
+   "label": "Activity Data",
+   "id": "Activity Data_5c7aa79e",
+   "type": null,
+   "name": "The respective SCT file"
+  },
+  {
+   "start": 431,
+   "end": 440,
+   "label": "Activity",
+   "id": "Activity_188e097a",
+   "type": "task",
+   "name": "Retrieved"
+  },
+  {
+   "start": 450,
+   "end": 461,
+   "label": "Actor",
+   "id": "Actor_4f756a2a",
+   "type": "Lane",
+   "name": "Back Office"
+  },
+  {
+   "start": 462,
+   "end": 470,
+   "label": "Activity",
+   "id": "Activity_48349ab2",
+   "type": "task",
+   "name": "Attaches the new SCT document"
+  },
+  {
+   "start": 471,
+   "end": 491,
+   "label": "Activity Data",
+   "id": "Activity Data_716cad14",
+   "type": null,
+   "name": "The new SCT document"
+  },
+  {
+   "start": 498,
+   "end": 504,
+   "label": "Activity",
+   "id": "Activity_fa8f6d9a",
+   "type": "task",
+   "name": "Stores the expanded SCT physical file"
+  },
+  {
+   "start": 505,
+   "end": 535,
+   "label": "Activity Data",
+   "id": "Activity Data_4242b21e",
+   "type": null,
+   "name": "The expanded SCT physical file"
+  },
+  {
+   "start": 551,
+   "end": 579,
+   "label": "Actor",
+   "id": "Actor_30fcec5f",
+   "type": "Lane",
+   "name": "Some other MC internal staff"
+  },
+  {
+   "start": 580,
+   "end": 588,
+   "label": "Activity",
+   "id": "Activity_57f3dbc6",
+   "type": "task",
+   "name": "Receives the physical SCT file"
+  },
+  {
+   "start": 589,
+   "end": 610,
+   "label": "Activity Data",
+   "id": "Activity Data_3fb775e0",
+   "type": null,
+   "name": "The physical SCT file"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 27,
+  "skipped": 0,
+  "failures": 0,
+  "rate": 0.0,
+  "records": [],
+  "decisions": [
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Receives the request",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Retrieves the SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Sends a warrant possession request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Retrieves the SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Receives the request",
+    "node_B": "Stored the SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Forwarded the SCT Warrant Possession",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Stored the SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieves the SCT file",
+    "node_B": "Awaiting a report",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Stored the SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Awaiting a report",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Forwarded the SCT Warrant Possession",
+    "node_B": "Received the respective SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Awaiting a report",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Received the respective SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Stored the SCT physical file",
+    "node_B": "Retrieved",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Received the respective SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Retrieved",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Awaiting a report",
+    "node_B": "Attaches the new SCT document",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Retrieved",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Attaches the new SCT document",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Received the respective SCT file",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Attaches the new SCT document",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Retrieved",
+    "node_B": "Receives the physical SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Stores the expanded SCT physical file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Attaches the new SCT document",
+    "node_B": "Receives the physical SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   },
+   {
+    "node_A": "Stores the expanded SCT physical file",
+    "node_B": "Receives the physical SCT file",
+    "label": "SEQUENCE",
+    "source": "llm"
+   }
+  ]
+ }
+}

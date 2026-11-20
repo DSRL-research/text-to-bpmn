@@ -1,0 +1,543 @@
+{
+  "structured_data": {
+    "participants": [
+      "Main Process",
+      "The logistic company",
+      "The logistics department head",
+      "The secretary",
+      "The warehousemen"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "XOR Gateway_eab5019d",
+        "name": "If goods shall be shipped",
+        "type": "exclusiveGateway",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d5396f68",
+        "name": "Clarifies",
+        "type": "task",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_4f342190",
+        "name": "Packaged the goods",
+        "type": "task",
+        "lane": "The warehousemen",
+        "metadata": [
+          "Special shipping"
+        ]
+      },
+      {
+        "id": "XOR Gateway_d9114ecb",
+        "name": "If you have large amounts",
+        "type": "exclusiveGateway",
+        "lane": "The warehousemen",
+        "metadata": []
+      },
+      {
+        "id": "Activity_2091baf2",
+        "name": "Invites",
+        "type": "task",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_81ca53ae",
+        "name": "Selects to make offers",
+        "type": "task",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_0b4453b8",
+        "name": "Used normal post shipment",
+        "type": "task",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_608b7756",
+        "name": "Written a package label",
+        "type": "task",
+        "lane": "The secretary",
+        "metadata": []
+      },
+      {
+        "id": "Activity_d2b688df",
+        "name": "Taken a parcel insurance",
+        "type": "task",
+        "lane": "The logistics department head",
+        "metadata": []
+      },
+      {
+        "id": "XOR Gateway_a1e7681e",
+        "name": "If everything is ready and merged",
+        "type": "exclusiveGateway",
+        "lane": "The logistic company",
+        "metadata": []
+      },
+      {
+        "id": "Activity_585a4498",
+        "name": "Prepared the packaged goods",
+        "type": "task",
+        "lane": "The logistic company",
+        "metadata": []
+      },
+      {
+        "id": "Activity_9135cf2a",
+        "name": "Picked up",
+        "type": "task",
+        "lane": "The logistic company",
+        "metadata": []
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "The logistic company"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "XOR Gateway_eab5019d",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "XOR Gateway_eab5019d",
+        "target": "Activity_d5396f68",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_d5396f68",
+        "target": "Activity_4f342190",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_4f342190",
+        "target": "XOR Gateway_d9114ecb",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "XOR Gateway_d9114ecb",
+        "target": "Activity_2091baf2",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_2091baf2",
+        "target": "Activity_81ca53ae",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "Activity_81ca53ae",
+        "target": "Activity_0b4453b8",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_0b4453b8",
+        "target": "Activity_608b7756",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_608b7756",
+        "target": "Activity_d2b688df",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "Activity_d2b688df",
+        "target": "XOR Gateway_a1e7681e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0011",
+        "source": "XOR Gateway_a1e7681e",
+        "target": "Activity_585a4498",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0012",
+        "source": "Activity_585a4498",
+        "target": "Activity_9135cf2a",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0013",
+        "source": "Activity_9135cf2a",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 11
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 0,
+      "end": 2,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_eab5019d",
+      "type": "exclusiveGateway",
+      "name": "If goods shall be shipped"
+    },
+    {
+      "start": 3,
+      "end": 25,
+      "label": "Condition Specification",
+      "id": "Condition Specification_4093181d",
+      "type": "exclusiveGateway",
+      "name": "Goods shall be shipped"
+    },
+    {
+      "start": 27,
+      "end": 40,
+      "label": "Actor",
+      "id": "Actor_e7f2ffcd",
+      "type": "Lane",
+      "name": "The secretary"
+    },
+    {
+      "start": 41,
+      "end": 50,
+      "label": "Activity",
+      "id": "Activity_d5396f68",
+      "type": "task",
+      "name": "Clarifies"
+    },
+    {
+      "start": 90,
+      "end": 99,
+      "label": "Activity Data",
+      "id": "Activity Data_245a84d9",
+      "type": null,
+      "name": "The goods"
+    },
+    {
+      "start": 115,
+      "end": 123,
+      "label": "Activity",
+      "id": "Activity_4f342190",
+      "type": "task",
+      "name": "Packaged the goods"
+    },
+    {
+      "start": 127,
+      "end": 143,
+      "label": "Actor",
+      "id": "Actor_f5158d7c",
+      "type": "Lane",
+      "name": "The warehousemen"
+    },
+    {
+      "start": 145,
+      "end": 147,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_d9114ecb",
+      "type": "exclusiveGateway",
+      "name": "If you have large amounts"
+    },
+    {
+      "start": 148,
+      "end": 170,
+      "label": "Condition Specification",
+      "id": "Condition Specification_6664f753",
+      "type": "exclusiveGateway",
+      "name": "You have large amounts"
+    },
+    {
+      "start": 172,
+      "end": 188,
+      "label": "Activity Data",
+      "id": "Activity Data_e7752116",
+      "type": null,
+      "name": "Special shipping"
+    },
+    {
+      "start": 223,
+      "end": 236,
+      "label": "Actor",
+      "id": "Actor_82963621",
+      "type": "Lane",
+      "name": "The secretary"
+    },
+    {
+      "start": 237,
+      "end": 244,
+      "label": "Activity",
+      "id": "Activity_2091baf2",
+      "type": "task",
+      "name": "Invites"
+    },
+    {
+      "start": 270,
+      "end": 284,
+      "label": "Activity Data",
+      "id": "Activity Data_8433a441",
+      "type": null,
+      "name": "To make offers"
+    },
+    {
+      "start": 289,
+      "end": 302,
+      "label": "Actor",
+      "id": "Actor_ff21130a",
+      "type": "Lane",
+      "name": "The secretary"
+    },
+    {
+      "start": 303,
+      "end": 310,
+      "label": "Activity",
+      "id": "Activity_81ca53ae",
+      "type": "task",
+      "name": "Selects to make offers"
+    },
+    {
+      "start": 370,
+      "end": 390,
+      "label": "Activity Data",
+      "id": "Activity Data_09da31d3",
+      "type": null,
+      "name": "Normal post shipment"
+    },
+    {
+      "start": 394,
+      "end": 398,
+      "label": "Activity",
+      "id": "Activity_0b4453b8",
+      "type": "task",
+      "name": "Used normal post shipment"
+    },
+    {
+      "start": 418,
+      "end": 433,
+      "label": "Activity Data",
+      "id": "Activity Data_b986a837",
+      "type": null,
+      "name": "A package label"
+    },
+    {
+      "start": 437,
+      "end": 444,
+      "label": "Activity",
+      "id": "Activity_608b7756",
+      "type": "task",
+      "name": "Written a package label"
+    },
+    {
+      "start": 448,
+      "end": 461,
+      "label": "Actor",
+      "id": "Actor_d7256530",
+      "type": "Lane",
+      "name": "The secretary"
+    },
+    {
+      "start": 467,
+      "end": 485,
+      "label": "Activity Data",
+      "id": "Activity Data_68bfb265",
+      "type": null,
+      "name": "A parcel insurance"
+    },
+    {
+      "start": 489,
+      "end": 494,
+      "label": "Activity",
+      "id": "Activity_d2b688df",
+      "type": "task",
+      "name": "Taken a parcel insurance"
+    },
+    {
+      "start": 498,
+      "end": 527,
+      "label": "Actor",
+      "id": "Actor_429868ca",
+      "type": "Lane",
+      "name": "The logistics department head"
+    },
+    {
+      "start": 542,
+      "end": 544,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_a1e7681e",
+      "type": "exclusiveGateway",
+      "name": "If everything is ready and merged"
+    },
+    {
+      "start": 545,
+      "end": 575,
+      "label": "Condition Specification",
+      "id": "Condition Specification_26fddc05",
+      "type": "exclusiveGateway",
+      "name": "Everything is ready and merged"
+    },
+    {
+      "start": 577,
+      "end": 595,
+      "label": "Activity Data",
+      "id": "Activity Data_85229c59",
+      "type": null,
+      "name": "The packaged goods"
+    },
+    {
+      "start": 600,
+      "end": 608,
+      "label": "Activity",
+      "id": "Activity_585a4498",
+      "type": "task",
+      "name": "Prepared the packaged goods"
+    },
+    {
+      "start": 619,
+      "end": 628,
+      "label": "Activity",
+      "id": "Activity_9135cf2a",
+      "type": "task",
+      "name": "Picked up"
+    },
+    {
+      "start": 632,
+      "end": 652,
+      "label": "Actor",
+      "id": "Actor_2260b596",
+      "type": "Lane",
+      "name": "The logistic company"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 3,
+    "skipped": 0,
+    "failures": 3,
+    "rate": 1.0,
+    "records": [
+      {
+        "node_A": "If goods shall be shipped",
+        "node_B": "Clarifies | Packaged the goods | decision: If you have large amounts | Invites | Selects to make offers | Used normal post shipment | Written a package label | Taken a parcel insurance | decision: If everything is ready and merged | Prepared the packaged goods",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "If you have large amounts",
+        "node_B": "Invites | Selects to make offers | Used normal post shipment | Written a package label | Taken a parcel insurance | decision: If everything is ready and merged | Prepared the packaged goods | Picked up",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      },
+      {
+        "node_A": "If everything is ready and merged",
+        "node_B": "Prepared the packaged goods | Picked up",
+        "raw_output": null,
+        "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+      }
+    ],
+    "decisions": [
+      {
+        "node_A": "If goods shall be shipped",
+        "node_B": "Clarifies | Packaged the goods | decision: If you have large amounts | Invites | Selects to make offers | Used normal post shipment | Written a package label | Taken a parcel insurance | decision: If everything is ready and merged | Prepared the packaged goods",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "If you have large amounts",
+        "node_B": "Invites | Selects to make offers | Used normal post shipment | Written a package label | Taken a parcel insurance | decision: If everything is ready and merged | Prepared the packaged goods | Picked up",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      },
+      {
+        "node_A": "If everything is ready and merged",
+        "node_B": "Prepared the packaged goods | Picked up",
+        "label": "UNKNOWN",
+        "source": "call_failed"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://127.0.0.1:1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 5,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": true,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "(spans injected)"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": false,
+      "error": "<urlopen error [Errno 111] Connection refused>",
+      "api": "openai"
+    },
+    "run_at": "2026-11-12T09:09:50+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

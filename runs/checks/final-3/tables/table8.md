@@ -1,0 +1,47 @@
+# Table 8: Relation stages on the 45 documents of PET, with gold mentions
+
+Run 2026-11-20T09:01:18+00:00 at revision-final-3-77-g59c3e2b (59c3e2b, dirty: False); lxml 5.2.1, pm4py 2.7.19.2, rdflib 7.6.0, pyshacl 0.40.2, owlready2 0.49, dspy 3.1.2, transformers 4.50.0.
+
+Rebuilt by `python3 -m text2bpmn.paper_tables 8` (text2bpmn/paper_tables.py) from `runs/final-3/pet_no_llm`, `runs/ideas/idea1b/pet_pairs`, `runs/final-2/pet_decisions`, `runs/final-3/pet_decisions`, `runs/checks/final-3/soundness/soundness.json`, `runs/checks/final-3/tables/pet_pairs/soundness/soundness.json`, `runs/checks/final-2/soundness/soundness.json`, `runs/checks/final-3/soundness/soundness.json`, `text2bpmn/baselines/neuberger (pet_strict --fetch)`, `runs/final/pet_classifier`, `runs/final-3/summary.json`. Draft: s45-2.pdf (2026-11-17; s45-3.pdf is the same file), Section 4.5.
+
+| Relation stage | Three shapes | All flows | Strict | Parallel pairs | Calls | Sound |
+|---|---|---|---|---|---|---|
+| Textual order (no LLM) | 0.762 | 0.787 | 0.776 | 0 of 10 | 0 | 45/45 |
+| Pairwise classification | 0.726 | 0.741 | 0.702 | 3 of 10 (+44) | 1,300 | 40/45 |
+| Method without concurrency question | 0.773 | 0.818 | 0.784 | 0 of 10 | 78 | 45/45 |
+| This method | 0.770 | 0.828 | 0.805 | 5 of 10 (+1) | 84 | 45/45 |
+
+With it, in the section's text:
+
+| value | rebuilt | draft |
+|---|---|---|
+| pairwise - textual order, three shapes | -0.036 [-0.063, -0.003] | -0.036 [-0.063, -0.003] |
+| pairwise - textual order, all flows | -0.046 [-0.070, -0.022] | -0.046 [-0.070, -0.022] |
+| pairwise, inserted gateways collapsed (strict, pooled) | 0.676 | 0.675 |
+| method - pairwise, three shapes | +0.043 [+0.015, +0.068] | +0.043 [+0.015, +0.068] |
+| method - pairwise, all flows | +0.087 [+0.058, +0.116] | +0.087 [+0.058, +0.116] |
+| method - pairwise, strict | +0.103 [+0.072, +0.137] | +0.103 [+0.072, +0.137] |
+| method - textual order, three shapes | +0.008 [-0.013, +0.029] | +0.008 [-0.013, +0.029] |
+| method - textual order, all flows | +0.041 [+0.017, +0.066] | +0.041 [+0.017, +0.066] |
+| method - textual order, strict | +0.028 [+0.008, +0.054] | +0.028 [+0.008, +0.054] |
+| method - method without concurrency question, strict | +0.020 [+0.004, +0.042] | +0.020 [+0.004, +0.042] |
+| WOFLAN-rejected pairwise models that contain a parallel gateway | 5 of 5 | 5 of 5 |
+| the method's calls: decision, concurrency questions | 78, 6 | 78, 6 |
+| decision answers with no branch (text order kept) | 5 | 5 |
+| PET's concurrency cues, of them asked about | 8, 6 | 8, 6 |
+| the method's PET experiment, minutes (seconds) | 12 (716) | 12 (716) |
+
+## Against the draft
+
+37 of 39 values compared are the draft's; these differ:
+
+- This method, Parallel pairs: draft 5 of 10, rebuilt 5 of 10 (+1). the draft's own rule puts the pairs built that PET does not annotate in brackets, as for pairwise classification; the method builds one (doc-3.5: one line of work split in two, which the draft's text describes)
+- pairwise, inserted gateways collapsed (strict, pooled), text: draft 0.675, rebuilt 0.676. 0.675 is the fold average; pooled, as Table 8's strict column, it is 0.676 (text2bpmn/results/pet_strict_flow.md)
+
+## Checks
+
+- the pairwise models WOFLAN rejects: ['doc-10.2/model.bpmn', 'doc-10.9/model.bpmn', 'doc-2.1/model.bpmn', 'doc-3.6/model.bpmn', 'doc-3.8/model.bpmn']
+- the pairwise models: the token game agrees with WOFLAN on every one: True
+- the rejected ones, by the token game: {'doc-10.2/model.bpmn': 'no option to complete from 3 reachable states (a deadlock)', 'doc-10.9/model.bpmn': 'no proper completion: the end is reached with tokens left', 'doc-2.1/model.bpmn': 'no proper completion: the end is reached with tokens left', 'doc-3.6/model.bpmn': 'the end is never reached', 'doc-3.8/model.bpmn': 'no proper completion: the end is reached with tokens left'}
+- the rerun's counts equal revision-final's (runs/final/pet_classifier) on every document: True
+- calls asked, failed (the text order's are all refused: no LLM): {'Textual order (no LLM)': '1593, 1593', 'Pairwise classification': '1300, 0', 'Method without concurrency question': '78, 0', 'This method': '84, 0'}

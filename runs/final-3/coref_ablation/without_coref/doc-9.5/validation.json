@@ -1,0 +1,42 @@
+{
+  "rule_counts": {
+    "clean": 1,
+    "gateways": 4,
+    "split/join": 1,
+    "lanes": 2
+  },
+  "changes": [
+    {
+      "rule": "clean",
+      "change": "0 duplicate, self-loop or dangling flows dropped"
+    },
+    {
+      "rule": "gateways",
+      "change": "pass-through gateway 'If the employee does not already have one' removed"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'In case of rejection' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'If the request is not completed in 7 days' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "gateways",
+      "change": "mixed gateway 'If the request is not finished within 30 days' divided into exclusiveGateway join + split"
+    },
+    {
+      "rule": "split/join",
+      "change": "exclusiveGateway join added before 'End'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The supervisor' -> 'Supervisor'"
+    },
+    {
+      "rule": "lanes",
+      "change": "lane 'The employee' -> 'Employee'"
+    }
+  ]
+}

@@ -1,0 +1,1053 @@
+{
+ "structured_data": {
+  "participants": [
+   "A member of the sales department",
+   "Main Process",
+   "The engineering department",
+   "The sales department",
+   "The storehouse"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_9cc38982",
+    "name": "Receives an order",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c1a0c2e8",
+    "name": "Reject",
+    "type": "task",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_797593a8",
+    "name": "Or",
+    "type": "exclusiveGateway",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_2a342620",
+    "name": "Accept the order",
+    "type": "task",
+    "lane": "A member of the sales department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a9bd08f2",
+    "name": "Informed",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6670ef32",
+    "name": "Processes the part list of the order",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_8362781b",
+    "name": "Checks the required quantity of each part",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_ddb0d176",
+    "name": "If the part is available in-house",
+    "type": "exclusiveGateway",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_73bd7cb4",
+    "name": "Reserved it",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_a86cbd63",
+    "name": "If it is not available",
+    "type": "exclusiveGateway",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "Activity_705dfb6e",
+    "name": "Ordered it",
+    "type": "task",
+    "lane": "The storehouse",
+    "metadata": []
+   },
+   {
+    "id": "AND Gateway_7b49c333",
+    "name": "In the meantime",
+    "type": "parallelGateway",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_6459a3c5",
+    "name": "Prepares everything",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_8a90f8c1",
+    "name": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "type": "exclusiveGateway",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_0cc591bb",
+    "name": "Assembles the bicycle",
+    "type": "task",
+    "lane": "The engineering department",
+    "metadata": []
+   },
+   {
+    "id": "Activity_235b67c1",
+    "name": "Ships the bicycle",
+    "type": "task",
+    "lane": "The sales department",
+    "metadata": []
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The sales department"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_d9c3e2a8",
+    "source": "StartEvent_1",
+    "target": "Activity_9cc38982",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f34a9a1d",
+    "source": "Activity_9cc38982",
+    "target": "Activity_c1a0c2e8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_c6a8dd49",
+    "source": "Activity_c1a0c2e8",
+    "target": "XOR Gateway_797593a8",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_4410f072",
+    "source": "XOR Gateway_797593a8",
+    "target": "Activity_2a342620",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_91f0b951",
+    "source": "Activity_2a342620",
+    "target": "Activity_a9bd08f2",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1ac1c5c0",
+    "source": "Activity_a9bd08f2",
+    "target": "Activity_6670ef32",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_2e2d18bb",
+    "source": "Activity_6670ef32",
+    "target": "Activity_8362781b",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_670bc042",
+    "source": "Activity_8362781b",
+    "target": "XOR Gateway_ddb0d176",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_41581c73",
+    "source": "XOR Gateway_ddb0d176",
+    "target": "Activity_73bd7cb4",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_9bf98e5d",
+    "source": "Activity_73bd7cb4",
+    "target": "XOR Gateway_a86cbd63",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_7878fae9",
+    "source": "XOR Gateway_a86cbd63",
+    "target": "Activity_705dfb6e",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_04f083d8",
+    "source": "Activity_705dfb6e",
+    "target": "AND Gateway_7b49c333",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_f6ceaf30",
+    "source": "AND Gateway_7b49c333",
+    "target": "Activity_6459a3c5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_e20799bf",
+    "source": "Activity_6459a3c5",
+    "target": "XOR Gateway_8a90f8c1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_916329f9",
+    "source": "XOR Gateway_8a90f8c1",
+    "target": "Activity_0cc591bb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_562971b1",
+    "source": "Activity_0cc591bb",
+    "target": "Activity_235b67c1",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_26245035",
+    "source": "Activity_235b67c1",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 60,
+   "end": 80,
+   "label": "Actor",
+   "id": "Actor_ed33da1b",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 81,
+   "end": 89,
+   "label": "Activity",
+   "id": "Activity_9cc38982",
+   "type": "task",
+   "name": "Receives an order"
+  },
+  {
+   "start": 90,
+   "end": 98,
+   "label": "Activity Data",
+   "id": "Activity Data_01e09384",
+   "type": null,
+   "name": "An order"
+  },
+  {
+   "start": 137,
+   "end": 169,
+   "label": "Actor",
+   "id": "Actor_bdd587d5",
+   "type": "Lane",
+   "name": "A member of the sales department"
+  },
+  {
+   "start": 179,
+   "end": 185,
+   "label": "Activity",
+   "id": "Activity_c1a0c2e8",
+   "type": "task",
+   "name": "Reject"
+  },
+  {
+   "start": 186,
+   "end": 188,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_797593a8",
+   "type": "exclusiveGateway",
+   "name": "Or"
+  },
+  {
+   "start": 189,
+   "end": 195,
+   "label": "Activity",
+   "id": "Activity_2a342620",
+   "type": "task",
+   "name": "Accept the order"
+  },
+  {
+   "start": 196,
+   "end": 205,
+   "label": "Activity Data",
+   "id": "Activity Data_74250fee",
+   "type": null,
+   "name": "The order"
+  },
+  {
+   "start": 307,
+   "end": 321,
+   "label": "Actor",
+   "id": "Actor_6c97cffe",
+   "type": "Lane",
+   "name": "The storehouse"
+  },
+  {
+   "start": 326,
+   "end": 352,
+   "label": "Actor",
+   "id": "Actor_cc79977d",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 357,
+   "end": 365,
+   "label": "Activity",
+   "id": "Activity_a9bd08f2",
+   "type": "task",
+   "name": "Informed"
+  },
+  {
+   "start": 368,
+   "end": 382,
+   "label": "Actor",
+   "id": "Actor_a3b70bd2",
+   "type": "Lane",
+   "name": "The storehouse"
+  },
+  {
+   "start": 395,
+   "end": 404,
+   "label": "Activity",
+   "id": "Activity_6670ef32",
+   "type": "task",
+   "name": "Processes the part list of the order"
+  },
+  {
+   "start": 405,
+   "end": 431,
+   "label": "Activity Data",
+   "id": "Activity Data_4c554b65",
+   "type": null,
+   "name": "The part list of the order"
+  },
+  {
+   "start": 436,
+   "end": 442,
+   "label": "Activity",
+   "id": "Activity_8362781b",
+   "type": "task",
+   "name": "Checks the required quantity of each part"
+  },
+  {
+   "start": 443,
+   "end": 477,
+   "label": "Activity Data",
+   "id": "Activity Data_d9447a0b",
+   "type": null,
+   "name": "The required quantity of each part"
+  },
+  {
+   "start": 480,
+   "end": 482,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_ddb0d176",
+   "type": "exclusiveGateway",
+   "name": "If the part is available in-house"
+  },
+  {
+   "start": 483,
+   "end": 513,
+   "label": "Condition Specification",
+   "id": "Condition Specification_a93dd32b",
+   "type": "exclusiveGateway",
+   "name": "The part is available in-house"
+  },
+  {
+   "start": 516,
+   "end": 518,
+   "label": "Activity Data",
+   "id": "Activity Data_913d5e6b",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 522,
+   "end": 530,
+   "label": "Activity",
+   "id": "Activity_73bd7cb4",
+   "type": "task",
+   "name": "Reserved it"
+  },
+  {
+   "start": 533,
+   "end": 535,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_a86cbd63",
+   "type": "exclusiveGateway",
+   "name": "If it is not available"
+  },
+  {
+   "start": 536,
+   "end": 555,
+   "label": "Condition Specification",
+   "id": "Condition Specification_6fe25357",
+   "type": "exclusiveGateway",
+   "name": "It is not available"
+  },
+  {
+   "start": 558,
+   "end": 560,
+   "label": "Activity Data",
+   "id": "Activity Data_fb094eda",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 564,
+   "end": 576,
+   "label": "Activity",
+   "id": "Activity_705dfb6e",
+   "type": "task",
+   "name": "Ordered it"
+  },
+  {
+   "start": 639,
+   "end": 654,
+   "label": "AND Gateway",
+   "id": "AND Gateway_7b49c333",
+   "type": "parallelGateway",
+   "name": "In the meantime"
+  },
+  {
+   "start": 657,
+   "end": 683,
+   "label": "Actor",
+   "id": "Actor_6aa59873",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 684,
+   "end": 692,
+   "label": "Activity",
+   "id": "Activity_6459a3c5",
+   "type": "task",
+   "name": "Prepares everything"
+  },
+  {
+   "start": 693,
+   "end": 703,
+   "label": "Activity Data",
+   "id": "Activity Data_a9760984",
+   "type": null,
+   "name": "Everything"
+  },
+  {
+   "start": 748,
+   "end": 750,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_8a90f8c1",
+   "type": "exclusiveGateway",
+   "name": "If the storehouse has successfully reserved or back-ordered every item of the part list"
+  },
+  {
+   "start": 751,
+   "end": 835,
+   "label": "Condition Specification",
+   "id": "Condition Specification_3092bf14",
+   "type": "exclusiveGateway",
+   "name": "The storehouse has successfully reserved or back-ordered every item of the part list"
+  },
+  {
+   "start": 880,
+   "end": 906,
+   "label": "Actor",
+   "id": "Actor_3cd1e827",
+   "type": "Lane",
+   "name": "The engineering department"
+  },
+  {
+   "start": 907,
+   "end": 916,
+   "label": "Activity",
+   "id": "Activity_0cc591bb",
+   "type": "task",
+   "name": "Assembles the bicycle"
+  },
+  {
+   "start": 917,
+   "end": 928,
+   "label": "Activity Data",
+   "id": "Activity Data_141028c7",
+   "type": null,
+   "name": "The bicycle"
+  },
+  {
+   "start": 944,
+   "end": 964,
+   "label": "Actor",
+   "id": "Actor_74f5044e",
+   "type": "Lane",
+   "name": "The sales department"
+  },
+  {
+   "start": 965,
+   "end": 970,
+   "label": "Activity",
+   "id": "Activity_235b67c1",
+   "type": "task",
+   "name": "Ships the bicycle"
+  },
+  {
+   "start": 971,
+   "end": 982,
+   "label": "Activity Data",
+   "id": "Activity Data_07167608",
+   "type": null,
+   "name": "The bicycle"
+  },
+  {
+   "start": 986,
+   "end": 998,
+   "label": "Actor",
+   "id": "Actor_5a9b06f8",
+   "type": "Lane",
+   "name": "The customer"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 42,
+  "skipped": 0,
+  "failures": 42,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Receives an order",
+    "node_B": "Reject",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Accept the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Or",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Accept the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Informed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Accept the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Processes the part list of the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Informed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Processes the part list of the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Checks the required quantity of each part",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Processes the part list of the order",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Checks the required quantity of each part",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "If the part is available in-house",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Checks the required quantity of each part",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "If the part is available in-house",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Reserved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If the part is available in-house",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "Reserved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If it is not available",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Reserved it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "If it is not available",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Ordered it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "If it is not available",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "Ordered it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "In the meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "Ordered it",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "In the meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "Prepares everything",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "In the meantime",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "Prepares everything",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Prepares everything",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Assembles the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "Assembles the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "Ships the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "node_B": "Assembles the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "node_B": "Ships the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Assembles the bicycle",
+    "node_B": "Ships the bicycle",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Receives an order",
+    "node_B": "Reject",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Receives an order",
+    "node_B": "Accept the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Or",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Accept the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reject",
+    "node_B": "Informed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Accept the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Informed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Or",
+    "node_B": "Processes the part list of the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Informed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Processes the part list of the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Accept the order",
+    "node_B": "Checks the required quantity of each part",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Processes the part list of the order",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "Checks the required quantity of each part",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Informed",
+    "node_B": "If the part is available in-house",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Checks the required quantity of each part",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "If the part is available in-house",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Processes the part list of the order",
+    "node_B": "Reserved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If the part is available in-house",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "Reserved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Checks the required quantity of each part",
+    "node_B": "If it is not available",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Reserved it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "If it is not available",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the part is available in-house",
+    "node_B": "Ordered it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "If it is not available",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "Ordered it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Reserved it",
+    "node_B": "In the meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "Ordered it",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "In the meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If it is not available",
+    "node_B": "Prepares everything",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "In the meantime",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "Prepares everything",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Ordered it",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Prepares everything",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "In the meantime",
+    "node_B": "Assembles the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "Assembles the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Prepares everything",
+    "node_B": "Ships the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "node_B": "Assembles the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the storehouse has successfully reserved or back-ordered every item of the part list",
+    "node_B": "Ships the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Assembles the bicycle",
+    "node_B": "Ships the bicycle",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

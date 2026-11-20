@@ -1,0 +1,561 @@
+{
+ "structured_data": {
+  "participants": [
+   "Any employee",
+   "Main Process",
+   "The immediate supervisor",
+   "The supervisor",
+   "Who"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_3d69ee01",
+    "name": "Submits a vacation request",
+    "type": "task",
+    "lane": "Any employee",
+    "metadata": []
+   },
+   {
+    "id": "Activity_b6d77594",
+    "name": "Registered the request",
+    "type": "task",
+    "lane": "The immediate supervisor",
+    "metadata": [
+     "The requirement"
+    ]
+   },
+   {
+    "id": "Activity_9d985958",
+    "name": "Received",
+    "type": "task",
+    "lane": "The immediate supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_718b18e9",
+    "name": "Approve or reject the request",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_47970469",
+    "name": "If the request is rejected",
+    "type": "exclusiveGateway",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "Activity_3a8485fb",
+    "name": "Returned the application",
+    "type": "task",
+    "lane": "The supervisor",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_d6ca8278",
+    "name": "If the request is approved",
+    "type": "exclusiveGateway",
+    "lane": "Who",
+    "metadata": []
+   },
+   {
+    "id": "Activity_94e1d4f5",
+    "name": "Generated a notification",
+    "type": "task",
+    "lane": "Who",
+    "metadata": [
+     "The respective management procedures"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "Who"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_3a94dbcd",
+    "source": "StartEvent_1",
+    "target": "Activity_3d69ee01",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a9b91c15",
+    "source": "Activity_3d69ee01",
+    "target": "Activity_b6d77594",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_16a57fa4",
+    "source": "Activity_b6d77594",
+    "target": "Activity_9d985958",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_1258617d",
+    "source": "Activity_9d985958",
+    "target": "Activity_718b18e9",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_6876d951",
+    "source": "Activity_718b18e9",
+    "target": "XOR Gateway_47970469",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a430192f",
+    "source": "XOR Gateway_47970469",
+    "target": "Activity_3a8485fb",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_ca046c86",
+    "source": "Activity_3a8485fb",
+    "target": "XOR Gateway_d6ca8278",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_a27bdd52",
+    "source": "XOR Gateway_d6ca8278",
+    "target": "Activity_94e1d4f5",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_dc7abaa5",
+    "source": "Activity_94e1d4f5",
+    "target": "EndEvent_1",
+    "relation": "SEQUENCE"
+   }
+  ]
+ },
+ "entities_used": [
+  {
+   "start": 45,
+   "end": 57,
+   "label": "Actor",
+   "id": "Actor_190e7133",
+   "type": "Lane",
+   "name": "Any employee"
+  },
+  {
+   "start": 78,
+   "end": 85,
+   "label": "Activity",
+   "id": "Activity_3d69ee01",
+   "type": "task",
+   "name": "Submits a vacation request"
+  },
+  {
+   "start": 86,
+   "end": 104,
+   "label": "Activity Data",
+   "id": "Activity Data_3e57af1e",
+   "type": null,
+   "name": "A vacation request"
+  },
+  {
+   "start": 112,
+   "end": 127,
+   "label": "Activity Data",
+   "id": "Activity Data_3562bb7a",
+   "type": null,
+   "name": "The requirement"
+  },
+  {
+   "start": 131,
+   "end": 141,
+   "label": "Activity",
+   "id": "Activity_b6d77594",
+   "type": "task",
+   "name": "Registered the request"
+  },
+  {
+   "start": 144,
+   "end": 155,
+   "label": "Activity Data",
+   "id": "Activity Data_e6d85469",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 159,
+   "end": 167,
+   "label": "Activity",
+   "id": "Activity_9d985958",
+   "type": "task",
+   "name": "Received"
+  },
+  {
+   "start": 171,
+   "end": 195,
+   "label": "Actor",
+   "id": "Actor_ddb535b6",
+   "type": "Lane",
+   "name": "The immediate supervisor"
+  },
+  {
+   "start": 238,
+   "end": 252,
+   "label": "Actor",
+   "id": "Actor_56a2136c",
+   "type": "Lane",
+   "name": "The supervisor"
+  },
+  {
+   "start": 258,
+   "end": 275,
+   "label": "Activity",
+   "id": "Activity_718b18e9",
+   "type": "task",
+   "name": "Approve or reject the request"
+  },
+  {
+   "start": 276,
+   "end": 287,
+   "label": "Activity Data",
+   "id": "Activity Data_8446bf60",
+   "type": null,
+   "name": "The request"
+  },
+  {
+   "start": 290,
+   "end": 292,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_47970469",
+   "type": "exclusiveGateway",
+   "name": "If the request is rejected"
+  },
+  {
+   "start": 293,
+   "end": 316,
+   "label": "Condition Specification",
+   "id": "Condition Specification_af7bb245",
+   "type": "exclusiveGateway",
+   "name": "The request is rejected"
+  },
+  {
+   "start": 319,
+   "end": 334,
+   "label": "Activity Data",
+   "id": "Activity Data_7376f887",
+   "type": null,
+   "name": "The application"
+  },
+  {
+   "start": 338,
+   "end": 346,
+   "label": "Activity",
+   "id": "Activity_3a8485fb",
+   "type": "task",
+   "name": "Returned the application"
+  },
+  {
+   "start": 350,
+   "end": 374,
+   "label": "Actor",
+   "id": "Actor_4fcc56d1",
+   "type": "Lane",
+   "name": "The applicant / employee"
+  },
+  {
+   "start": 414,
+   "end": 416,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_d6ca8278",
+   "type": "exclusiveGateway",
+   "name": "If the request is approved"
+  },
+  {
+   "start": 417,
+   "end": 440,
+   "label": "Condition Specification",
+   "id": "Condition Specification_f4189aa5",
+   "type": "exclusiveGateway",
+   "name": "The request is approved"
+  },
+  {
+   "start": 441,
+   "end": 455,
+   "label": "Activity Data",
+   "id": "Activity Data_475da1be",
+   "type": null,
+   "name": "A notification"
+  },
+  {
+   "start": 459,
+   "end": 468,
+   "label": "Activity",
+   "id": "Activity_94e1d4f5",
+   "type": "task",
+   "name": "Generated a notification"
+  },
+  {
+   "start": 472,
+   "end": 506,
+   "label": "Actor",
+   "id": "Actor_2a0a53ef",
+   "type": "Lane",
+   "name": "The Human Resources Representative"
+  },
+  {
+   "start": 509,
+   "end": 512,
+   "label": "Actor",
+   "id": "Actor_a82e6eea",
+   "type": "Lane",
+   "name": "Who"
+  },
+  {
+   "start": 518,
+   "end": 526,
+   "label": "Activity",
+   "id": "Activity_d6093fbc",
+   "type": null,
+   "name": null
+  },
+  {
+   "start": 527,
+   "end": 563,
+   "label": "Activity Data",
+   "id": "Activity Data_e3fcf507",
+   "type": null,
+   "name": "The respective management procedures"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 18,
+  "skipped": 0,
+  "failures": 18,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Registered the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Received",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Approve or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Received",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Approve or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Approve or reject the request",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Returned the application",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is rejected",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "Returned the application",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Returned the application",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Generated a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returned the application",
+    "node_B": "If the request is approved",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "Returned the application",
+    "node_B": "Generated a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Generated a notification",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Registered the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Received",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Submits a vacation request",
+    "node_B": "Approve or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Received",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "Approve or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Registered the request",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Approve or reject the request",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Received",
+    "node_B": "Returned the application",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is rejected",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "Returned the application",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Approve or reject the request",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Returned the application",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is rejected",
+    "node_B": "Generated a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returned the application",
+    "node_B": "If the request is approved",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "Returned the application",
+    "node_B": "Generated a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the request is approved",
+    "node_B": "Generated a notification",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

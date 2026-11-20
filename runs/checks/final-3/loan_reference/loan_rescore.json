@@ -1,0 +1,2648 @@
+{
+  "provenance": {
+    "run_at": "2026-11-20T09:01:44+00:00",
+    "code": {
+      "commit": "59c3e2b739e6235d5ce895ea959d9cefd1b192ad",
+      "describe": "revision-final-3-77-g59c3e2b",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "lxml": "5.2.1",
+      "pm4py": "2.7.19.2",
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.2",
+      "owlready2": "0.49",
+      "dspy": "3.1.2",
+      "transformers": "4.50.0"
+    },
+    "threshold": 0.5,
+    "references": {
+      "authored": {
+        "path": "text2bpmn/cases/loan/reference_authored.bpmn",
+        "sha256": "493657d8f7d44aa9fb152e42cc8ba85cf6d72c5b6376418f27e895e9e29089cc"
+      },
+      "textbook": {
+        "path": "text2bpmn/cases/loan/reference.bpmn",
+        "sha256": "5bdbccee77959c402f9bf864e3432e90bc114da544ce95f8bd964e46e1162e9c"
+      }
+    },
+    "models": {
+      "BERT, LLM": {
+        "path": "runs/final-3/cases/loan/model.bpmn",
+        "sha256": "cc78bdc8c994c3cc96d96cdf4801d8cdf21b62ef0fd5b4ae0b76770bfdbde351"
+      },
+      "BERT, no LLM": {
+        "path": "runs/final-3/cases_no_llm/loan/model.bpmn",
+        "sha256": "75e302e6bc8747491619ec5ffd149399efe0c0e5903a3b213016f235a708990c"
+      },
+      "GLiNER, LLM": {
+        "path": "runs/gliner-3/cases_gliner/loan/model.bpmn",
+        "sha256": "5ffc9745afd7cc66876c5394bc9c167aa7858c7a2696af707ea100290c367094"
+      },
+      "GLiNER, no LLM": {
+        "path": "runs/gliner-3/cases_gliner_no_llm/loan/model.bpmn",
+        "sha256": "cfa70ec716d0dfdaba80045e205e3ff77b92ebfc04eff90820bc7dbdd02a3efc"
+      }
+    }
+  },
+  "references": {
+    "authored": {
+      "path": "text2bpmn/cases/loan/reference_authored.bpmn",
+      "size": 27,
+      "nodes": 13,
+      "flows": 14,
+      "kinds": {
+        "event": 2,
+        "task": 7,
+        "gateway AND split": 1,
+        "gateway AND join": 1,
+        "gateway XOR split": 1,
+        "gateway XOR join": 1
+      },
+      "tasks": [
+        "Check credit history",
+        "Assess loan risk",
+        "Appraise property",
+        "Assess eligibility",
+        "Reject application",
+        "Prepare acceptance pack",
+        "Notify application status"
+      ],
+      "task_edges": [
+        [
+          "Prepare acceptance pack",
+          "Notify application status"
+        ],
+        [
+          "Appraise property",
+          "Assess eligibility"
+        ],
+        [
+          "Check credit history",
+          "Assess loan risk"
+        ],
+        [
+          "Assess eligibility",
+          "Prepare acceptance pack"
+        ],
+        [
+          "Assess eligibility",
+          "Reject application"
+        ],
+        [
+          "Assess loan risk",
+          "Assess eligibility"
+        ],
+        [
+          "Reject application",
+          "Notify application status"
+        ]
+      ]
+    },
+    "textbook": {
+      "path": "text2bpmn/cases/loan/reference.bpmn",
+      "size": 26,
+      "nodes": 13,
+      "flows": 13,
+      "kinds": {
+        "event": 3,
+        "gateway AND split": 1,
+        "task": 7,
+        "gateway AND join": 1,
+        "gateway XOR split": 1
+      },
+      "tasks": [
+        "Check credit history",
+        "Assess loan risk",
+        "Appraise property",
+        "Assess eligibility",
+        "Reject application",
+        "Prepare acceptance pack",
+        "Send acceptance pack"
+      ],
+      "task_edges": [
+        [
+          "Prepare acceptance pack",
+          "Send acceptance pack"
+        ],
+        [
+          "Appraise property",
+          "Assess eligibility"
+        ],
+        [
+          "Check credit history",
+          "Assess loan risk"
+        ],
+        [
+          "Assess eligibility",
+          "Prepare acceptance pack"
+        ],
+        [
+          "Assess eligibility",
+          "Reject application"
+        ],
+        [
+          "Assess loan risk",
+          "Assess eligibility"
+        ]
+      ]
+    }
+  },
+  "configurations": {
+    "BERT, LLM": {
+      "model": "runs/final-3/cases/loan/model.bpmn",
+      "saved_comparison_file": "runs/final-3/cases/loan/comparison_authored.json",
+      "saved_comparison": {
+        "tasks": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.8333333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.7692307692307692
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "edges": {
+          "tp": 1,
+          "fp": 4,
+          "fn": 6,
+          "precision": 0.2,
+          "recall": 0.14285714285714285,
+          "f1": 0.16666666666666666
+        },
+        "ged": {
+          "ged": 19.97,
+          "rged": 0.74,
+          "similarity": 0.26,
+          "rged_combined": 0.425,
+          "similarity_combined": 0.575,
+          "reference_size": 27,
+          "generated_size": 20,
+          "note": "upper bound: cost of an optimal-assignment edit path"
+        },
+        "mapping": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "unmatched_reference": [
+          "Appraise property",
+          "Assess eligibility"
+        ],
+        "unmatched_generated": [
+          "Sent"
+        ]
+      },
+      "generated": {
+        "size": 20,
+        "nodes": 10,
+        "flows": 10,
+        "kinds": {
+          "event": 2,
+          "task": 6,
+          "gateway XOR split": 1,
+          "gateway XOR join": 1
+        },
+        "tasks": [
+          "Approved a loan application",
+          "Check history",
+          "Assess the applicant’s",
+          "Rejected the application",
+          "Prepared the acceptance pack",
+          "Sent"
+        ],
+        "task_edges": [
+          [
+            "Check history",
+            "Assess the applicant’s"
+          ],
+          [
+            "Assess the applicant’s",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Assess the applicant’s",
+            "Rejected the application"
+          ],
+          [
+            "Prepared the acceptance pack",
+            "Sent"
+          ],
+          [
+            "Approved a loan application",
+            "Check history"
+          ]
+        ]
+      },
+      "authored": {
+        "comparison": {
+          "tasks": {
+            "tp": 5,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "f1": 0.7692307692307692
+          },
+          "gateways": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "f1": 0.16666666666666666
+          },
+          "ged": {
+            "ged": 19.97,
+            "rged": 0.74,
+            "similarity": 0.26,
+            "rged_combined": 0.425,
+            "similarity_combined": 0.575,
+            "reference_size": 27,
+            "generated_size": 20,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Check credit history",
+              "Check history"
+            ],
+            [
+              "Assess loan risk",
+              "Assess the applicant’s"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Notify application status",
+              "Approved a loan application"
+            ]
+          ],
+          "unmatched_reference": [
+            "Appraise property",
+            "Assess eligibility"
+          ],
+          "unmatched_generated": [
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Check credit history",
+              "generated": "Check history",
+              "similarity": 0.8
+            },
+            {
+              "reference": "Assess loan risk",
+              "generated": "Assess the applicant’s",
+              "similarity": 0.706
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Notify application status",
+              "generated": "Approved a loan application",
+              "similarity": 0.52
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Appraise property",
+            "Assess eligibility"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Sent",
+              "closest_reference": "Assess loan risk",
+              "similarity": 0.3
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [
+                "xor_join"
+              ],
+              "generated": [
+                "Gateway_join_1"
+              ],
+              "matched": 1
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "Applicant eligible?"
+              ],
+              "generated": [
+                "If the applicant is not eligible"
+              ],
+              "matched": 1
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ],
+              "generated": [
+                "Check history",
+                "Assess the applicant’s"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Notify application status"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Reject application",
+                "Notify application status"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Assess the applicant’s",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Assess the applicant’s",
+              "Rejected the application"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ],
+            [
+              "Approved a loan application",
+              "Check history"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.056,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 6,
+              "precision": 0.2,
+              "recall": 0.14285714285714285,
+              "f1": 0.16666666666666666,
+              "jaccard": 0.091,
+              "reference": 7,
+              "generated": 5
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 5,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.8333333333333334,
+              "recall": 0.7142857142857143,
+              "f1": 0.7692307692307692,
+              "jaccard": 0.625,
+              "reference": 7,
+              "generated": 6
+            }
+          },
+          "renamed": 5,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess eligibility -> Reject application",
+            "Assess loan risk -> Assess eligibility",
+            "Prepare acceptance pack -> Notify application status",
+            "Reject application -> Notify application status"
+          ]
+        }
+      },
+      "textbook": {
+        "comparison": {
+          "tasks": {
+            "tp": 4,
+            "fp": 2,
+            "fn": 3,
+            "precision": 0.6666666666666666,
+            "recall": 0.5714285714285714,
+            "f1": 0.6153846153846153
+          },
+          "gateways": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.3333333333333333,
+            "f1": 0.4
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 5,
+            "precision": 0.2,
+            "recall": 0.16666666666666666,
+            "f1": 0.1818181818181818
+          },
+          "ged": {
+            "ged": 23.49,
+            "rged": 0.904,
+            "similarity": 0.096,
+            "rged_combined": 0.511,
+            "similarity_combined": 0.489,
+            "reference_size": 26,
+            "generated_size": 20,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Check credit history",
+              "Check history"
+            ],
+            [
+              "Assess loan risk",
+              "Assess the applicant’s"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ]
+          ],
+          "unmatched_reference": [
+            "Appraise property",
+            "Assess eligibility",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated": [
+            "Approved a loan application",
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Check credit history",
+              "generated": "Check history",
+              "similarity": 0.8
+            },
+            {
+              "reference": "Assess loan risk",
+              "generated": "Assess the applicant’s",
+              "similarity": 0.706
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Appraise property",
+            "Assess eligibility",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Approved a loan application",
+              "closest_reference": "Reject application",
+              "similarity": 0.651
+            },
+            {
+              "generated": "Sent",
+              "closest_reference": "Send acceptance pack",
+              "similarity": 0.333
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [],
+              "generated": [
+                "Gateway_join_1"
+              ],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "xor_split"
+              ],
+              "generated": [
+                "If the applicant is not eligible"
+              ],
+              "matched": 1
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ],
+              "generated": [
+                "Check history",
+                "Assess the applicant’s"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Send acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Assess the applicant’s",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Assess the applicant’s",
+              "Rejected the application"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ],
+            [
+              "Approved a loan application",
+              "Check history"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.059,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 5,
+              "precision": 0.2,
+              "recall": 0.16666666666666666,
+              "f1": 0.1818181818181818,
+              "jaccard": 0.1,
+              "reference": 6,
+              "generated": 5
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 4,
+              "fp": 2,
+              "fn": 3,
+              "precision": 0.6666666666666666,
+              "recall": 0.5714285714285714,
+              "f1": 0.6153846153846153,
+              "jaccard": 0.444,
+              "reference": 7,
+              "generated": 6
+            }
+          },
+          "renamed": 4,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess eligibility -> Reject application",
+            "Assess loan risk -> Assess eligibility",
+            "Prepare acceptance pack -> Send acceptance pack"
+          ]
+        }
+      },
+      "reproduces_saved": true,
+      "differences": [],
+      "saved_textbook_matches": true
+    },
+    "BERT, no LLM": {
+      "model": "runs/final-3/cases_no_llm/loan/model.bpmn",
+      "saved_comparison_file": "runs/final-3/cases_no_llm/loan/comparison_authored.json",
+      "saved_comparison": {
+        "tasks": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.8333333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.7692307692307692
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "edges": {
+          "tp": 1,
+          "fp": 4,
+          "fn": 6,
+          "precision": 0.2,
+          "recall": 0.14285714285714285,
+          "f1": 0.16666666666666666
+        },
+        "ged": {
+          "ged": 24.97,
+          "rged": 0.925,
+          "similarity": 0.075,
+          "rged_combined": 0.595,
+          "similarity_combined": 0.405,
+          "reference_size": 27,
+          "generated_size": 15,
+          "note": "upper bound: cost of an optimal-assignment edit path"
+        },
+        "mapping": [
+          [
+            "Check credit history",
+            "Check history"
+          ],
+          [
+            "Assess loan risk",
+            "Assess the applicant’s"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "unmatched_reference": [
+          "Appraise property",
+          "Assess eligibility"
+        ],
+        "unmatched_generated": [
+          "Sent"
+        ]
+      },
+      "generated": {
+        "size": 15,
+        "nodes": 8,
+        "flows": 7,
+        "kinds": {
+          "event": 2,
+          "task": 6
+        },
+        "tasks": [
+          "Approved a loan application",
+          "Check history",
+          "Assess the applicant’s",
+          "Rejected the application",
+          "Prepared the acceptance pack",
+          "Sent"
+        ],
+        "task_edges": [
+          [
+            "Approved a loan application",
+            "Check history"
+          ],
+          [
+            "Rejected the application",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Assess the applicant’s",
+            "Rejected the application"
+          ],
+          [
+            "Prepared the acceptance pack",
+            "Sent"
+          ],
+          [
+            "Check history",
+            "Assess the applicant’s"
+          ]
+        ]
+      },
+      "authored": {
+        "comparison": {
+          "tasks": {
+            "tp": 5,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "f1": 0.7692307692307692
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "f1": 0.16666666666666666
+          },
+          "ged": {
+            "ged": 24.97,
+            "rged": 0.925,
+            "similarity": 0.075,
+            "rged_combined": 0.595,
+            "similarity_combined": 0.405,
+            "reference_size": 27,
+            "generated_size": 15,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Check credit history",
+              "Check history"
+            ],
+            [
+              "Assess loan risk",
+              "Assess the applicant’s"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Notify application status",
+              "Approved a loan application"
+            ]
+          ],
+          "unmatched_reference": [
+            "Appraise property",
+            "Assess eligibility"
+          ],
+          "unmatched_generated": [
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Check credit history",
+              "generated": "Check history",
+              "similarity": 0.8
+            },
+            {
+              "reference": "Assess loan risk",
+              "generated": "Assess the applicant’s",
+              "similarity": 0.706
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Notify application status",
+              "generated": "Approved a loan application",
+              "similarity": 0.52
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Appraise property",
+            "Assess eligibility"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Sent",
+              "closest_reference": "Assess loan risk",
+              "similarity": 0.3
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [
+                "xor_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "Applicant eligible?"
+              ],
+              "generated": [],
+              "matched": 0
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ],
+              "generated": [
+                "Check history",
+                "Assess the applicant’s"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Notify application status"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Reject application",
+                "Notify application status"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Approved a loan application",
+              "Check history"
+            ],
+            [
+              "Rejected the application",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Assess the applicant’s",
+              "Rejected the application"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.056,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 6,
+              "precision": 0.2,
+              "recall": 0.14285714285714285,
+              "f1": 0.16666666666666666,
+              "jaccard": 0.091,
+              "reference": 7,
+              "generated": 5
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 5,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.8333333333333334,
+              "recall": 0.7142857142857143,
+              "f1": 0.7692307692307692,
+              "jaccard": 0.625,
+              "reference": 7,
+              "generated": 6
+            }
+          },
+          "renamed": 5,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess eligibility -> Reject application",
+            "Assess loan risk -> Assess eligibility",
+            "Prepare acceptance pack -> Notify application status",
+            "Reject application -> Notify application status"
+          ]
+        }
+      },
+      "textbook": {
+        "comparison": {
+          "tasks": {
+            "tp": 4,
+            "fp": 2,
+            "fn": 3,
+            "precision": 0.6666666666666666,
+            "recall": 0.5714285714285714,
+            "f1": 0.6153846153846153
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 4,
+            "fn": 5,
+            "precision": 0.2,
+            "recall": 0.16666666666666666,
+            "f1": 0.1818181818181818
+          },
+          "ged": {
+            "ged": 24.49,
+            "rged": 0.942,
+            "similarity": 0.058,
+            "rged_combined": 0.597,
+            "similarity_combined": 0.403,
+            "reference_size": 26,
+            "generated_size": 15,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Check credit history",
+              "Check history"
+            ],
+            [
+              "Assess loan risk",
+              "Assess the applicant’s"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ]
+          ],
+          "unmatched_reference": [
+            "Appraise property",
+            "Assess eligibility",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated": [
+            "Approved a loan application",
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Check credit history",
+              "generated": "Check history",
+              "similarity": 0.8
+            },
+            {
+              "reference": "Assess loan risk",
+              "generated": "Assess the applicant’s",
+              "similarity": 0.706
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Appraise property",
+            "Assess eligibility",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Approved a loan application",
+              "closest_reference": "Reject application",
+              "similarity": 0.651
+            },
+            {
+              "generated": "Sent",
+              "closest_reference": "Send acceptance pack",
+              "similarity": 0.333
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "xor_split"
+              ],
+              "generated": [],
+              "matched": 0
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ],
+              "generated": [
+                "Check history",
+                "Assess the applicant’s"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Send acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Approved a loan application",
+              "Check history"
+            ],
+            [
+              "Rejected the application",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Assess the applicant’s",
+              "Rejected the application"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.059,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 5,
+              "precision": 0.2,
+              "recall": 0.16666666666666666,
+              "f1": 0.1818181818181818,
+              "jaccard": 0.1,
+              "reference": 6,
+              "generated": 5
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 4,
+              "fp": 2,
+              "fn": 3,
+              "precision": 0.6666666666666666,
+              "recall": 0.5714285714285714,
+              "f1": 0.6153846153846153,
+              "jaccard": 0.444,
+              "reference": 7,
+              "generated": 6
+            }
+          },
+          "renamed": 4,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess eligibility -> Reject application",
+            "Assess loan risk -> Assess eligibility",
+            "Prepare acceptance pack -> Send acceptance pack"
+          ]
+        }
+      },
+      "reproduces_saved": true,
+      "differences": [],
+      "saved_textbook_matches": true
+    },
+    "GLiNER, LLM": {
+      "model": "runs/gliner-3/cases_gliner/loan/model.bpmn",
+      "saved_comparison_file": "runs/gliner-3/cases_gliner/loan/comparison_authored.json",
+      "saved_comparison": {
+        "tasks": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.8,
+          "recall": 0.5714285714285714,
+          "f1": 0.6666666666666666
+        },
+        "gateways": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "edges": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 5,
+          "precision": 0.5,
+          "recall": 0.2857142857142857,
+          "f1": 0.36363636363636365
+        },
+        "ged": {
+          "ged": 18.73,
+          "rged": 0.694,
+          "similarity": 0.306,
+          "rged_combined": 0.416,
+          "similarity_combined": 0.584,
+          "reference_size": 27,
+          "generated_size": 18,
+          "note": "upper bound: cost of an optimal-assignment edit path"
+        },
+        "mapping": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "unmatched_reference": [
+          "Check credit history",
+          "Assess loan risk",
+          "Appraise property"
+        ],
+        "unmatched_generated": [
+          "Sent"
+        ]
+      },
+      "generated": {
+        "size": 18,
+        "nodes": 9,
+        "flows": 9,
+        "kinds": {
+          "event": 2,
+          "task": 5,
+          "gateway XOR split": 1,
+          "gateway XOR join": 1
+        },
+        "tasks": [
+          "Approved a loan application",
+          "Assess the applicant’s eligibility",
+          "Rejected the application",
+          "Prepared the acceptance pack",
+          "Sent"
+        ],
+        "task_edges": [
+          [
+            "Prepared the acceptance pack",
+            "Sent"
+          ],
+          [
+            "Approved a loan application",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Assess the applicant’s eligibility",
+            "Rejected the application"
+          ],
+          [
+            "Assess the applicant’s eligibility",
+            "Prepared the acceptance pack"
+          ]
+        ]
+      },
+      "authored": {
+        "comparison": {
+          "tasks": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.8,
+            "recall": 0.5714285714285714,
+            "f1": 0.6666666666666666
+          },
+          "gateways": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 2,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+          },
+          "edges": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 5,
+            "precision": 0.5,
+            "recall": 0.2857142857142857,
+            "f1": 0.36363636363636365
+          },
+          "ged": {
+            "ged": 18.73,
+            "rged": 0.694,
+            "similarity": 0.306,
+            "rged_combined": 0.416,
+            "similarity_combined": 0.584,
+            "reference_size": 27,
+            "generated_size": 18,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Assess eligibility",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Notify application status",
+              "Approved a loan application"
+            ]
+          ],
+          "unmatched_reference": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property"
+          ],
+          "unmatched_generated": [
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Assess eligibility",
+              "generated": "Assess the applicant’s eligibility",
+              "similarity": 0.75
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Notify application status",
+              "generated": "Approved a loan application",
+              "similarity": 0.52
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Sent",
+              "closest_reference": "Assess loan risk",
+              "similarity": 0.3
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [
+                "xor_join"
+              ],
+              "generated": [
+                "Gateway_join_1"
+              ],
+              "matched": 1
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "Applicant eligible?"
+              ],
+              "generated": [
+                "If the applicant is not eligible"
+              ],
+              "matched": 1
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Prepared the acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Rejected the application"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Notify application status"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Reject application",
+                "Notify application status"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ],
+            [
+              "Approved a loan application",
+              "Assess the applicant’s eligibility"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.125,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 5,
+              "precision": 0.5,
+              "recall": 0.2857142857142857,
+              "f1": 0.36363636363636365,
+              "jaccard": 0.222,
+              "reference": 7,
+              "generated": 4
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 3,
+              "precision": 0.8,
+              "recall": 0.5714285714285714,
+              "f1": 0.6666666666666666,
+              "jaccard": 0.5,
+              "reference": 7,
+              "generated": 5
+            }
+          },
+          "renamed": 4,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess loan risk -> Assess eligibility",
+            "Check credit history -> Assess loan risk",
+            "Prepare acceptance pack -> Notify application status",
+            "Reject application -> Notify application status"
+          ]
+        }
+      },
+      "textbook": {
+        "comparison": {
+          "tasks": {
+            "tp": 3,
+            "fp": 2,
+            "fn": 4,
+            "precision": 0.6,
+            "recall": 0.42857142857142855,
+            "f1": 0.5
+          },
+          "gateways": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.3333333333333333,
+            "f1": 0.4
+          },
+          "edges": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 4,
+            "precision": 0.5,
+            "recall": 0.3333333333333333,
+            "f1": 0.4
+          },
+          "ged": {
+            "ged": 21.25,
+            "rged": 0.817,
+            "similarity": 0.183,
+            "rged_combined": 0.483,
+            "similarity_combined": 0.517,
+            "reference_size": 26,
+            "generated_size": 18,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Assess eligibility",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ]
+          ],
+          "unmatched_reference": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated": [
+            "Approved a loan application",
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Assess eligibility",
+              "generated": "Assess the applicant’s eligibility",
+              "similarity": 0.75
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Approved a loan application",
+              "closest_reference": "Reject application",
+              "similarity": 0.651
+            },
+            {
+              "generated": "Sent",
+              "closest_reference": "Send acceptance pack",
+              "similarity": 0.333
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [],
+              "generated": [
+                "Gateway_join_1"
+              ],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "xor_split"
+              ],
+              "generated": [
+                "If the applicant is not eligible"
+              ],
+              "matched": 1
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Prepared the acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Rejected the application"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Send acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ],
+            [
+              "Approved a loan application",
+              "Assess the applicant’s eligibility"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.133,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 4,
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "f1": 0.4,
+              "jaccard": 0.25,
+              "reference": 6,
+              "generated": 4
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 4,
+              "precision": 0.6,
+              "recall": 0.42857142857142855,
+              "f1": 0.5,
+              "jaccard": 0.333,
+              "reference": 7,
+              "generated": 5
+            }
+          },
+          "renamed": 3,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess loan risk -> Assess eligibility",
+            "Check credit history -> Assess loan risk",
+            "Prepare acceptance pack -> Send acceptance pack"
+          ]
+        }
+      },
+      "reproduces_saved": true,
+      "differences": [],
+      "saved_textbook_matches": true
+    },
+    "GLiNER, no LLM": {
+      "model": "runs/gliner-3/cases_gliner_no_llm/loan/model.bpmn",
+      "saved_comparison_file": "runs/gliner-3/cases_gliner_no_llm/loan/comparison_authored.json",
+      "saved_comparison": {
+        "tasks": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.8,
+          "recall": 0.5714285714285714,
+          "f1": 0.6666666666666666
+        },
+        "gateways": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "edges": {
+          "tp": 1,
+          "fp": 3,
+          "fn": 6,
+          "precision": 0.25,
+          "recall": 0.14285714285714285,
+          "f1": 0.18181818181818182
+        },
+        "ged": {
+          "ged": 25.73,
+          "rged": 0.953,
+          "similarity": 0.047,
+          "rged_combined": 0.643,
+          "similarity_combined": 0.357,
+          "reference_size": 27,
+          "generated_size": 13,
+          "note": "upper bound: cost of an optimal-assignment edit path"
+        },
+        "mapping": [
+          [
+            "Assess eligibility",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Reject application",
+            "Rejected the application"
+          ],
+          [
+            "Prepare acceptance pack",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Notify application status",
+            "Approved a loan application"
+          ]
+        ],
+        "unmatched_reference": [
+          "Check credit history",
+          "Assess loan risk",
+          "Appraise property"
+        ],
+        "unmatched_generated": [
+          "Sent"
+        ]
+      },
+      "generated": {
+        "size": 13,
+        "nodes": 7,
+        "flows": 6,
+        "kinds": {
+          "event": 2,
+          "task": 5
+        },
+        "tasks": [
+          "Approved a loan application",
+          "Assess the applicant’s eligibility",
+          "Rejected the application",
+          "Prepared the acceptance pack",
+          "Sent"
+        ],
+        "task_edges": [
+          [
+            "Rejected the application",
+            "Prepared the acceptance pack"
+          ],
+          [
+            "Approved a loan application",
+            "Assess the applicant’s eligibility"
+          ],
+          [
+            "Assess the applicant’s eligibility",
+            "Rejected the application"
+          ],
+          [
+            "Prepared the acceptance pack",
+            "Sent"
+          ]
+        ]
+      },
+      "authored": {
+        "comparison": {
+          "tasks": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.8,
+            "recall": 0.5714285714285714,
+            "f1": 0.6666666666666666
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 3,
+            "fn": 6,
+            "precision": 0.25,
+            "recall": 0.14285714285714285,
+            "f1": 0.18181818181818182
+          },
+          "ged": {
+            "ged": 25.73,
+            "rged": 0.953,
+            "similarity": 0.047,
+            "rged_combined": 0.643,
+            "similarity_combined": 0.357,
+            "reference_size": 27,
+            "generated_size": 13,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Assess eligibility",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Notify application status",
+              "Approved a loan application"
+            ]
+          ],
+          "unmatched_reference": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property"
+          ],
+          "unmatched_generated": [
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Assess eligibility",
+              "generated": "Assess the applicant’s eligibility",
+              "similarity": 0.75
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Notify application status",
+              "generated": "Approved a loan application",
+              "similarity": 0.52
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Sent",
+              "closest_reference": "Assess loan risk",
+              "similarity": 0.3
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_join",
+              "reference": [
+                "xor_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "Applicant eligible?"
+              ],
+              "generated": [],
+              "matched": 0
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Rejected the application"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Notify application status"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Reject application",
+                "Notify application status"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Rejected the application",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Approved a loan application",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.059,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 6,
+              "precision": 0.25,
+              "recall": 0.14285714285714285,
+              "f1": 0.18181818181818182,
+              "jaccard": 0.1,
+              "reference": 7,
+              "generated": 4
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 3,
+              "precision": 0.8,
+              "recall": 0.5714285714285714,
+              "f1": 0.6666666666666666,
+              "jaccard": 0.5,
+              "reference": 7,
+              "generated": 5
+            }
+          },
+          "renamed": 4,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess loan risk -> Assess eligibility",
+            "Check credit history -> Assess loan risk",
+            "Prepare acceptance pack -> Notify application status",
+            "Reject application -> Notify application status"
+          ]
+        }
+      },
+      "textbook": {
+        "comparison": {
+          "tasks": {
+            "tp": 3,
+            "fp": 2,
+            "fn": 4,
+            "precision": 0.6,
+            "recall": 0.42857142857142855,
+            "f1": 0.5
+          },
+          "gateways": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "edges": {
+            "tp": 1,
+            "fp": 3,
+            "fn": 5,
+            "precision": 0.25,
+            "recall": 0.16666666666666666,
+            "f1": 0.2
+          },
+          "ged": {
+            "ged": 27.25,
+            "rged": 1.048,
+            "similarity": 0.0,
+            "rged_combined": 0.699,
+            "similarity_combined": 0.301,
+            "reference_size": 26,
+            "generated_size": 13,
+            "note": "upper bound: cost of an optimal-assignment edit path"
+          },
+          "mapping": [
+            [
+              "Assess eligibility",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Reject application",
+              "Rejected the application"
+            ],
+            [
+              "Prepare acceptance pack",
+              "Prepared the acceptance pack"
+            ]
+          ],
+          "unmatched_reference": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated": [
+            "Approved a loan application",
+            "Sent"
+          ]
+        },
+        "matched": {
+          "tasks": [
+            {
+              "reference": "Assess eligibility",
+              "generated": "Assess the applicant’s eligibility",
+              "similarity": 0.75
+            },
+            {
+              "reference": "Reject application",
+              "generated": "Rejected the application",
+              "similarity": 1.0
+            },
+            {
+              "reference": "Prepare acceptance pack",
+              "generated": "Prepared the acceptance pack",
+              "similarity": 1.0
+            }
+          ],
+          "unmatched_reference_tasks": [
+            "Check credit history",
+            "Assess loan risk",
+            "Appraise property",
+            "Send acceptance pack"
+          ],
+          "unmatched_generated_tasks": [
+            {
+              "generated": "Approved a loan application",
+              "closest_reference": "Reject application",
+              "similarity": 0.651
+            },
+            {
+              "generated": "Sent",
+              "closest_reference": "Send acceptance pack",
+              "similarity": 0.333
+            }
+          ],
+          "gateways": [
+            {
+              "key": "AND_join",
+              "reference": [
+                "and_join"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "AND_split",
+              "reference": [
+                "and_split"
+              ],
+              "generated": [],
+              "matched": 0
+            },
+            {
+              "key": "XOR_split",
+              "reference": [
+                "xor_split"
+              ],
+              "generated": [],
+              "matched": 0
+            }
+          ],
+          "edges_matched": [
+            {
+              "reference": [
+                "Assess eligibility",
+                "Reject application"
+              ],
+              "generated": [
+                "Assess the applicant’s eligibility",
+                "Rejected the application"
+              ]
+            }
+          ],
+          "edges_missed": [
+            {
+              "reference": [
+                "Prepare acceptance pack",
+                "Send acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Appraise property",
+                "Assess eligibility"
+              ]
+            },
+            {
+              "reference": [
+                "Check credit history",
+                "Assess loan risk"
+              ]
+            },
+            {
+              "reference": [
+                "Assess eligibility",
+                "Prepare acceptance pack"
+              ]
+            },
+            {
+              "reference": [
+                "Assess loan risk",
+                "Assess eligibility"
+              ]
+            }
+          ],
+          "edges_extra": [
+            [
+              "Rejected the application",
+              "Prepared the acceptance pack"
+            ],
+            [
+              "Approved a loan application",
+              "Assess the applicant’s eligibility"
+            ],
+            [
+              "Prepared the acceptance pack",
+              "Sent"
+            ]
+          ]
+        },
+        "footprint": {
+          "behavioural_similarity": 0.062,
+          "pm4py_behavioral_similarity": 0.0,
+          "relations": {
+            "sequence": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 5,
+              "precision": 0.25,
+              "recall": 0.16666666666666666,
+              "f1": 0.2,
+              "jaccard": 0.111,
+              "reference": 6,
+              "generated": 4
+            },
+            "parallel": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 4,
+              "generated": 0
+            },
+            "start_activities": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "jaccard": 0.0,
+              "reference": 2,
+              "generated": 1
+            },
+            "activities": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 4,
+              "precision": 0.6,
+              "recall": 0.42857142857142855,
+              "f1": 0.5,
+              "jaccard": 0.333,
+              "reference": 7,
+              "generated": 5
+            }
+          },
+          "renamed": 3,
+          "missing_behaviour": [
+            "Appraise property -> Assess eligibility",
+            "Assess eligibility -> Prepare acceptance pack",
+            "Assess loan risk -> Assess eligibility",
+            "Check credit history -> Assess loan risk",
+            "Prepare acceptance pack -> Send acceptance pack"
+          ]
+        }
+      },
+      "reproduces_saved": true,
+      "differences": [],
+      "saved_textbook_matches": true
+    }
+  }
+}

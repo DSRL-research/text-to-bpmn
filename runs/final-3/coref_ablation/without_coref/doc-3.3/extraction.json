@@ -1,0 +1,439 @@
+{
+  "structured_data": {
+    "participants": [
+      "A claims officer",
+      "A senior claims officer",
+      "Main Process",
+      "The claims officer",
+      "Who"
+    ],
+    "elements": [
+      {
+        "id": "StartEvent_1",
+        "name": "Start",
+        "type": "startEvent",
+        "lane": "Main Process"
+      },
+      {
+        "id": "Activity_2069168e",
+        "name": "Registered it",
+        "type": "task",
+        "lane": "A claims officer",
+        "metadata": [
+          "A claim"
+        ]
+      },
+      {
+        "id": "Activity_7bcd20ce",
+        "name": "Examined",
+        "type": "task",
+        "lane": "A claims officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_cb8724f4",
+        "name": "Writes a settlement recommendation",
+        "type": "task",
+        "lane": "The claims officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_db6803ee",
+        "name": "Checked this recommendation",
+        "type": "task",
+        "lane": "A senior claims officer",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e18e3d48",
+        "name": "Mark the claim",
+        "type": "task",
+        "lane": "Who",
+        "metadata": [
+          "As OK or Not OK"
+        ]
+      },
+      {
+        "id": "XOR Gateway_2d090cbf",
+        "name": "If the claim is marked as Not OK",
+        "type": "exclusiveGateway",
+        "lane": "Who",
+        "metadata": []
+      },
+      {
+        "id": "Activity_cfbceeba",
+        "name": "Sent back it",
+        "type": "task",
+        "lane": "Who",
+        "metadata": []
+      },
+      {
+        "id": "Activity_e55278c2",
+        "name": "Repeated the recommendation",
+        "type": "task",
+        "lane": "Who",
+        "metadata": [
+          "Claim"
+        ]
+      },
+      {
+        "id": "EndEvent_1",
+        "name": "End",
+        "type": "endEvent",
+        "lane": "Who"
+      }
+    ],
+    "flows": [
+      {
+        "id": "Flow_0001",
+        "source": "StartEvent_1",
+        "target": "Activity_2069168e",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0002",
+        "source": "Activity_2069168e",
+        "target": "Activity_7bcd20ce",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0003",
+        "source": "Activity_7bcd20ce",
+        "target": "Activity_cb8724f4",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0004",
+        "source": "Activity_cb8724f4",
+        "target": "Activity_db6803ee",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0005",
+        "source": "Activity_db6803ee",
+        "target": "Activity_e18e3d48",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0006",
+        "source": "Activity_e18e3d48",
+        "target": "XOR Gateway_2d090cbf",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0007",
+        "source": "XOR Gateway_2d090cbf",
+        "target": "Activity_cfbceeba",
+        "name": "Yes",
+        "relation": "TRUE_BRANCH"
+      },
+      {
+        "id": "Flow_0008",
+        "source": "Activity_cfbceeba",
+        "target": "Activity_e55278c2",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0009",
+        "source": "Activity_e55278c2",
+        "target": "EndEvent_1",
+        "name": "",
+        "relation": "SEQUENCE"
+      },
+      {
+        "id": "Flow_0010",
+        "source": "XOR Gateway_2d090cbf",
+        "target": "EndEvent_1",
+        "name": "If the claim is OK",
+        "relation": "TRUE_BRANCH"
+      }
+    ],
+    "soundness_gate": {
+      "sound": true,
+      "as_built": {
+        "sound": true,
+        "reason": "",
+        "states": 12
+      },
+      "undone": []
+    }
+  },
+  "entities_used": [
+    {
+      "start": 6,
+      "end": 13,
+      "label": "Activity Data",
+      "id": "Activity Data_e5b0b083",
+      "type": null,
+      "name": "A claim"
+    },
+    {
+      "start": 17,
+      "end": 27,
+      "label": "Activity",
+      "id": "Activity_2069168e",
+      "type": "task",
+      "name": "Registered it"
+    },
+    {
+      "start": 30,
+      "end": 32,
+      "label": "Activity Data",
+      "id": "Activity Data_4e87cf4d",
+      "type": null,
+      "name": "It"
+    },
+    {
+      "start": 36,
+      "end": 44,
+      "label": "Activity",
+      "id": "Activity_7bcd20ce",
+      "type": "task",
+      "name": "Examined"
+    },
+    {
+      "start": 48,
+      "end": 64,
+      "label": "Actor",
+      "id": "Actor_b51e0c26",
+      "type": "Lane",
+      "name": "A claims officer"
+    },
+    {
+      "start": 67,
+      "end": 85,
+      "label": "Actor",
+      "id": "Actor_0e191cef",
+      "type": "Lane",
+      "name": "The claims officer"
+    },
+    {
+      "start": 91,
+      "end": 97,
+      "label": "Activity",
+      "id": "Activity_cb8724f4",
+      "type": "task",
+      "name": "Writes a settlement recommendation"
+    },
+    {
+      "start": 98,
+      "end": 125,
+      "label": "Activity Data",
+      "id": "Activity Data_b4b482b2",
+      "type": null,
+      "name": "A settlement recommendation"
+    },
+    {
+      "start": 128,
+      "end": 147,
+      "label": "Activity Data",
+      "id": "Activity Data_f1cdba1f",
+      "type": null,
+      "name": "This recommendation"
+    },
+    {
+      "start": 156,
+      "end": 163,
+      "label": "Activity",
+      "id": "Activity_db6803ee",
+      "type": "task",
+      "name": "Checked this recommendation"
+    },
+    {
+      "start": 167,
+      "end": 190,
+      "label": "Actor",
+      "id": "Actor_536afc55",
+      "type": "Lane",
+      "name": "A senior claims officer"
+    },
+    {
+      "start": 191,
+      "end": 194,
+      "label": "Actor",
+      "id": "Actor_feeb4eb1",
+      "type": "Lane",
+      "name": "Who"
+    },
+    {
+      "start": 199,
+      "end": 203,
+      "label": "Activity",
+      "id": "Activity_e18e3d48",
+      "type": "task",
+      "name": "Mark the claim"
+    },
+    {
+      "start": 204,
+      "end": 213,
+      "label": "Activity Data",
+      "id": "Activity Data_2592049b",
+      "type": null,
+      "name": "The claim"
+    },
+    {
+      "start": 214,
+      "end": 229,
+      "label": "Further Specification",
+      "id": "Further Specification_525c4e37",
+      "type": null,
+      "name": "As OK or Not OK"
+    },
+    {
+      "start": 232,
+      "end": 234,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_2d090cbf",
+      "type": "exclusiveGateway",
+      "name": "If the claim is marked as Not OK"
+    },
+    {
+      "start": 235,
+      "end": 264,
+      "label": "Condition Specification",
+      "id": "Condition Specification_dac7c040",
+      "type": "exclusiveGateway",
+      "name": "The claim is marked as Not OK"
+    },
+    {
+      "start": 267,
+      "end": 269,
+      "label": "Activity Data",
+      "id": "Activity Data_6aa12190",
+      "type": null,
+      "name": "It"
+    },
+    {
+      "start": 273,
+      "end": 282,
+      "label": "Activity",
+      "id": "Activity_cfbceeba",
+      "type": "task",
+      "name": "Sent back it"
+    },
+    {
+      "start": 286,
+      "end": 304,
+      "label": "Actor",
+      "id": "Actor_5cb7561f",
+      "type": "Lane",
+      "name": "The claims officer"
+    },
+    {
+      "start": 309,
+      "end": 327,
+      "label": "Activity Data",
+      "id": "Activity Data_854081ee",
+      "type": null,
+      "name": "The recommendation"
+    },
+    {
+      "start": 331,
+      "end": 339,
+      "label": "Activity",
+      "id": "Activity_e55278c2",
+      "type": "task",
+      "name": "Repeated the recommendation"
+    },
+    {
+      "start": 342,
+      "end": 344,
+      "label": "XOR Gateway",
+      "id": "XOR Gateway_a732574e",
+      "type": "exclusiveGateway",
+      "name": "If the claim is OK"
+    },
+    {
+      "start": 345,
+      "end": 360,
+      "label": "Condition Specification",
+      "id": "Condition Specification_5f1c4ff4",
+      "type": "exclusiveGateway",
+      "name": "The claim is OK"
+    },
+    {
+      "start": 367,
+      "end": 372,
+      "label": "Activity Data",
+      "id": "Activity Data_1889e146",
+      "type": null,
+      "name": "Claim"
+    }
+  ],
+  "relation_parsing": {
+    "calls": 1,
+    "skipped": 0,
+    "failures": 0,
+    "rate": 0.0,
+    "records": [],
+    "decisions": [
+      {
+        "node_A": "If the claim is marked as Not OK",
+        "node_B": "Sent back it | Repeated the recommendation | decision: If the claim is OK",
+        "label": "yes yes same",
+        "source": "llm"
+      }
+    ]
+  },
+  "run_config": {
+    "config": {
+      "seed": 0,
+      "temperature": 0.0,
+      "llm_model": "hosted_vllm/Qwen/Qwen3.5-27B-FP8",
+      "api_base": "http://localhost:11434/v1",
+      "api_key": "EMPTY",
+      "few_shot_k": 10,
+      "prompt": "corrected",
+      "llm_timeout": 120,
+      "constrained_output": true,
+      "reasoning_max_chars": 2000,
+      "max_tokens": 1024,
+      "disable_thinking": true,
+      "two_phase": false,
+      "llm_cache": false,
+      "allow_no_llm": false,
+      "guardrail_mode": "entity_1",
+      "parallel_detection": "all",
+      "parallel_mutual": false,
+      "parallel_require_cue": false,
+      "parallel_anchor_guard": false,
+      "relation_mode": "decisions4",
+      "ontology_file": "BPMNbasedOntologyV1_2.owl",
+      "ontology_out": "",
+      "ner_model_path": "./process-visualizer/src/token_classification_alex/bert_ner_315_dev60"
+    },
+    "llm": {
+      "name": "Qwen/Qwen3.5-27B-FP8",
+      "reachable": true,
+      "api": "openai",
+      "served_models": [
+        "Qwen/Qwen3.5-27B-FP8"
+      ],
+      "serving_this_model": true,
+      "digest": null
+    },
+    "run_at": "2026-11-12T08:48:13+00:00",
+    "code": {
+      "commit": "808815f805259940897ef6171cc546420a688221",
+      "describe": "revision-final-3",
+      "dirty": false
+    },
+    "python": "3.12.3",
+    "packages": {
+      "dspy": "3.1.2",
+      "litellm": "1.81.5",
+      "transformers": "4.50.0",
+      "torch": "2.13.0",
+      "spacy": "3.8.11",
+      "scikit-learn": "1.4.2",
+      "pm4py": null
+    }
+  }
+}

@@ -1,0 +1,472 @@
+{
+ "structured_data": {
+  "participants": [
+   "Main Process",
+   "The claimant"
+  ],
+  "elements": [
+   {
+    "id": "StartEvent_1",
+    "name": "Start",
+    "type": "startEvent",
+    "lane": "Main Process"
+   },
+   {
+    "id": "Activity_c0a61edb",
+    "name": "Received it",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": [
+     "A claim"
+    ]
+   },
+   {
+    "id": "Activity_60ebf322",
+    "name": "Checked",
+    "type": "task",
+    "lane": "Main Process",
+    "metadata": []
+   },
+   {
+    "id": "XOR Gateway_9a238944",
+    "name": "If not",
+    "type": "exclusiveGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4ad0666e",
+    "name": "Informed the claim must be rejected",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_c7083755",
+    "name": "Evaluated the severity of the claim",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_9bfd1577",
+    "name": "Sent relevant forms",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_a79bbfaf",
+    "name": "Returned they",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "The forms"
+    ]
+   },
+   {
+    "id": "Activity_cc0a3329",
+    "name": "Checked",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "For completeness"
+    ]
+   },
+   {
+    "id": "XOR Gateway_eda9791c",
+    "name": "If the forms provide all relevant details",
+    "type": "exclusiveGateway",
+    "lane": "The claimant",
+    "metadata": []
+   },
+   {
+    "id": "Activity_4e11b515",
+    "name": "Registered the claim",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "In the Claims Management system"
+    ]
+   },
+   {
+    "id": "Activity_dcb29c30",
+    "name": "Informed",
+    "type": "task",
+    "lane": "The claimant",
+    "metadata": [
+     "To update the forms"
+    ]
+   },
+   {
+    "id": "EndEvent_1",
+    "name": "End",
+    "type": "endEvent",
+    "lane": "The claimant"
+   }
+  ],
+  "flows": [
+   {
+    "id": "Flow_0001",
+    "source": "StartEvent_1",
+    "target": "Activity_c0a61edb",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0002",
+    "source": "Activity_c0a61edb",
+    "target": "Activity_60ebf322",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0003",
+    "source": "Activity_60ebf322",
+    "target": "XOR Gateway_9a238944",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0004",
+    "source": "XOR Gateway_9a238944",
+    "target": "Activity_4ad0666e",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0005",
+    "source": "Activity_4ad0666e",
+    "target": "Activity_c7083755",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0006",
+    "source": "Activity_c7083755",
+    "target": "Activity_9bfd1577",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0007",
+    "source": "Activity_9bfd1577",
+    "target": "Activity_a79bbfaf",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0008",
+    "source": "Activity_a79bbfaf",
+    "target": "Activity_cc0a3329",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0009",
+    "source": "Activity_cc0a3329",
+    "target": "XOR Gateway_eda9791c",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0010",
+    "source": "XOR Gateway_eda9791c",
+    "target": "Activity_4e11b515",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0011",
+    "source": "Activity_4e11b515",
+    "target": "Activity_dcb29c30",
+    "name": "",
+    "relation": "SEQUENCE"
+   },
+   {
+    "id": "Flow_0012",
+    "source": "Activity_dcb29c30",
+    "target": "EndEvent_1",
+    "name": "",
+    "relation": "SEQUENCE"
+   }
+  ],
+  "soundness_gate": {
+   "sound": true,
+   "as_built": {
+    "sound": true,
+    "reason": "",
+    "states": 11
+   },
+   "undone": []
+  }
+ },
+ "entities_used": [
+  {
+   "start": 5,
+   "end": 12,
+   "label": "Activity Data",
+   "id": "Activity Data_57687200",
+   "type": null,
+   "name": "A claim"
+  },
+  {
+   "start": 16,
+   "end": 24,
+   "label": "Activity",
+   "id": "Activity_c0a61edb",
+   "type": "task",
+   "name": "Received it"
+  },
+  {
+   "start": 27,
+   "end": 29,
+   "label": "Activity Data",
+   "id": "Activity Data_a9019e72",
+   "type": null,
+   "name": "It"
+  },
+  {
+   "start": 39,
+   "end": 46,
+   "label": "Activity",
+   "id": "Activity_60ebf322",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 101,
+   "end": 103,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_9a238944",
+   "type": "exclusiveGateway",
+   "name": "If not"
+  },
+  {
+   "start": 104,
+   "end": 107,
+   "label": "Condition Specification",
+   "id": "Condition Specification_3131cdf0",
+   "type": "exclusiveGateway",
+   "name": "Not"
+  },
+  {
+   "start": 110,
+   "end": 122,
+   "label": "Actor",
+   "id": "Actor_292f92e7",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 126,
+   "end": 134,
+   "label": "Activity",
+   "id": "Activity_4ad0666e",
+   "type": "task",
+   "name": "Informed the claim must be rejected"
+  },
+  {
+   "start": 140,
+   "end": 166,
+   "label": "Activity Data",
+   "id": "Activity Data_1c38a2ac",
+   "type": null,
+   "name": "The claim must be rejected"
+  },
+  {
+   "start": 169,
+   "end": 178,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_f5658f23",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 181,
+   "end": 206,
+   "label": "Activity Data",
+   "id": "Activity Data_079ef2e9",
+   "type": null,
+   "name": "The severity of the claim"
+  },
+  {
+   "start": 210,
+   "end": 219,
+   "label": "Activity",
+   "id": "Activity_c7083755",
+   "type": "task",
+   "name": "Evaluated the severity of the claim"
+  },
+  {
+   "start": 274,
+   "end": 288,
+   "label": "Activity Data",
+   "id": "Activity Data_00e5ed05",
+   "type": null,
+   "name": "Relevant forms"
+  },
+  {
+   "start": 293,
+   "end": 297,
+   "label": "Activity",
+   "id": "Activity_9bfd1577",
+   "type": "task",
+   "name": "Sent relevant forms"
+  },
+  {
+   "start": 301,
+   "end": 313,
+   "label": "Actor",
+   "id": "Actor_168d6c72",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 321,
+   "end": 330,
+   "label": "Activity Data",
+   "id": "Activity Data_a0e04637",
+   "type": null,
+   "name": "The forms"
+  },
+  {
+   "start": 335,
+   "end": 343,
+   "label": "Activity",
+   "id": "Activity_a79bbfaf",
+   "type": "task",
+   "name": "Returned they"
+  },
+  {
+   "start": 346,
+   "end": 350,
+   "label": "Activity Data",
+   "id": "Activity Data_27bf1eb7",
+   "type": null,
+   "name": "They"
+  },
+  {
+   "start": 355,
+   "end": 362,
+   "label": "Activity",
+   "id": "Activity_cc0a3329",
+   "type": "task",
+   "name": "Checked"
+  },
+  {
+   "start": 363,
+   "end": 379,
+   "label": "Further Specification",
+   "id": "Further Specification_0f8a7204",
+   "type": null,
+   "name": "For completeness"
+  },
+  {
+   "start": 382,
+   "end": 384,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_eda9791c",
+   "type": "exclusiveGateway",
+   "name": "If the forms provide all relevant details"
+  },
+  {
+   "start": 385,
+   "end": 423,
+   "label": "Condition Specification",
+   "id": "Condition Specification_cf7dfbc0",
+   "type": "exclusiveGateway",
+   "name": "The forms provide all relevant details"
+  },
+  {
+   "start": 426,
+   "end": 435,
+   "label": "Activity Data",
+   "id": "Activity Data_5a195b5b",
+   "type": null,
+   "name": "The claim"
+  },
+  {
+   "start": 439,
+   "end": 449,
+   "label": "Activity",
+   "id": "Activity_4e11b515",
+   "type": "task",
+   "name": "Registered the claim"
+  },
+  {
+   "start": 450,
+   "end": 481,
+   "label": "Further Specification",
+   "id": "Further Specification_693d0f84",
+   "type": null,
+   "name": "In the Claims Management system"
+  },
+  {
+   "start": 529,
+   "end": 538,
+   "label": "XOR Gateway",
+   "id": "XOR Gateway_8dee834d",
+   "type": "exclusiveGateway",
+   "name": "Otherwise"
+  },
+  {
+   "start": 541,
+   "end": 553,
+   "label": "Actor",
+   "id": "Actor_e754e868",
+   "type": "Lane",
+   "name": "The claimant"
+  },
+  {
+   "start": 557,
+   "end": 565,
+   "label": "Activity",
+   "id": "Activity_dcb29c30",
+   "type": "task",
+   "name": "Informed"
+  },
+  {
+   "start": 566,
+   "end": 585,
+   "label": "Further Specification",
+   "id": "Further Specification_2594d57c",
+   "type": null,
+   "name": "To update the forms"
+  }
+ ],
+ "relation_parsing": {
+  "calls": 2,
+  "skipped": 0,
+  "failures": 2,
+  "rate": 1.0,
+  "records": [
+   {
+    "node_A": "If not",
+    "node_B": "Informed the claim must be rejected | Evaluated the severity of the claim | Sent relevant forms | Returned they | Checked | decision: If the forms provide all relevant details | Registered the claim | Informed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   },
+   {
+    "node_A": "If the forms provide all relevant details",
+    "node_B": "Registered the claim | Informed",
+    "raw_output": null,
+    "error": "litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error."
+   }
+  ],
+  "decisions": [
+   {
+    "node_A": "If not",
+    "node_B": "Informed the claim must be rejected | Evaluated the severity of the claim | Sent relevant forms | Returned they | Checked | decision: If the forms provide all relevant details | Registered the claim | Informed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   },
+   {
+    "node_A": "If the forms provide all relevant details",
+    "node_B": "Registered the claim | Informed",
+    "label": "UNKNOWN",
+    "source": "call_failed"
+   }
+  ]
+ }
+}

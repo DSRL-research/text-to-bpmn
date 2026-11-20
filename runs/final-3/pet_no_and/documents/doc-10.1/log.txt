@@ -1,0 +1,13 @@
+
+--- Processing Input ---
+   (Debug) Injected 14 spans from PET gold spans
+   (Debug) Injected text: The MPON sents the dismissal to the MPOO . The MPOO reviews the dismissal . The MPOO opposes the dismissal of MPON or the MPOO confirmes the dismissal of the MPON .
+   (Debug) Raw Entities: ['The MPON', 'sents', 'the dismissal', 'the MPOO', 'The MPOO', 'reviews', 'the dismissal', 'The MPOO', 'opposes', 'the dismissal', 'or', 'the MPOO', 'confirmes', 'the dismissal']
+
+--- Split Entities ---
+[{'entity_group': 'Actor', 'word': 'The MPON', 'start': 0, 'end': 8, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'sents', 'start': 9, 'end': 14, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal', 'start': 15, 'end': 28, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MPOO', 'start': 32, 'end': 40, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MPOO', 'start': 43, 'end': 51, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'reviews', 'start': 52, 'end': 59, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal', 'start': 60, 'end': 73, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'The MPOO', 'start': 76, 'end': 84, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'opposes', 'start': 85, 'end': 92, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal', 'start': 93, 'end': 106, 'score': 1.0}, {'entity_group': 'XOR Gateway', 'word': 'or', 'start': 115, 'end': 117, 'score': 1.0}, {'entity_group': 'Actor', 'word': 'the MPOO', 'start': 118, 'end': 126, 'score': 1.0}, {'entity_group': 'Activity', 'word': 'confirmes', 'start': 127, 'end': 136, 'score': 1.0}, {'entity_group': 'Activity Data', 'word': 'the dismissal', 'start': 137, 'end': 150, 'score': 1.0}]
+Decision question failed: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.
+relation parse failure 1/1: {'node_A': 'Or', 'node_B': 'Confirmes the dismissal', 'raw_output': None, 'error': 'litellm.InternalServerError: InternalServerError: Hosted_vllmException - Connection error.'}
+   💾 Saved Enriched Ontology to runs/final-3/pet_no_and/documents/doc-10.1/ontology.owl: {'StartEvent': 1, 'Task': 4, 'EndEvent': 1}, relations {'SEQUENCE': 5}, 2 actors
+✅ Ontology Enrichment Complete: runs/final-3/pet_no_and/documents/doc-10.1/ontology.owl
+   Relation parse failures: 1/1
